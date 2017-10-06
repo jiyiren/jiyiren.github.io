@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语： Git学习笔记  一、Git简介 git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。  二、前言 git仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习笔记">
+<meta property="og:url" content="http://yoursite.com/2015/10/25/Gitstudy/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语： Git学习笔记  一、Git简介 git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。  二、前言 git仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-diff.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitlog.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitshortlog.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-merge.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitgui.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitloggui.png">
+<meta property="og:updated_time" content="2017-10-06T06:50:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git学习笔记">
+<meta name="twitter:description" content="导语： Git学习笔记  一、Git简介 git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。  二、前言 git仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/10/25/Gitstudy/"/>
+
+
+
+
+
+  <title>Git学习笔记 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/25/Gitstudy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-25T20:16:40+08:00">
+                2015-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
+<p>Git学习笔记</p>
+</blockquote>
+<h2 id="一、Git简介"><a href="#一、Git简介" class="headerlink" title="一、Git简介"></a>一、Git简介</h2><blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg" alt="git"><br>git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。</p>
+</blockquote>
+<h2 id="二、前言"><a href="#二、前言" class="headerlink" title="二、前言"></a>二、前言</h2><blockquote>
+<p>git仓库初始的创建通常有两种方式，<strong>一种是自己本地创建项目</strong>，再链接到远程仓库。<strong>另一种是先创建远程仓库</strong>，再将远程仓库克隆(git clone)到本地。接下来我就分别从这两个方式讲解。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="三、本地仓库创建"><a href="#三、本地仓库创建" class="headerlink" title="三、本地仓库创建"></a>三、本地仓库创建</h2><blockquote>
+<ul>
+<li>初始化仓库</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir gitstudy</div><div class="line"><span class="built_in">cd</span> gitstudy</div><div class="line">git init</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>加入暂存区</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add hellogit.txt</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add -A 或者 git add . //是添加全部文件</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>将文件加入历史版本</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m <span class="string">"add hellogit file"</span> //-m是该版本的说明语句</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>与远程仓库链接</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://gitcafe.com/jiyiren/gitstudy.git</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>提交到远程仓库</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push -u origin master //-u 第一次提交让git记住本地仓库与远程仓库</div><div class="line">//的连接,以后可以不要</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="四、远程仓库先创建"><a href="#四、远程仓库先创建" class="headerlink" title="四、远程仓库先创建"></a>四、远程仓库先创建</h2><blockquote>
+<ul>
+<li>创建远程仓库，可以到github或者gitcafe或者gitosc等</li>
+<li>将远程仓库克隆(clone)下来,本地就会有对应的文件夹仓库</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://gitcafe.com/jiyiren/gitstudy.git</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>修改后加入暂存区，提交到历史版本，再推送到远程</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add -A</div><div class="line">git commit -m <span class="string">"modify hellogit file"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="五、版本管理"><a href="#五、版本管理" class="headerlink" title="五、版本管理"></a>五、版本管理</h2><blockquote>
+<h3 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h3><blockquote>
+<p>我们有两个仓库，一个本地仓库，一个远程仓库，两个仓库互相关联。本地仓库为了开发代码，远程仓库为了记录版本和保存正确的代码。git的主要功能都应该在我们本地仓库里使用，那git具体怎么管理代码的呢？这要先从本地仓库的划分说起。本地仓库也就是开发的文件夹里，分为<strong>工作区</strong>，<strong>暂存区</strong>和<strong>历史版本区</strong>，工作区就是我们实际操作的区域，暂存区就是git add后文件进入的暂存状态，历史版本区是git commit后文件记录在历史版本里的区域。我们的git push就是向远处推送历史版本区的内容，工作区和暂存区为我们的版本回退提供方便。</p>
+</blockquote>
+<h3 id="2-重要命令解释"><a href="#2-重要命令解释" class="headerlink" title="2. 重要命令解释"></a>2. 重要命令解释</h3><blockquote>
+<p>主要说明git中使用频率很高的几个命令。</p>
+<h4 id="1-git-status"><a href="#1-git-status" class="headerlink" title="(1).git status"></a>(1).git status</h4><blockquote>
+<p><code>$ git status</code> 查看当前的工作区的状态，通常有三种状态：</p>
+<ul>
+<li><strong>一种是工作区干净：</strong> <em>nothing to commit, working directory clean</em></li>
+<li><strong>一种是使用了git add之后</strong>，显示<em>Changes not staged for commit(提示有已添加但是未提交的修改)</em> </li>
+<li><strong>一种是新添加文件后</strong>，显示<em>Untracked files(提示有未跟踪的文件)</em></li>
+</ul>
+</blockquote>
+<h4 id="2-git-diff"><a href="#2-git-diff" class="headerlink" title="(2).git diff"></a>(2).git diff</h4><blockquote>
+<p><code>$ git diff</code>命令描述图为:<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-diff.png" alt="diff"></p>
+<ul>
+<li>这个命令的理解点就是在参照物，也就是对比双方是谁。</li>
+<li><code>$ git diff</code> 图片中<strong>1</strong>标号内容，该句将<strong>工作区的修改与暂存区对比</strong>。例如：<code>$ git diff mtest.txt</code></li>
+<li><code>$ git diff --cached</code> 图示<strong>2</strong>标号，这句则是将<br><strong>暂存区与本地历史版本区中的最新版本</strong>对比。例如：<code>$ git diff --cached mtest.txt</code></li>
+<li><code>$ git diff HEAD</code>图示<strong>3</strong>标号，这句是将<strong>本地工作区(包含了暂存区内容)与本地历史版本区里的最新版本</strong>对比。如：<code>$ git diff HEAD -- mtest.txt</code>,此处文件名要用<code>--</code>分隔，前后都有空格。</li>
+<li>图示4和图示5分别为两个历史版本id对比和本地与分支的对比。这个用的都比较少。</li>
+</ul>
+</blockquote>
+<h4 id="3-git-log"><a href="#3-git-log" class="headerlink" title="(3).git log"></a>(3).git log</h4><blockquote>
+<p><code>git log</code>主要显示提交版本历史记录</p>
+<ul>
+<li><code>$ git log</code>或者<code>$ git log --pretty=oneline</code> 可以显示我们提交版本的记录，按照从近到远的版本显示。</li>
+<li><p><code>$ git log --graph --pretty=oneline</code> 可以显示分支状态：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitlog.png" alt="gitlog"></p>
+</li>
+<li><p><code>$ git log --graph --pretty=oneline --abbrev-commit</code>这个是简短形式：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitshortlog.png" alt="shortlog"></p>
+</li>
+<li><p>主要是git log结合多种参数显示各种结果具体参数请看<a href="http://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2" target="_blank" rel="external">git log参数</a></p>
+</li>
+</ul>
+</blockquote>
+<h4 id="4-git-reset"><a href="#4-git-reset" class="headerlink" title="(4).git reset"></a>(4).git reset</h4><blockquote>
+<p><code>git reset --hard &lt;版本&gt;</code> 回退版本，有两种方式，<strong>一种是相对回退</strong>，我们都知道HEAD默认指向当前分支的最新历史版本，而git给了我们一种以HEAD方式的相对语句就是<code>HEAD^</code> 这个代表当前版本的上一个版本，<code>HEAD^^</code> 代表当前版本的上上一个版本，可以一直加<code>^</code>向上的箭头来回退版本。当然如果回退个数很多比如100个，那个写100个<code>^</code>也麻烦，所以有缩写就是<code>HEAD~100</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^ //回退到上一个版本</div><div class="line">git reset --hard HEAD~100 //回退到上100个版本</div></pre></td></tr></table></figure>
+<p><strong>另一种方式是绝对回退</strong>，上面的命令<code>$ git log --pretty=oneline</code>可以显示历史提交版本的commitid,当然很长，但是记录前面7个数字就可以了标识一个版本了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard 3628164 //回退到3628164..的版本</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="5-git-reflog"><a href="#5-git-reflog" class="headerlink" title="(5).git reflog"></a>(5).git reflog</h4><blockquote>
+<p><code>git reflog</code> 这个是命令历史记录。当我们回退到上一个或者几个版本时，我们用<code>$ git log</code>命令查看的只能显示是当前版本以及当前版本之前的，那比当前版本还新的版本我们就看不到了，那怎么办？<code>git reflog</code>就可以显示我们所有操作的命令历史，注意与<code>git log</code>的区别，<code>git log</code>是版本历史记录，<code>git reflog</code>是命令历史记录。从这个里面就可以找到最新版本的<code>commitid</code>，就可以回退到任意一个版本。</p>
+</blockquote>
+<h4 id="6-git-checkout-reset"><a href="#6-git-checkout-reset" class="headerlink" title="(6).git checkout/reset"></a>(6).git checkout/reset</h4><blockquote>
+<p>这两个命令也有撤销修改的功能，其实回退版本也相当于撤销修改了，但是有特别的几个命令比较常用，这里讲下。</p>
+<ul>
+<li><code>git checkout -- filename</code> 这个是将工作区下的文件恢复到暂存区下的状态，<strong>取消本地未暂存的修改，暂存区不请空</strong>，也就是如果你后来的修改将被撤销。如：<code>$ git checkout -- mtext.txt</code>。</li>
+<li><code>git reset HEAD filename</code> 这个是将<strong>暂存区的修改恢复到本地工作区，暂存区将清空</strong>。如：<code>$ git reset HEAD mtext.txt</code>。</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="六、分支与合并"><a href="#六、分支与合并" class="headerlink" title="六、分支与合并"></a>六、分支与合并</h2><blockquote>
+<h3 id="1-说明-1"><a href="#1-说明-1" class="headerlink" title="1. 说明"></a>1. 说明</h3><blockquote>
+<p>最常用的分支操作</p>
+<h3 id="2-命令解释"><a href="#2-命令解释" class="headerlink" title="2. 命令解释"></a>2. 命令解释</h3><ul>
+<li>查看分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git branch //查看本地分支</div><div class="line">git branch -r //查看远程分支</div><div class="line">git branch -a //查看所有分支(包括本地和远程)</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>创建分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch develop //创建develop分支</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>切换分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout develop //切换到develop分支</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>创建并切换分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b mdeve //创建并切换到mdeve分支</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>删除分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d mdeve //删除mdeve分支，强行删除用-D</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>合并分支默认ff模式</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge mdeve //合并mdeve分支到当前分支</div></pre></td></tr></table></figure>
+<p>默认合并方式是Fast-forward，也就是将要合并的分支直接向当前分支提交。没有提交信息</p>
+</blockquote>
+<ul>
+<li>解决冲突</li>
+</ul>
+<blockquote>
+<p>很多时候用Fast-forward方式直接提交是不成功的，因为有冲突存在，所以我们要手动解决冲突</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge feature1 //合并feature1分支</div></pre></td></tr></table></figure>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-merge.png" alt="merge"><br>不成功的结果如上图，Git用&lt;&lt;&lt;&lt;&lt;这个箭头表示HEAD当前分支，====这个为分隔线，&gt;&gt;&gt;&gt;&gt;&gt;这个为feature1分支里的内容，只要手动删除这三处并自己选择内容作为最终结果。</p>
+</blockquote>
+<ul>
+<li>合并分支禁ff模式合并</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff -m <span class="string">"merge no ff"</span> dev //采用no ff模式合并并添加了信息提示</div></pre></td></tr></table></figure>
+<p>Fast-forward模式合并直接向当前分支提交，这种模式下如果删除掉分支，就会丢掉分支信息<br>如果用no ff这种模式合并,git就会在merge时生成一个新的commit,这样就可以从分支历史里查看出分支信息了。</p>
+</blockquote>
+<ul>
+<li>暂存临时现场</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash //把工作现场存储起来，使得工作区干净如初</div></pre></td></tr></table></figure>
+<p>主要用于在自己工作到一半，没法提交，然后又有新的bug要修复，就用这个命令保存现场，然后切换到bug分支，修复。</p>
+</blockquote>
+<ul>
+<li>恢复临时现场</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git stash list //查看临时工作区保存记录</div><div class="line">  stash@&#123;0&#125;: WIP on dev: 6224937 add merge//这是临时工作区记录列表</div><div class="line">$ git stash apply stash@&#123;0&#125;  //恢复刚刚的临时工作区</div><div class="line">$ git stash drop stash@&#123;0&#125;  //删除刚刚的临时保存记录</div></pre></td></tr></table></figure>
+<p>上面的命令已经可以恢复并删除保存记录了，但是语句比较多，还有一种方法直接恢复到最近一次的临时现场：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash pop //既恢复工作区又删掉了保存记录</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="七、多人协作（重点）"><a href="#七、多人协作（重点）" class="headerlink" title="七、多人协作（重点）"></a>七、多人协作（重点）</h2><blockquote>
+<h3 id="1-说明-2"><a href="#1-说明-2" class="headerlink" title="1. 说明"></a>1. 说明</h3><blockquote>
+<p>这是git工具最常见的使用环境，也是开发者正是开发中的工作环境，一个团队离不开多人协作。</p>
+</blockquote>
+<h3 id="2-讲解"><a href="#2-讲解" class="headerlink" title="2. 讲解"></a>2. 讲解</h3><blockquote>
+<ul>
+<li>查看远程信息</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote    //查看远程库的信息</div><div class="line">  origin</div><div class="line">$ git remote -v            //查看更详细信息</div><div class="line">  origin  git@github.com:michaelliao/learngit.git (fetch)</div><div class="line">  origin  git@github.com:michaelliao/learngit.git (push)</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>推送分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push origin master //推送主分支</div><div class="line">git push origin mdev //推送mdev分支</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>抓取分支  (模拟多人协作,假如你自己和一个A同学协作)</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">A同学：</div><div class="line">$ git <span class="built_in">clone</span> url.. //先从仓库克隆</div><div class="line">$ git branch  //查看分支，默认只有master分支，但是远程是有dev分支的</div><div class="line">$ git checkout -b dev origin/dev //所以要本地创建dev并与远程相连接</div><div class="line">$ git commit -m <span class="string">"add something by A"</span> //A同学修改了东西并添加入版本库</div><div class="line">$ git push origin dev //上传到远程仓库		</div><div class="line">我自己：</div><div class="line">$ git commit -m <span class="string">"add something by me"</span> //此时我自己也修改了一些东西，</div><div class="line">//并与A同学该的相同地方</div><div class="line">$ git push origin dev //此时推送将推送失败，提示先git pull</div><div class="line">$ git pull //于是你也就git pull,提示失败，本地dev未与远程连接</div><div class="line">$ git branch --<span class="built_in">set</span>-upstream dev origin/dev //再按照提示将本地分支与远程连接</div><div class="line">$ git pull //再次git pull,成功，但是出现冲突，解决冲突</div><div class="line">$ git commit -m <span class="string">"merge&amp;add something"</span> //提交冲突，至此就完成了多人协作</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>分支链接(重要)</li>
+</ul>
+<blockquote>
+<p><code>$ git checkout -b dev origin/dev</code>这个是新建本地分支为dev并与远程的dev相关联<br><code>$ git branch --set-upstream dev origin/dev</code>这个是我之前新建了分支，但是没有关联到远程分支，这里是将已有的分支关联到远程分支。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="八、标签"><a href="#八、标签" class="headerlink" title="八、标签"></a>八、标签</h2><blockquote>
+<ul>
+<li>打标签两种方式</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git branch //查看分支</div><div class="line">  *dev</div><div class="line">  master</div><div class="line">$ git checkout master  //切换到要打标签的分支</div><div class="line">  Switched to branch &apos;master&apos;</div><div class="line">$ git tag v1.0 //用git tag name来打标签，默认打在最新提交的commit上</div><div class="line">$ git tag //查看所有标签</div></pre></td></tr></table></figure>
+<p>还可以如下打标签，按照commit id来打标签，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --pretty=oneline --abbrev-commit//查看commit历史，找到要打标签的id号</div><div class="line">git tag v1.0 622493</div><div class="line">git tag //查看标签列表(按照标签名列出)</div><div class="line">git show v1.0 //查看v1.0标签的详细信息</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>删除分支和推送分支</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git tag -d v0.9 //删除标签0.9，创建的分支默认都在本地，不会自动推送到远程。</div><div class="line">git push origin v1.0 //将标签1.0推送到远程</div><div class="line">git push origin --tags //一次性将全部未推送的标签推送到远程</div><div class="line">//要删除远程标签，有点麻烦的</div><div class="line">git tag -d v0.9 //先从本地删除标签</div><div class="line">git push origin :refs/tags/v0.9 //然后再从远程删除标签</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="九、图形化界面"><a href="#九、图形化界面" class="headerlink" title="九、图形化界面"></a>九、图形化界面</h2><blockquote>
+<h3 id="1-git自带图形化界面的"><a href="#1-git自带图形化界面的" class="headerlink" title="1. git自带图形化界面的"></a>1. git自带图形化界面的</h3><blockquote>
+<ul>
+<li>在git bash里输入<code>git gui</code>就会显示图形化界面。<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitgui.png" alt="gui"></li>
+<li>在git bash里输入<code>gitk</code> 就会显示图形化的log界面<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitloggui.png" alt="guilog"></li>
+</ul>
+</blockquote>
+<h3 id="2-SourceTree"><a href="#2-SourceTree" class="headerlink" title="2. SourceTree"></a>2. SourceTree</h3><blockquote>
+<p><a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a> 这个自己看吧</p>
+</blockquote>
+</blockquote>
+<h2 id="十、git教程链接"><a href="#十、git教程链接" class="headerlink" title="十、git教程链接"></a>十、git教程链接</h2><blockquote>
+<ol>
+<li><a href="http://git-scm.com/docs" target="_blank" rel="external">官网英文教程</a></li>
+<li><a href="http://git-scm.com/book/zh/v1" target="_blank" rel="external">官网中文教程</a></li>
+<li><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">快速简易指南</a></li>
+<li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解多语言(含中文)教程</a> –极力推荐</li>
+<li><a href="http://www.yidianzixun.com/n/06h47t53?s=9" target="_blank" rel="external">实战教程</a> –比较长，但是很实用</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/18/mjokeapp/" rel="next" title="Mjoke app全部开发过程">
+                <i class="fa fa-chevron-left"></i> Mjoke app全部开发过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/15/nexus_official/" rel="prev" title="Nexus7刷谷歌官方系统教程">
+                Nexus7刷谷歌官方系统教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语："><span class="nav-number">1.</span> <span class="nav-text">导语：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Git简介"><span class="nav-number">2.</span> <span class="nav-text">一、Git简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、前言"><span class="nav-number">3.</span> <span class="nav-text">二、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、本地仓库创建"><span class="nav-number">4.</span> <span class="nav-text">三、本地仓库创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、远程仓库先创建"><span class="nav-number">5.</span> <span class="nav-text">四、远程仓库先创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、版本管理"><span class="nav-number">6.</span> <span class="nav-text">五、版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-说明"><span class="nav-number">6.1.</span> <span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-重要命令解释"><span class="nav-number">6.2.</span> <span class="nav-text">2. 重要命令解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-git-status"><span class="nav-number">6.2.1.</span> <span class="nav-text">(1).git status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-git-diff"><span class="nav-number">6.2.2.</span> <span class="nav-text">(2).git diff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-git-log"><span class="nav-number">6.2.3.</span> <span class="nav-text">(3).git log</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-git-reset"><span class="nav-number">6.2.4.</span> <span class="nav-text">(4).git reset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-git-reflog"><span class="nav-number">6.2.5.</span> <span class="nav-text">(5).git reflog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-git-checkout-reset"><span class="nav-number">6.2.6.</span> <span class="nav-text">(6).git checkout/reset</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、分支与合并"><span class="nav-number">7.</span> <span class="nav-text">六、分支与合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-说明-1"><span class="nav-number">7.1.</span> <span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-命令解释"><span class="nav-number">7.2.</span> <span class="nav-text">2. 命令解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、多人协作（重点）"><span class="nav-number">8.</span> <span class="nav-text">七、多人协作（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-说明-2"><span class="nav-number">8.1.</span> <span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-讲解"><span class="nav-number">8.2.</span> <span class="nav-text">2. 讲解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、标签"><span class="nav-number">9.</span> <span class="nav-text">八、标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、图形化界面"><span class="nav-number">10.</span> <span class="nav-text">九、图形化界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-git自带图形化界面的"><span class="nav-number">10.1.</span> <span class="nav-text">1. git自带图形化界面的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SourceTree"><span class="nav-number">10.2.</span> <span class="nav-text">2. SourceTree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、git教程链接"><span class="nav-number">11.</span> <span class="nav-text">十、git教程链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

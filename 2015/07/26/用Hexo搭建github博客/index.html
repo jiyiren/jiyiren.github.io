@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,hexo,github,nodejs," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、概述本篇将介绍使用Hexo框架和github pages来搭建简单的博客，主要涉及环境搭建、github空间创建、主题运用(新浪微博秀、多说评论，About的完成)等，其实这也就是个人博客最主要，最核心的组件的。我的github博客为jiyiren.github.io,我就以我的博客为例介绍。 二、步骤1、配置Hexo环境（Windows） Hexo官方主页 Hexo官方环境安装介绍其实主要分">
+<meta name="keywords" content="git,hexo,github,nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Hexo搭建github博客">
+<meta property="og:url" content="http://yoursite.com/2015/07/26/用Hexo搭建github博客/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="一、概述本篇将介绍使用Hexo框架和github pages来搭建简单的博客，主要涉及环境搭建、github空间创建、主题运用(新浪微博秀、多说评论，About的完成)等，其实这也就是个人博客最主要，最核心的组件的。我的github博客为jiyiren.github.io,我就以我的博客为例介绍。 二、步骤1、配置Hexo环境（Windows） Hexo官方主页 Hexo官方环境安装介绍其实主要分">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726160742886">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726160837747">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726162442083">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726162502374">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726161511945">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726162601108">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726164012016">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726164844348">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726171926528">
+<meta property="og:image" content="http://img.blog.csdn.net/20150726172901249">
+<meta property="og:updated_time" content="2016-06-10T08:20:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Hexo搭建github博客">
+<meta name="twitter:description" content="一、概述本篇将介绍使用Hexo框架和github pages来搭建简单的博客，主要涉及环境搭建、github空间创建、主题运用(新浪微博秀、多说评论，About的完成)等，其实这也就是个人博客最主要，最核心的组件的。我的github博客为jiyiren.github.io,我就以我的博客为例介绍。 二、步骤1、配置Hexo环境（Windows） Hexo官方主页 Hexo官方环境安装介绍其实主要分">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150726160742886">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/07/26/用Hexo搭建github博客/"/>
+
+
+
+
+
+  <title>用Hexo搭建github博客 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/26/用Hexo搭建github博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用Hexo搭建github博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-26T23:14:40+08:00">
+                2015-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>本篇将介绍使用Hexo框架和github pages来搭建简单的博客，主要涉及<strong>环境搭建、github空间创建、主题运用(新浪微博秀、多说评论，About的完成)</strong>等，其实这也就是个人博客最主要，最核心的组件的。我的github博客为<a href="http://jiyiren.github.io" target="_blank" rel="external">jiyiren.github.io</a>,我就以我的博客为例介绍。</p>
+<h1 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h1><h2 id="1、配置Hexo环境（Windows）"><a href="#1、配置Hexo环境（Windows）" class="headerlink" title="1、配置Hexo环境（Windows）"></a>1、配置Hexo环境（Windows）</h2><ul>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官方主页</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/#安装前提" target="_blank" rel="external">Hexo官方环境安装介绍</a><br>其实主要分三步：<h3 id="git工具的安装"><a href="#git工具的安装" class="headerlink" title="git工具的安装"></a>git工具的安装</h3></li>
+</ul>
+<ul>
+<li><a href="http://git-scm.com/" target="_blank" rel="external">git官网</a></li>
+<li><a href="http://git-scm.com/downloads" target="_blank" rel="external">git官网下载</a><a id="more"></a></li>
+<li><img src="http://img.blog.csdn.net/20150726160742886" alt="git"></li>
+<li>安装后通常用到的git bash。你可以同过电脑的开始菜单里找到git bash，或者通过桌面，但通常有一种方便的是在文件夹里右击就会有git bash的选项的（这个的好处就是自动将工作目录切换到你所在文件夹）<br>  <img src="http://img.blog.csdn.net/20150726160837747" alt="git bash"><br>  <img src="http://img.blog.csdn.net/20150726162442083" alt="git bash"></li>
+<li>测试git环境成功,打开git bash输入git –version,出现版本号就行。<br>  <img src="http://img.blog.csdn.net/20150726162502374" alt="这里写图片描述"></li>
+</ul>
+<h3 id="Node-js环境的安装"><a href="#Node-js环境的安装" class="headerlink" title="Node.js环境的安装"></a>Node.js环境的安装</h3><ul>
+<li><a href="https://nodejs.org/" target="_blank" rel="external">Node.js官网</a></li>
+<li><a href="https://nodejs.org/download/" target="_blank" rel="external">Node.js官网下载</a><br>  <img src="http://img.blog.csdn.net/20150726161511945" alt="nodejs"><br>  根据自己电脑位数选择。</li>
+<li>下载完后双击安装就行。</li>
+<li>测试nodejs环境成功，还是打开git bash，输入node -v,输出版本号就行。<br>  <img src="http://img.blog.csdn.net/20150726162601108" alt="这里写图片描述"></li>
+<li>如果没有出现版本号，请将nodejs的安装目录加入电脑环境变量。<h3 id="Hexo环境的安装"><a href="#Hexo环境的安装" class="headerlink" title="Hexo环境的安装"></a>Hexo环境的安装</h3>经过上面的两步，这一步就十分的轻松了，依旧打开git bash输入安装命令就行：</li>
+<li><a href="https://hexo.io/zh-cn/docs/#安装_Hexo" target="_blank" rel="external">官网安装命令</a></li>
+<li>通常下面的这句就行了：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<ul>
+<li>但是经过我的测试，不管输入什么安装的命令都是一直等待状态，搜索网上原来是安装源出的问题，我是用下面的这个方法解决的：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm config set registry http://registry.cnpmjs.org</div><div class="line">//输入完后测试命令如下</div><div class="line">npm info underscore</div><div class="line">//这句输入后会有字符串输出就行了</div></pre></td></tr></table></figure>
+<ul>
+<li>现在再用git bash 用安装命令试试，就可以安装成功了，有时安装第一行出现fault，没关系的。</li>
+<li>测试在git bash里输入 hexo -v，第一行为版本号就行了。<br><img src="http://img.blog.csdn.net/20150726164012016" alt="这里写图片描述"><br><strong>到此Hexo环境配置完成。</strong><h2 id="2、在github上创建自己唯一的项目空间"><a href="#2、在github上创建自己唯一的项目空间" class="headerlink" title="2、在github上创建自己唯一的项目空间"></a>2、在github上创建自己唯一的项目空间</h2><blockquote>
+<p>这一步骤不多说，只介绍注意点：</p>
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>注册时的账号邮箱尽量是微软，谷歌等国外大公司邮箱，国内的邮箱通常收不到消息。</p>
+<h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><p>创建项目是的项目名称必须是 UserName.github.io 前面的UserName是你github的用户名，后面的.github.io是一定的，不变的，也就是每个用户只能建立一个这样的仓库的。<br><img src="http://img.blog.csdn.net/20150726164844348" alt="github"></p>
+<h2 id="3、本地测试部署"><a href="#3、本地测试部署" class="headerlink" title="3、本地测试部署"></a>3、本地测试部署</h2><p>目的：把本地当服务器运行项目</p>
+<h3 id="初始化Hexo项目"><a href="#初始化Hexo项目" class="headerlink" title="初始化Hexo项目"></a>初始化Hexo项目</h3><p>首先创建一个文件夹，然后在这个文件夹里右击—选择git bash，然后执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init //自动创建所需文件</div><div class="line">npm install hexo-server --save//安装server命令工具</div><div class="line">npm install   //这句很重要，安装其他辅助工具</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="运行本地测试"><a href="#运行本地测试" class="headerlink" title="运行本地测试"></a>运行本地测试</h3><p>在新建的文件夹内，右击git bash，输入如下命令，访问localhost:4000，效果如图。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20150726171926528" alt="hexo"></p>
+<h2 id="4、首次远程测试部署"><a href="#4、首次远程测试部署" class="headerlink" title="4、首次远程测试部署"></a>4、首次远程测试部署</h2><blockquote>
+<p>目的：把项目部署到github的项目里</p>
+<h3 id="网站配置文件配置"><a href="#网站配置文件配置" class="headerlink" title="网站配置文件配置"></a>网站配置文件配置</h3><p>文件夹里有_config.yml文件，这个是配置整个网站的配置文件，下面会有主题中的_config.yml,那个只是配置具体文章和显示的配置文件，不要搞混了。用编辑器打开，找到最后，该为如下样式(请把两个jiyiren换为你的github名称就行了)：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/jiyiren/jiyiren.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<h3 id="生成部署"><a href="#生成部署" class="headerlink" title="生成部署"></a>生成部署</h3><p>输入下面两个命令即可，它会自动部署到github上，成功后就可以访问UserName.github.io看到效果了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
+<h2 id="5、创建第一个测试博客并部署运行"><a href="#5、创建第一个测试博客并部署运行" class="headerlink" title="5、创建第一个测试博客并部署运行"></a>5、创建第一个测试博客并部署运行</h2><h3 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h3><p>创建博客通常在sources目录下的_posts目录下，新建.md的后缀名就可以直接写了。<br><img src="http://img.blog.csdn.net/20150726172901249" alt="post"></p>
+<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><p>假如新建名为helloeveryone.md文件，文件内容如下，然后保存，回到主目录，git bash，然后hexo server，浏览器输入localhost:4000，看看有哪些变化吧。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">title: HelloEveryone</div><div class="line">date: 2015-07-23 21:45:40</div><div class="line">categories:</div><div class="line">- Begin</div><div class="line">- Hexo</div><div class="line">tags:</div><div class="line">- Hexo</div><div class="line"></div><div class="line">---</div><div class="line">这是主体部分</div></pre></td></tr></table></figure>
+<h2 id="6、整体博客配置介绍"><a href="#6、整体博客配置介绍" class="headerlink" title="6、整体博客配置介绍"></a>6、整体博客配置介绍</h2><h3 id="config-yml的配置"><a href="#config-yml的配置" class="headerlink" title="_config.yml的配置"></a>_config.yml的配置</h3><p>博客主_config.yml配置：我是初学者，可能写的不好，所以就大家推荐看<a href="http://zipperary.com/2013/05/29/hexo-guide-3/" target="_blank" rel="external">zippera博客</a>我就是照着这个学会一点点的。</p>
+<h2 id="7、运用Jacman主题（更多主题）"><a href="#7、运用Jacman主题（更多主题）" class="headerlink" title="7、运用Jacman主题（更多主题）"></a>7、运用Jacman主题（<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">更多主题</a>）</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>该主题由我介绍肯定没有该主题制作者讲的明白了，请看作者博客介绍吧：<a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">Jacman主题详细介绍</a></p>
+<h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>里面包括了新浪微博秀，添加多说评论，添加About等配置，我认为这个是一个博客的所有基本功能了，能满足大部分人建立博客的需求。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/26/同个电脑多个ssh key的配置使用/" rel="next" title="同个电脑多个ssh key的配置使用">
+                <i class="fa fa-chevron-left"></i> 同个电脑多个ssh key的配置使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/29/Windows10专业版非升级安装过程/" rel="prev" title="Windows10专业版安装过程">
+                Windows10专业版安装过程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、步骤"><span class="nav-number">2.</span> <span class="nav-text">二、步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、配置Hexo环境（Windows）"><span class="nav-number">2.1.</span> <span class="nav-text">1、配置Hexo环境（Windows）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git工具的安装"><span class="nav-number">2.1.1.</span> <span class="nav-text">git工具的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js环境的安装"><span class="nav-number">2.1.2.</span> <span class="nav-text">Node.js环境的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo环境的安装"><span class="nav-number">2.1.3.</span> <span class="nav-text">Hexo环境的安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、在github上创建自己唯一的项目空间"><span class="nav-number">2.2.</span> <span class="nav-text">2、在github上创建自己唯一的项目空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册"><span class="nav-number">2.2.1.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目创建"><span class="nav-number">2.2.2.</span> <span class="nav-text">项目创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、本地测试部署"><span class="nav-number">2.3.</span> <span class="nav-text">3、本地测试部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Hexo项目"><span class="nav-number">2.3.1.</span> <span class="nav-text">初始化Hexo项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行本地测试"><span class="nav-number">2.3.2.</span> <span class="nav-text">运行本地测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、首次远程测试部署"><span class="nav-number">2.4.</span> <span class="nav-text">4、首次远程测试部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站配置文件配置"><span class="nav-number">2.4.1.</span> <span class="nav-text">网站配置文件配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成部署"><span class="nav-number">2.4.2.</span> <span class="nav-text">生成部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、创建第一个测试博客并部署运行"><span class="nav-number">2.5.</span> <span class="nav-text">5、创建第一个测试博客并部署运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建博客"><span class="nav-number">2.5.1.</span> <span class="nav-text">创建博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例说明"><span class="nav-number">2.5.2.</span> <span class="nav-text">举例说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、整体博客配置介绍"><span class="nav-number">2.6.</span> <span class="nav-text">6、整体博客配置介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml的配置"><span class="nav-number">2.6.1.</span> <span class="nav-text">_config.yml的配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、运用Jacman主题（更多主题）"><span class="nav-number">2.7.</span> <span class="nav-text">7、运用Jacman主题（更多主题）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">2.7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">2.7.2.</span> <span class="nav-text">内容</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

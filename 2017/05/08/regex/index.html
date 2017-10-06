@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="regex," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语 开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间；与其将时间浪费在搜索上倒不如自己好好地掌握它。 参考   java正则 回车与换行 js正则 邮箱正则    正则规则 分四大类来说明:常用符号说明、符号数目匹配、逻辑语句符号匹配、目标匹配符号。 一、常用符号说明  ^: 匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^">
+<meta name="keywords" content="regex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/regex/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语 开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间；与其将时间浪费在搜索上倒不如自己好好地掌握它。 参考   java正则 回车与换行 js正则 邮箱正则    正则规则 分四大类来说明:常用符号说明、符号数目匹配、逻辑语句符号匹配、目标匹配符号。 一、常用符号说明  ^: 匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-06T03:46:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="导语 开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间；与其将时间浪费在搜索上倒不如自己好好地掌握它。 参考   java正则 回车与换行 js正则 邮箱正则    正则规则 分四大类来说明:常用符号说明、符号数目匹配、逻辑语句符号匹配、目标匹配符号。 一、常用符号说明  ^: 匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/08/regex/"/>
+
+
+
+
+
+  <title>正则表达式 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/regex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T22:00:40+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Regex/" itemprop="url" rel="index">
+                    <span itemprop="name">Regex</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
+<p>开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间；与其将时间浪费在搜索上倒不如自己好好地掌握它。</p>
+<p>参考</p>
+<blockquote>
+<ol>
+<li><a href="http://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="external">java正则</a></li>
+<li><a href="http://www.cnblogs.com/liaojie970/p/5714050.html" target="_blank" rel="external">回车与换行</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_4c925dca01009h1a.html" target="_blank" rel="external">js正则</a></li>
+<li><a href="http://www.cnblogs.com/hsqdboke/p/4944823.html" target="_blank" rel="external">邮箱正则</a></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="正则规则"><a href="#正则规则" class="headerlink" title="正则规则"></a>正则规则</h2><blockquote>
+<p>分四大类来说明:<strong>常用符号说明</strong>、<strong>符号数目匹配</strong>、<strong>逻辑语句符号匹配</strong>、<strong>目标匹配符号</strong>。</p>
+<h3 id="一、常用符号说明"><a href="#一、常用符号说明" class="headerlink" title="一、常用符号说明"></a>一、常用符号说明</h3><blockquote>
+<ol>
+<li><code>^</code>: <strong>匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^ 还会与”\n”或”\r”之后的位置匹配。</strong></li>
+<li><code>$</code>: <strong>匹配输入字符串结尾的位置。如果设置了 RegExp 对象的 Multiline 属性，$ 还会与”\n”或”\r”之前的位置匹配。</strong></li>
+<li><code>\</code>: <strong>将下一字符标记为特殊字符、文本、反向引用或八进制转义符。例如，”n”匹配字符”n”。”\n”匹配换行符</strong></li>
+</ol>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<h3 id="二、符号数目匹配"><a href="#二、符号数目匹配" class="headerlink" title="二、符号数目匹配"></a>二、符号数目匹配</h3><blockquote>
+<ol>
+<li><code>*</code>: <em>零次或多次</em> 匹配前面的字符或子表达式。例如，zo<em> 匹配”z”和”zoo”。</em> 等效于<code>{0,}</code>。</li>
+<li><code>+</code>: <em>一次或多次</em> 匹配前面的字符或子表达式。例如，”zo+”与”zo”和”zoo”匹配，但与”z”不匹配。+ 等效于 <code>{1,}</code>。</li>
+<li><code>?</code>: <em>零次或一次</em> 匹配前面的字符或子表达式。例如，”do(es)?”匹配”do”或”does”中的”do”。? 等效于 <code>{0,1}</code>。</li>
+<li><code>{n}</code>: <strong>n 是非负整数。正好匹配 n 次。例如，”o{2}”表示此匹配两个o</strong></li>
+<li><code>{n,}</code>: <strong>n 是非负整数。至少匹配 n 次。</strong></li>
+<li><code>{n,m}</code>: <strong>n 和 m 是非负整数，其中 n &lt;= m。匹配至少 n 次，至多 m 次。</strong></li>
+</ol>
+</blockquote>
+<h3 id="三、逻辑语句符号匹配"><a href="#三、逻辑语句符号匹配" class="headerlink" title="三、逻辑语句符号匹配"></a>三、逻辑语句符号匹配</h3><blockquote>
+<ol>
+<li><code>x|y</code>: <strong>匹配 x 或 y。例如，’z|food’ 匹配”z”或”food”。’(z|f)ood’ 匹配”zood”或”food”。</strong></li>
+<li><code>()</code>: <strong>括号</strong></li>
+</ol>
+<ul>
+<li><code>(pattern)</code>: 匹配 pattern 并捕获该匹配的子表达式</li>
+<li><code>(?:pattern)</code>: 匹配 pattern 但不捕获该匹配的子表达式，即它是一个非捕获匹配，不存储供以后使用的匹配。例如，’industr(?:y|ies) 是比 ‘industry|industries’ 更经济的表达式。</li>
+<li><code>(?=pattern)</code>: <a href="http://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="external">?=pattern</a></li>
+<li><code>(?!pattern)</code>: <a href="http://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="external">?!pattern</a></li>
+</ul>
+</blockquote>
+<h3 id="四、目标匹配符号"><a href="#四、目标匹配符号" class="headerlink" title="四、目标匹配符号"></a>四、目标匹配符号</h3><blockquote>
+<ol>
+<li><code>[xyz]</code>: <strong>字符集。匹配包含的任一字符。例如，”[abc]”代表当前位只能是abc三个字符中的一个</strong></li>
+<li><code>[^xyz]</code>: <strong>反向字符集。匹配未包含的任何字符。例如，”<code>[^abc]</code>“则当前位不能是abc中的任意一个。</strong></li>
+<li><p><code>[a-z]</code>: <strong>字符范围。匹配指定范围内的任何字符。如：</strong></p>
+<blockquote>
+<ul>
+<li><code>[a-z]</code>: 当前位匹配从a到z字符</li>
+<li><code>[A-Z]</code>: 当前位匹配从A到Z字符</li>
+<li><code>[0-9]</code>: 当前位匹配从0到9字符</li>
+<li><code>[a-zA-Z0-9]</code>: 当前位匹配从a到z，从A到Z以及从0-9的字符</li>
+<li><code>[a-zA-Z0-9_]</code>: 当前位匹配从a到z，从A到Z以及从0-9的字符和<em>_</em>字符</li>
+<li><code>[a-zA-Z0-9_-]</code>: 当前位匹配从a到z，从A到Z以及从0-9的字符和<em>_</em>与<em>-</em>字符</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>[^a-z]</code>: <strong>反向范围字符。匹配不在指定的范围内的任何字符.</strong></p>
+</li>
+<li><code>\d</code>: <strong>匹配数字，与<code>[0-9]</code>等效.</strong></li>
+<li><code>\D</code>: <strong>匹配非数字字符，与<code>[^0-9]</code>等效.</strong></li>
+<li><code>\w</code>: <strong>匹配任何字类字符，包括下划线。与”<code>[A-Za-z0-9_]</code>“等效.</strong></li>
+<li><code>\W</code>: <strong>与任何非单词字符匹配。与”<code>[^A-Za-z0-9_]</code>“等效。</strong></li>
+<li><code>.</code>: <strong>匹配除”\r\n”之外的任何单个字符。若要匹配包括”\r\n”在内的任意字符，请使用诸如”[\s\S]”之类的模式。</strong></li>
+<li><code>\b</code>: <strong>匹配一个字边界，即字与空格间的位置。例如，”er\b”匹配”never”中的”er”，但不匹配”verb”中的”er”。多用于java中的正则查找与替换</strong>。</li>
+<li><code>\B</code>: <strong>非字边界匹配。”er\B”匹配”verb”中的”er”，但不匹配”never”中的”er”。</strong></li>
+<li><code>\s</code>: <strong>匹配任何空白字符，包括空格、制表符、换页符等。与 <code>[\f\n\r\t\v]</code> 等效。</strong></li>
+<li><code>\S</code>: <strong>匹配任何非空白字符。与 <code>[^\f\n\r\t\v]</code>等效。</strong></li>
+<li><p>各种空白符：</p>
+<blockquote>
+<ul>
+<li><code>\f</code>: 换页符匹配。等效于 \x0c 和 \cL。</li>
+<li><code>\n</code>: 换行符匹配。等效于 \x0a 和 \cJ。</li>
+<li><code>\r</code>: 匹配一个回车符。等效于 \x0d 和 \cM。</li>
+<li><code>\t</code>: 制表符匹配。与 \x09 和 \cI 等效。</li>
+<li><code>\v</code>: 垂直制表符匹配。与 \x0b 和 \cK 等效。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>\xn</code>: <strong>匹配 n，此处的 n 是一个十六进制转义码。十六进制转义码必须正好是<em>两位</em>数长。例如，”\x41”匹配”A”。允许在正则表达式中使用 ASCII 代码。</strong></p>
+</li>
+<li><code>\un</code>: <strong>匹配 n，其中 n 是以<em>四位</em>十六进制数表示的 Unicode 字符。例如，\u00A9 匹配版权符号 (©)。附：<a href="http://jiyiren.github.io/2016/03/22/Java_encode/" target="_blank" rel="external">Unicode编码说明</a>,<a href="http://www.chi2ko.com/tool/CJK.htm" target="_blank" rel="external">汉字Unicode编码表</a></strong> </li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="常见正则"><a href="#常见正则" class="headerlink" title="常见正则"></a>常见正则</h2><blockquote>
+<p>下面分别对常见的邮箱和手机号举例。</p>
+<h3 id="邮箱："><a href="#邮箱：" class="headerlink" title="邮箱："></a>邮箱：</h3><blockquote>
+<ul>
+<li><p>常见邮箱形式：</p>
+<blockquote>
+<ol>
+<li><code>zhangshan@163.com</code></li>
+<li><code>abc@sina.com.cn</code></li>
+<li><code>zhangshna.Mr@163.com</code></li>
+<li><code>abc_Wang.dd@sian.com</code></li>
+<li><code>abc_Wang.dd.cc@sian.com</code></li>
+</ol>
+</blockquote>
+</li>
+<li><p>原来正则</p>
+<blockquote>
+<p>仅仅匹配1，2两种格式<br><code>^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$</code></p>
+</blockquote>
+</li>
+<li><p>多需求正则</p>
+<blockquote>
+<ol>
+<li>匹配全部：<code>^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$</code></li>
+<li>等价匹配：<code>^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$</code></li>
+<li>或者：<code>^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$</code></li>
+<li>注意java代码里需要将所有\转义，要在所有\前多加一个\</li>
+</ol>
+</blockquote>
+</li>
+<li><p>java代码</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEmail</span><span class="params">(String email)</span> </span>&#123;</div><div class="line">        String regex = <span class="string">"^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w&#123;2,3&#125;)&#123;1,3&#125;)$"</span>;</div><div class="line">        <span class="keyword">return</span> email.matches(regex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="手机号码"><a href="#手机号码" class="headerlink" title="手机号码:"></a>手机号码:</h3><blockquote>
+<ul>
+<li><p>共11位：</p>
+<blockquote>
+<ol>
+<li><strong>13(0-9)</strong>:13开头手机号第三位0-9全可以</li>
+<li><strong>14(5,7)</strong>:14开头的第三位只有5(联通)，7(移动)</li>
+<li><strong>15(-4)</strong>:15开头的第三位除了4，其他都有，因为(154有谐音“要我死”)</li>
+<li><strong>17(3,5,6,7,8)</strong>:17开头的三位有3,5,6,7,8;其中3,7为电信，5,6为联通,8为移动。</li>
+<li><strong>18(0-9)</strong>:18开头的第三位0-9均可以</li>
+<li><p>而170和171的为虚拟运营商:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1700/1701/1702(电信)</div><div class="line">1703/1705/1706(移动)</div><div class="line">1704/1707/1708/1709(联通)</div><div class="line">171（联通)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>正则：虚拟商除外,匹配主要写匹配前三个位置数字</p>
+<blockquote>
+<ol>
+<li>1与5可以一起写: <strong>1[3,8][0-9]</strong></li>
+<li>第二种: <strong>14[5,7]</strong></li>
+<li>第三种: <strong>15[^4]</strong></li>
+<li>第四种: <strong>17[3,5-8]</strong></li>
+<li>合并为: <code>^((1[3,8][0-9])|(14[5,7])|(15[^4])|(17[3,5-8]))\d{8}$</code></li>
+<li>注意：\d代表数字，如果要写入java代码，则需要多加一条\来转义。如果不想写转义因为\d等价于[0-9]所以也可以换为：<code>^((1[3,8][0-9])|(14[5,7])|(15[^4])|(17[3,5-8]))[0-9]{8}$</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isChinaPhoneLegal</span><span class="params">(String str)</span> <span class="keyword">throws</span> PatternSyntaxException </span>&#123;  </div><div class="line">       String regExp = <span class="string">"^((1[3,8][0-9])|(14[5,7])|(15[^4])|(17[3,5-8]))\\d&#123;8&#125;$"</span>; </div><div class="line">       <span class="comment">//String regExp = "^((1[3,8][0-9])|(14[5,7])|(15[^4])|(17[3,5-8]))[0-9]&#123;8&#125;$";  </span></div><div class="line">       Pattern p = Pattern.compile(regExp);  </div><div class="line">       Matcher m = p.matcher(str);  </div><div class="line">       <span class="keyword">return</span> m.matches();  </div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="external">java正则</a></li>
+<li><a href="http://www.cnblogs.com/liaojie970/p/5714050.html" target="_blank" rel="external">回车与换行</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_4c925dca01009h1a.html" target="_blank" rel="external">js正则</a></li>
+<li><a href="http://www.cnblogs.com/hsqdboke/p/4944823.html" target="_blank" rel="external">邮箱正则</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/regex/" rel="tag"># regex</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/24/lamp/" rel="next" title="LAMP以及Tomcat服务器环境搭建">
+                <i class="fa fa-chevron-left"></i> LAMP以及Tomcat服务器环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/24/spbootapi/" rel="prev" title="Spring项目整合">
+                Spring项目整合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则规则"><span class="nav-number">2.</span> <span class="nav-text">正则规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、常用符号说明"><span class="nav-number">2.1.</span> <span class="nav-text">一、常用符号说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、符号数目匹配"><span class="nav-number">2.2.</span> <span class="nav-text">二、符号数目匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、逻辑语句符号匹配"><span class="nav-number">2.3.</span> <span class="nav-text">三、逻辑语句符号匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、目标匹配符号"><span class="nav-number">2.4.</span> <span class="nav-text">四、目标匹配符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见正则"><span class="nav-number">3.</span> <span class="nav-text">常见正则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#邮箱："><span class="nav-number">3.1.</span> <span class="nav-text">邮箱：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机号码"><span class="nav-number">3.2.</span> <span class="nav-text">手机号码:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

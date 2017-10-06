@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,encode," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语： 今天写java读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。  一、问题：  今天用java写了一个读文件的，我用eclipse新建一个utf-8无bom编码的txt文件，叫做ch.txt;只写一个汉字:吉,完成后内容：   然后右击查看文件的属性：">
+<meta name="keywords" content="java,encode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的编码问题">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/Java_encode/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语： 今天写java读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。  一、问题：  今天用java写了一个读文件的，我用eclipse新建一个utf-8无bom编码的txt文件，叫做ch.txt;只写一个汉字:吉,完成后内容：   然后右击查看文件的属性：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile1.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile222.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile3.png">
+<meta property="og:updated_time" content="2017-10-06T06:10:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java中的编码问题">
+<meta name="twitter:description" content="导语： 今天写java读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。  一、问题：  今天用java写了一个读文件的，我用eclipse新建一个utf-8无bom编码的txt文件，叫做ch.txt;只写一个汉字:吉,完成后内容：   然后右击查看文件的属性：">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/22/Java_encode/"/>
+
+
+
+
+
+  <title>Java中的编码问题 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/22/Java_encode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java中的编码问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-22T20:16:40+08:00">
+                2016-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
+<p>今天写java读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。</p>
+</blockquote>
+<h2 id="一、问题："><a href="#一、问题：" class="headerlink" title="一、问题："></a>一、问题：</h2><blockquote>
+<ul>
+<li>今天用java写了一个读文件的，我用eclipse新建一个utf-8无bom编码的txt文件，叫做ch.txt;只写一个汉字:吉,完成后内容：</li>
+</ul>
+<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/javafile1.png" alt="ch.txt内容"><br>然后右击查看文件的属性：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/javafile222.png" alt="enter image description here"></p>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<ul>
+<li>读文件的代码为：</li>
+</ul>
+<blockquote>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.jiyiren.fileio;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;	</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mfread</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		FileReader fr=<span class="keyword">null</span>;</div><div class="line">		File f1=<span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			f1=<span class="keyword">new</span> File(<span class="string">"ch.txt"</span>);</div><div class="line">			fr=<span class="keyword">new</span> FileReader(f1);</div><div class="line">			<span class="keyword">char</span>[] c=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>];</div><div class="line">			<span class="keyword">int</span> len=<span class="number">0</span>;</div><div class="line">			<span class="keyword">while</span>((len=fr.read(c))!=-<span class="number">1</span>)&#123;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</div><div class="line">					System.out.println(c[i]);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">if</span>(fr!=<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					fr.close();</div><div class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">					<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<ul>
+<li>输出结果为：</li>
+</ul>
+<blockquote>
+<p> <img src="http://7xknpe.com1.z0.glb.clouddn.com/javafile3.png" alt="enter image description here"></p>
+</blockquote>
+<ul>
+<li>上面的代码与结果完全正确，那问题是什么呢？我们都知道java中的char是2个字节，但是我们文件里保存的那个中文为3字节，读文件时我们也只用</li>
+</ul>
+<blockquote>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><em>一个char类型读，但是结果为什么正确呢？java中的char类型是Unicode型的2个字节又是什么意思？文件保存的utf-8格式与Unicode有什么关系呢？</em>下面我就讲下我的理解。</li>
+</ul>
+</blockquote>
+<h2 id="二、Unicode编码"><a href="#二、Unicode编码" class="headerlink" title="二、Unicode编码"></a>二、Unicode编码</h2><blockquote>
+<ul>
+<li>Unicode编码的出现是为了解决世界上各种不同字符编码不一致的问题的，因为互联网的兴起，迫切需要这种统一世界上所有字符的编码。Unicode当然是一个很大的集合，现在的规模可以容纳100多万个符号，每个符号的编码都不一样，比如：U+0639表示阿拉伯字母Ain，U+0041表示英语的大写字母A，U+4E25表示汉字”严”。</li>
+<li>Unicode编码以二进制代码格式规定了符号的唯一标识，<strong>它是一个符号集</strong>，它仅仅是给世界上各个字符规定了编码，但是它没有规定标识这些字母的二进制该如何存储。比如有的字符用1个字节就可以标识，但是有的字符要4个字节标识，如果都用4个字节标识每一个字符，那将会造成巨大的存储浪费，但是不这样存储又能有什么更好的存储方法呢？UTF-8存储方式应运而生。</li>
+</ul>
+</blockquote>
+<h2 id="三、UTF-8-存储-编码"><a href="#三、UTF-8-存储-编码" class="headerlink" title="三、UTF-8(存储)编码"></a>三、UTF-8(存储)编码</h2><blockquote>
+<ul>
+<li>我们所知道的UTF-8编码，实际上它并非规定了字符的编码方式(字符编码是由Unicode规定的)，它只是规定怎么存储Unicode编码好的字符二进制数据，因而UTF-8编码默认包含了Unicode编码，我们通常所说的UTF-8，实际上就是Unicode UTF-8编码。</li>
+<li>UTF-8是Unicode实现存储编码的一种方式，它最大的特点就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度，这也就解决了Unicode编码用4个字节存储而浪费存储资源的问题了。</li>
+<li>UTF-8编码的规则：</li>
+</ul>
+<blockquote>
+<ol>
+<li>对于单字节的符号，字节的第一位设为0，后面7位为这个符号的Unicode码。因此对于英文字母，UTF-8编码和ASCII码市相同的。</li>
+<li><p>对于n字节的符号(n&gt;1),第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的所有没有提及的二进制位，全部为这个符号的Unicode码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    Unicode符号范围  |  UTF-8编码存储方式</div><div class="line">	(十六进制范围)| (二进制)</div><div class="line">0000 0000~0000 007F | 0xxxxxxx</div><div class="line">0000 0080~0000 07FF | 110xxxxx 10xxxxxx</div><div class="line">0000 0800~0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx</div><div class="line">0001 0000~0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>根据上表，以UTF-8编码，如果一个字节的二进制的第一位是0，则这个字节单独就是一个字符，如果第一位是1，则连续有多少个1就表示该字符占有多少个字节。</li>
+<li>汉字的Unicode编码表可以查看：<a href="http://www.chi2ko.com/tool/CJK.htm" target="_blank" rel="external">http://www.chi2ko.com/tool/CJK.htm</a>或者<a href="http://www.unicode.org/" target="_blank" rel="external">Unicode官网</a>然后我以汉字“吉”为例，演示将“吉”以UTF-8方式存储“吉”的Unicode编码的过程。“吉”的Unicode编码十六进制数为<strong>5409</strong>，对应的二进制为<strong>0101 0100 0000 1001</strong>;因为<strong>5409</strong>把前面的全为0的2字节省略了，我们把它补上就是<strong>0000 5409</strong>,现在根据上表的左边一栏，可以知道该数在第三行范围里，所以“吉”的UTF-8编码占3字节，我们直接将第三行的右边栏中的x号换成“吉”二进制就可以了，最后结果：<strong>11100101 10010000 10001001</strong>，这个就是“吉”字的Unicode的UTF-8编码的存储字节形式。</li>
+</ul>
+</blockquote>
+<h2 id="四、解决问题"><a href="#四、解决问题" class="headerlink" title="四、解决问题"></a>四、解决问题</h2><blockquote>
+<ul>
+<li>讲了这么多问题一点没有提到啊，我们根据上面的UTF-8的存储过程可以知道，中文“吉”的Unicode编码为<strong>5409</strong>，不用UTF-8存储表示时，“吉”应该只占用两个字节，也就是说java中的char是2个字节完全可以存储的，但是这个存储只能在内存中，而如果写入文件，必须用到编码，而我们用的是UTF-8编码，由上面的转换过程可以知道，中文“吉”字的Unicode码的UTF-8形式需要3个字节的，所以保存在文件里时文件所占用的存储空间为3byte,到这里我想大家应该都明白了为什么存在文件中的字是3个字节，而读出来的竟然用char就可以存储了的原因了。</li>
+<li>java中在文件数据与内存数据转换时肯定会涉及到编码的，其实不论java语言了其他语言都有的，只不过这些语言的通常做法都是使用默认的编码方式，但是我们必须要明白这其中的原理，不然以后出现一点乱码都将会是头痛的问题！！！</li>
+</ul>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html</a></li>
+<li><a href="http://www.chi2ko.com/tool/CJK.htm" target="_blank" rel="external">http://www.chi2ko.com/tool/CJK.htm</a></li>
+<li><a href="http://blog.csdn.net/ocean20/article/details/6743385" target="_blank" rel="external">http://blog.csdn.net/ocean20/article/details/6743385</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/encode/" rel="tag"># encode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/11/Struts2配置说明及后缀与路径设置/" rel="next" title="Struts2配置说明及后缀与路径设置">
+                <i class="fa fa-chevron-left"></i> Struts2配置说明及后缀与路径设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/27/Mysql_schedule/" rel="prev" title="Mysql中的定时任务">
+                Mysql中的定时任务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语："><span class="nav-number">1.</span> <span class="nav-text">导语：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、问题："><span class="nav-number">2.</span> <span class="nav-text">一、问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Unicode编码"><span class="nav-number">3.</span> <span class="nav-text">二、Unicode编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、UTF-8-存储-编码"><span class="nav-number">4.</span> <span class="nav-text">三、UTF-8(存储)编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、解决问题"><span class="nav-number">5.</span> <span class="nav-text">四、解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

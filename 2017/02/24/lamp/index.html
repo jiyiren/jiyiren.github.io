@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mysql,linux,apache," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语  最近频繁使用服务器环境，以前也搭建过，但那些命令以及配置都不能铭记于心，因此今天借此记录下，以便于以后参考。 记录主要有：LAMP(Linux,Apache,Mysql,Php)以及git,Java,Tomcat,ftp等安装命令及配置过程。     前言  作为程序员，对于服务器的部署还是有必要会的，因为这决定了自己独立的高度。目前而言，服务器操作系统性能最好的还是Linux，不要说自己">
+<meta name="keywords" content="mysql,linux,apache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LAMP以及Tomcat服务器环境搭建">
+<meta property="og:url" content="http://yoursite.com/2017/02/24/lamp/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语  最近频繁使用服务器环境，以前也搭建过，但那些命令以及配置都不能铭记于心，因此今天借此记录下，以便于以后参考。 记录主要有：LAMP(Linux,Apache,Mysql,Php)以及git,Java,Tomcat,ftp等安装命令及配置过程。     前言  作为程序员，对于服务器的部署还是有必要会的，因为这决定了自己独立的高度。目前而言，服务器操作系统性能最好的还是Linux，不要说自己">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/lamp.jpg">
+<meta property="og:updated_time" content="2017-10-05T15:42:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LAMP以及Tomcat服务器环境搭建">
+<meta name="twitter:description" content="导语  最近频繁使用服务器环境，以前也搭建过，但那些命令以及配置都不能铭记于心，因此今天借此记录下，以便于以后参考。 记录主要有：LAMP(Linux,Apache,Mysql,Php)以及git,Java,Tomcat,ftp等安装命令及配置过程。     前言  作为程序员，对于服务器的部署还是有必要会的，因为这决定了自己独立的高度。目前而言，服务器操作系统性能最好的还是Linux，不要说自己">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/lamp.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/24/lamp/"/>
+
+
+
+
+
+  <title>LAMP以及Tomcat服务器环境搭建 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/24/lamp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LAMP以及Tomcat服务器环境搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-24T17:40:40+08:00">
+                2017-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
+<ul>
+<li>最近频繁使用服务器环境，以前也搭建过，但那些命令以及配置都不能铭记于心，因此今天借此记录下，以便于以后参考。</li>
+<li>记录主要有：LAMP(Linux,Apache,Mysql,Php)以及git,Java,Tomcat,ftp等安装命令及配置过程。</li>
+</ul>
+<div align="center"><br><img src="http://7xknpe.com1.z0.glb.clouddn.com/lamp.jpg" align="center"><br></div>
+
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<ul>
+<li>作为程序员，对于服务器的部署还是有必要会的，因为这决定了自己独立的高度。目前而言，服务器操作系统性能最好的还是Linux，不要说自己不会，没有不会的程序员，只有懒惰的程序员。</li>
+<li>对于Linux系统的学习最容易上手的还是Ubuntu桌面版了，因为它有Windows版的界面，可以给新手一个过渡阶段，之后再上手到只有命令端的Linux Server版就容易多了。</li>
+<li>这里给<a href="http://www.kancloud.cn/explore" target="_blank" rel="external">看云</a>上的两个学习文档：<a href="http://www.kancloud.cn/you23hai45/linux-space/108213" target="_blank" rel="external">Linux学习</a>;<a href="http://www.kancloud.cn/thinkphp/linux-command-line/39431" target="_blank" rel="external">The Linux Command Line 中文版</a></li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="LAMP搭建"><a href="#LAMP搭建" class="headerlink" title="LAMP搭建"></a>LAMP搭建</h2><blockquote>
+<ul>
+<li>Linux系统环境选择的是Ubuntu 14.04；</li>
+<li>对于Ubuntu 16.04其内置的下载源和14.04的不一致，网上很多教程都不适用，建议大家选择Ubuntu 14.04测试。</li>
+</ul>
+<h3 id="一、安装MySQL"><a href="#一、安装MySQL" class="headerlink" title="一、安装MySQL"></a>一、安装MySQL</h3><blockquote>
+<ul>
+<li><p>安装mysql服务器端</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server mysql-client</div></pre></td></tr></table></figure>
+</li>
+<li><p>检查mysql服务是否开启，看到LISTEN就代表开启了</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo netstat -tap | grep mysql</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果没开启，可用以下的命令<strong>开启/停止/重启/查看状态</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo service mysql start/stop/restart/status</div><div class="line">//或者</div><div class="line">sudo /etc/init.d/mysql start/stop/restart/status</div><div class="line">//service命令就是在/etc/init.d下搜寻命令执行的，两者效果一样的</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、安装Apache"><a href="#二、安装Apache" class="headerlink" title="二、安装Apache"></a>二、安装Apache</h3><blockquote>
+<ul>
+<li><p>安装Apache，现在最新版本为第二版，因此通常用Apache2</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install apache2</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>启动/停止/重启/状态</strong>命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service apache2 start/stop/restart/status</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件在<strong>/etc/apache2</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">apache2.conf;	//主配置文件</div><div class="line">ports.conf;//端口配置文件</div><div class="line">sites-available/;//存储多个站点的目录</div><div class="line">sites-enabled/;//存储已开启的站点的目录(从available中选择的)</div><div class="line">mods-available/;//存储多个模块的目录</div><div class="line">mods-enabled/;//存储已开启的模块的目录</div><div class="line">conf-available/;//存储多种配置的目录</div><div class="line">conf-enabled/;//存储已经开启的配置的目录</div><div class="line">magic;</div><div class="line">envvars;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>配置站点常常需要修改之处(不一定都需要修改,可按照自己的环境来配置操作)</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>修改<strong>apache2.conf</strong>,以防出现权限不够</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/apache2</div><div class="line">sudo vi apache2.conf		</div><div class="line">//主要修改下面这些</div><div class="line">&lt;Directory /var/www/&gt;</div><div class="line">	Options Indexes FollowSymLinks</div><div class="line">	AllowOverride None （修改为AllowOverride All）</div><div class="line">	Require all granted</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主项目地址：<strong>/etc/apache2/sites-enable/000-default.conf</strong>如下</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/apache2/sites-enable</div><div class="line">sudo vi 000-default.conf</div><div class="line">//将DocumentRoot /var/www 修改为 DocumentRoot /var/www/laravel</div></pre></td></tr></table></figure>
+</li>
+<li><p>对于项目根目录权限问题</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//linux的apache用户组是www-data</div><div class="line">//-R代表递进目录</div><div class="line">sudo chown -R :www-data /var/www/laravel </div><div class="line">//mac下的Apache用户组是_www</div><div class="line">sudo chown -R :_www /var/www/laravel</div><div class="line">sudo chmod -R 776 /var/www/laravel/storage</div><div class="line">sudo chmod -R 776 /var/www/laravel/vendor</div><div class="line">sudo chmod -R 776 /var/www/laravel/bootstrap</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>配置<strong>多个站点</strong>，通过不同端口访问(假设/var/www下放置了laravel和html两个项目)</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>在sites-available目录下复制000-default.conf</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/apache2/sites-available</div><div class="line">sudo cp 000-default.conf htmltest.conf</div><div class="line">sudo vi htmltest.conf</div><div class="line">//主要编辑端口号和项目地址</div><div class="line">//端口：&lt;VirtualHost *:80&gt;可改为&lt;VirtualHost *:8090&gt;</div><div class="line">//项目地址：DocumentRoot /var/www/laravel 可改为 DocumentRoot /var/www/html</div></pre></td></tr></table></figure>
+</li>
+<li><p>在sites-enable目录下软连接到sites-available/htmltest.conf</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//启用刚刚配置的项目</div><div class="line"><span class="built_in">cd</span> /etc/apache2/sites-enable</div><div class="line">sudo ln -s ../sites-available/htmltest.conf ./htmltest.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>增加监听端口如下</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/apache2</div><div class="line">sudo vi ports.conf</div><div class="line">//添加如下</div><div class="line">Listen 8090</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>重启服务器，访问，如果有权限问题按照上面权限方法设置</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo service apache2 restart</div><div class="line">//两个项目</div><div class="line">//第一个是默认配置的:http://ip</div><div class="line">//第二个是刚刚配置的:http://ip:8090</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<h3 id="三、安装php以及相关模块"><a href="#三、安装php以及相关模块" class="headerlink" title="三、安装php以及相关模块"></a>三、安装php以及相关模块</h3><blockquote>
+<ul>
+<li><p>安装php5(Ubuntu14.04)</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php5 libapache2-mod-php5</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装php7(Ubuntu16.04)</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php7.0 libapache2-mod-php7.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装相关模块(包括php与mysql等数据相关包)(Ubuntu14.04)</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="四、Apache权限"><a href="#四、Apache权限" class="headerlink" title="四、Apache权限"></a>四、Apache权限</h3><blockquote>
+<ul>
+<li><p>对项目目录执行</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 777 /var/projectname</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="Tomcat以及其他软件配置安装"><a href="#Tomcat以及其他软件配置安装" class="headerlink" title="Tomcat以及其他软件配置安装"></a>Tomcat以及其他软件配置安装</h2><blockquote>
+<h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><blockquote>
+<ul>
+<li>这方面也是很基础的安装配置，包括jdk,tomcat配置,git设置</li>
+<li>其他管理软件如samba,ftp远程连接软件</li>
+<li><p><strong>[2017.5.3日更新]</strong> 我将用到的软件放在了gitosc上，因为gitosc支持二进制文件，因此可以当网盘用了.大家可以用git直接clone该项目，就无需再去寻找软件包了。</p>
+</li>
+<li><p>项目地址：<a href="https://git.oschina.net/jiyiren/linuxfile" target="_blank" rel="external">https://git.oschina.net/jiyiren/linuxfile</a> </p>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、JDK8安装"><a href="#二、JDK8安装" class="headerlink" title="二、JDK8安装"></a>二、JDK8安装</h3><blockquote>
+<ul>
+<li><p>官网：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">下载jdk8</a> 或者 git项目地址：<a href="https://git.oschina.net/jiyiren/linuxfile" target="_blank" rel="external">https://git.oschina.net/jiyiren/linuxfile</a> </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//下载Linux版本到本地</div><div class="line">jdk-8u121-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</li>
+<li><p>将jdk上传到服务器，这可以有多种方法，可以用<strong>FileZilla</strong>，也可以用FTP，或者找到一个链接地址，用wget在服务器上直接下载。我是使用<strong>FileZilla</strong>上传的!</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//假设我们放在用户当前目录下</div><div class="line">~/jdk-8u121-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</li>
+<li><p>解压到<strong>/opt</strong>目录下或者<strong>/usr/local</strong>,这里我解压到/opt下</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//假设jdk-8u121-linux-x64.tar.gz在用户~目录下</div><div class="line"><span class="built_in">cd</span> ~</div><div class="line">sudo tar -xzvf jdk-8u121-linux-x64.tar.gz -C /opt/</div><div class="line"></div><div class="line">//zip格式的则用如下命令</div><div class="line">sudo unzip jdk.zip -d /opt/</div><div class="line"></div><div class="line">//修改解压后的目录名称</div><div class="line"><span class="built_in">cd</span> /opt</div><div class="line">mv jdk1.8.0_121 jdk8</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加环境变量</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">vi .bashrc</div><div class="line">//添加下面</div><div class="line"><span class="built_in">export</span> JAVA_HOME=/opt/jdk8</div><div class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre</div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib:<span class="variable">$JRE_HOME</span>/lib</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">source</span> .bashrc //环境变量生效</div><div class="line">java -version //看到版本信息即可</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="三、Tomcat安装"><a href="#三、Tomcat安装" class="headerlink" title="三、Tomcat安装"></a>三、Tomcat安装</h3><blockquote>
+<ul>
+<li><p>下载Tomcat。这里可以像上面安装jdk一样，先去<a href="http://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">官网</a>下载到本地再上传到服务器;当然也可以直接用前面提到的用<strong>wget</strong>方式下载。大家在点击官网下载时会获得一个下载链接，这是只要在服务器上用wget下载就行了(注下载链接可能会失效的，因此建议通过git项目下载这些文件<a href="https://git.oschina.net/jiyiren/linuxfile" target="_blank" rel="external">https://git.oschina.net/jiyiren/linuxfile</a> )：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz</div><div class="line">//如果提示没有wget,则按照提示安装wget即可</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加环境变量</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//解压文件到/opt/</div><div class="line"><span class="built_in">cd</span> ~</div><div class="line">sudo tar -xzvf apache-tomcat-8.5.11.tar.gz -C /opt</div><div class="line"></div><div class="line">//修改名称，这个随便自己的，我感觉文件名太长了</div><div class="line"><span class="built_in">cd</span> /opt</div><div class="line">mv apache-tomcat-8.5.11 tomcat8</div><div class="line"></div><div class="line">//添加环境变量</div><div class="line"><span class="built_in">cd</span> ~</div><div class="line">vi .bashrc</div><div class="line">//添加如下行</div><div class="line"><span class="built_in">export</span> PATH=/opt/tomcat8/bin:<span class="variable">$PATH</span></div><div class="line"></div><div class="line">//使环境变量立即生效</div><div class="line"><span class="built_in">source</span> .bashrc</div><div class="line"></div><div class="line">//检测是否设置成功</div><div class="line"><span class="built_in">which</span> startup.sh</div><div class="line">//如果输出如下就可以了</div><div class="line">/opt/tomcat8/bin/startup.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>开启/关闭</strong>tomcat服务器</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//开启或关闭</div><div class="line">startup.sh/shutdown.sh</div><div class="line"></div><div class="line">//检查是否开启，用浏览器访问ip:8080出现Tomcat页面就可以了</div><div class="line"></div><div class="line">//如果发现shutdown.sh出错，说明tomcat没启动成功，需要查看tomcat进程，并结束</div><div class="line">ps -ef|grep tomcat</div><div class="line"><span class="built_in">kill</span> -9 [pid]</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置项目根目录，Tomcat项目目录默认在webapps目录下，多个项目只要放在里面即可，访问的时候：ip:端口/projecName/即可访问项目根目录。(默认端口是<strong>8080</strong>)</p>
+</li>
+<li><p>但是如果想将我们的项目放在根目录呢？一种就是将webapps/ROOT目录覆盖，另外一种就是修改配置文件，这里介绍修改配置文件<strong>server.xml</strong>方法。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//到配置目录修改配置文件server.xml</div><div class="line"><span class="built_in">cd</span> /opt/tomcat8/conf</div><div class="line">vi server.xml</div><div class="line"></div><div class="line">//在含有appBase=<span class="string">"webapps"</span>的&lt;host&gt;&lt;/host&gt;之间添加如下</div><div class="line">&lt;Context path=<span class="string">""</span> docBase=<span class="string">"/opt/tomcat8/webapps/htmltest/"</span> debug=<span class="string">"0"</span>/&gt;</div><div class="line">//如上，根目录设置在/opt/tomcat8/webapps/htmltest/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="四、git安装"><a href="#四、git安装" class="headerlink" title="四、git安装"></a>四、git安装</h3><blockquote>
+<ul>
+<li><p>安装</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div><div class="line">git --version</div></pre></td></tr></table></figure>
+</li>
+<li><p>通常经过上面安装的git版本是1.9.1版本，现在已经到2.11了，旧版本有不支持的命令，因此要装比较新的版本</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//先更新下源，不然会有不识别提示</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-add-repository ppa:git-core/ppa</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install git</div><div class="line">git --version</div><div class="line">//此时将显示更高级的或者最新的版本</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="五、ftp安装"><a href="#五、ftp安装" class="headerlink" title="五、ftp安装"></a>五、ftp安装</h3><blockquote>
+<ul>
+<li><p>这里安装vsftpd</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//安装，并检测</div><div class="line">sudo apt-get install vsftpd</div><div class="line">vsftpd -version</div><div class="line"></div><div class="line">//新建一个文件夹用于FTP的工作目录</div><div class="line">mkdir /home/ftp</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建FTP用户并设置密码以及工作目录</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo useradd -d /home/ftp -s /bin/bash jiyiren</div><div class="line">//-d 代表ftp的主目录</div><div class="line">//jiyiren为你为该ftp创建的用户名</div></pre></td></tr></table></figure>
+</li>
+<li><p>为新用户设置密码</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">passwd jiyiren</div><div class="line">//可用cat etc/passwd可以查看当前系统用户</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>修改vsftpd配置文件</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/vsftpd.conf</div><div class="line"></div><div class="line">//修改如下两处</div><div class="line">seccomp_sandbox=NO</div><div class="line">local_enable=YES</div><div class="line"></div><div class="line">//并添加如下行到结尾</div><div class="line">userlist_deny=NO</div><div class="line">userlist_enable=YES </div><div class="line">userlist_file=/etc/allowed_users</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加允许用户列表</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/allowed_users</div><div class="line"></div><div class="line">//添加以下用户名</div><div class="line">jiyiren</div><div class="line">root</div><div class="line"></div><div class="line">//另外可查看/etc/ftpusers是否有用户名，无则直接退出，这是禁止用户列表</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>开启/关闭/重启</strong>ftp服务</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service vsftpd start/stop/restart</div></pre></td></tr></table></figure>
+</li>
+<li><p>登录，Windows可以用<strong>WinSCP</strong>软件或者前面提到的<strong>FileZilla</strong>软件，而Linux或者Unix(mac)可以使用如下命令：</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp jiyiren@ip</div><div class="line">输入密码即可</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.kancloud.cn/you23hai45/linux-space/108213" target="_blank" rel="external">Linux学习</a></li>
+<li><a href="http://www.kancloud.cn/thinkphp/linux-command-line/39431" target="_blank" rel="external">The Linux Command Line 中文版</a></li>
+<li><a href="http://www.linuxidc.com/Linux/2016-01/127180.htm" target="_blank" rel="external">Ubuntu下LAMP环境搭建</a></li>
+<li><a href="http://www.linuxidc.com/Linux/2016-12/138563.htm" target="_blank" rel="external">Ubuntu下搭建FTP服务器图解</a></li>
+<li><a href="http://jingyan.baidu.com/article/67508eb4d6c4fd9ccb1ce470.html" target="_blank" rel="external">vsftpd的安装和配置</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/apache/" rel="tag"># apache</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/24/android_sort/" rel="next" title="Android图形化排序算法">
+                <i class="fa fa-chevron-left"></i> Android图形化排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/08/regex/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LAMP搭建"><span class="nav-number">3.</span> <span class="nav-text">LAMP搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装MySQL"><span class="nav-number">3.1.</span> <span class="nav-text">一、安装MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装Apache"><span class="nav-number">3.2.</span> <span class="nav-text">二、安装Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装php以及相关模块"><span class="nav-number">3.3.</span> <span class="nav-text">三、安装php以及相关模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Apache权限"><span class="nav-number">3.4.</span> <span class="nav-text">四、Apache权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat以及其他软件配置安装"><span class="nav-number">4.</span> <span class="nav-text">Tomcat以及其他软件配置安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、说明"><span class="nav-number">4.1.</span> <span class="nav-text">一、说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、JDK8安装"><span class="nav-number">4.2.</span> <span class="nav-text">二、JDK8安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Tomcat安装"><span class="nav-number">4.3.</span> <span class="nav-text">三、Tomcat安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、git安装"><span class="nav-number">4.4.</span> <span class="nav-text">四、git安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、ftp安装"><span class="nav-number">4.5.</span> <span class="nav-text">五、ftp安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

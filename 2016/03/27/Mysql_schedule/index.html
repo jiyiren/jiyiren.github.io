@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mysql,schedule," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语： 最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。  一、说明  后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：    后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows serve">
+<meta name="keywords" content="mysql,schedule">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql中的定时任务">
+<meta property="og:url" content="http://yoursite.com/2016/03/27/Mysql_schedule/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语： 最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。  一、说明  后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：    后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows serve">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql4.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql5.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql6.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql7.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql8.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql9.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql10.png">
+<meta property="og:updated_time" content="2017-10-06T05:58:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mysql中的定时任务">
+<meta name="twitter:description" content="导语： 最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。  一、说明  后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：    后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows serve">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/27/Mysql_schedule/"/>
+
+
+
+
+
+  <title>Mysql中的定时任务 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/27/Mysql_schedule/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mysql中的定时任务</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-27T11:40:40+08:00">
+                2016-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
+<p>最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。</p>
+</blockquote>
+<h2 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h2><blockquote>
+<ul>
+<li>后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：</li>
+</ul>
+<blockquote>
+<ol>
+<li>后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。</li>
+<li>服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows server，它的定时任务系统有提供的。Linux下也有，通常流行的是<strong>crontab</strong>工具实现的(想了解这里有个<a href="http://www.imooc.com/learn/216" target="_blank" rel="external">视频教程</a>),但是crontab的定时任务通常定时操作脚本这样的文件，而直接定时操作数据库的就比较麻烦了。但是也有解决办法，就是在服务器端写一个get请求url，在后台里完成要定时完成的数据库操作，这样我们只要实现定时访问该接口就行了，Linux下的<strong>curl</strong>命令可以很方便发出get请求，我们只要写个包含访问该接口的脚本，再结合crontab就可以完成后台数据的定时更新操作了。</li>
+<li>但是毕竟写个接口安全性不是太高，而大家用的如果是mysql数据库，那就正好可以利用其自带的定时操作了,下面简单介绍mysql定时操作的使用。</li>
+</ol>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<h2 id="二、mysql定时操作"><a href="#二、mysql定时操作" class="headerlink" title="二、mysql定时操作"></a>二、mysql定时操作</h2><blockquote>
+<h3 id="1、查看定时策略是否开启"><a href="#1、查看定时策略是否开启" class="headerlink" title="1、查看定时策略是否开启"></a>1、查看定时策略是否开启</h3><blockquote>
+<ul>
+<li><p>查看命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%event_sche%'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示的<strong>event_scheduler</strong>为OFF时用以下命令开启</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">global</span> event_scheduler=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意：以上的改法在数据库重启后将会恢复为原来状态，要想数据库重启后也可以让event_scheduler开启，则需要在配置文件my.ini的设置。修改如下，然后重启mysql服务即可。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[mysqld]</div><div class="line">event_scheduler=ON //这一行加入mysqld标签下</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="2、创建procedure-存储过程"><a href="#2、创建procedure-存储过程" class="headerlink" title="2、创建procedure(存储过程)"></a>2、创建procedure(存储过程)</h3><blockquote>
+<h4 id="什么是procedure-存储过程-？"><a href="#什么是procedure-存储过程-？" class="headerlink" title="什么是procedure(存储过程)？"></a>什么是procedure(存储过程)？</h4><blockquote>
+<ul>
+<li>存储过程?当我听到这个词的时候,以为它是mysql存储数据的一个流程而不是一个名词，但是当我网上了解时，才知道这个词是翻译过来的，原生词为<strong>Procedure</strong>,实际上它的含义就是相当于我们面向对象里的方法或者说是函数，在它里面可以完成多个sql语句的操作，并且可以定义参数传值等，与一般的单条sql语句的区别主要在这里。</li>
+<li>详细了解: <a href="http://xdj651897373-126-com.iteye.com/blog/1819924" target="_blank" rel="external">点我</a></li>
+</ul>
+</blockquote>
+<h4 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h4><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</div><div class="line">delimiter //</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_proce()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> weuse(<span class="keyword">name</span>,created_at,updated_at) <span class="keyword">values</span>(<span class="string">'hello'</span>,<span class="keyword">now</span>(),<span class="keyword">now</span>());</div><div class="line"><span class="keyword">end</span>//</div><div class="line">delimiter ;</div></pre></td></tr></table></figure>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql4.png" alt="enter image description here"></p>
+<p>上面的代码说明：</p>
+<ol>
+<li>use test; 这个谁都知道，使用某个数据库，这里要强调的是存储过程一定是对于某个数据库而言的，所以必须要选中一个数据库才能创建成功。</li>
+<li>delimiter //  这个是将mysql中以<strong>;(分号)</strong>结尾的规定修改为以<strong>//(双斜杠)</strong>为语句结束符，因为存储过程里可以有多条sql 语句，里面的sql语句都以<strong>;</strong>号结尾，如果回车了那么系统会当做sql语句直接执行了，我们希望的是先定义这一系列sql语句而先不执行，所以要改下操作结束符。当然你在改后一定要改回来，大家可以看到最后一行有对应的修改回来的语句。</li>
+<li><p>下面的是一起输入的,可以知道分别是创建存储过程test_proce(),名称可以随便起的，然后是在begin –end之间是定义一系列sql语句的就可以了，记住最后end结尾要以之前修改后的结尾符结束。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_proce()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> weuse(<span class="keyword">name</span>,created_at,updated_at) <span class="keyword">values</span>(<span class="string">'hello'</span>,<span class="keyword">now</span>(),<span class="keyword">now</span>());</div><div class="line"><span class="keyword">end</span>//</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<h3 id="3、创建定时任务"><a href="#3、创建定时任务" class="headerlink" title="3、创建定时任务"></a>3、创建定时任务</h3><p>上面创建存储过程实际上是为定时任务做铺垫的，因为上面只说明了怎么创建存储过程，但是未说明怎么调用，那这里就用到了调用存储过程了。</p>
+<blockquote>
+<h4 id="创建定时任务event-事件"><a href="#创建定时任务event-事件" class="headerlink" title="创建定时任务event(事件)"></a>创建定时任务event(事件)</h4><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">event</span> second_event</div><div class="line"><span class="keyword">on</span> schedule every <span class="number">1</span> <span class="keyword">second</span></div><div class="line"><span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">disable</span></div><div class="line"><span class="keyword">do</span> <span class="keyword">call</span> test_proce();</div></pre></td></tr></table></figure>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql5.png" alt="enter image description here"></p>
+<p>代码说明：</p>
+<ol>
+<li>上面为整体代码，敲完再写分号</li>
+<li>第一行<strong>create event day_event</strong>是创建名为second_event的事件,注意此处没有括号</li>
+<li>第二行是创建周期定时的规则，本处的意思是每秒钟执行一次</li>
+<li>第三行<strong>on completion preserve disable</strong>是表示创建后并不开始生效。</li>
+<li>第四行<strong>do call test_proce()</strong>是该event(事件)的操作内容，表示调用我们刚刚创建的test_proce()存储过程。</li>
+</ol>
+</blockquote>
+<h4 id="查看定时任务event-事件-，可以查看本机所有的事件"><a href="#查看定时任务event-事件-，可以查看本机所有的事件" class="headerlink" title="查看定时任务event(事件)，可以查看本机所有的事件"></a>查看定时任务event(事件)，可以查看本机所有的事件</h4><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> event_name,event_definition,interval_value,interval_field,<span class="keyword">status</span> <span class="keyword">FROM</span> information_schema.EVENTS;</div></pre></td></tr></table></figure>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql6.png" alt="enter image description here"></p>
+</blockquote>
+</blockquote>
+<h3 id="4、开启已经创建好的event-事件"><a href="#4、开启已经创建好的event-事件" class="headerlink" title="4、开启已经创建好的event(事件)"></a>4、开启已经创建好的event(事件)</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">event</span> second_event <span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">enable</span>;//开启定时任务</div><div class="line"><span class="keyword">alter</span> <span class="keyword">event</span> second_event <span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">disable</span>;//关闭定时任务</div></pre></td></tr></table></figure>
+<ul>
+<li><p>当我们用第一句命令开启定时任务时，可以就可以查看数据库情况,已经实现了每秒钟执行一次了，如图。</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql7.png" alt="enter image description here"></p>
+</li>
+<li><p>要想关闭定时任务只要执行上面的第二句命令，关闭需要关闭的定时任务就可以了。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="5、常见周期定时规则"><a href="#5、常见周期定时规则" class="headerlink" title="5、常见周期定时规则"></a>5、常见周期定时规则</h3><blockquote>
+<ul>
+<li><strong>周期执行–关键字 EVERY</strong></li>
+</ul>
+<blockquote>
+<ol>
+<li><p>单位有：<strong>second,minute,hour,day,week(周),quarter(季度),month,year</strong>，如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">on schedule every 1 second //每秒执行1次</div><div class="line">on schedule every 2 minute //每两分钟执行1次</div><div class="line">on schedule every 3 day //每3天执行1次</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li><p><strong>在具体某个时间执行–关键字 AT</strong>,如：</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">on schedule at current_timestamp()+interval 5 day //5天后执行</div><div class="line">on schedule at current_timestamp()+interval 10 minute //10分钟后执行</div><div class="line">on schedule at '2016-10-01 21:50:00' //在2016年10月1日，晚上9点50执行</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>在某个时间段执行–关键字STARTS  ENDS</strong>，如：</p>
+<blockquote>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">on schedule every 1 day starts current_timestamp()+interval 5 day ends current_timestamp()+interval 1 month //5天后开始每天都执行执行到下个月底</div><div class="line">on schedule every 1 day ends current_timestamp()+interval 5 day //从现在起每天执行，执行5天</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="6、效率工具"><a href="#6、效率工具" class="headerlink" title="6、效率工具"></a>6、效率工具</h3><blockquote>
+<h4 id="MysqlWorkBench"><a href="#MysqlWorkBench" class="headerlink" title="MysqlWorkBench"></a>MysqlWorkBench</h4><blockquote>
+<p>是官方推荐的免费可视化mysql操作工具，方便建模，ER图操作，经我发现好像只能可视化操作存储过程(也可能是自己没找到)</p>
+<ul>
+<li><p>存储过程：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql8.png" alt="enter image description here"></p>
+</li>
+<li><p>Event事件，可以查看，用sql命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.EVENTS;//查看所有事件属性</div><div class="line"><span class="keyword">SELECT</span> event_name,event_definition,interval_value,interval_field,<span class="keyword">status</span> <span class="keyword">FROM</span> information_schema.EVENTS;//查看主要几个属性</div></pre></td></tr></table></figure>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql9.png" alt="enter image description here"></p>
+</li>
+</ul>
+</blockquote>
+<h4 id="Navicat"><a href="#Navicat" class="headerlink" title="Navicat"></a>Navicat</h4><blockquote>
+<p>这个是收费的软件，但是可视化操作比较轻量级，功能也很多，它可以可视化操作存储过程和Event事件，详细操作大家可以自己摸索啊！！</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql10.png" alt="enter image description here"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/schedule/" rel="tag"># schedule</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/22/Java_encode/" rel="next" title="Java中的编码问题">
+                <i class="fa fa-chevron-left"></i> Java中的编码问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/22/Mysql-simple-setting/" rel="prev" title="Mysql简单配置与基本操作">
+                Mysql简单配置与基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语："><span class="nav-number">1.</span> <span class="nav-text">导语：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、说明"><span class="nav-number">2.</span> <span class="nav-text">一、说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、mysql定时操作"><span class="nav-number">3.</span> <span class="nav-text">二、mysql定时操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、查看定时策略是否开启"><span class="nav-number">3.1.</span> <span class="nav-text">1、查看定时策略是否开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、创建procedure-存储过程"><span class="nav-number">3.2.</span> <span class="nav-text">2、创建procedure(存储过程)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是procedure-存储过程-？"><span class="nav-number">3.2.1.</span> <span class="nav-text">什么是procedure(存储过程)？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建存储过程"><span class="nav-number">3.2.2.</span> <span class="nav-text">创建存储过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、创建定时任务"><span class="nav-number">3.3.</span> <span class="nav-text">3、创建定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建定时任务event-事件"><span class="nav-number">3.3.1.</span> <span class="nav-text">创建定时任务event(事件)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看定时任务event-事件-，可以查看本机所有的事件"><span class="nav-number">3.3.2.</span> <span class="nav-text">查看定时任务event(事件)，可以查看本机所有的事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、开启已经创建好的event-事件"><span class="nav-number">3.4.</span> <span class="nav-text">4、开启已经创建好的event(事件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、常见周期定时规则"><span class="nav-number">3.5.</span> <span class="nav-text">5、常见周期定时规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、效率工具"><span class="nav-number">3.6.</span> <span class="nav-text">6、效率工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MysqlWorkBench"><span class="nav-number">3.6.1.</span> <span class="nav-text">MysqlWorkBench</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Navicat"><span class="nav-number">3.6.2.</span> <span class="nav-text">Navicat</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

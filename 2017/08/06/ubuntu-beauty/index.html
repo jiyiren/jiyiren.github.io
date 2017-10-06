@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,ubuntu," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语 最近重新把老旧的台式机拿来耍，重新安装了Ubuntu16.04,但感觉自带的桌面效果不是很好，于是就查找网上的优化博客按套路来整合，这里记录下自己的实现过程。 先看下效果">
+<meta name="keywords" content="linux,ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu界面美化">
+<meta property="og:url" content="http://yoursite.com/2017/08/06/ubuntu-beauty/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语 最近重新把老旧的台式机拿来耍，重新安装了Ubuntu16.04,但感觉自带的桌面效果不是很好，于是就查找网上的优化博客按套路来整合，这里记录下自己的实现过程。 先看下效果">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-5.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-06.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-07.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ibus-set.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/text-entry.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-08.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-09.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-10.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-11.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-14.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-12.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-13.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-15.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-3.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-2.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-3.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-4.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-5.png">
+<meta property="og:updated_time" content="2017-10-05T16:09:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu界面美化">
+<meta name="twitter:description" content="导语 最近重新把老旧的台式机拿来耍，重新安装了Ubuntu16.04,但感觉自带的桌面效果不是很好，于是就查找网上的优化博客按套路来整合，这里记录下自己的实现过程。 先看下效果">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/06/ubuntu-beauty/"/>
+
+
+
+
+
+  <title>Ubuntu界面美化 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/06/ubuntu-beauty/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu界面美化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T22:00:40+08:00">
+                2017-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
+<p>最近重新把老旧的台式机拿来耍，重新安装了Ubuntu16.04,但感觉自带的桌面效果不是很好，于是就查找网上的优化博客按套路来整合，这里记录下自己的实现过程。</p>
+<p>先看下效果</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png" alt="desktop"></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-5.png" alt="workspace"></p>
+</blockquote>
+<h2 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h2><blockquote>
+<p>主要对系统默认的设置进行一些配置优化,我推荐系统语言为英语，但是可以安装中文输入法。</p>
+<h3 id="一、选择软件源"><a href="#一、选择软件源" class="headerlink" title="一、选择软件源"></a>一、选择软件源</h3><blockquote>
+<p><strong>System Setting(系统设置)–&gt;Software &amp; Updates(软件更新)–&gt;Ubuntu Software(ubuntu软件)–&gt;Download from(下载源)</strong></p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-06.jpg" alt="源设置"></p>
+<ul>
+<li><em>上图的3</em>:系统会根据所有服务器的延迟自动选择最快的服务器</li>
+<li><em>上图的4</em>:为中国区的一些服务器，大家可以根据自身喜好选择自己喜欢的服务器镜像</li>
+</ul>
+<p>设置好源后最好进行一次源更新：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update <span class="comment">#更新源</span></div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="二、删除软件"><a href="#二、删除软件" class="headerlink" title="二、删除软件"></a>二、删除软件</h3><blockquote>
+<p>这个根据自身需要选择进行删除，而不要一味地执行这些命令。</p>
+<ul>
+<li><strong>卸载LibreOffice</strong></li>
+</ul>
+<blockquote>
+<p>我建议还是留着，因为即使是国内的wps在Linux上的支持也有很多Bug的，而这套软件则是专门配到Linux的，所以我建议留着。</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove libreoffice-common</div></pre></td></tr></table></figure>
+<p>如果大家没注意删除了该软件，也可以通过Ubuntu的软件中心搜索LibreOffice进行重新下载。</p>
+</blockquote>
+<ul>
+<li><p><strong>删除Amazon</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove unity-webapps-common</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>删除不常用软件(源自网络)</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot </div><div class="line">sudo apt-get remove gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install  </div><div class="line">sudo apt-get remove onboard deja-dup</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>更新源与软件</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update <span class="comment">#更新源</span></div><div class="line">sudo apt-get upgrade <span class="comment">#更新所有软件版本到源版本</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="三、安装中文输入法"><a href="#三、安装中文输入法" class="headerlink" title="三、安装中文输入法"></a>三、安装中文输入法</h3><blockquote>
+<p><strong>System Setting(系统设置) –&gt; Language Support(语言支持) –&gt; Language(语言版块) –&gt; Install/Remove Languages(安装添加语言包) –&gt; Chinese(simplified)[中文(简体中文)] –&gt; Apply(应用)</strong></p>
+<h4 id="添加中文语言包"><a href="#添加中文语言包" class="headerlink" title="添加中文语言包"></a>添加中文语言包</h4><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-07.jpg" alt="添加中文语言包"></p>
+<h4 id="Ibus框架输入法"><a href="#Ibus框架输入法" class="headerlink" title="Ibus框架输入法"></a>Ibus框架输入法</h4><blockquote>
+<ul>
+<li><p>安装ibush框架</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动Ibus框架</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo im-switch -s ibus <span class="comment">#早期版本</span></div><div class="line">sudo im-config -s ibus <span class="comment">#较新版本</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>重启或者注销</p>
+</li>
+<li><p>安装拼音引擎(下面可任选)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ibus-sunpinyin <span class="comment">#sun拼音</span></div><div class="line">sudo apt-get install ibus-pinyin <span class="comment">#简单拼音</span></div><div class="line">sudo apt-get install ibus-googlepinyin <span class="comment">#谷歌拼音</span></div><div class="line">sudo apt-get install ibus-table-wubi <span class="comment">#五笔输入引擎</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>设置ibus框架</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ibus-setup <span class="comment">#调出ibus设置界面</span></div></pre></td></tr></table></figure>
+<p> <img src="http://7xknpe.com1.z0.glb.clouddn.com/ibus-set.jpg" alt="ibus设置界面"></p>
+</li>
+<li><p>配置系统输入法</p>
+<p> <em>System Setting(系统设置) –&gt; Text Entry(输入法)</em></p>
+<p> <img src="http://7xknpe.com1.z0.glb.clouddn.com/text-entry.jpg" alt="Text Entry设置"></p>
+</li>
+</ul>
+</blockquote>
+<h4 id="Fcitx框架输入法"><a href="#Fcitx框架输入法" class="headerlink" title="Fcitx框架输入法"></a>Fcitx框架输入法</h4><blockquote>
+<ul>
+<li><p>安装Fcitx框架 </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install fcitx</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>安装fcitx的配置工具</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install fcitx-config-gtk</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>安装输入法引擎</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install fcitx-sunpinyin <span class="comment">#sun拼音</span></div><div class="line">sudo apt-get install fcitx-pinyin    <span class="comment">#简单拼音</span></div><div class="line">sudo apt-get install fcitx-googlepinyin <span class="comment">#谷歌拼音</span></div><div class="line">sudo apt-get install fcitx-table-wbpy  <span class="comment">#五笔输入</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>设置系统输入法框架</p>
+<p> <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-08.jpg" alt="fcitx框架"></p>
+</li>
+<li><p>重启或者注销</p>
+</li>
+<li><p>配置系统输入法</p>
+<p> <em>System Setting(系统设置) –&gt; Text Entry(输入法)</em></p>
+<p> <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-09.jpg" alt="选择源"><br> <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-10.jpg" alt="添加输入法"></p>
+</li>
+<li><p>添加搜狗输入法</p>
+<p> 下载地址:<a href="http://pinyin.sogou.com/linux/" target="_blank" rel="external">http://pinyin.sogou.com/linux/</a></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -i sogoupinyin_2.1.0.0086_amd64.deb <span class="comment">#后面名称替换为自己</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="系统美化"><a href="#系统美化" class="headerlink" title="系统美化"></a>系统美化</h2><blockquote>
+<p>主要安装主题、字体、图标、软件来进行风格的设置，整体软件的配置也会增加系统的美观性</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png" alt="desktop"></p>
+<blockquote>
+<h3 id="一、主题工具"><a href="#一、主题工具" class="headerlink" title="一、主题工具"></a>一、主题工具</h3><h4 id="unity-tweak-tool"><a href="#unity-tweak-tool" class="headerlink" title="unity-tweak-tool"></a>unity-tweak-tool</h4><blockquote>
+<p>   github地址:<a href="https://github.com/freyja-dev/unity-tweak-tool" target="_blank" rel="external">https://github.com/freyja-dev/unity-tweak-tool</a></p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install unity-tweak-tool</div></pre></td></tr></table></figure>
+<p>   安装后在搜索中搜索unity-tweak-tool,点击打开，界面如下:</p>
+<p>   <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-11.jpg" alt="unity-tweak-tool"></p>
+</blockquote>
+<h4 id="Flatabulous主题安装"><a href="#Flatabulous主题安装" class="headerlink" title="Flatabulous主题安装:"></a>Flatabulous主题安装:</h4><blockquote>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:noobslab/themes</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install flatabulous-theme</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="ultra-flat-icons图标安装"><a href="#ultra-flat-icons图标安装" class="headerlink" title="ultra-flat-icons图标安装:"></a>ultra-flat-icons图标安装:</h4><blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:noobslab/icons</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install ultra-flat-icons</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h4><blockquote>
+<p>打开unity-tweak-tool，选择Appearance(外观)下的Theme(主题):<br>        <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-14.jpg" alt=""><br>主题选择:<br>        <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-12.jpg" alt="Flatabulous主题"><br>图标选择:<br>        <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-13.jpg" alt="ultra-flat"></p>
+</blockquote>
+<h4 id="爱壁纸"><a href="#爱壁纸" class="headerlink" title="爱壁纸"></a>爱壁纸</h4><blockquote>
+<p>官网地址:<a href="http://www.lovebizhi.com/linux.html" target="_blank" rel="external">http://www.lovebizhi.com/linux.html</a></p>
+<p>推荐下载deb版的软件包，因为我们可以安装一个便捷的deb安装管理器–<strong>GDebi安装器</strong><br>大家可以在ubuntu软件中心下载也可以用以下命令安装:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gdebi</div></pre></td></tr></table></figure></p>
+<p>这样在右击deb包的时候，选择<em>Open With–GDebi Package Installer</em>，就可以直接帮你安装deb包的软件了。<br>当然你可以不用此工具，直接用命令安装也可以的:<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -i LoveWallpaper4Linux.deb</div></pre></td></tr></table></figure></p>
+<p>安装好后，在搜索中搜索Love，打开爱壁纸界面:<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-15.jpg" alt="爱壁纸"></p>
+</blockquote>
+</blockquote>
+<h3 id="二、开发工具"><a href="#二、开发工具" class="headerlink" title="二、开发工具"></a>二、开发工具</h3><blockquote>
+<ul>
+<li><p>git工具</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>vim工具</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vim</div></pre></td></tr></table></figure>
+</li>
+<li><p>sublime3</p>
+<p>  安装:<a href="http://www.sublimetext.com/docs/3/linux_repositories.html" target="_blank" rel="external">官方说明</a></p>
+</li>
+<li><p>zsh+oh-my-zsh</p>
+<p>  项目地址:<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh</a><br>  安装zsh</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install zsh</div></pre></td></tr></table></figure>
+<p>  修改系统默认为zsh</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chsh -s /bin/zsh</div></pre></td></tr></table></figure>
+<p>  若提示<code>chsh: PAM: Authentication failure</code>,请看<a href="http://blog.csdn.net/shengzhu1/article/details/54590158" target="_blank" rel="external">这里</a><br>  安装oh-my-zsh</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)</span>"</span></div></pre></td></tr></table></figure>
+<p>  重新登录的默认zsh就交给oh-my-zsh管理了，我们用oh-my-zsh主要是使用其主题，因此我们可以修改配置文件<code>~/.zshrc</code></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim ~/.zshrc</div><div class="line"><span class="comment">#将ZSH_THEME="robbyrussell",修改为如下:</span></div><div class="line">ZSH_THEME=<span class="string">"ys"</span></div></pre></td></tr></table></figure>
+<p>  最终效果：<br>  <img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-3.png" alt="program"></p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><blockquote>
+<h3 id="桌面"><a href="#桌面" class="headerlink" title="桌面"></a>桌面</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-1.png" alt="desktop"></p>
+<h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-2.png" alt="command"></p>
+<h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-3.png" alt="program"></p>
+<h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-4.png" alt="window"></p>
+<h3 id="工作区"><a href="#工作区" class="headerlink" title="工作区"></a>工作区</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/ubuntu-5.png" alt="workspace"></p>
+</blockquote>
+<h2 id="丰富的其他应用"><a href="#丰富的其他应用" class="headerlink" title="丰富的其他应用"></a>丰富的其他应用</h2><blockquote>
+<ol>
+<li><p>网易云音乐</p>
+<p> 下载地址:<a href="http://music.163.com/#/download" target="_blank" rel="external">http://music.163.com/#/download</a></p>
+</li>
+<li><p>WPS文档工具</p>
+<p> 下载地址:<a href="http://community.wps.cn/download/" target="_blank" rel="external">http://community.wps.cn/download/</a></p>
+</li>
+<li><p>Xmind</p>
+<p> 下载地址:<a href="http://www.xmindchina.net/xiazai.html" target="_blank" rel="external">http://www.xmindchina.net/xiazai.html</a></p>
+</li>
+<li><p>搜狗输入法</p>
+<p> 下载地址:<a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="external">http://pinyin.sogou.com/linux/?r=pinyin</a></p>
+</li>
+<li><p>爱壁纸</p>
+<p> 下载地址:<a href="http://www.lovebizhi.com/linux.html" target="_blank" rel="external">http://www.lovebizhi.com/linux.html</a></p>
+</li>
+<li><p>有道词典</p>
+<p> 下载地址:<a href="http://cidian.youdao.com/index-linux.html" target="_blank" rel="external">http://cidian.youdao.com/index-linux.html</a></p>
+</li>
+<li><p>为知笔记</p>
+<p> 下载地址:<a href="http://www.wiz.cn/wiznote-linux.html" target="_blank" rel="external">http://www.wiz.cn/wiznote-linux.html</a></p>
+</li>
+</ol>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://jingyan.baidu.com/article/86f4a73e8f534637d752695e.html" target="_blank" rel="external">Ubuntu16.04下安装中文输入法</a></li>
+<li><a href="http://blog.csdn.net/u013894834/article/details/60357071" target="_blank" rel="external">Ubuntu16.04安装搜狗输入法</a></li>
+<li><a href="http://blog.csdn.net/wangweiqiang1325/article/details/53447123" target="_blank" rel="external">Ubuntu 16.04下的美化配置过程</a></li>
+<li><a href="http://blog.csdn.net/terence1212/article/details/52270210" target="_blank" rel="external">ubuntu16.04主题美化和软件推荐</a></li>
+<li><a href="https://www.zhihu.com/question/19811112?sort=created" target="_blank" rel="external">在Ubuntu上有什么必装的实用软件</a></li>
+<li><a href="http://blog.csdn.net/shengzhu1/article/details/54590158" target="_blank" rel="external"> Ubuntu16.04LTS安装zsh+oh-my-zsh</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/24/spbootapi/" rel="next" title="Spring项目整合">
+                <i class="fa fa-chevron-left"></i> Spring项目整合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设置"><span class="nav-number">2.</span> <span class="nav-text">系统设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、选择软件源"><span class="nav-number">2.1.</span> <span class="nav-text">一、选择软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、删除软件"><span class="nav-number">2.2.</span> <span class="nav-text">二、删除软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装中文输入法"><span class="nav-number">2.3.</span> <span class="nav-text">三、安装中文输入法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加中文语言包"><span class="nav-number">2.3.1.</span> <span class="nav-text">添加中文语言包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ibus框架输入法"><span class="nav-number">2.3.2.</span> <span class="nav-text">Ibus框架输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fcitx框架输入法"><span class="nav-number">2.3.3.</span> <span class="nav-text">Fcitx框架输入法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统美化"><span class="nav-number">3.</span> <span class="nav-text">系统美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、主题工具"><span class="nav-number">3.1.</span> <span class="nav-text">一、主题工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unity-tweak-tool"><span class="nav-number">3.1.1.</span> <span class="nav-text">unity-tweak-tool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flatabulous主题安装"><span class="nav-number">3.1.2.</span> <span class="nav-text">Flatabulous主题安装:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ultra-flat-icons图标安装"><span class="nav-number">3.1.3.</span> <span class="nav-text">ultra-flat-icons图标安装:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用主题"><span class="nav-number">3.1.4.</span> <span class="nav-text">应用主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#爱壁纸"><span class="nav-number">3.1.5.</span> <span class="nav-text">爱壁纸</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、开发工具"><span class="nav-number">3.2.</span> <span class="nav-text">二、开发工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-number">4.</span> <span class="nav-text">效果展示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#桌面"><span class="nav-number">4.1.</span> <span class="nav-text">桌面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#界面"><span class="nav-number">4.2.</span> <span class="nav-text">界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序"><span class="nav-number">4.3.</span> <span class="nav-text">程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口"><span class="nav-number">4.4.</span> <span class="nav-text">窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区"><span class="nav-number">4.5.</span> <span class="nav-text">工作区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#丰富的其他应用"><span class="nav-number">5.</span> <span class="nav-text">丰富的其他应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

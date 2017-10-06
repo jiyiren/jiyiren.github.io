@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语： 上篇C语言实现各排序算法的完成，使得自己对排序有了一定的了解，最近看到一个iOS图形化排序过程，因此今天就完成Android端的图形化排序过程。  前言  排序算法实现很简单，其重点是要实现安卓View跟随排序的动态变化。 由于计算机执行排序算法的高效性，对一定数量的数组排序都是毫秒级的，因此我们要考虑放大排序时间，给可视化界面完整的动态过程。   一、总体功能界面 界面">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android图形化排序算法">
+<meta property="og:url" content="http://yoursite.com/2016/11/24/android_sort/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语： 上篇C语言实现各排序算法的完成，使得自己对排序有了一定的了解，最近看到一个iOS图形化排序过程，因此今天就完成Android端的图形化排序过程。  前言  排序算法实现很简单，其重点是要实现安卓View跟随排序的动态变化。 由于计算机执行排序算法的高效性，对一定数量的数组排序都是毫秒级的，因此我们要考虑放大排序时间，给可视化界面完整的动态过程。   一、总体功能界面 界面">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortwelcome.gif">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortfast.gif">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortheap.gif">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortmerge.gif">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortinsert.gif">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortbubble.gif">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortselect.gif">
+<meta property="og:updated_time" content="2017-10-06T03:53:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android图形化排序算法">
+<meta name="twitter:description" content="导语： 上篇C语言实现各排序算法的完成，使得自己对排序有了一定的了解，最近看到一个iOS图形化排序过程，因此今天就完成Android端的图形化排序过程。  前言  排序算法实现很简单，其重点是要实现安卓View跟随排序的动态变化。 由于计算机执行排序算法的高效性，对一定数量的数组排序都是毫秒级的，因此我们要考虑放大排序时间，给可视化界面完整的动态过程。   一、总体功能界面 界面">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortwelcome.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/24/android_sort/"/>
+
+
+
+
+
+  <title>Android图形化排序算法 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/android_sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android图形化排序算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-24T20:40:40+08:00">
+                2016-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
+<p>上篇C语言实现各排序算法的完成，使得自己对排序有了一定的了解，最近看到一个iOS图形化排序过程，因此今天就完成Android端的图形化排序过程。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<ul>
+<li>排序算法实现很简单，其重点是要实现安卓View跟随排序的动态变化。</li>
+<li>由于计算机执行排序算法的高效性，对一定数量的数组排序都是毫秒级的，因此我们要考虑放大排序时间，给可视化界面完整的动态过程。</li>
+</ul>
+</blockquote>
+<h2 id="一、总体功能界面"><a href="#一、总体功能界面" class="headerlink" title="一、总体功能界面"></a>一、总体功能界面</h2><blockquote>
+<h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortwelcome.gif" alt="maingif"></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>六种排序算法完成</li>
+<li>可视动态化界面实现</li>
+<li>时间计时器 </li>
+<li>算法时间复杂度说明</li>
+</ul>
+<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><ol>
+<li>Android图形化排序地址：<a href="https://github.com/jiyiren/JYSort" target="_blank" rel="external">https://github.com/jiyiren/JYSort</a></li>
+<li>C实现排序项目地址：<a href="https://github.com/jiyiren/CSort" target="_blank" rel="external">https://github.com/jiyiren/CSort</a></li>
+</ol>
+</blockquote>
+<h2 id="二、实现重点"><a href="#二、实现重点" class="headerlink" title="二、实现重点"></a>二、实现重点</h2><blockquote>
+<h3 id="数据与界面的初始化"><a href="#数据与界面的初始化" class="headerlink" title="数据与界面的初始化"></a>数据与界面的初始化</h3><blockquote>
+<ol>
+<li>数据是随机生成100个数组成一个数组，当然这个长度我们定义成全局变量，可以自行修改。</li>
+<li>界面的初始化由上到下分别为Toolbar菜单栏、主体排序可视窗口、时间复杂度等。</li>
+<li>重点在于中间主体排序可视窗口的绘制：因为可视的View就是要表示数组中各个数据的大小，因而我们就将每个柱状View的高度用于表示数组中各个数据的大小，但是由于手机界面有限，如果有的数据过大那么绘制将超出屏幕。因此我们采取将3/5个屏幕像素与数组中最大值的<strong>比值</strong>作为每个数转为高度的一个因素，也就是说数组中数据不管多大，其高度最高最大为3/5个屏幕大小。而其宽度则是根据数组长度由屏幕宽度计算得出，具体如下：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化界面的柱状图</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(ll_root==<span class="keyword">null</span>)&#123;</div><div class="line">        ll_root= (LinearLayout) findViewById(R.id.ll_root);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(ll_sortpart==<span class="keyword">null</span>) &#123;</div><div class="line">        ll_sortpart = (LinearLayout) ll_root.findViewById(R.id.ll_sortpart);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(mViews.size()&lt;=<span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mArray.length; i++) &#123;</div><div class="line">            View view = <span class="keyword">new</span> View(<span class="keyword">this</span>);</div><div class="line">            ll_sortpart.addView(view);</div><div class="line">            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();</div><div class="line">            columnWidth = (screenWidth - DensityUtil.dp2px(<span class="keyword">this</span>, paddingLR * <span class="number">2</span>)) / mArray.length</div><div class="line">                        -DensityUtil.dp2px(<span class="keyword">this</span>, intervalColumn);</div><div class="line">            layoutParams.setMargins(DensityUtil.dp2px(<span class="keyword">this</span>, intervalColumn), <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">            layoutParams.height = (<span class="keyword">int</span>) (mArray[i] * pixPerNum());</div><div class="line">            layoutParams.width = columnWidth;</div><div class="line">            view.setLayoutParams(layoutParams);</div><div class="line">            view.setBackgroundColor(ContextCompat.getColor(<span class="keyword">this</span>, R.color.colorPrimaryDark));</div><div class="line">            mViews.add(view);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;    </div><div class="line"><span class="comment">//获得在高度上，单位数字所代表的像素，由于屏幕高度是像素，而我们的排序为int数字，要想形象化绘制成柱状图</span></div><div class="line"><span class="comment">//就要计算出单位数字的像素，然后通过数组中的数字相乘即可得到柱状view的高度了</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">pixPerNum</span><span class="params">()</span></span>&#123;</div><div class="line">    columnPixPerNum=(<span class="keyword">double</span>) screenHeight*<span class="number">0.6</span>/(Max(mArray));</div><div class="line">    <span class="keyword">return</span> columnPixPerNum;</div><div class="line">&#125;</div><div class="line"><span class="comment">//获得数组中最大数字，仅仅用于@pixPerNum方法中</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">Max</span><span class="params">(<span class="keyword">int</span> array[])</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> max=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(max&lt;array[i])&#123;</div><div class="line">            max=array[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="排序同时界面更新"><a href="#排序同时界面更新" class="headerlink" title="排序同时界面更新"></a>排序同时界面更新</h3><blockquote>
+<ol>
+<li>界面的中每个柱状View与数组一一对应，这样我们只需要记住排序数组的下标就可以同步View数组了。</li>
+<li>排序是耗时操作，我们需要开启线程进行排序，因此需要用到消息传递来通知界面的变化，这里主要使用<strong>Handler</strong>来进行处理线程消息。</li>
+<li>整个流程为：在开启排序时，算法中的数组在进行数据交换时，我们会记录此时交换数据的两个下标，同时将这些数据包装成消息发送给<strong>Handler</strong>,<strong>Handler</strong>将界面柱状View数组中两个相同下标的View高度互换，达到界面显示与排序一致的效果。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 排序线程类</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SortThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (currentSortKind)&#123;</div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:<span class="comment">//快速</span></div><div class="line">                quicksort(mArray,<span class="number">0</span>,mArray.length-<span class="number">1</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:<span class="comment">//堆</span></div><div class="line">                HeadSort(mArray,mArray.length);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:<span class="comment">//归并</span></div><div class="line">                <span class="keyword">int</span>[] mtemp=<span class="keyword">new</span> <span class="keyword">int</span>[SIEZ_ARRAY];</div><div class="line">                MergeSort(mArray,mtemp,<span class="number">0</span>,mArray.length-<span class="number">1</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入</span></div><div class="line">                insertsort(mArray,<span class="number">0</span>,mArray.length-<span class="number">1</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">//冒泡</span></div><div class="line">                bubblesort(mArray,<span class="number">0</span>,mArray.length-<span class="number">1</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">//选择</span></div><div class="line">                selectsort(mArray,<span class="number">0</span>,mArray.length-<span class="number">1</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        handler.sendEmptyMessage(WHAT_SORT_FINISH);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 选择排序</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> array</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> startIndex</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> endIndex</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> array[],<span class="keyword">int</span> startIndex,<span class="keyword">int</span> endIndex)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i,j,minIndex;</div><div class="line">    <span class="keyword">for</span>(i=startIndex;i&lt;endIndex;i++)&#123;</div><div class="line">        minIndex=i;</div><div class="line">        <span class="comment">//选出最小下标，放在最前面</span></div><div class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=endIndex;j++)&#123;</div><div class="line">            <span class="keyword">if</span>(array[minIndex]&gt;array[j])&#123;</div><div class="line">                minIndex=j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(minIndex!=i)&#123;</div><div class="line">            <span class="keyword">int</span> temp=array[i];</div><div class="line">            array[i]=array[minIndex];</div><div class="line">            array[minIndex]=temp;</div><div class="line">            <span class="comment">//此处发送消息通知Handler更新View层变化</span></div><div class="line">            sleepAndSendMessage(i,minIndex);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//交换两个View的高度，这是Handler处理界面变化的方法</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swapColumHeight</span><span class="params">(View viewone,View viewtwo)</span></span>&#123;</div><div class="line">    LinearLayout.LayoutParams paramsone= (LinearLayout.LayoutParams) viewone.getLayoutParams();</div><div class="line">    LinearLayout.LayoutParams paramstwo= (LinearLayout.LayoutParams) viewtwo.getLayoutParams();</div><div class="line">    <span class="keyword">int</span> temp=paramsone.height;</div><div class="line">    paramsone.height=paramstwo.height;</div><div class="line">    paramstwo.height=temp;</div><div class="line">    viewone.setLayoutParams(paramsone);</div><div class="line">    viewtwo.setLayoutParams(paramstwo);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="排序延迟操作"><a href="#排序延迟操作" class="headerlink" title="排序延迟操作"></a>排序延迟操作</h3><blockquote>
+<ul>
+<li>由于排序算法只有在对数以万计的数据时才会有可见的时间长度，因而我们如果像正常一样设置排序和界面更新时，每个排序算法都几乎在毫秒级别完成，并且界面变化几乎不可见。</li>
+<li>因此，我们需要让排序算法尽可能地延长一定时间，达到界面的变化可视化级别。</li>
+<li>我们在数组交换数据时发送消息给<strong>Handler</strong>处进行了一定的时间延迟，当然不会过长，此处设置了10ms。(也同时因为这样的设置，界面显示的耗时操作实际上并非算法真正的排序时间，而应该减去延迟时间乘以延迟操作的次数。)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//交换的信号</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sleepAndSendMessage</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    	 <span class="comment">//此处延迟10ms</span></div><div class="line">        Thread.sleep(<span class="number">10</span>);</div><div class="line">        Message message=<span class="keyword">new</span> Message();</div><div class="line">        message.what=WHAT_SORT_SWAP_VIEW;</div><div class="line">        message.arg1=i;</div><div class="line">        message.arg2=j;</div><div class="line">        handler.sendMessage(message);</div><div class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="三、动画演示"><a href="#三、动画演示" class="headerlink" title="三、动画演示"></a>三、动画演示</h2><blockquote>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortfast.gif" alt="fast"></p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortheap.gif" alt="heap"></p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortmerge.gif" alt="merge"></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortinsert.gif" alt="insert"></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortbubble.gif" alt="bubble"></p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortselect.gif" alt="select"></p>
+</blockquote>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><blockquote>
+<h3 id="项目-1"><a href="#项目-1" class="headerlink" title="项目"></a>项目</h3><ol>
+<li>Android图形化排序地址：<a href="https://github.com/jiyiren/JYSort" target="_blank" rel="external">https://github.com/jiyiren/JYSort</a></li>
+<li>C实现排序项目地址：<a href="https://github.com/jiyiren/CSort" target="_blank" rel="external">https://github.com/jiyiren/CSort</a></li>
+</ol>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.cnblogs.com/jingmoxukong/p/4308823.html" target="_blank" rel="external">http://www.cnblogs.com/jingmoxukong/p/4308823.html</a></li>
+<li><a href="http://blog.csdn.net/morewindows/article/details/6684558" target="_blank" rel="external">http://blog.csdn.net/morewindows/article/details/6684558</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/24/csort/" rel="next" title="C语言实现各排序算法">
+                <i class="fa fa-chevron-left"></i> C语言实现各排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/24/lamp/" rel="prev" title="LAMP以及Tomcat服务器环境搭建">
+                LAMP以及Tomcat服务器环境搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语："><span class="nav-number">1.</span> <span class="nav-text">导语：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、总体功能界面"><span class="nav-number">3.</span> <span class="nav-text">一、总体功能界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#界面"><span class="nav-number">3.1.</span> <span class="nav-text">界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">3.2.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目"><span class="nav-number">3.3.</span> <span class="nav-text">项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、实现重点"><span class="nav-number">4.</span> <span class="nav-text">二、实现重点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据与界面的初始化"><span class="nav-number">4.1.</span> <span class="nav-text">数据与界面的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序同时界面更新"><span class="nav-number">4.2.</span> <span class="nav-text">排序同时界面更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序延迟操作"><span class="nav-number">4.3.</span> <span class="nav-text">排序延迟操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、动画演示"><span class="nav-number">5.</span> <span class="nav-text">三、动画演示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">5.1.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序"><span class="nav-number">5.2.</span> <span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">5.3.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">5.4.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">5.5.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">5.6.</span> <span class="nav-text">选择排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">6.</span> <span class="nav-text">四、总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目-1"><span class="nav-number">6.1.</span> <span class="nav-text">项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

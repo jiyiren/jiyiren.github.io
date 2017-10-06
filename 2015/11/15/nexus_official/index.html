@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,刷机," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导语 Ubuntu 14.04环境、官方SDK、刷官方镜像  一、官方镜像 1、官方镜像地址 下载地址：https://developers.google.com/android/nexus/images(代理访问，下载时可以将链接复制到百度云离线下载，就不需要代理了) 里面列出了谷歌旗下的所有设备的镜像下载链接。 我的设备是Nexus 7 2012版wifi版本的。所以选择“nakasi” fo">
+<meta name="keywords" content="android,刷机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nexus7刷谷歌官方系统教程">
+<meta property="og:url" content="http://yoursite.com/2015/11/15/nexus_official/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语 Ubuntu 14.04环境、官方SDK、刷官方镜像  一、官方镜像 1、官方镜像地址 下载地址：https://developers.google.com/android/nexus/images(代理访问，下载时可以将链接复制到百度云离线下载，就不需要代理了) 里面列出了谷歌旗下的所有设备的镜像下载链接。 我的设备是Nexus 7 2012版wifi版本的。所以选择“nakasi” fo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_down.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_50.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus_jieyahou.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus_sdk.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus_sdk_jieya.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_bootloader.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_jieyajingxiang.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_5.0finish.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus733333.png">
+<meta property="og:updated_time" content="2017-10-06T06:38:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nexus7刷谷歌官方系统教程">
+<meta name="twitter:description" content="导语 Ubuntu 14.04环境、官方SDK、刷官方镜像  一、官方镜像 1、官方镜像地址 下载地址：https://developers.google.com/android/nexus/images(代理访问，下载时可以将链接复制到百度云离线下载，就不需要代理了) 里面列出了谷歌旗下的所有设备的镜像下载链接。 我的设备是Nexus 7 2012版wifi版本的。所以选择“nakasi” fo">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_down.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/11/15/nexus_official/"/>
+
+
+
+
+
+  <title>Nexus7刷谷歌官方系统教程 | jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/15/nexus_official/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Nexus7刷谷歌官方系统教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-15T20:16:40+08:00">
+                2015-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
+<p>Ubuntu 14.04环境、<br>官方SDK、<br>刷官方镜像</p>
+</blockquote>
+<h2 id="一、官方镜像"><a href="#一、官方镜像" class="headerlink" title="一、官方镜像"></a>一、官方镜像</h2><blockquote>
+<h3 id="1、官方镜像地址"><a href="#1、官方镜像地址" class="headerlink" title="1、官方镜像地址"></a>1、官方镜像地址</h3><blockquote>
+<p>下载地址：<a href="https://developers.google.com/android/nexus/images" target="_blank" rel="external">https://developers.google.com/android/nexus/images</a>(代理访问，下载时可以将链接复制到百度云离线下载，就不需要代理了)</p>
+<p>里面列出了谷歌旗下的所有设备的镜像下载链接。</p>
+<p>我的设备是<strong>Nexus 7 2012版wifi版本</strong>的。所以选择<strong>“nakasi” for Nexus 7 (Wi-Fi)</strong>栏目里的任意一个Android版本下载。</p>
+<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_down.png" alt=""></p>
+</blockquote>
+</blockquote>
+<p><strong>注：</strong>Nexus7分为两代，一代为2012年出的，一代为2013年出的；每一代都有两个版本，一个是wifi版本，一个是mobile版本。大家注意选择。<br><a id="more"></a></p>
+<h3 id="2、下载后的文件"><a href="#2、下载后的文件" class="headerlink" title="2、下载后的文件"></a>2、下载后的文件</h3><blockquote>
+<ul>
+<li>我下载Android 5.0的版本后的文件为：<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_50.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>[注：名称是有规律的，<strong>nakasi</strong>为你设备的谷歌代号名，<strong>lrx21p</strong>为版本名]</p>
+<blockquote>
+<ul>
+<li>解压该文件后内容为<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus_jieyahou.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="3、环境设置"><a href="#3、环境设置" class="headerlink" title="3、环境设置"></a>3、环境设置</h3><blockquote>
+<ul>
+<li>下载Android SDK并加入环境变量。</li>
+</ul>
+<blockquote>
+<p>地址：<a href="http://tools.android-studio.org/index.php/sdk" target="_blank" rel="external">http://tools.android-studio.org/index.php/sdk</a>(国内可访问，用百度云下载)<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus_sdk.png" alt=""><br>我是Linux所以下载Linux的。下载后解压到<strong>home/Android/sdk</strong>目录下,如图<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus_sdk_jieya.png" alt=""><br>我们要加入环境变量的是platform-tools目录。</p>
+</blockquote>
+<ul>
+<li>打开终端输入</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit ~/.bashrc</div></pre></td></tr></table></figure>
+<p>加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ANDROID_SDK_TOOL=~/Android/sdk</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;ANDROID_SDK_TOOL&#125;</span>/platform-tools:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>然后重新打开终端</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb version</div></pre></td></tr></table></figure>
+<p>出现版本号就说明环境搭建成功了。</p>
+</blockquote>
+</blockquote>
+<h3 id="4、刷机"><a href="#4、刷机" class="headerlink" title="4、刷机"></a>4、刷机</h3><blockquote>
+<ul>
+<li>将设备用usb连接到电脑，然后在终端输入以下命令让设备进入bootloader模式</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb reboot bootloader</div></pre></td></tr></table></figure>
+<p>(或者按住按住设备的电源键和音量减键，两个要一起按住不放，知道重启到bootloader界面)<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_bootloader.png" alt=""></p>
+</blockquote>
+<ul>
+<li>最下面的红字为<strong>LOCK STATE - UNLOCKED</strong>，就说明bootloader解锁了，但是通常的设备在出厂之前都是未解锁；但是不管解锁没解锁都可以用下面的命令：</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastboot oem unlock</div></pre></td></tr></table></figure>
+<p>我建议大家都应该输入该命令。</p>
+</blockquote>
+<ul>
+<li>然后切换到之前下载镜像解压后的目录：</li>
+</ul>
+<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_jieyajingxiang.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Downloads/nexus7/google/nakasi-5.0/nakasi-lrx21p</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>执行刷机命令(执行的是flash-all.sh后缀是.sh不要执行成bat了)</li>
+</ul>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./flash-all.sh</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>然后就是静静的等待了。</li>
+</ul>
+</blockquote>
+<h3 id="5、进入系统前验证"><a href="#5、进入系统前验证" class="headerlink" title="5、进入系统前验证"></a>5、进入系统前验证</h3><blockquote>
+<p>这个是刷谷歌官方镜像的最大缺点，因为谷歌在国内被墙了，所以通常的wifi都不能连接谷歌的。但是Cyanogenmod系统就不强制连接wifi的，所以如果有同学在这里实在是找不到代理连接到谷歌的就看我的Cyanogenmod的刷机教程吧。但是还是要讲下怎么连接吧：</p>
+<ul>
+<li><strong>连接无线网</strong></li>
+</ul>
+<blockquote>
+<p>这里的连接无线网络的时候是个大问题，很多人在这里都无法连上网络，这是因为我们的网络都不能访问谷歌的，但是谷歌又强制连接，所以显示一直连接中。</p>
+</blockquote>
+<ul>
+<li><strong>解决方法</strong></li>
+</ul>
+<blockquote>
+<p>要有一个可以联网的无线网(这个网络无须翻墙，如果可以翻墙则可以跳过以下了，不可以则继续看)，然后点击无线网信号，输入密码，勾选<strong>高级选项</strong>,在高级选项的代理ip和代理端口号里输入可以连接谷歌的代理ip和端口。</p>
+<p>我当时的代理ip:<strong>183.111.169.204</strong></p>
+<p>代理端口：<strong>3128</strong></p>
+<p>可能之后就不能用了，我给大家一个网址这个上面提供最新的国外代理<br><a href="http://www.xicidaili.com/wn/" target="_blank" rel="external">http://www.xicidaili.com/wn/</a><br>另外如果这个网址也不提供了，我建议大家用谷歌搜索“国外代理”，应该会有一些网站提供的。</p>
+</blockquote>
+</blockquote>
+<p><em>ps:你如果用百度搜，前面10左右都是广告,😶</em></p>
+<h3 id="6、进入系统"><a href="#6、进入系统" class="headerlink" title="6、进入系统"></a>6、进入系统</h3><blockquote>
+<ul>
+<li>下拉菜单</li>
+</ul>
+<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus7nexus7_5.0finish.png" alt=""></p>
+</blockquote>
+<ul>
+<li>任务管理器</li>
+</ul>
+<blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/nexus733333.png" alt=""></p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/刷机/" rel="tag"># 刷机</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/25/Gitstudy/" rel="next" title="Git学习笔记">
+                <i class="fa fa-chevron-left"></i> Git学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/14/wordpress_setupweb/" rel="prev" title="WordPress搭建网站教程">
+                WordPress搭建网站教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4OC81MjU5"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、官方镜像"><span class="nav-number">2.</span> <span class="nav-text">一、官方镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、官方镜像地址"><span class="nav-number">2.1.</span> <span class="nav-text">1、官方镜像地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、下载后的文件"><span class="nav-number">2.2.</span> <span class="nav-text">2、下载后的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、环境设置"><span class="nav-number">2.3.</span> <span class="nav-text">3、环境设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、刷机"><span class="nav-number">2.4.</span> <span class="nav-text">4、刷机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、进入系统前验证"><span class="nav-number">2.5.</span> <span class="nav-text">5、进入系统前验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、进入系统"><span class="nav-number">2.6.</span> <span class="nav-text">6、进入系统</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
