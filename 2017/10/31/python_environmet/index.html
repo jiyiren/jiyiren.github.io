@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg">
-<meta property="og:updated_time" content="2017-11-01T02:24:49.000Z">
+<meta property="og:updated_time" content="2017-11-01T02:31:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS下多Python版本说明">
 <meta name="twitter:description" content="导语 应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。  说明 我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几">
@@ -403,6 +403,8 @@
 <li><p>python现在分为两个版本<em>2.X版本</em>和<em>3.X版本</em>，两代版本并不能够完全兼容，因此两个版本的模块包也会分开安装的，因此完全把握两种版本环境是很有必要的。</p>
 </li>
 <li><p><em>python2.X版本</em>：</p>
+</li>
+</ul>
 <blockquote>
 <ul>
 <li>此版本对应旧版本，其默认执行命令是<code>python</code>,因此我们在终端输入<code>python --version</code>通常会显示2.X的版本字样。</li>
@@ -410,8 +412,9 @@
 <li>上图显示 <strong>/usr/bin/python</strong> 文件非软链接文件，由于我们自己安装的python通常是用软链接的方式链接到安装目录，因此这里的 <strong>python</strong> 应该属于本机自带的python,其安装位置即为 <strong>/usr/bin/python</strong> 。</li>
 </ul>
 </blockquote>
-</li>
-<li><p><em>python3.X版本</em>：</p>
+<ul>
+<li><em>python3.X版本</em>：</li>
+</ul>
 <blockquote>
 <ul>
 <li>此版本对应新版本，其默认执行命令是<code>python3</code>,不是完全兼容旧版本的,但是代表了python的发展方向，新人的话建议直接学习此版本。</li>
@@ -420,8 +423,6 @@
 <li>实际上系统自带的命令通常安装在 <strong>/usr/bin/</strong> 目录下，而用户自己安装的命令通常在 <strong>/usr/local/bin/</strong> 目录下,这通常是因为普通安装命令都是有在 <strong>/usr/local/bin/</strong> 下写的权限的。</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <h3 id="pip命令识别"><a href="#pip命令识别" class="headerlink" title="pip命令识别"></a>pip命令识别</h3><ul>
 <li><p>python版本的不同导致python下的包管理工具pip命令也不同，因此使得<code>pip</code>命令也产生很多的<em>pipX</em>命令。通常而言，对于python2x版本其对应的pip命令为<em>pip</em>,而对于python3.X版本其对应的pip命令为<em>pip3</em>。此外，还有一种可同时执行不同版本python的pip方式：<em>python -m pip install xxx</em>或者<em>python3 -m pip install xxx</em>，这就不需要用不同的命令了，但是前提还是需要摸清自己本机的环境。</p>
 </li>
@@ -448,7 +449,7 @@
 <ul>
 <li><p>通过<code>which pip3</code>查看pip路径，然后用<code>ll</code>查看文件属性如下图，然而,<em>pip3</em>并没有此命令，但我们从之前的查看命令可知存在<em>pip3.5</em>命令</p>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; &gt; ll /usr/<span class="built_in">local</span>/bin | grep pip</div><div class="line">&gt; &gt; &gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /usr/<span class="built_in">local</span>/bin | grep pip</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>再次执行<code>which pip3.5</code>，情况如下：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset7.jpg" alt=""></p>
@@ -464,12 +465,12 @@
 </li>
 <li><p><em>python2.X版本的模块位置</em>:</p>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; pip install numpy</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install numpy</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><em>python3.X版本的模块位置</em></p>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; python3 -m pip install numpy</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 -m pip install numpy</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
@@ -490,7 +491,7 @@
 </ul>
 <blockquote>
 <ul>
-<li>执行路径: <strong>/usr/local/bin/python3 -&gt; /Library/Frameworks/Python.framework/Versions/3.5/bin/python3</strong></li>
+<li>执行路径: <strong>/Library/Frameworks/Python.framework/Versions/3.5/bin/python3</strong></li>
 <li>pip路径: <strong>/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pip-9.0.1-py3.5.egg</strong></li>
 <li>模块位置: <strong>/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages</strong></li>
 </ul>
@@ -502,7 +503,7 @@
 <ul>
 <li><em>通过pkg安装包</em>: python官网<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a>,下载后文件为<strong>python-3.6.3-macosx10.6.pkg</strong>形式的文件，这种文件可直接双击安装，其安装的位置通常在 <strong>/Library/Frameworks</strong>下。</li>
 <li><em>通过homebrew</em>: homebrew官网<a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a>,其安装方式为:<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; &gt; brew install python <span class="comment"># 安装python2.X</span></div><div class="line">&gt; &gt; &gt; brew install python3 <span class="comment"># 安装python3.X</span></div><div class="line">&gt; &gt; &gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install python <span class="comment"># 安装python2.X</span></div><div class="line">brew install python3 <span class="comment"># 安装python3.X</span></div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
