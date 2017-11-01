@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg">
-<meta property="og:updated_time" content="2017-11-01T02:34:10.000Z">
+<meta property="og:updated_time" content="2017-11-01T02:36:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS下多Python版本说明">
 <meta name="twitter:description" content="导语 应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。  说明 我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几">
@@ -502,14 +502,15 @@
 <blockquote>
 <ul>
 <li><em>通过pkg安装包</em>: python官网<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a>,下载后文件为<strong>python-3.6.3-macosx10.6.pkg</strong>形式的文件，这种文件可直接双击安装，其安装的位置通常在 <strong>/Library/Frameworks</strong>下。</li>
-<li><em>通过homebrew</em>: homebrew官网<a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a>,其安装方式为:<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install python <span class="comment"># 安装python2.X</span></div><div class="line">brew install python3 <span class="comment"># 安装python3.X</span></div></pre></td></tr></table></figure>
-</blockquote>
-</li>
+<li><em>通过homebrew</em>: homebrew官网<a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a>,</li>
 </ul>
 <blockquote>
 <ul>
-<li>这种方式安装是先将包下载在 <strong>/usr/local/Cellar</strong>目录下，然后自动在 <strong>/usr/local/bin/</strong>下新建一个执行链接到 <strong>/usr/local/Cellar</strong>,如：我们安装一个wget工具：<code>brew install wget</code>，然后我们可以查看<em>wget</em>的原路径：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg" alt=""></li>
+<li><p>其安装方式为:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install python <span class="comment"># 安装python2.X</span></div><div class="line">brew install python3 <span class="comment"># 安装python3.X</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>这种方式安装是先将包下载在 <strong>/usr/local/Cellar</strong>目录下，然后自动在 <strong>/usr/local/bin/</strong>下新建一个执行链接到 <strong>/usr/local/Cellar</strong>,如：我们安装一个wget工具：<code>brew install wget</code>，然后我们可以查看<em>wget</em>的原路径：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg" alt=""></p>
+</li>
 <li>对于安装用brew安装python3，其也会自动下载对应的pip3的，并且都会将其放置在<strong>/usr/local/bin/目录下</strong>，以软链接的形式链接到<strong>/usr/local/Cellar下的对应文件</strong></li>
 </ul>
 </blockquote>
