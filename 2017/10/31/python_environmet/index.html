@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg">
-<meta property="og:updated_time" content="2017-11-01T02:31:08.000Z">
+<meta property="og:updated_time" content="2017-11-01T02:34:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS下多Python版本说明">
 <meta name="twitter:description" content="导语 应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。  说明 我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几">
@@ -434,7 +434,7 @@
 <li>通过<code>which pip</code>查看pip路径，然后用<code>ll</code>查看文件属性,该文件为非链接文件，其与上面的python相对应<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset3.jpg" alt=""></li>
 <li><p>我们也可以通过命令来查看pip目录中有哪些pip:</p>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; &gt; ll /usr/<span class="built_in">local</span>/bin | grep pip</div><div class="line">&gt; &gt; &gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /usr/<span class="built_in">local</span>/bin | grep pip</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>结果：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset4.jpg" alt=""></p>
@@ -508,7 +508,10 @@
 </li>
 </ul>
 <blockquote>
-<p>这种方式安装是先将包下载在 <strong>/usr/local/Cellar</strong>目录下，然后自动在 <strong>/usr/local/bin/</strong>下新建一个执行链接到 <strong>/usr/local/Cellar</strong>,如：我们安装一个wget工具：<code>brew install wget</code>，然后我们可以查看<em>wget</em>的原路径：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg" alt=""><br>对于安装用brew安装python3，其也会自动下载对应的pip3的，并且都会将其放置在<strong>/usr/local/bin/目录下</strong>，以软链接的形式链接到<strong>/usr/local/Cellar下的对应文件</strong></p>
+<ul>
+<li>这种方式安装是先将包下载在 <strong>/usr/local/Cellar</strong>目录下，然后自动在 <strong>/usr/local/bin/</strong>下新建一个执行链接到 <strong>/usr/local/Cellar</strong>,如：我们安装一个wget工具：<code>brew install wget</code>，然后我们可以查看<em>wget</em>的原路径：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg" alt=""></li>
+<li>对于安装用brew安装python3，其也会自动下载对应的pip3的，并且都会将其放置在<strong>/usr/local/bin/目录下</strong>，以软链接的形式链接到<strong>/usr/local/Cellar下的对应文件</strong></li>
+</ul>
 </blockquote>
 <ul>
 <li><em>通过源码包</em>：这会自动放置在 <strong>/usr/local/bin</strong> 目录下，且不会用软链接。</li>
