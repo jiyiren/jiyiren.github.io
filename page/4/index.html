@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, jiyiren, blog, ubuntu, programmer" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="go my own way">
+<meta property="og:type" content="website">
+<meta property="og:title" content="jiyiren">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="go my own way">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jiyiren">
+<meta name="twitter:description" content="go my own way">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/4/"/>
+
+
+
+
+
+  <title>jiyiren</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blogs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/24/movies/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/06/24/movies/" itemprop="url">公众号filmclips完整影片</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-24T20:16:40+08:00">
+                2015-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Movies/" itemprop="url" rel="index">
+                    <span itemprop="name">Movies</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
+<p>公众号完整影片查看方法–根据影片名称在本文内查找。</p>
+</blockquote>
+<h2 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h2><div align="center"><br><img src="http://7xknpe.com1.z0.glb.clouddn.com/filmclipswei_pic.jpg" width="250" height="125" align="center"><br></div>
+
+<p><strong>公众号名称：影视再现</strong></p>
+<p><strong>公众号的微信号：filmclips</strong></p>
+<p><strong>公众号简介：经典电影再现，最新电影资讯，电影背后的故事！一定有你想要的！</strong></p>
+<h2 id="历史影片"><a href="#历史影片" class="headerlink" title="历史影片"></a>历史影片</h2><blockquote>
+<p>可以根据电影名称查找电影片段的完整影像。</p>
+</blockquote>
+<h3 id="《赛末点》"><a href="#《赛末点》" class="headerlink" title="《赛末点》"></a>《赛末点》</h3><ul>
+<li>在线地址：<a href="http://www.bilibili.com/video/av1744004/" target="_blank" rel="external">http://www.bilibili.com/video/av1744004/</a></li>
+<li>下载地址：<a href="http://www.dy2018.com/i/92024.html" target="_blank" rel="external">http://www.dy2018.com/i/92024.html</a></li>
+<li>百度云：链接: <a href="http://pan.baidu.com/s/1jI4PCBs" target="_blank" rel="external">http://pan.baidu.com/s/1jI4PCBs</a> 密码: 64js</li>
+<li>注意百度云保存后将文件后缀.m.kv改为.mkv就可以在线播放了</li>
+</ul>
+<h3 id="《暗黑者》"><a href="#《暗黑者》" class="headerlink" title="《暗黑者》"></a>《暗黑者》</h3><ul>
+<li>暗黑者1在线地址：<a href="http://v.qq.com/p/tv/zt/ahz/index.html" target="_blank" rel="external">http://v.qq.com/p/tv/zt/ahz/index.html</a></li>
+<li>暗黑者2在线地址：<a href="http://v.qq.com/p/tv/zt/ahz2/index.html" target="_blank" rel="external">http://v.qq.com/p/tv/zt/ahz2/index.html</a></li>
+<li>暗黑者1，2种子下载地址：链接: <a href="http://pan.baidu.com/s/1dFkantf" target="_blank" rel="external">http://pan.baidu.com/s/1dFkantf</a> 密码: gxsc</li>
+<li>种子下载下来拖到迅雷里面就可以下载了！或者在百度云里点击种子，会出现离线下载，可以点击下载就会自动下载到百度云里！</li>
+</ul>
+<h3 id="《我的特工爷爷》"><a href="#《我的特工爷爷》" class="headerlink" title="《我的特工爷爷》"></a>《我的特工爷爷》</h3><ul>
+<li>下载地址：<a href="http://www.dytt8.net/html/gndy/dyzz/20160501/50844.html" target="_blank" rel="external">http://www.dytt8.net/html/gndy/dyzz/20160501/50844.html</a></li>
+<li>云盘：链接: <a href="http://pan.baidu.com/s/1bHadQI" target="_blank" rel="external">http://pan.baidu.com/s/1bHadQI</a> 密码: uj5i</li>
+</ul>
+<h3 id="《刑警兄弟》"><a href="#《刑警兄弟》" class="headerlink" title="《刑警兄弟》"></a>《刑警兄弟》</h3><ul>
+<li>下载地址：<a href="http://www.btdog.com/bt/dog39799/" target="_blank" rel="external">http://www.btdog.com/bt/dog39799/</a></li>
+<li>云盘：链接: <a href="http://pan.baidu.com/s/1eR1YKQQ" target="_blank" rel="external">http://pan.baidu.com/s/1eR1YKQQ</a> 密码: dwnp</li>
+</ul>
+<h3 id="《恶魔校花》"><a href="#《恶魔校花》" class="headerlink" title="《恶魔校花》"></a>《恶魔校花》</h3><ul>
+<li>下载地址：链接: <a href="http://pan.baidu.com/s/1gfnZObx" target="_blank" rel="external">http://pan.baidu.com/s/1gfnZObx</a> 密码: yh5n</li>
+</ul>
+<h3 id="《伦敦陷落》"><a href="#《伦敦陷落》" class="headerlink" title="《伦敦陷落》"></a>《伦敦陷落》</h3><ul>
+<li>百度云下载：链接: <a href="http://pan.baidu.com/s/1skUIBzJ" target="_blank" rel="external">http://pan.baidu.com/s/1skUIBzJ</a> 密码: 5swj</li>
+<li>种子下载：<a href="http://www.bttiantang.com/subject/27903.html?_t_t_t=0.50023577013053" target="_blank" rel="external">http://www.bttiantang.com/subject/27903.html?_t_t_t=0.50023577013053</a></li>
+<li>注意将百度云中文件后缀.mp4后的1去掉</li>
+</ul>
+<h3 id="《玩命速递-非常人贩3》"><a href="#《玩命速递-非常人贩3》" class="headerlink" title="《玩命速递/非常人贩3》"></a>《玩命速递/非常人贩3》</h3><ul>
+<li>下载地址：<a href="http://www.loldytt.com/Dongzuodianying/FCRF3WMKD3/" target="_blank" rel="external">http://www.loldytt.com/Dongzuodianying/FCRF3WMKD3/</a></li>
+<li>非常人贩又名玩命速递全三部：链接: <a href="http://pan.baidu.com/s/1hsHec4k" target="_blank" rel="external">http://pan.baidu.com/s/1hsHec4k</a> 密码: x98t</li>
+</ul>
+<h3 id="《独立日2》"><a href="#《独立日2》" class="headerlink" title="《独立日2》"></a>《独立日2》</h3><ul>
+<li>TC720p:链接: <a href="http://pan.baidu.com/s/1i43oAiT" target="_blank" rel="external">http://pan.baidu.com/s/1i43oAiT</a> 密码: vehs</li>
+<li>另外一种子下载地址：<a href="http://www.loldytt.com/Kehuandianying/DLR2JTZL/" target="_blank" rel="external">http://www.loldytt.com/Kehuandianying/DLR2JTZL/</a></li>
+</ul>
+<h3 id="《普罗米修斯》"><a href="#《普罗米修斯》" class="headerlink" title="《普罗米修斯》"></a>《普罗米修斯》</h3><ul>
+<li>在线地址：<a href="http://www.acfun.tv/v/ac1234361" target="_blank" rel="external">http://www.acfun.tv/v/ac1234361</a></li>
+<li>下载地址1:<a href="http://www.dytt8.net/html/gndy/dyzz/20120921/39441.html" target="_blank" rel="external">http://www.dytt8.net/html/gndy/dyzz/20120921/39441.html</a></li>
+<li>下载地址：链接: <a href="http://pan.baidu.com/s/1jI2gNEA" target="_blank" rel="external">http://pan.baidu.com/s/1jI2gNEA</a> 密码: wg3f</li>
+<li>注意请百度云保存的文件名.mp4后面的1去掉，才能观看。</li>
+</ul>
+<h3 id="《京城81号》"><a href="#《京城81号》" class="headerlink" title="《京城81号》"></a>《京城81号》</h3><ul>
+<li>在线地址：<a href="http://www.acfun.tv/v/ac1673046" target="_blank" rel="external">http://www.acfun.tv/v/ac1673046</a></li>
+<li>下载地址1：<a href="http://www.dytt8.net/html/gndy/dyzz/20140905/46058.html" target="_blank" rel="external">http://www.dytt8.net/html/gndy/dyzz/20140905/46058.html</a></li>
+<li>下载地址2：链接: <a href="http://pan.baidu.com/s/1nvaWvJ7" target="_blank" rel="external">http://pan.baidu.com/s/1nvaWvJ7</a> 密码: i8tw</li>
+<li>注意百度云保存的文件要将后缀.mkv后的1删掉才能观看。</li>
+</ul>
+<h3 id="《大鱼海棠》"><a href="#《大鱼海棠》" class="headerlink" title="《大鱼海棠》"></a>《大鱼海棠》</h3><ul>
+<li>种子下载地址：<a href="http://www.loldytt.com/Anime/DYHT/" target="_blank" rel="external">http://www.loldytt.com/Anime/DYHT/</a></li>
+<li>保存地址：链接: <a href="http://pan.baidu.com/s/1geJ7CMB" target="_blank" rel="external">http://pan.baidu.com/s/1geJ7CMB</a> 密码: fwb1</li>
+</ul>
+<h3 id="《星尘》"><a href="#《星尘》" class="headerlink" title="《星尘》"></a>《星尘》</h3><ul>
+<li>在线地址：<a href="http://www.acfun.tv/v/ac2507775" target="_blank" rel="external">http://www.acfun.tv/v/ac2507775</a></li>
+<li>下载地址1：链接: <a href="http://pan.baidu.com/s/1kUWW2hh" target="_blank" rel="external">http://pan.baidu.com/s/1kUWW2hh</a> 密码: rg13</li>
+<li>下载地址2：<a href="http://www.dytt8.net/html/gndy/jddy/20090410/18013.html" target="_blank" rel="external">http://www.dytt8.net/html/gndy/jddy/20090410/18013.html</a></li>
+</ul>
+<h3 id="《遇见你之前-Me-before-you》"><a href="#《遇见你之前-Me-before-you》" class="headerlink" title="《遇见你之前/Me before you》"></a>《遇见你之前/Me before you》</h3><p>下载地址1：<a href="http://www.skymeiju.com/cm/ct40003.html" target="_blank" rel="external">http://www.skymeiju.com/cm/ct40003.html</a><br>下载地址2：<a href="http://www.xunleige.com/juqing/yujiannizhiqian/" target="_blank" rel="external">http://www.xunleige.com/juqing/yujiannizhiqian/</a><br>在线地址：<a href="http://www.acfun.tv/v/ac2864406" target="_blank" rel="external">http://www.acfun.tv/v/ac2864406</a></p>
+<h3 id="《敢死队3》"><a href="#《敢死队3》" class="headerlink" title="《敢死队3》"></a>《敢死队3》</h3><ul>
+<li>在线地址：<a href="http://www.acfun.tv/v/ac1452739" target="_blank" rel="external">http://www.acfun.tv/v/ac1452739</a></li>
+<li>下载地址：链接: <a href="http://pan.baidu.com/s/1nvPaNET" target="_blank" rel="external">http://pan.baidu.com/s/1nvPaNET</a> 密码: 29ua</li>
+</ul>
+<h3 id="《致胜王牌》"><a href="#《致胜王牌》" class="headerlink" title="《致胜王牌》"></a>《致胜王牌》</h3><ul>
+<li>在线地址: <a href="http://www.acfun.tv/v/ac2758546" target="_blank" rel="external">http://www.acfun.tv/v/ac2758546</a></li>
+<li>下载地址1：链接: <a href="https://pan.baidu.com/s/1i5jR1yt" target="_blank" rel="external">https://pan.baidu.com/s/1i5jR1yt</a> 密码: 9yvf</li>
+<li>下载地址2：<a href="http://www.dytt8.net/html/gndy/dyzz/20150201/47256.html" target="_blank" rel="external">http://www.dytt8.net/html/gndy/dyzz/20150201/47256.html</a></li>
+</ul>
+<h3 id="《人兽杂交-人工进化》"><a href="#《人兽杂交-人工进化》" class="headerlink" title="《人兽杂交/人工进化》"></a>《人兽杂交/人工进化》</h3><ul>
+<li>在线地址：<a href="http://www.acfun.tv/v/ac782085" target="_blank" rel="external">http://www.acfun.tv/v/ac782085</a></li>
+<li>下载地址：<a href="http://www.bttiantang.com/subject/5364.html" target="_blank" rel="external">http://www.bttiantang.com/subject/5364.html</a></li>
+</ul>
+<h3 id="《牛仔和外星人》"><a href="#《牛仔和外星人》" class="headerlink" title="《牛仔和外星人》"></a>《牛仔和外星人》</h3><ul>
+<li>下载地址：<a href="http://www.dytt8.net/html/gndy/dyzz/20111122/35213.html" target="_blank" rel="external">http://www.dytt8.net/html/gndy/dyzz/20111122/35213.html</a></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/24/movies/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站总访客量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
