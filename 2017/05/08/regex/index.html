@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="导语 开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间；与其将时间浪费在搜索上倒不如自己好好地掌握它。 参考   java正则 回车与换行 js正则 邮箱正则    正则规则 分四大类来说明:常用符号说明、符号数目匹配、逻辑语句符号匹配、目标匹配符号。 一、常用符号说明  ^: 匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-06T03:46:25.000Z">
+<meta property="og:updated_time" content="2018-03-22T10:12:00.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="导语 开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间；与其将时间浪费在搜索上倒不如自己好好地掌握它。 参考   java正则 回车与换行 js正则 邮箱正则    正则规则 分四大类来说明:常用符号说明、符号数目匹配、逻辑语句符号匹配、目标匹配符号。 一、常用符号说明  ^: 匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^">
@@ -402,7 +402,7 @@
 <blockquote>
 <h3 id="二、符号数目匹配"><a href="#二、符号数目匹配" class="headerlink" title="二、符号数目匹配"></a>二、符号数目匹配</h3><blockquote>
 <ol>
-<li><code>*</code>: <em>零次或多次</em> 匹配前面的字符或子表达式。例如，zo<em> 匹配”z”和”zoo”。</em> 等效于<code>{0,}</code>。</li>
+<li><code>*</code>: <em>零次或多次</em> 匹配前面的字符或子表达式。例如，”zo*“ 匹配”z”和”zoo”。* 等效于<code>{0,}</code>。</li>
 <li><code>+</code>: <em>一次或多次</em> 匹配前面的字符或子表达式。例如，”zo+”与”zo”和”zoo”匹配，但与”z”不匹配。+ 等效于 <code>{1,}</code>。</li>
 <li><code>?</code>: <em>零次或一次</em> 匹配前面的字符或子表达式。例如，”do(es)?”匹配”do”或”does”中的”do”。? 等效于 <code>{0,1}</code>。</li>
 <li><code>{n}</code>: <strong>n 是非负整数。正好匹配 n 次。例如，”o{2}”表示此匹配两个o</strong></li>
