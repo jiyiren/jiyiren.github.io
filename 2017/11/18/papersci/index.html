@@ -598,33 +598,6 @@
 
     <div class="post-spread">
       
-        
-  <script>
-    window._bd_share_config = {
-      "common": {
-        "bdText": "",
-        "bdMini": "1",
-        "bdMiniList": false,
-        "bdPic": ""
-      },
-      "image": {
-        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
-        "viewText": "分享到：",
-        "viewSize": "16"
-      },
-      "slide": {
-        "bdImg": "5",
-        "bdPos": "left",
-        "bdTop": "100"
-      }
-    }
-  </script>
-
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-      
     </div>
   </div>
 
@@ -634,6 +607,10 @@
 
 
           
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
   
 
 
@@ -992,6 +969,21 @@
 
 
 
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: true,
+        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+    });
+  </script>
+
 
 
   
@@ -1007,6 +999,8 @@
   
 
   
+  
+
 
   
 
