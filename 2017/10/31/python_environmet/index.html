@@ -2,24 +2,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
 
 
 
@@ -45,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -57,57 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="python,macos," />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="导语 应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。  说明 我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几">
-<meta name="keywords" content="python,macos">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MacOS下多Python版本说明">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/python_environmet/index.html">
-<meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="导语 应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。  说明 我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset1.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset2.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset3.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset4.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset5.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset7.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg">
-<meta property="og:updated_time" content="2017-11-01T02:38:28.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MacOS下多Python版本说明">
-<meta name="twitter:description" content="导语 应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。  说明 我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset1.jpg">
 
 
 
@@ -116,15 +85,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '5.1.3',
+    version: '6.3.0',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -136,15 +103,52 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="好的配置环境是保证产能的前提  应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过 Python 环境，但是没有彻底搞清楚 Python 多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。 说明 我的电脑是 MacOS 系统，并且 MacOS 系统是自带了 Python，而之前在捣鼓 Python 时，可能后装了很多次不同的版本，导致在我电脑上">
+<meta name="keywords" content="python,macos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS 下多 Python 版本说明">
+<meta property="og:url" content="http://yoursite.com/2017/10/31/python_environmet/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="好的配置环境是保证产能的前提  应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过 Python 环境，但是没有彻底搞清楚 Python 多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。 说明 我的电脑是 MacOS 系统，并且 MacOS 系统是自带了 Python，而之前在捣鼓 Python 时，可能后装了很多次不同的版本，导致在我电脑上">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset1.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset2.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset3.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset4.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset5.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset7.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg">
+<meta property="og:updated_time" content="2018-06-10T08:17:36.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MacOS 下多 Python 版本说明">
+<meta name="twitter:description" content="好的配置环境是保证产能的前提  应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过 Python 环境，但是没有彻底搞清楚 Python 多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。 说明 我的电脑是 MacOS 系统，并且 MacOS 系统是自带了 Python，而之前在捣鼓 Python 时，可能后装了很多次不同的版本，导致在我电脑上">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/pyset1.jpg">
+
+
+
+
+
 
   <link rel="canonical" href="http://yoursite.com/2017/10/31/python_environmet/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>MacOS下多Python版本说明 | jiyiren</title>
+  <title>MacOS 下多 Python 版本说明 | jiyiren</title>
   
+
 
 
 
@@ -163,9 +167,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -174,8 +205,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
-    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -183,19 +213,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">jiyiren</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">blogs</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -203,65 +235,61 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -269,12 +297,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -287,6 +323,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -296,7 +334,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="go my own way">
       <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
     </span>
 
@@ -309,11 +347,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MacOS下多Python版本说明</h1>
+          <h1 class="post-title" itemprop="name headline">MacOS 下多 Python 版本说明
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -321,11 +367,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-31T22:16:40+08:00">
-                2017-10-31
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2017-10-31 22:16:40" itemprop="dateCreated datePublished" datetime="2017-10-31T22:16:40+08:00">2017-10-31</time>
             
 
             
@@ -343,11 +390,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -357,6 +400,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/31/python_environmet/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/10/31/python_environmet/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -364,7 +417,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -386,148 +442,84 @@
       
 
       
-        <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
-<p>应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过Python环境，但是没有彻底搞清楚Python多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。</p>
-</blockquote>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote>
-<p>我的电脑是MacOS系统，并且MacOS系统是自带了Python，而之前在捣鼓python时，可能后装了很多次不同的版本，导致在我电脑上的的python有诸多问题。这里主要说明以下几个问题：</p>
+        <p align="center" style="margin: 30px 0 35px;">好的配置环境是保证产能的前提</p>
+
+<p>应大数据和机器学习的要求，对处理数据的计算机语言需求越来大，之前虽然弄过 <strong>Python</strong> 环境，但是没有彻底搞清楚 <strong>Python</strong> 多版本执行程序以及多版本的模块位置，导致自己电脑上环境紊乱，今天花了点功夫解决下。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><hr>
+<p>我的电脑是 <strong>MacOS</strong> 系统，并且 <strong>MacOS</strong> 系统是自带了 <strong>Python</strong>，而之前在捣鼓 <strong>Python</strong> 时，可能后装了很多次不同的版本，导致在我电脑上的的 <strong>Python</strong> 有诸多问题，这里主要说明以下几个问题：</p>
 <ol>
-<li><strong>多版本python的安装路径识别</strong></li>
-<li><strong>多版本python对应的pip命令识别</strong></li>
-<li><strong>多版本python对应的pip安装模块位置确定</strong></li>
+<li><strong>多版本 Python 的安装路径识别</strong></li>
+<li><strong>多版本 Python 对应的 pip 命令识别</strong></li>
+<li><strong>多版本 Python 对应的 pip 安装模块位置确定</strong></li>
 </ol>
-</blockquote>
 <a id="more"></a>
+<h3 id="安装路径识别"><a href="#安装路径识别" class="headerlink" title="安装路径识别"></a>安装路径识别</h3><p><strong>Python</strong> 现在分为两个版本 <em>2.X 版本</em> 和 <em>3.X 版本</em>，两代版本并不能够完全兼容，因此两个版本的模块包也会分开安装的，因此完全把握两种版本环境是很有必要的。</p>
+<p><strong>Python 2.X版本</strong></p>
+<p>此版本对应旧版本，其默认执行命令是 <code>python</code>, 因此我们在终端输入 <code>python --version</code> 通常会显示 2.X 的版本字样。</p>
+<p>通过 <code>which python</code> 命令查看 <strong>Python</strong> 路径，然后用 <code>ls -l</code> 可查看该路径的 <strong>Python</strong> 执行文件属性如下：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset1.jpg" alt=""></p>
+<p>上图显示 <strong>/usr/bin/python</strong> 文件非软链接文件，由于我们自己安装的 <strong>Python</strong> 通常是用软链接的方式链接到安装目录，因此这里的 <strong>python</strong> 应该属于本机自带的 <strong>Python</strong>, 其安装位置即为 <strong>/usr/bin/python</strong>.</p>
+<p><strong>Python 3.X版本</strong></p>
+<p>此版本对应新版本，其默认执行命令是 <code>python3</code>, 不是完全兼容旧版本的，但是代表了 <strong>Python</strong> 的发展方向，新人的话建议直接学习此版本。</p>
+<p>通过 <code>which python3</code> 命令查看 <strong>Python3</strong> 路径，然后用 <code>ls -l</code> 查看路径的的文件属性：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset2.jpg" alt=""></p>
+<p>上图显示 <strong>/usr/local/bin/python3</strong> 文件为软链接文件，链接的源位置为 <strong>/Library/Frameworks/Python.framework/Versions/3.5/bin/python3</strong>, 因此这就是 <strong>Python3</strong> 的安装位置，由此也可以知道当前 <strong>Python3</strong> 的版本是 <strong>3.5</strong>.</p>
+<p>实际上系统自带的命令通常安装在 <strong>/usr/bin/</strong> 目录下，而用户自己安装的命令通常在 <strong>/usr/local/bin/</strong> 目录下，这通常是因为普通安装命令都是在 <strong>/usr/local/bin/</strong> 下有写的权限的。</p>
+<h3 id="pip-命令识别"><a href="#pip-命令识别" class="headerlink" title="pip 命令识别"></a>pip 命令识别</h3><p><strong>Python</strong> 版本的不同导致 <strong>Python</strong> 下的包管理工具 <strong>pip</strong> 命令也不同，因此使得 <strong>pip</strong> 命令也产生很多的 <em>pipX</em> 命令。通常而言，对于 <strong>Python2x</strong> 版本其对应的 <strong>pip</strong> 命令为 <em>pip</em>, 而对于 <strong>Python3.X</strong> 版本其对应的 <strong>pip</strong> 命令为<em>pip3</em>. 此外，还有一种可同时执行不同版本 <strong>Python</strong> 的 <strong>pip</strong> 方式：<em>python -m pip install xxx</em> 或者 <em>python3 -m pip install xxx</em>, 这就不需要用不同的命令了，但是前提还是需要摸清自己本机的环境。</p>
+<p><strong>Python2.X 版本的 pip</strong></p>
+<p>通过 <code>which pip</code> 查看 <strong>pip</strong> 路径，然后用 <code>ll</code> 查看文件属性，该文件为非链接文件，其与上面的 <strong>Python</strong> 相对应</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset3.jpg" alt=""></p>
+<p>我们也可以通过命令来查看 <strong>pip</strong> 目录中有哪些 <code>pip</code>:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /usr/<span class="built_in">local</span>/bin | grep pip</div></pre></td></tr></table></figure></div>
+<p>结果：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset4.jpg" alt=""></p>
+<p>我们看到上图有好多 <code>pip</code> 命令，到底哪些可用或者一致呢？我们可以看这些命令的 <strong>创建时间</strong> 基本可以判断前三个 <code>pip</code> 是同一时刻安装的，最后一个是另外时间安装的 <code>pip</code> 工具，我们可以通过 <code>pip</code> 命令安装一个已经存在的模块查看其已经安装的模块路径如下图，我们可以知道 <em>pip, pip2, pip2.7</em> 都是 <em>Python2.X 版本的</em> <code>python</code> 命令所对应的 <code>pip</code>.</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset5.jpg" alt=""></p>
+<p><strong>Python3.X 版本的 pip3</strong></p>
+<p>通过 <code>which pip3</code>查看 <strong>pip</strong> 路径，然后用 <code>ll</code> 查看文件属性如下图，然而，<code>pip3</code> 并没有此命令，但我们从之前的查看命令可知存在 <code>pip3.5</code> 命令</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /usr/<span class="built_in">local</span>/bin | grep pip</div></pre></td></tr></table></figure></div>
+<p>再次执行 <code>which pip3.5</code>，情况如下：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset7.jpg" alt=""></p>
+<p>我们天真地以为 <code>pip3.5</code> 命令就是我们 <strong>Python3.X 版本的</strong> <code>pip</code>，我们执行安装命令试试 <code>pip3.5 install numpy</code>，结果如下：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg" alt=""></p>
+<p>执行报错，这错误网上有解决方法 <a href="http://blog.chinaunix.net/uid-20940095-id-4304535.html" target="_blank" rel="external">这里</a>, 但是我们这里不确定此 <strong>Python3.5</strong> 是否关联我们本机的 <strong>Python3</strong>，因为这有可能是自己以前安装了 <strong>Python3.5</strong> 又卸载后存留的。这里我们再试试另外一种可能，<em>就是本机 Python3 的 pip 在另外地方，只不过它没有在环境变量中</em>，我们可以如下测试 <code>python3 -m pip --version</code>, 我们也可以尝试安装一个包，如图，可以确定通过 <strong>Python3</strong> 内部的 <strong>pip</strong> 可以将模块安装在内部目录里。</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg" alt=""></p>
+<p>至此可以确定，<strong>Python3</strong> 对应的 <code>pip</code> 在自己安装路径内部，而不通过环境变量直接定位，需要通过 <code>python3 -m pip install xxxx</code> 来安装模块。</p>
+<h3 id="pip模块安装路径确定"><a href="#pip模块安装路径确定" class="headerlink" title="pip模块安装路径确定"></a>pip模块安装路径确定</h3><p>到这里我想大家已经知道如何确定 <strong>pip</strong> 模块的安装位置了，主要要首先确定 <strong>Python</strong> 各个版本对应的 <strong>pip</strong>，然后通过 <strong>pip</strong> 的重复安装即可确定模块安装位置。</p>
 <blockquote>
-<h3 id="安装路径识别"><a href="#安装路径识别" class="headerlink" title="安装路径识别"></a>安装路径识别</h3><ul>
-<li><p>python现在分为两个版本<em>2.X版本</em>和<em>3.X版本</em>，两代版本并不能够完全兼容，因此两个版本的模块包也会分开安装的，因此完全把握两种版本环境是很有必要的。</p>
-</li>
-<li><p><em>python2.X版本</em>：</p>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>此版本对应旧版本，其默认执行命令是<code>python</code>,因此我们在终端输入<code>python --version</code>通常会显示2.X的版本字样。</li>
-<li>通过<code>which python</code>命令查看python路径，然后用<code>ls -l</code>或者<code>ll</code>查看该路径的python执行文件属性如下：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset1.jpg" alt=""></li>
-<li>上图显示 <strong>/usr/bin/python</strong> 文件非软链接文件，由于我们自己安装的python通常是用软链接的方式链接到安装目录，因此这里的 <strong>python</strong> 应该属于本机自带的python,其安装位置即为 <strong>/usr/bin/python</strong> 。</li>
-</ul>
+<p>注意：下面的安装位置仅仅是我自己系统上的环境位置，并非适用你自己的环境，需要自己确定自己的 <strong>Python</strong> 版本和 <strong>pip</strong> 版本</p>
 </blockquote>
-<ul>
-<li><em>python3.X版本</em>：</li>
+<p><em>Python2.X版本的模块位置</em>:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install numpy</div></pre></td></tr></table></figure></div>
+<p><em>Python3.X版本的模块位置</em>:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 -m pip install numpy</div></pre></td></tr></table></figure></div>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>Python2.X</strong>:</p>
+<p>执行路径: <strong>/usr/bin/python</strong></p>
+<p>pip 路径: <strong>/usr/local/bin/pip</strong>, <strong>/usr/local/bin/pip2</strong>, <strong>/usr/local/bin/pip2.7</strong></p>
+<p>模块位置:<strong>/usr/local/lib/python2.7/site-packages</strong></p>
+<p><strong>Python3.X</strong>:</p>
+<p>执行路径: <strong>/Library/Frameworks/Python.framework/Versions/3.5/bin/python3</strong></p>
+<p>pip 路径: <strong>/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pip-9.0.1-py3.5.egg</strong></p>
+<p>模块位置: <strong>/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages</strong></p>
+<p><strong>Python</strong> 存在不统一路径查找的原因：</p>
+<p><em>(1). 通过 pkg 安装包</em>: Python 官网 <a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a>, 下载后文件为 <strong>python-3.6.3-macosx10.6.pkg</strong> 形式的文件，这种文件可直接双击安装，其安装的位置通常在 <strong>/Library/Frameworks</strong> 下。</p>
+<p><em>(2). 通过 homebrew 安装</em>: Homebrew 官网 <a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a>, 其安装方式为:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install python <span class="comment"># 安装python2.X</span></div><div class="line">brew install python3 <span class="comment"># 安装python3.X</span></div></pre></td></tr></table></figure></div>
+<p>这种方式安装是先将包下载在 <strong>/usr/local/Cellar</strong> 目录下，然后自动在 <strong>/usr/local/bin/</strong> 下新建一个执行链接到 <strong>/usr/local/Cellar</strong>.</p>
+<p>如：我们安装一个wget 工具：<code>brew install wget</code>，然后我们可以查看<em>wget</em>的原路径：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg" alt=""></p>
+<p>对于安装用 <strong>brew</strong> 安装 <strong>Python3</strong>，其也会自动下载对应的 <strong>pip3</strong> 的，并且都会将其放置在 <strong>/usr/local/bin/目录下</strong>，以软链接的形式链接到 <strong>/usr/local/Cellar下的对应文件</strong>.</p>
+<p><em>(3). 通过源码包</em>: 这会自动放置在 <strong>/usr/local/bin</strong> 目录下，且不会用软链接。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.jianshu.com/p/51811fa24752/" target="_blank" rel="external">MacO S安装 Python2X 和 Python3</a></li>
+<li><a href="https://www.zhihu.com/question/21653286/answer/95532074" target="_blank" rel="external">同时装了 Python3 和 Python2，怎么用 pip</a></li>
 </ul>
-<blockquote>
-<ul>
-<li>此版本对应新版本，其默认执行命令是<code>python3</code>,不是完全兼容旧版本的,但是代表了python的发展方向，新人的话建议直接学习此版本。</li>
-<li>通过<code>which python3</code>命令查看python3路径，然后用<code>ls -l</code>或者<code>ll</code>查看路径的的文件属性：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset2.jpg" alt=""></li>
-<li>上图显示 <strong>/usr/local/bin/python3</strong> 文件为软链接文件，链接的源位置为 <strong>/Library/Frameworks/Python.framework/Versions/3.5/bin/python3</strong> ,因此这就是python3的安装位置，由此也可以知道当前python3的版本是<strong>3.5</strong> 。</li>
-<li>实际上系统自带的命令通常安装在 <strong>/usr/bin/</strong> 目录下，而用户自己安装的命令通常在 <strong>/usr/local/bin/</strong> 目录下,这通常是因为普通安装命令都是有在 <strong>/usr/local/bin/</strong> 下写的权限的。</li>
-</ul>
-</blockquote>
-<h3 id="pip命令识别"><a href="#pip命令识别" class="headerlink" title="pip命令识别"></a>pip命令识别</h3><ul>
-<li><p>python版本的不同导致python下的包管理工具pip命令也不同，因此使得<code>pip</code>命令也产生很多的<em>pipX</em>命令。通常而言，对于python2x版本其对应的pip命令为<em>pip</em>,而对于python3.X版本其对应的pip命令为<em>pip3</em>。此外，还有一种可同时执行不同版本python的pip方式：<em>python -m pip install xxx</em>或者<em>python3 -m pip install xxx</em>，这就不需要用不同的命令了，但是前提还是需要摸清自己本机的环境。</p>
-</li>
-<li><p><em>python2.X版本的pip</em>:</p>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>通过<code>which pip</code>查看pip路径，然后用<code>ll</code>查看文件属性,该文件为非链接文件，其与上面的python相对应<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset3.jpg" alt=""></li>
-<li><p>我们也可以通过命令来查看pip目录中有哪些pip:</p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /usr/<span class="built_in">local</span>/bin | grep pip</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>结果：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset4.jpg" alt=""></p>
-</li>
-<li>我们看到上图有好多<em>pip</em>命令，到底哪些可用或者一致呢？我们可以看这些命令的<strong>创建时间</strong>基本可以判断前三个pip是同一时刻安装的，最后一个是另外时间安装的pip工具，我们可以通过pip命令安装一个已经存在的模块查看其已经安装的模块路径如下图，我们可以知道<em>pip,pip2,pip2.7</em>都是<em>python2.X版本的</em><code>python</code>命令所对应的pip。<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset5.jpg" alt=""></li>
-</ul>
-</blockquote>
-<ul>
-<li><em>python3.X版本的pip3</em>:</li>
-</ul>
-<blockquote>
-<ul>
-<li><p>通过<code>which pip3</code>查看pip路径，然后用<code>ll</code>查看文件属性如下图，然而,<em>pip3</em>并没有此命令，但我们从之前的查看命令可知存在<em>pip3.5</em>命令</p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /usr/<span class="built_in">local</span>/bin | grep pip</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>再次执行<code>which pip3.5</code>，情况如下：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset7.jpg" alt=""></p>
-</li>
-<li>我们天真地以为<em>pip3.5</em>命令就是我们<em>python3.X版本的</em>pip，我们执行安装命令试试<code>pip3.5 install numpy</code>，结果如下：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset9.jpg" alt=""></li>
-<li>执行报错，这错误网上有解决方法<a href="http://blog.chinaunix.net/uid-20940095-id-4304535.html" target="_blank" rel="external">这里</a>,但是我们这里不确定此python3.5是否关联我们本机的<em>python3</em>，因为这有可能是自己以前安装了python3.5又卸载后存留的。这里我们再试试另外一种可能，<em>就是本机python3的pip在另外地方，只不过它没有在环境变量中</em>，我们可以如下测试<code>python3 -m pip --version</code>,我们也可以尝试安装一个包，如图，可以确定通过<em>python3</em>内部的pip可以将模块安装在内部目录里。<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset10.jpg" alt=""></li>
-<li>至此可以确定，python3对应的pip在自己安装路径内部，而不通过环境变量直接定位，需要通过<code>python3 -m pip install xxxx</code>来安装模块。</li>
-</ul>
-</blockquote>
-<h3 id="pip模块安装路径确定"><a href="#pip模块安装路径确定" class="headerlink" title="pip模块安装路径确定"></a>pip模块安装路径确定</h3><ul>
-<li>到这里我想大家已经知道如何确定pip模块的安装位置了,主要要首先确定python各个版本对应的pip，然后通过pip的重复安装即可确定模块安装位置。</li>
-<li><p>注意：下面的安装位置仅仅是我自己系统上的环境位置，并非适用你自己的环境，需要自己确定自己的python版本和pip版本</p>
-</li>
-<li><p><em>python2.X版本的模块位置</em>:</p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install numpy</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><em>python3.X版本的模块位置</em></p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 -m pip install numpy</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<ul>
-<li>python2.X</li>
-</ul>
-<blockquote>
-<ul>
-<li>执行路径: <strong>/usr/bin/python</strong></li>
-<li>pip路径: <strong>/usr/local/bin/pip</strong>, <strong>/usr/local/bin/pip2</strong>, <strong>/usr/local/bin/pip2.7</strong></li>
-<li>模块位置:<strong>/usr/local/lib/python2.7/site-packages</strong></li>
-</ul>
-</blockquote>
-<ul>
-<li>python3.X</li>
-</ul>
-<blockquote>
-<ul>
-<li>执行路径: <strong>/Library/Frameworks/Python.framework/Versions/3.5/bin/python3</strong></li>
-<li>pip路径: <strong>/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pip-9.0.1-py3.5.egg</strong></li>
-<li>模块位置: <strong>/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages</strong></li>
-</ul>
-</blockquote>
-<ul>
-<li>Python存在不统一路径查找的原因：</li>
-</ul>
-<blockquote>
-<ul>
-<li><em>通过pkg安装包</em>: python官网<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a>,下载后文件为<strong>python-3.6.3-macosx10.6.pkg</strong>形式的文件，这种文件可直接双击安装，其安装的位置通常在 <strong>/Library/Frameworks</strong>下。</li>
-<li><em>通过homebrew</em>: homebrew官网<a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a>,</li>
-</ul>
-<blockquote>
-<ul>
-<li><p>其安装方式为:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install python <span class="comment"># 安装python2.X</span></div><div class="line">brew install python3 <span class="comment"># 安装python3.X</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>这种方式安装是先将包下载在 <strong>/usr/local/Cellar</strong>目录下，然后自动在 <strong>/usr/local/bin/</strong>下新建一个执行链接到 <strong>/usr/local/Cellar</strong>,如：我们安装一个wget工具：<code>brew install wget</code>，然后我们可以查看<em>wget</em>的原路径：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/pyset11.jpg" alt=""></p>
-</li>
-<li>对于安装用brew安装python3，其也会自动下载对应的pip3的，并且都会将其放置在<strong>/usr/local/bin/目录下</strong>，以软链接的形式链接到<strong>/usr/local/Cellar下的对应文件</strong></li>
-</ul>
-</blockquote>
-<ul>
-<li><em>通过源码包</em>：这会自动放置在 <strong>/usr/local/bin</strong> 目录下，且不会用软链接。</li>
-</ul>
-</blockquote>
-</blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<ul>
-<li><a href="http://www.jianshu.com/p/51811fa24752/" target="_blank" rel="external">MacOS安装Python2X和Python3</a></li>
-<li><a href="https://www.zhihu.com/question/21653286/answer/95532074" target="_blank" rel="external">同时装了Python3和Python2，怎么用pip</a></li>
-</ul>
-</blockquote>
 
       
     </div>
+
+    
+
     
     
     
@@ -540,17 +532,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    jiyiren
-  </li>
+    <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2017/10/31/python_environmet/" title="MacOS下多Python版本说明">http://yoursite.com/2017/10/31/python_environmet/</a>
+    <a href="http://yoursite.com/2017/10/31/python_environmet/" title="MacOS 下多 Python 版本说明">http://yoursite.com/2017/10/31/python_environmet/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -585,8 +573,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/09/CDH/" rel="prev" title="CDH-5.13基于Ubuntu16的hadoop分布式部署">
-                CDH-5.13基于Ubuntu16的hadoop分布式部署 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/09/CDH/" rel="prev" title="CDH-5.13 基于 Ubuntu 的布式部署">
+                CDH-5.13 基于 Ubuntu 的布式部署 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -613,13 +601,11 @@
           </div>
           
 
-
-          
   
     <div class="comments" id="comments">
-      <div id="vcomments"></div>
     </div>
   
+
 
 
         </div>
@@ -663,102 +649,245 @@
               <p class="site-description motion-element" itemprop="description">go my own way</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
           
-
-          <div class="links-of-author motion-element">
-            
+            <nav class="site-state motion-element">
               
-                <span class="links-of-author-item">
-                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
-                    
-                      <i class="fa fa-fw fa-google"></i>Google</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
-                    
-                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
-                    
-                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-globe"></i>
+                <div class="site-state-item site-state-posts">
                 
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -779,6 +908,9 @@
           
 
           
+            
+          
+          
 
         </div>
       </section>
@@ -793,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装路径识别"><span class="nav-number">2.1.</span> <span class="nav-text">安装路径识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip命令识别"><span class="nav-number">2.2.</span> <span class="nav-text">pip命令识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip模块安装路径确定"><span class="nav-number">2.3.</span> <span class="nav-text">pip模块安装路径确定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装路径识别"><span class="nav-number">1.1.</span> <span class="nav-text">安装路径识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-命令识别"><span class="nav-number">1.2.</span> <span class="nav-text">pip 命令识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip模块安装路径确定"><span class="nav-number">1.3.</span> <span class="nav-text">pip模块安装路径确定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -814,16 +946,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">jiyiren</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
 
 
 
@@ -831,7 +967,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -841,21 +977,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"> 本站总访客量</i>
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"> 本站总访问量</i>
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -873,6 +1008,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -893,7 +1030,6 @@
 
 
 
-  
 
 
 
@@ -906,55 +1042,53 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
+
+
+  
 
 
 
@@ -977,18 +1111,29 @@
 
 
 
-  
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
-        el: '#vcomments' ,
+        el: '#comments' ,
         verify: false,
-        notify: true,
-        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
-        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
@@ -1007,12 +1152,24 @@
   
 
   
-  
-
 
   
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
 </body>
 </html>

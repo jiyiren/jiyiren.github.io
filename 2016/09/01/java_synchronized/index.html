@@ -2,24 +2,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
 
 
 
@@ -45,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -57,49 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="java,synchronized," />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="导语： 最近好好整理下Java方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！  一、同步、异步、synchronized 首先我们先了解下什么是同步、异步与synchronzied：  同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信">
-<meta name="keywords" content="java,synchronized">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java synchronized的用法">
-<meta property="og:url" content="http://yoursite.com/2016/09/01/java_synchronized/index.html">
-<meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="导语： 最近好好整理下Java方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！  一、同步、异步、synchronized 首先我们先了解下什么是同步、异步与synchronzied：  同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/synchronize_kind.jpg">
-<meta property="og:updated_time" content="2017-10-06T05:41:16.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java synchronized的用法">
-<meta name="twitter:description" content="导语： 最近好好整理下Java方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！  一、同步、异步、synchronized 首先我们先了解下什么是同步、异步与synchronzied：  同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/synchronize_kind.jpg">
 
 
 
@@ -108,15 +85,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '5.1.3',
+    version: '6.3.0',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,15 +103,44 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="同步学习，才能不落伍  最近好好整理下 Java 方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！ 一、同步、异步、synchronized首先我们先了解下什么是 同步、异步 与 synchronzied： 同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待">
+<meta name="keywords" content="java,synchronized">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java synchronized 的用法">
+<meta property="og:url" content="http://yoursite.com/2016/09/01/java_synchronized/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="同步学习，才能不落伍  最近好好整理下 Java 方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！ 一、同步、异步、synchronized首先我们先了解下什么是 同步、异步 与 synchronzied： 同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/synchronize_kind.jpg">
+<meta property="og:updated_time" content="2018-06-10T10:36:47.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java synchronized 的用法">
+<meta name="twitter:description" content="同步学习，才能不落伍  最近好好整理下 Java 方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！ 一、同步、异步、synchronized首先我们先了解下什么是 同步、异步 与 synchronzied： 同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/synchronize_kind.jpg">
+
+
+
+
+
 
   <link rel="canonical" href="http://yoursite.com/2016/09/01/java_synchronized/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Java synchronized的用法 | jiyiren</title>
+  <title>Java synchronized 的用法 | jiyiren</title>
   
+
 
 
 
@@ -155,9 +159,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -166,8 +197,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
-    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -175,19 +205,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">jiyiren</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">blogs</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -195,65 +227,61 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -261,12 +289,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -279,6 +315,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -288,7 +326,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="go my own way">
       <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
     </span>
 
@@ -301,11 +339,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java synchronized的用法</h1>
+          <h1 class="post-title" itemprop="name headline">Java synchronized 的用法
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -313,11 +359,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-01T11:16:40+08:00">
-                2016-09-01
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2016-09-01 11:16:40" itemprop="dateCreated datePublished" datetime="2016-09-01T11:16:40+08:00">2016-09-01</time>
             
 
             
@@ -335,11 +382,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -349,6 +392,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/01/java_synchronized/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/01/java_synchronized/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -356,7 +409,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -378,86 +434,61 @@
       
 
       
-        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
-<p>最近好好整理下Java方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！</p>
-</blockquote>
-<h2 id="一、同步、异步、synchronized"><a href="#一、同步、异步、synchronized" class="headerlink" title="一、同步、异步、synchronized"></a>一、同步、异步、synchronized</h2><blockquote>
-<p>首先我们先了解下什么是同步、异步与synchronzied：</p>
-<ul>
-<li>同步：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去！</li>
-<li>异步：是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。</li>
-<li><code>synchronized</code>:是java中的关键词，其意思也是同步，其主要用在多线程中需要同步的情况下！</li>
-</ul>
-</blockquote>
+        <p align="center" style="margin: 30px 0 35px;">同步学习，才能不落伍</p>
+
+<p>最近好好整理下 <code>Java</code> 方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！</p>
+<h2 id="一、同步、异步、synchronized"><a href="#一、同步、异步、synchronized" class="headerlink" title="一、同步、异步、synchronized"></a>一、同步、异步、synchronized</h2><p>首先我们先了解下什么是 <strong>同步</strong>、<strong>异步</strong> 与 <strong>synchronzied</strong>：</p>
+<p><em>同步</em>：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去！</p>
+<p><em>异步</em>：是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。</p>
+<p><em>synchronized</em>: 是 <code>Java</code> 中的关键词，其意思也是同步，其主要用在多线程中需要同步的情况下！</p>
 <a id="more"></a>
-<h2 id="二、synchronized用法"><a href="#二、synchronized用法" class="headerlink" title="二、synchronized用法"></a>二、synchronized用法</h2><blockquote>
-<p>我先收集了实际应用过程中用到的写法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1、修饰方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line"><span class="comment">//2、修饰类内部this引用</span></div><div class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;&#125;</div><div class="line"><span class="comment">//3、修饰对象</span></div><div class="line"><span class="keyword">synchronized</span>(Obj1)&#123;&#125;</div><div class="line"><span class="comment">//4、修饰类</span></div><div class="line"><span class="keyword">synchronized</span>(A.class)&#123;&#125;</div></pre></td></tr></table></figure>
-<p>我一开始的误区就是不知道同步的时候该用哪种写法，实际上synchronized的用法只有两种，主要分为：<strong>synchronized修饰方法和synchronized修饰代码块</strong>。上面第一种是修饰方法的，后三种都是修饰代码块的！下面将分别对这两种用法说明！</p>
-<h3 id="1、synchronized修饰方法"><a href="#1、synchronized修饰方法" class="headerlink" title="1、synchronized修饰方法"></a>1、synchronized修饰方法</h3><blockquote>
-<p>下面用实例来说明：</p>
-<ul>
-<li><em>情况1</em>：正常情况，未使用synchronized修饰</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">	<span class="comment">//a方法没有加synchronized关键字</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> i=<span class="number">5</span>;</div><div class="line">		<span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</div><div class="line">			System.out.println(Thread.currentThread()+<span class="string">":a:"</span>+i);</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				Thread.sleep(<span class="number">500</span>);</div><div class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> A ma=<span class="keyword">new</span> A();</div><div class="line">		<span class="comment">//下面两个线程分别在内部调用类A的对象ma的a方法</span></div><div class="line">		Thread thread1=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程1调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread1"</span>);</div><div class="line">		Thread thread2=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程2也调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread2"</span>);</div><div class="line">		thread1.start();</div><div class="line">		thread2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二、synchronized-用法"><a href="#二、synchronized-用法" class="headerlink" title="二、synchronized 用法"></a>二、synchronized 用法</h2><p>我先收集了实际应用过程中用到的写法：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1、修饰方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line"><span class="comment">//2、修饰类内部this引用</span></div><div class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;&#125;</div><div class="line"><span class="comment">//3、修饰对象</span></div><div class="line"><span class="keyword">synchronized</span>(Obj1)&#123;&#125;</div><div class="line"><span class="comment">//4、修饰类</span></div><div class="line"><span class="keyword">synchronized</span>(A.class)&#123;&#125;</div></pre></td></tr></table></figure></div>
+<p>我一开始的误区就是不知道同步的时候该用哪种写法，实际上 <code>synchronized</code> 的用法只有两种，主要分为：<strong>synchronized修饰方法</strong> 和 <strong>synchronized修饰代码块</strong>。上面第一种是修饰方法的，后三种都是修饰代码块的！下面将分别对这两种用法说明！</p>
+<h3 id="1、synchronized-修饰方法"><a href="#1、synchronized-修饰方法" class="headerlink" title="1、synchronized 修饰方法"></a>1、synchronized 修饰方法</h3><p>下面用实例来说明：</p>
+<p><em>情况1</em>：正常情况，未使用 <code>synchronized</code> 修饰</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">	<span class="comment">//a方法没有加synchronized关键字</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> i=<span class="number">5</span>;</div><div class="line">		<span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</div><div class="line">			System.out.println(Thread.currentThread()+<span class="string">":a:"</span>+i);</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				Thread.sleep(<span class="number">500</span>);</div><div class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> A ma=<span class="keyword">new</span> A();</div><div class="line">		<span class="comment">//下面两个线程分别在内部调用类A的对象ma的a方法</span></div><div class="line">		Thread thread1=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程1调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread1"</span>);</div><div class="line">		Thread thread2=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程2也调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread2"</span>);</div><div class="line">		thread1.start();</div><div class="line">		thread2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
 <p>输出结果：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Thread1:a:<span class="number">4</span></div><div class="line">Thread2:a:<span class="number">4</span></div><div class="line">Thread2:a:<span class="number">3</span></div><div class="line">Thread1:a:<span class="number">3</span></div><div class="line">Thread2:a:<span class="number">2</span></div><div class="line">Thread1:a:<span class="number">2</span></div><div class="line">Thread1:a:<span class="number">1</span></div><div class="line">Thread2:a:<span class="number">1</span></div><div class="line">Thread2:a:<span class="number">0</span></div><div class="line">Thread1:a:<span class="number">0</span></div></pre></td></tr></table></figure>
-<p>我们可以发现未加同步时，两个线程是互相交替执行a方法的，由于不同步所以类A的对象ma两个进程可同时访问，而哪个先执行由CPU自动调度！</p>
-<ul>
-<li><em>情况2</em>：使用同步，synchronized修饰方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="comment">//a方法加了synchronized关键字</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> i=<span class="number">5</span>;</div><div class="line">		<span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</div><div class="line">			System.out.println(Thread.currentThread()+<span class="string">":a:"</span>+i);</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				Thread.sleep(<span class="number">500</span>);</div><div class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> A ma=<span class="keyword">new</span> A();</div><div class="line">		<span class="comment">//下面两个线程分别在内部调用类A的对象ma的a方法</span></div><div class="line">		Thread thread1=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程1调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread1"</span>);</div><div class="line">		Thread thread2=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程2也调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread2"</span>);</div><div class="line">		thread1.start();</div><div class="line">		thread2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Thread1:a:<span class="number">4</span></div><div class="line">Thread2:a:<span class="number">4</span></div><div class="line">Thread2:a:<span class="number">3</span></div><div class="line">Thread1:a:<span class="number">3</span></div><div class="line">Thread2:a:<span class="number">2</span></div><div class="line">Thread1:a:<span class="number">2</span></div><div class="line">Thread1:a:<span class="number">1</span></div><div class="line">Thread2:a:<span class="number">1</span></div><div class="line">Thread2:a:<span class="number">0</span></div><div class="line">Thread1:a:<span class="number">0</span></div></pre></td></tr></table></figure></div>
+<p>我们可以发现 <strong>未加同步</strong> 时，两个线程是互相交替执行 a 方法的，由于不同步所以类 A 的对象 ma 两个进程可同时访问，而哪个先执行由 <em>CPU</em> 自动调度！</p>
+<p><em>情况2</em>：使用同步，<em>synchronized</em> 修饰方法</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="comment">//a方法加了synchronized关键字</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> i=<span class="number">5</span>;</div><div class="line">		<span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</div><div class="line">			System.out.println(Thread.currentThread()+<span class="string">":a:"</span>+i);</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				Thread.sleep(<span class="number">500</span>);</div><div class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> A ma=<span class="keyword">new</span> A();</div><div class="line">		<span class="comment">//下面两个线程分别在内部调用类A的对象ma的a方法</span></div><div class="line">		Thread thread1=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程1调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread1"</span>);</div><div class="line">		Thread thread2=<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				ma.a();<span class="comment">//线程2也调用a方法</span></div><div class="line">			&#125;&#125;,<span class="string">"Thread2"</span>);</div><div class="line">		thread1.start();</div><div class="line">		thread2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
 <p>输出结果为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Thread1:a:<span class="number">4</span></div><div class="line">Thread1:a:<span class="number">3</span></div><div class="line">Thread1:a:<span class="number">2</span></div><div class="line">Thread1:a:<span class="number">1</span></div><div class="line">Thread1:a:<span class="number">0</span></div><div class="line">Thread2:a:<span class="number">4</span></div><div class="line">Thread2:a:<span class="number">3</span></div><div class="line">Thread2:a:<span class="number">2</span></div><div class="line">Thread2:a:<span class="number">1</span></div><div class="line">Thread2:a:<span class="number">0</span></div></pre></td></tr></table></figure>
-<p>我们发现加了synchronized后，对象<code>ma</code>中的<code>a</code>方法变成了同步输出了，必须等到Thread1线程使用完<code>ma</code>对象后，Thread2才能再使用<code>ma</code>对象。</p>
-<p>实际上<code>synchronized</code>的同步就是<strong>在类的对象上加上一把“锁”</strong>，当一个线程获得该对象就会立即锁定该对象，其他线程必须等待使用该对象的线程释放对象锁才能使用此对象资源！</p>
-<p>也因此当A类中如果有多个加了<code>synchronized</code>的方法时，其他线程还是不能调用同步的方法，但是对于类A中没有加同步的方法，其他线程是可以调用的！也就是说<strong>类中所有的同步方法同一时刻只能有一个线程访问，而非同步方法则允许多个线程访问</strong>。</p>
-</blockquote>
-<h3 id="2、synchronized修饰代码块"><a href="#2、synchronized修饰代码块" class="headerlink" title="2、synchronized修饰代码块"></a>2、synchronized修饰代码块</h3><blockquote>
-<p>分别说明<code>synchronized(this)</code>,<code>synchronized(Obj)</code>,<code>synchronized(A.class)</code>三种使用情景。</p>
-<h4 id="synchronized-this"><a href="#synchronized-this" class="headerlink" title="synchronized(this){}"></a>synchronized(this){}</h4><blockquote>
-<p>此用法效果和synchronized修饰方法的效果完全一样,只不过它是写在方法里面的！如下面例子的写法。<br>但这里要说明下<code>this</code>的含义，此<code>this</code><strong>不是指类A，而是指类A的对象</strong>！<code>synchronized(this)</code>表示将本类的对象加锁同步！其原型应该是<code>synchronized(Obj)</code>也就是下一个使用情景。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</div><div class="line">			<span class="keyword">int</span> i=<span class="number">5</span>;</div><div class="line">			<span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</div><div class="line">				System.out.println(Thread.currentThread()+<span class="string">":a:"</span>+i);</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					Thread.sleep(<span class="number">500</span>);</div><div class="line">				&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="synchronized-Obj"><a href="#synchronized-Obj" class="headerlink" title="synchronized(Obj){}"></a>synchronized(Obj){}</h4><blockquote>
-<p>这一代码块修饰法是最特别也是与其他写法有最大不同的地方！</p>
-<ul>
-<li>代码中Obj是一个对象，当是当前方法类本身的对象时，其用法就和<code>synchronized(this)</code>完全一样，那当然也和<code>synchronized</code>修饰方法的情况用法一样。对于<code>synchronized(this)</code>和此写法关系，<strong>通常认为<code>synchronized(this)</code>是<code>synchronized(Obj)</code>的一个特例</strong>。</li>
-<li>当Obj指代其他对象(非本类对象)时，那么它只限制Obj所指代的对象同步。此种情况的用法填补了前面几种方法(包括<code>synchronized(A.class)</code>)的缺陷，下面详细说明：</li>
-</ul>
-<p><strong>synchronized修饰方法和修饰本类对象的缺陷：当某个线程进入同步方法获得对象锁，那么其他线程访问这里对象的同步方法时，必须等待或者阻塞，这对高并发的系统是致命的，这很容易导致系统的崩溃。如果某个线程在同步方法里面发生了死循环，那么它就永远不会释放这个对象锁，那么其他线程就要永远的等待。这是一个致命的问题。</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Thread1:a:<span class="number">4</span></div><div class="line">Thread1:a:<span class="number">3</span></div><div class="line">Thread1:a:<span class="number">2</span></div><div class="line">Thread1:a:<span class="number">1</span></div><div class="line">Thread1:a:<span class="number">0</span></div><div class="line">Thread2:a:<span class="number">4</span></div><div class="line">Thread2:a:<span class="number">3</span></div><div class="line">Thread2:a:<span class="number">2</span></div><div class="line">Thread2:a:<span class="number">1</span></div><div class="line">Thread2:a:<span class="number">0</span></div></pre></td></tr></table></figure></div>
+<p>我们发现加了 <em>synchronized</em> 后，对象 <code>ma</code> 中的 <code>a</code> 方法变成了同步输出了，必须等到 <em>Thread1</em> 线程使用完 <code>ma</code> 对象后，<em>Thread2</em> 才能再使用 <code>ma</code> 对象。</p>
+<p>实际上 <code>synchronized</code> 的同步就是 <strong>在类的对象上加上一把“锁”</strong>，当一个线程获得该对象就会立即锁定该对象，其他线程必须等待使用该对象的线程释放对象锁才能使用此对象资源！</p>
+<p>也因此当 A 类中如果有多个加了 <code>synchronized</code> 的方法时，其他线程还是不能调用同步的方法，但是对于类A中没有加同步的方法，其他线程是可以调用的！也就是说 <strong>类中所有的同步方法同一时刻只能有一个线程访问，而非同步方法则允许多个线程访问</strong>。</p>
+<h3 id="2、synchronized-修饰代码块"><a href="#2、synchronized-修饰代码块" class="headerlink" title="2、synchronized 修饰代码块"></a>2、synchronized 修饰代码块</h3><p>分别说明 <code>synchronized(this)</code>, <code>synchronized(Obj)</code>, <code>synchronized(A.class)</code> 三种使用情景。</p>
+<h4 id="synchronized-this"><a href="#synchronized-this" class="headerlink" title="synchronized(this){}"></a>synchronized(this){}</h4><p>此用法效果和 <code>synchronized</code> 修饰方法的效果完全一样,只不过它是写在方法里面的！如下面例子的写法。</p>
+<p>但这里要说明下 <code>this</code> 的含义，此 <code>this</code> <strong>不是指类A，而是指类A的对象</strong>！<code>synchronized(this)</code> 表示将本类的对象加锁同步！其原型应该是<code>synchronized(Obj)</code> 也就是下一个使用情景。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</div><div class="line">			<span class="keyword">int</span> i=<span class="number">5</span>;</div><div class="line">			<span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</div><div class="line">				System.out.println(Thread.currentThread()+<span class="string">":a:"</span>+i);</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					Thread.sleep(<span class="number">500</span>);</div><div class="line">				&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<h4 id="synchronized-Obj"><a href="#synchronized-Obj" class="headerlink" title="synchronized(Obj){}"></a>synchronized(Obj){}</h4><p>这一代码块修饰法是最特别也是与其他写法有最大不同的地方！</p>
+<p>代码中 <em>Obj</em> 是一个对象，当是当前方法类本身的对象时，其用法就和<code>synchronized(this)</code> 完全一样，那当然也和 <code>synchronized</code> 修饰方法的情况用法一样。对于 <code>synchronized(this)</code> 和此写法关系，<strong>通常认为 <code>synchronized(this)</code> 是 <code>synchronized(Obj)</code> 的一个特例</strong>。</p>
+<p>当 <em>Obj</em> 指代其他对象 ( 非本类对象 ) 时，那么它只限制 <em>Obj</em> 所指代的对象同步。此种情况的用法填补了前面几种方法 ( 包括 <code>synchronized(A.class)</code> ) 的缺陷，下面详细说明：</p>
+<p><strong>synchronized 修饰方法和修饰本类对象的缺陷：当某个线程进入同步方法获得对象锁，那么其他线程访问这里对象的同步方法时，必须等待或者阻塞，这对高并发的系统是致命的，这很容易导致系统的崩溃。如果某个线程在同步方法里面发生了死循环，那么它就永远不会释放这个对象锁，那么其他线程就要永远的等待。这是一个致命的问题。</strong></p>
 <p>例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Bclass:a!before"</span>);</div><div class="line">		SynObject so=<span class="keyword">new</span> SynObject();</div><div class="line">		so.testsy();	</div><div class="line">		System.out.println(<span class="string">"Bclass:a!after"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SynObject</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testsy</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"SynObject:testsy!"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>B类里有多个同步方法a,b,c等，并且在a方法里<code>SynObject so=new SynObject();</code>实例化了类SynObject得到so对象，并调用了<code>so.testsy();</code>。那么当某个线程进入了这个方法之后，这个对象其他同步方法都不能给其他线程访问了。假如这个方法需要执行的时间很长，那么其他线程会一直阻塞，影响到系统的性能。</p>
-<p>如果这时用<code>synchronized(Obj)</code>来修饰代码块，修改后的代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Bclass:a!before"</span>);</div><div class="line">		SynObject so=<span class="keyword">new</span> SynObject();</div><div class="line">		<span class="keyword">synchronized</span>(so)&#123;<span class="comment">//只修饰so对象</span></div><div class="line">		    so.testsy();	</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"Bclass:a!after"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SynObject</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testsy</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"SynObject:testsy!"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>那么这个方法加锁的对象是so这个对象，跟执行这行代码的对象没有关系，当一个线程执行这个方法时，这对其他同步方法时没有影响的，因为他们持有的锁都完全不一样。</p>
-<ul>
-<li>另外上面这个例子里面，B类a方法中的第一句print语句在<code>synchronized(Obj)</code>代码块之前，也就是说外界阻塞也会在这句print语句打印完后才会阻塞进行同步。这我们应该感觉到余<code>synchronized</code>修饰方法的区别，<code>synchronized</code>修饰方法会将整个方法内部所有语句都阻塞，而<code>synchronized(Obj)</code>只阻塞我们需要同步的类对象处！</li>
-</ul>
-</blockquote>
-<h4 id="synchronized-A-class"><a href="#synchronized-A-class" class="headerlink" title="synchronized(A.class){}"></a>synchronized(A.class){}</h4><blockquote>
-<p>此用法实际上是为静态方法实现synchronized代码块而使用的,直接给大家一个类比：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">a1</span><span class="params">()</span></span>&#123;	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a2</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</div><div class="line">			<span class="comment">//...</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">b1</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">b2</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">synchronized</span>(C.class)&#123;</div><div class="line">			<span class="comment">//...</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">synchronized</span>(C.class)&#123;</div><div class="line">			<span class="comment">//...</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>a1方法与a2方法效果一样，而b1,b2,c的效果也是一样的，</p>
-<ul>
-<li>对于<code>synchronized(C.class)</code>只要在方法中申名，不管方法前面加没加static其意义都是和加了static一样的！</li>
-<li>普通方法通过<code>synchronized(C.class)</code>可以转化为静态同步方法，而静态方法不能通过<code>synchronized(this)</code>转化为普通同步方法。</li>
-<li>普通方法的同步与静态方法的同步互不冲突。也就是说Thread1获得该类的一个对象并调用了a1方法，Thread2线程则不能调用a1,a2方法，但是可以调用b1,b2,c方法！</li>
-</ul>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<ul>
-<li>一个类的对象锁和另一个类的对象锁是没有关联的，当一个线程获得A类的对象锁时，它同时也可以获得B类的对象锁。</li>
-<li>判断哪些方法可以调用，哪些资源可以访问主要看synchronized修饰的是什么！我画了张图仅供参考：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/synchronize_kind.jpg" alt="synchronized分类图"></li>
-<li>如果还是很难理解，<a href="http://www.cnblogs.com/GnagWang/archive/2011/02/27/1966606.html" target="_blank" rel="external">http://www.cnblogs.com/GnagWang/archive/2011/02/27/1966606.html</a>这里面有例子大家可以参考看下！</li>
-</ul>
-</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Bclass:a!before"</span>);</div><div class="line">		SynObject so=<span class="keyword">new</span> SynObject();</div><div class="line">		so.testsy();	</div><div class="line">		System.out.println(<span class="string">"Bclass:a!after"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SynObject</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testsy</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"SynObject:testsy!"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<p>B 类里有多个同步方法 a, b, c 等，并且在 a 方法里 <code>SynObject so=new SynObject();</code> 实例化了类 SynObject 得到 so 对象，并调用了 <code>so.testsy();</code>。那么当某个线程进入了这个方法之后，这个对象其他同步方法都不能给其他线程访问了。假如这个方法需要执行的时间很长，那么其他线程会一直阻塞，影响到系统的性能。</p>
+<p>如果这时用 <code>synchronized(Obj)</code> 来修饰代码块，修改后的代码如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Bclass:a!before"</span>);</div><div class="line">		SynObject so=<span class="keyword">new</span> SynObject();</div><div class="line">		<span class="keyword">synchronized</span>(so)&#123;<span class="comment">//只修饰so对象</span></div><div class="line">		    so.testsy();	</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"Bclass:a!after"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SynObject</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testsy</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"SynObject:testsy!"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<p>那么这个方法加锁的对象是 so 这个对象，跟执行这行代码的对象没有关系，当一个线程执行这个方法时，这对其他同步方法时没有影响的，因为他们持有的锁都完全不一样。</p>
+<p>另外上面这个例子里面，B 类 a 方法中的第一句 <code>print</code> 语句在 <code>synchronized(Obj)</code> 代码块之前，也就是说外界阻塞也会在这句 <em>print</em> 语句打印完后才会阻塞进行同步。这我们应该感觉到与 <code>synchronized</code> 修饰方法的区别，<code>synchronized</code> 修饰方法会将整个方法内部所有语句都阻塞，而 <code>synchronized(Obj)</code> 只阻塞我们需要同步的类对象处！</p>
+<h4 id="synchronized-A-class"><a href="#synchronized-A-class" class="headerlink" title="synchronized(A.class){}"></a>synchronized(A.class){}</h4><p>此用法实际上是为静态方法实现 <code>synchronized</code> 代码块而使用的，直接给大家一个类比：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">a1</span><span class="params">()</span></span>&#123;	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a2</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</div><div class="line">			<span class="comment">//...</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">b1</span><span class="params">()</span></span>&#123;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">b2</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">synchronized</span>(C.class)&#123;</div><div class="line">			<span class="comment">//...</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">synchronized</span>(C.class)&#123;</div><div class="line">			<span class="comment">//...</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<p>a1 方法与 a2 方法效果一样，而 b1, b2, c 的效果也是一样的，</p>
+<p>对于 <code>synchronized(C.class)</code> 只要在方法中申名，不管方法前面加没加 <code>static</code> 其意义都是和加了 <code>static</code> 一样的！</p>
+<p>普通方法通过 <code>synchronized(C.class)</code> 可以转化为静态同步方法，而静态方法不能通过 <code>synchronized(this)</code> 转化为普通同步方法。</p>
+<p>普通方法的同步与静态方法的同步互不冲突。也就是说 <em>Thread1</em> 获得该类的一个对象并调用了 a1 方法，Thread2 线程则不能调用 a1, a2 方法，但是可以调用 b1, b2, c 方法！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一个类的对象锁和另一个类的对象锁是没有关联的，当一个线程获得 <em>A</em> 类的对象锁时，它同时也可以获得 <em>B</em> 类的对象锁。</p>
+<p>判断哪些方法可以调用，哪些资源可以访问主要看 <code>synchronized</code> 修饰的是什么！我画了张图仅供参考：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/synchronize_kind.jpg" alt="synchronized分类图"></p>
+<p>如果还是很难理解，<a href="http://www.cnblogs.com/GnagWang/archive/2011/02/27/1966606.html" target="_blank" rel="external">http://www.cnblogs.com/GnagWang/archive/2011/02/27/1966606.html</a> 这里面有例子大家可以参考看下！</p>
 
       
     </div>
+
+    
+
     
     
     
@@ -470,17 +501,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    jiyiren
-  </li>
+    <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2016/09/01/java_synchronized/" title="Java synchronized的用法">http://yoursite.com/2016/09/01/java_synchronized/</a>
+    <a href="http://yoursite.com/2016/09/01/java_synchronized/" title="Java synchronized 的用法">http://yoursite.com/2016/09/01/java_synchronized/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -543,13 +570,11 @@
           </div>
           
 
-
-          
   
     <div class="comments" id="comments">
-      <div id="vcomments"></div>
     </div>
   
+
 
 
         </div>
@@ -593,102 +618,245 @@
               <p class="site-description motion-element" itemprop="description">go my own way</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
           
-
-          <div class="links-of-author motion-element">
-            
+            <nav class="site-state motion-element">
               
-                <span class="links-of-author-item">
-                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
-                    
-                      <i class="fa fa-fw fa-google"></i>Google</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
-                    
-                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
-                    
-                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-globe"></i>
+                <div class="site-state-item site-state-posts">
                 
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -709,6 +877,9 @@
           
 
           
+            
+          
+          
 
         </div>
       </section>
@@ -723,7 +894,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语："><span class="nav-number">1.</span> <span class="nav-text">导语：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、同步、异步、synchronized"><span class="nav-number">2.</span> <span class="nav-text">一、同步、异步、synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、synchronized用法"><span class="nav-number">3.</span> <span class="nav-text">二、synchronized用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、synchronized修饰方法"><span class="nav-number">3.1.</span> <span class="nav-text">1、synchronized修饰方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、synchronized修饰代码块"><span class="nav-number">3.2.</span> <span class="nav-text">2、synchronized修饰代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-this"><span class="nav-number">3.2.1.</span> <span class="nav-text">synchronized(this){}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-Obj"><span class="nav-number">3.2.2.</span> <span class="nav-text">synchronized(Obj){}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-A-class"><span class="nav-number">3.2.3.</span> <span class="nav-text">synchronized(A.class){}</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、同步、异步、synchronized"><span class="nav-number">1.</span> <span class="nav-text">一、同步、异步、synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、synchronized-用法"><span class="nav-number">2.</span> <span class="nav-text">二、synchronized 用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、synchronized-修饰方法"><span class="nav-number">2.1.</span> <span class="nav-text">1、synchronized 修饰方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、synchronized-修饰代码块"><span class="nav-number">2.2.</span> <span class="nav-text">2、synchronized 修饰代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-this"><span class="nav-number">2.2.1.</span> <span class="nav-text">synchronized(this){}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-Obj"><span class="nav-number">2.2.2.</span> <span class="nav-text">synchronized(Obj){}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-A-class"><span class="nav-number">2.2.3.</span> <span class="nav-text">synchronized(A.class){}</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -744,16 +915,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">jiyiren</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
 
 
 
@@ -761,7 +936,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -771,21 +946,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"> 本站总访客量</i>
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"> 本站总访问量</i>
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -803,6 +977,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -823,7 +999,6 @@
 
 
 
-  
 
 
 
@@ -836,55 +1011,53 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
+
+
+  
 
 
 
@@ -907,18 +1080,29 @@
 
 
 
-  
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
-        el: '#vcomments' ,
+        el: '#comments' ,
         verify: false,
-        notify: true,
-        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
-        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
@@ -937,12 +1121,24 @@
   
 
   
-  
-
 
   
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
 </body>
 </html>

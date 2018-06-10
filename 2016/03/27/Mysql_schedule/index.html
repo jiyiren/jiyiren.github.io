@@ -2,24 +2,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
 
 
 
@@ -45,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -57,25 +58,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="mysql,schedule," />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
 
 
 
@@ -85,15 +80,42 @@
 
 
 
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
-<meta name="description" content="导语： 最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。  一、说明  后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：    后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows serve">
+
+  
+
+
+
+
+  <meta name="description" content="导语： 最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。  一、说明  后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：    后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows serve">
 <meta name="keywords" content="mysql,schedule">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql中的定时任务">
 <meta property="og:url" content="http://yoursite.com/2016/03/27/Mysql_schedule/index.html">
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="导语： 最近项目里面的后台需要用到定时任务，而mysql从5.0开始自带了定时事件操作，所以学习下并做下记录。  一、说明  后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：    后台框架自带定时任务。比如php中的Laravel框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个windows serve">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql4.png">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql5.png">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/mysql6.png">
@@ -109,29 +131,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.3',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -139,10 +138,15 @@
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Mysql中的定时任务 | jiyiren</title>
   
+
 
 
 
@@ -161,9 +165,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -172,8 +203,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
-    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -181,19 +211,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">jiyiren</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">blogs</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -201,65 +233,61 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -267,12 +295,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -285,6 +321,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -294,7 +332,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="go my own way">
       <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
     </span>
 
@@ -307,11 +345,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql中的定时任务</h1>
+          <h1 class="post-title" itemprop="name headline">Mysql中的定时任务
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -319,11 +365,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-27T11:40:40+08:00">
-                2016-03-27
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2016-03-27 11:40:40" itemprop="dateCreated datePublished" datetime="2016-03-27T11:40:40+08:00">2016-03-27</time>
             
 
             
@@ -341,11 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">Mysql</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
 
                 
                 
@@ -355,6 +398,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/27/Mysql_schedule/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/03/27/Mysql_schedule/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -362,7 +415,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -404,13 +460,13 @@
 <h3 id="1、查看定时策略是否开启"><a href="#1、查看定时策略是否开启" class="headerlink" title="1、查看定时策略是否开启"></a>1、查看定时策略是否开启</h3><blockquote>
 <ul>
 <li><p>查看命令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%event_sche%'</span>;</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%event_sche%'</span>;</div></pre></td></tr></table></figure></div>
 </li>
 <li><p>显示的<strong>event_scheduler</strong>为OFF时用以下命令开启</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">global</span> event_scheduler=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">global</span> event_scheduler=<span class="number">1</span>;</div></pre></td></tr></table></figure></div>
 </li>
 <li><p>注意：以上的改法在数据库重启后将会恢复为原来状态，要想数据库重启后也可以让event_scheduler开启，则需要在配置文件my.ini的设置。修改如下，然后重启mysql服务即可。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[mysqld]</div><div class="line">event_scheduler=ON //这一行加入mysqld标签下</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[mysqld]</div><div class="line">event_scheduler=ON //这一行加入mysqld标签下</div></pre></td></tr></table></figure></div>
 </li>
 </ul>
 </blockquote>
@@ -422,14 +478,14 @@
 </ul>
 </blockquote>
 <h4 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h4><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</div><div class="line">delimiter //</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_proce()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> weuse(<span class="keyword">name</span>,created_at,updated_at) <span class="keyword">values</span>(<span class="string">'hello'</span>,<span class="keyword">now</span>(),<span class="keyword">now</span>());</div><div class="line"><span class="keyword">end</span>//</div><div class="line">delimiter ;</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</div><div class="line">delimiter //</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_proce()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> weuse(<span class="keyword">name</span>,created_at,updated_at) <span class="keyword">values</span>(<span class="string">'hello'</span>,<span class="keyword">now</span>(),<span class="keyword">now</span>());</div><div class="line"><span class="keyword">end</span>//</div><div class="line">delimiter ;</div></pre></td></tr></table></figure></div>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql4.png" alt="enter image description here"></p>
 <p>上面的代码说明：</p>
 <ol>
 <li>use test; 这个谁都知道，使用某个数据库，这里要强调的是存储过程一定是对于某个数据库而言的，所以必须要选中一个数据库才能创建成功。</li>
 <li>delimiter //  这个是将mysql中以<strong>;(分号)</strong>结尾的规定修改为以<strong>//(双斜杠)</strong>为语句结束符，因为存储过程里可以有多条sql 语句，里面的sql语句都以<strong>;</strong>号结尾，如果回车了那么系统会当做sql语句直接执行了，我们希望的是先定义这一系列sql语句而先不执行，所以要改下操作结束符。当然你在改后一定要改回来，大家可以看到最后一行有对应的修改回来的语句。</li>
 <li><p>下面的是一起输入的,可以知道分别是创建存储过程test_proce(),名称可以随便起的，然后是在begin –end之间是定义一系列sql语句的就可以了，记住最后end结尾要以之前修改后的结尾符结束。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_proce()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> weuse(<span class="keyword">name</span>,created_at,updated_at) <span class="keyword">values</span>(<span class="string">'hello'</span>,<span class="keyword">now</span>(),<span class="keyword">now</span>());</div><div class="line"><span class="keyword">end</span>//</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_proce()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> weuse(<span class="keyword">name</span>,created_at,updated_at) <span class="keyword">values</span>(<span class="string">'hello'</span>,<span class="keyword">now</span>(),<span class="keyword">now</span>());</div><div class="line"><span class="keyword">end</span>//</div></pre></td></tr></table></figure></div>
 </li>
 </ol>
 </blockquote>
@@ -437,7 +493,7 @@
 <h3 id="3、创建定时任务"><a href="#3、创建定时任务" class="headerlink" title="3、创建定时任务"></a>3、创建定时任务</h3><p>上面创建存储过程实际上是为定时任务做铺垫的，因为上面只说明了怎么创建存储过程，但是未说明怎么调用，那这里就用到了调用存储过程了。</p>
 <blockquote>
 <h4 id="创建定时任务event-事件"><a href="#创建定时任务event-事件" class="headerlink" title="创建定时任务event(事件)"></a>创建定时任务event(事件)</h4><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">event</span> second_event</div><div class="line"><span class="keyword">on</span> schedule every <span class="number">1</span> <span class="keyword">second</span></div><div class="line"><span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">disable</span></div><div class="line"><span class="keyword">do</span> <span class="keyword">call</span> test_proce();</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">event</span> second_event</div><div class="line"><span class="keyword">on</span> schedule every <span class="number">1</span> <span class="keyword">second</span></div><div class="line"><span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">disable</span></div><div class="line"><span class="keyword">do</span> <span class="keyword">call</span> test_proce();</div></pre></td></tr></table></figure></div>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql5.png" alt="enter image description here"></p>
 <p>代码说明：</p>
 <ol>
@@ -449,12 +505,12 @@
 </ol>
 </blockquote>
 <h4 id="查看定时任务event-事件-，可以查看本机所有的事件"><a href="#查看定时任务event-事件-，可以查看本机所有的事件" class="headerlink" title="查看定时任务event(事件)，可以查看本机所有的事件"></a>查看定时任务event(事件)，可以查看本机所有的事件</h4><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> event_name,event_definition,interval_value,interval_field,<span class="keyword">status</span> <span class="keyword">FROM</span> information_schema.EVENTS;</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> event_name,event_definition,interval_value,interval_field,<span class="keyword">status</span> <span class="keyword">FROM</span> information_schema.EVENTS;</div></pre></td></tr></table></figure></div>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql6.png" alt="enter image description here"></p>
 </blockquote>
 </blockquote>
 <h3 id="4、开启已经创建好的event-事件"><a href="#4、开启已经创建好的event-事件" class="headerlink" title="4、开启已经创建好的event(事件)"></a>4、开启已经创建好的event(事件)</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">event</span> second_event <span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">enable</span>;//开启定时任务</div><div class="line"><span class="keyword">alter</span> <span class="keyword">event</span> second_event <span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">disable</span>;//关闭定时任务</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">event</span> second_event <span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">enable</span>;//开启定时任务</div><div class="line"><span class="keyword">alter</span> <span class="keyword">event</span> second_event <span class="keyword">on</span> completion <span class="keyword">preserve</span> <span class="keyword">disable</span>;//关闭定时任务</div></pre></td></tr></table></figure></div>
 <ul>
 <li><p>当我们用第一句命令开启定时任务时，可以就可以查看数据库情况,已经实现了每秒钟执行一次了，如图。</p>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql7.png" alt="enter image description here"></p>
@@ -470,19 +526,19 @@
 <blockquote>
 <ol>
 <li><p>单位有：<strong>second,minute,hour,day,week(周),quarter(季度),month,year</strong>，如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">on schedule every 1 second //每秒执行1次</div><div class="line">on schedule every 2 minute //每两分钟执行1次</div><div class="line">on schedule every 3 day //每3天执行1次</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">on schedule every 1 second //每秒执行1次</div><div class="line">on schedule every 2 minute //每两分钟执行1次</div><div class="line">on schedule every 3 day //每3天执行1次</div></pre></td></tr></table></figure></div>
 </li>
 </ol>
 </blockquote>
 <ul>
 <li><p><strong>在具体某个时间执行–关键字 AT</strong>,如：</p>
 <blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">on schedule at current_timestamp()+interval 5 day //5天后执行</div><div class="line">on schedule at current_timestamp()+interval 10 minute //10分钟后执行</div><div class="line">on schedule at '2016-10-01 21:50:00' //在2016年10月1日，晚上9点50执行</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">on schedule at current_timestamp()+interval 5 day //5天后执行</div><div class="line">on schedule at current_timestamp()+interval 10 minute //10分钟后执行</div><div class="line">on schedule at '2016-10-01 21:50:00' //在2016年10月1日，晚上9点50执行</div></pre></td></tr></table></figure></div>
 </blockquote>
 </li>
 <li><p><strong>在某个时间段执行–关键字STARTS  ENDS</strong>，如：</p>
 <blockquote>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">on schedule every 1 day starts current_timestamp()+interval 5 day ends current_timestamp()+interval 1 month //5天后开始每天都执行执行到下个月底</div><div class="line">on schedule every 1 day ends current_timestamp()+interval 5 day //从现在起每天执行，执行5天</div></pre></td></tr></table></figure>
+ <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">on schedule every 1 day starts current_timestamp()+interval 5 day ends current_timestamp()+interval 1 month //5天后开始每天都执行执行到下个月底</div><div class="line">on schedule every 1 day ends current_timestamp()+interval 5 day //从现在起每天执行，执行5天</div></pre></td></tr></table></figure></div>
 </blockquote>
 </li>
 </ul>
@@ -495,7 +551,7 @@
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql8.png" alt="enter image description here"></p>
 </li>
 <li><p>Event事件，可以查看，用sql命令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.EVENTS;//查看所有事件属性</div><div class="line"><span class="keyword">SELECT</span> event_name,event_definition,interval_value,interval_field,<span class="keyword">status</span> <span class="keyword">FROM</span> information_schema.EVENTS;//查看主要几个属性</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.EVENTS;//查看所有事件属性</div><div class="line"><span class="keyword">SELECT</span> event_name,event_definition,interval_value,interval_field,<span class="keyword">status</span> <span class="keyword">FROM</span> information_schema.EVENTS;//查看主要几个属性</div></pre></td></tr></table></figure></div>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/mysql9.png" alt="enter image description here"></p>
 </li>
 </ul>
@@ -509,6 +565,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -521,17 +580,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    jiyiren
-  </li>
+    <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="http://yoursite.com/2016/03/27/Mysql_schedule/" title="Mysql中的定时任务">http://yoursite.com/2016/03/27/Mysql_schedule/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -594,13 +649,11 @@
           </div>
           
 
-
-          
   
     <div class="comments" id="comments">
-      <div id="vcomments"></div>
     </div>
   
+
 
 
         </div>
@@ -644,102 +697,245 @@
               <p class="site-description motion-element" itemprop="description">go my own way</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
           
-
-          <div class="links-of-author motion-element">
-            
+            <nav class="site-state motion-element">
               
-                <span class="links-of-author-item">
-                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
-                    
-                      <i class="fa fa-fw fa-google"></i>Google</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
-                    
-                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
-                    
-                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-globe"></i>
+                <div class="site-state-item site-state-posts">
                 
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -759,6 +955,9 @@
             </div>
           
 
+          
+            
+          
           
 
         </div>
@@ -795,16 +994,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">jiyiren</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
 
 
 
@@ -812,7 +1015,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -822,21 +1025,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"> 本站总访客量</i>
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"> 本站总访问量</i>
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -854,6 +1056,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -874,7 +1078,6 @@
 
 
 
-  
 
 
 
@@ -887,55 +1090,53 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
+
+
+  
 
 
 
@@ -958,18 +1159,29 @@
 
 
 
-  
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
-        el: '#vcomments' ,
+        el: '#comments' ,
         verify: false,
-        notify: true,
-        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
-        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
@@ -988,12 +1200,24 @@
   
 
   
-  
-
 
   
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
 </body>
 </html>

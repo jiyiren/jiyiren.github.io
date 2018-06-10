@@ -2,24 +2,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
 
 
 
@@ -45,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -57,50 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="struts2," />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
-<meta name="keywords" content="struts2">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Struts2配置说明及后缀与路径设置">
-<meta property="og:url" content="http://yoursite.com/2016/01/11/Struts2配置说明及后缀与路径设置/index.html">
-<meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut22.png">
-<meta property="og:updated_time" content="2017-10-06T06:22:33.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struts2配置说明及后缀与路径设置">
-<meta name="twitter:description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
 
 
 
@@ -109,15 +85,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '5.1.3',
+    version: '6.3.0',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -129,15 +103,45 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
+<meta name="keywords" content="struts2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Struts2配置说明及后缀与路径设置">
+<meta property="og:url" content="http://yoursite.com/2016/01/11/Struts2配置说明及后缀与路径设置/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut22.png">
+<meta property="og:updated_time" content="2017-10-06T06:22:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Struts2配置说明及后缀与路径设置">
+<meta name="twitter:description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
+
+
+
+
+
 
   <link rel="canonical" href="http://yoursite.com/2016/01/11/Struts2配置说明及后缀与路径设置/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Struts2配置说明及后缀与路径设置 | jiyiren</title>
   
+
 
 
 
@@ -156,9 +160,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -167,8 +198,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
-    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -176,19 +206,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">jiyiren</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">blogs</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -196,65 +228,61 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -262,12 +290,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -280,6 +316,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -289,7 +327,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="go my own way">
       <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
     </span>
 
@@ -302,11 +340,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Struts2配置说明及后缀与路径设置</h1>
+          <h1 class="post-title" itemprop="name headline">Struts2配置说明及后缀与路径设置
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -314,11 +360,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-11T20:16:40+08:00">
-                2016-01-11
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2016-01-11 20:16:40" itemprop="dateCreated datePublished" datetime="2016-01-11T20:16:40+08:00">2016-01-11</time>
             
 
             
@@ -336,11 +383,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Struts/" itemprop="url" rel="index">
-                    <span itemprop="name">Struts</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Struts/" itemprop="url" rel="index"><span itemprop="name">Struts</span></a></span>
 
                 
                 
@@ -350,6 +393,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/01/11/Struts2配置说明及后缀与路径设置/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/01/11/Struts2配置说明及后缀与路径设置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -357,7 +410,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -416,7 +472,7 @@
 </ul>
 <blockquote>
 <p>用maven管理则很简单，只需要在dependencies里加入</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">      	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">      	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></div>
 </blockquote>
 </blockquote>
 <h3 id="3、Struts2配置"><a href="#3、Struts2配置" class="headerlink" title="3、Struts2配置"></a>3、Struts2配置</h3><blockquote>
@@ -424,7 +480,7 @@
 <li>web.xml里配置</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure></div>
 <p>在web配置里加入了全局action拦截器。</p>
 </blockquote>
 <ul>
@@ -432,7 +488,7 @@
 </ul>
 <blockquote>
 <p>下面为我学习记录的：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line"><span class="meta">      "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line"><span class="meta">      "http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 如果本配置里内容太多，不好管理，可以将配置文件分为多个配置文件。--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 如下就包括了struts-login.xml，在所包括的配置里所有的struts的配置都字符都不能少的--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"struts-login.xml"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 默认包  没有命名空间 默认为--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- action名是url访问名--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/hello.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 包名userlogin，包名主要是为了分类，对url没有影响。命名空间是/user，它只对url有影响--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- action名是url访问名 class是操作aciton的类--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 将包的命名空间和action名 合并作为url访问的最终地址如下--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/user/login.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"userlogin"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/user"</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 这是本包里的全局result,本包里的所有action都可以用该result--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">global-results</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"error"</span>&gt;</span>/execption.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!--下面为默认页面，如果访问到该目录下没有的地址，则会显示该界面--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;action name="errordefault"&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;result&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;/action&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;default-action-ref name="errordefault" &gt;&lt;/default-action-ref&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面这个没有指定方法名，默认调用的是UserLogin里的execute()方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 这个默认访问execute()方法--&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- http://127.0.0.1:8088/ProjectName/login.action--&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 下面这个就是为了动态方法调用--&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面这个是方法名调用，在method等于UserLogin里的add()方法则将执行add()方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"loginadd"</span> <span class="attr">method</span>=<span class="string">"add"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面为通配符访问方法，是官方推荐的方法--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 调用url http://localhost:8088/user/logintpf_add.action--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 注意：下划线后面的方法名，不写方法名默认调用的是execute方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"logintpf_*"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/&#123;1&#125;.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 常量配置，也可以配置在struts.properties文件里--&gt;</span></div><div class="line">       <span class="comment">&lt;!--http://blog.csdn.net/flfna/article/details/4900172--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 编码设置，请求参数中会出现编码问题，默认是UTF-8--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.encoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 是否设置为开发模式，默认false,开发阶段设置为true--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.devMode"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 每次http请求到达时是否重新加载国际化资源，默认false,开发阶段设置为true--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.reload"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 请求后缀形如.action的都交由Struts2处理，值中多个值用逗号隔开--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,struts2,"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 这个是动态方法调用，在action用感叹号访问action的方法--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 主要是在访问的时候http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.enable.DynamicMethodInvocation"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line"><span class="meta">      "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line"><span class="meta">      "http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 如果本配置里内容太多，不好管理，可以将配置文件分为多个配置文件。--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 如下就包括了struts-login.xml，在所包括的配置里所有的struts的配置都字符都不能少的--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"struts-login.xml"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 默认包  没有命名空间 默认为--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- action名是url访问名--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/hello.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 包名userlogin，包名主要是为了分类，对url没有影响。命名空间是/user，它只对url有影响--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- action名是url访问名 class是操作aciton的类--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 将包的命名空间和action名 合并作为url访问的最终地址如下--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/user/login.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"userlogin"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/user"</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 这是本包里的全局result,本包里的所有action都可以用该result--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">global-results</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"error"</span>&gt;</span>/execption.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!--下面为默认页面，如果访问到该目录下没有的地址，则会显示该界面--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;action name="errordefault"&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;result&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;/action&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;default-action-ref name="errordefault" &gt;&lt;/default-action-ref&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面这个没有指定方法名，默认调用的是UserLogin里的execute()方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 这个默认访问execute()方法--&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- http://127.0.0.1:8088/ProjectName/login.action--&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 下面这个就是为了动态方法调用--&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面这个是方法名调用，在method等于UserLogin里的add()方法则将执行add()方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"loginadd"</span> <span class="attr">method</span>=<span class="string">"add"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面为通配符访问方法，是官方推荐的方法--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 调用url http://localhost:8088/user/logintpf_add.action--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 注意：下划线后面的方法名，不写方法名默认调用的是execute方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"logintpf_*"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/&#123;1&#125;.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 常量配置，也可以配置在struts.properties文件里--&gt;</span></div><div class="line">       <span class="comment">&lt;!--http://blog.csdn.net/flfna/article/details/4900172--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 编码设置，请求参数中会出现编码问题，默认是UTF-8--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.encoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 是否设置为开发模式，默认false,开发阶段设置为true--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.devMode"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 每次http请求到达时是否重新加载国际化资源，默认false,开发阶段设置为true--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.reload"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 请求后缀形如.action的都交由Struts2处理，值中多个值用逗号隔开--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,struts2,"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 这个是动态方法调用，在action用感叹号访问action的方法--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 主要是在访问的时候http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.enable.DynamicMethodInvocation"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li><strong>简单说明</strong></li>
@@ -463,14 +519,14 @@
 </blockquote>
 <h3 id="2-welcom-file-list"><a href="#2-welcom-file-list" class="headerlink" title="2.welcom-file-list"></a>2.welcom-file-list</h3><blockquote>
 <p>对于web.xml里的这个标签主要配置的是web项目的主页面。也就是当我们访问一个项目的根目录时所显示的界面。举个例子：我们的项目名叫hellotest,我们配置tomcat时会有两种配置方法，一种是将tomcat的webapps作为服务器根目录，这时我们的访问我们项目的根目录为<code>http://localhost:8080/hellotest</code>,另一种方法是将我们的项目就作为tomcat服务器根目录了，那我们访问我们项目的根目录为<code>http://localhost:8080</code>。通常我们用后一种tomcat配置方法，因为这样可以与实际运行情况相符。那么不管哪一种配置方法，访问了我们项目的根目录，我们都没有指定访问哪个页面为什么还是会有界面显示呢？因为tomcat默认将项目的index.html,index.htm,index.jsp作为访问项目根目录而显示的界面。与在web.xml里配置如下这种情况一样：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div></pre></td></tr></table></figure></div>
 <p>这个是写在web.xml里的，上面的代码与默认配置是一样的，也就是说不写上面的这些代码也会有效果的。那它有什么用呢？它通常做为用户想自定义自己项目根目录访问界面的，比如我的项目下有index.jsp和hello.jsp，而我就是想让hello.jsp作为默认界面，那我们就这么配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>hello.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>hello.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div></pre></td></tr></table></figure></div>
 <p>当我们访问项目根目录，比如:<code>http://localhost:8080</code>时，显示的界面将会是hello.jsp的界面，而不会是index.jsp。因为当我们配置了该标签，就覆盖了默认的设置了，其所隐含的真正路径是：<code>http://localhost:8080/hello.jsp</code></p>
 </blockquote>
 <h3 id="3-web-xml里struts拦截器设置的"><a href="#3-web-xml里struts拦截器设置的" class="headerlink" title="3.web.xml里struts拦截器设置的"></a>3.web.xml里struts拦截器设置的<filter-mapping></filter-mapping></h3><blockquote>
 <p>通常的配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></div>
 <p>这里的意思是以action为后缀的访问路径和没有后缀的访问路径都会被struts的拦截器拦截，进入action里处理后再返回出视图，是的，没错，没有后缀的也会拦截的，struts默认拦截的有两个的，一个是action后缀，一个就是没有后缀的。举个例子：</p>
 <blockquote>
 <ul>
@@ -485,7 +541,7 @@
 <li>假设我们的项目根目录下有index.jsp和hello.jsp，所有其他配置好后都默认，也就是说Struts拦截action后缀和无后缀的url路径。</li>
 <li>在struts.xml里配置如下的包：</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">result</span>&gt;</span>hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">result</span>&gt;</span>hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure></div>
 </blockquote>
 <p>当我们</p>
 <blockquote>
@@ -504,35 +560,35 @@
 <li>其配置示例：</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
 <p>它的作用是让struts拦截哪些后缀结尾的url的。<br>当我们新建好项目时，struts.xml里没有任何东西的，所以默认的拦截是<strong>action</strong>和<strong>没有后缀</strong>的url路径。但是</p>
 </blockquote>
 <ul>
 <li>若按如下配置：</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
 <p>那么它将只会拦截<strong>action</strong>结尾的url路径了。</p>
 </blockquote>
 <ul>
 <li>当我们写下:</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">","</span>/&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">","</span>/&gt;</span></div></pre></td></tr></table></figure></div>
 <p>那么它将只会拦截<strong>没有后缀</strong>的url路径了。</p>
 </blockquote>
 <ul>
 <li>当我们写下：</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
 <p>那么它将会拦截<strong>action,do结尾的url以及没有后缀</strong>的url路径。</p>
 </blockquote>
 <ul>
 <li>当写下：</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
 <p>那么它将只会拦截<strong>action</strong>和<strong>do</strong>结尾的url路径了，没有后缀的将不会拦截。</p>
 </blockquote>
 <ul>
@@ -558,14 +614,14 @@
 <li>拦截：因为要用struts来配置，所以要使url进入action,也就是说要拦截tomcat默认设置的.html .htm .jsp后缀的访问url,所以要将控制后缀常量设置为：</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,html,htm,jsp,"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,html,htm,jsp,"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
 <p>这样我们就拦截了主页默认的index.html或者index.jsp后缀index.htm。</p>
 </blockquote>
 <ul>
 <li>配置：然后配置package如下：</li>
 </ul>
 <blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">default-action-ref</span> <span class="attr">name</span>=<span class="string">"myhome"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"myhome"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">result</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">default-action-ref</span> <span class="attr">name</span>=<span class="string">"myhome"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"myhome"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">result</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure></div>
 <p>这里的default-action-ref是包的默认action，也就是说当拦截了的路径匹配到了包后没有匹配到action则此默认的action就作为视图返回的路径了。</p>
 </blockquote>
 <ul>
@@ -584,6 +640,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -596,17 +655,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    jiyiren
-  </li>
+    <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="http://yoursite.com/2016/01/11/Struts2配置说明及后缀与路径设置/" title="Struts2配置说明及后缀与路径设置">http://yoursite.com/2016/01/11/Struts2配置说明及后缀与路径设置/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -667,13 +722,11 @@
           </div>
           
 
-
-          
   
     <div class="comments" id="comments">
-      <div id="vcomments"></div>
     </div>
   
+
 
 
         </div>
@@ -717,102 +770,245 @@
               <p class="site-description motion-element" itemprop="description">go my own way</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
           
-
-          <div class="links-of-author motion-element">
-            
+            <nav class="site-state motion-element">
               
-                <span class="links-of-author-item">
-                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
-                    
-                      <i class="fa fa-fw fa-google"></i>Google</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
-                    
-                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
-                    
-                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-globe"></i>
+                <div class="site-state-item site-state-posts">
                 
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -832,6 +1028,9 @@
             </div>
           
 
+          
+            
+          
           
 
         </div>
@@ -868,16 +1067,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">jiyiren</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
 
 
 
@@ -885,7 +1088,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -895,21 +1098,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"> 本站总访客量</i>
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"> 本站总访问量</i>
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -927,6 +1129,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -947,7 +1151,6 @@
 
 
 
-  
 
 
 
@@ -960,55 +1163,53 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
+
+
+  
 
 
 
@@ -1031,18 +1232,29 @@
 
 
 
-  
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
-        el: '#vcomments' ,
+        el: '#comments' ,
         verify: false,
-        notify: true,
-        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
-        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
@@ -1061,12 +1273,24 @@
   
 
   
-  
-
 
   
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
 </body>
 </html>

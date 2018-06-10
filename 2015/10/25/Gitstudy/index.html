@@ -2,24 +2,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
 
 
 
@@ -45,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -57,25 +58,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="git," />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
 
 
 
@@ -85,15 +80,42 @@
 
 
 
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
-<meta name="description" content="导语： Git学习笔记  一、Git简介 git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。  二、前言 git仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程">
+
+  
+
+
+
+
+  <meta name="description" content="导语： Git学习笔记  一、Git简介 git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。  二、前言 git仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记">
 <meta property="og:url" content="http://yoursite.com/2015/10/25/Gitstudy/index.html">
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="导语： Git学习笔记  一、Git简介 git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与CVS相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。  二、前言 git仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-diff.png">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitlog.png">
@@ -109,29 +131,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.3',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -139,10 +138,15 @@
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Git学习笔记 | jiyiren</title>
   
+
 
 
 
@@ -161,9 +165,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -172,8 +203,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
-    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -181,19 +211,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">jiyiren</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">blogs</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -201,65 +233,61 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -267,12 +295,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -285,6 +321,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -294,7 +332,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="go my own way">
       <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
     </span>
 
@@ -307,11 +345,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Git学习笔记
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -319,11 +365,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-25T20:16:40+08:00">
-                2015-10-25
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2015-10-25 20:16:40" itemprop="dateCreated datePublished" datetime="2015-10-25T20:16:40+08:00">2015-10-25</time>
             
 
             
@@ -341,11 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
 
                 
                 
@@ -355,6 +398,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/25/Gitstudy/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/10/25/Gitstudy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -362,7 +415,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -399,33 +455,33 @@
 <li>初始化仓库</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir gitstudy</div><div class="line"><span class="built_in">cd</span> gitstudy</div><div class="line">git init</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir gitstudy</div><div class="line"><span class="built_in">cd</span> gitstudy</div><div class="line">git init</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>加入暂存区</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add hellogit.txt</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add hellogit.txt</div></pre></td></tr></table></figure></div>
 <p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add -A 或者 git add . //是添加全部文件</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add -A 或者 git add . //是添加全部文件</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>将文件加入历史版本</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m <span class="string">"add hellogit file"</span> //-m是该版本的说明语句</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m <span class="string">"add hellogit file"</span> //-m是该版本的说明语句</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>与远程仓库链接</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://gitcafe.com/jiyiren/gitstudy.git</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://gitcafe.com/jiyiren/gitstudy.git</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>提交到远程仓库</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push -u origin master //-u 第一次提交让git记住本地仓库与远程仓库</div><div class="line">//的连接,以后可以不要</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push -u origin master //-u 第一次提交让git记住本地仓库与远程仓库</div><div class="line">//的连接,以后可以不要</div></pre></td></tr></table></figure></div>
 </blockquote>
 </blockquote>
 <h2 id="四、远程仓库先创建"><a href="#四、远程仓库先创建" class="headerlink" title="四、远程仓库先创建"></a>四、远程仓库先创建</h2><blockquote>
@@ -434,13 +490,13 @@
 <li>将远程仓库克隆(clone)下来,本地就会有对应的文件夹仓库</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://gitcafe.com/jiyiren/gitstudy.git</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://gitcafe.com/jiyiren/gitstudy.git</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>修改后加入暂存区，提交到历史版本，再推送到远程</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add -A</div><div class="line">git commit -m <span class="string">"modify hellogit file"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add -A</div><div class="line">git commit -m <span class="string">"modify hellogit file"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure></div>
 </blockquote>
 </blockquote>
 <h2 id="五、版本管理"><a href="#五、版本管理" class="headerlink" title="五、版本管理"></a>五、版本管理</h2><blockquote>
@@ -481,9 +537,9 @@
 </blockquote>
 <h4 id="4-git-reset"><a href="#4-git-reset" class="headerlink" title="(4).git reset"></a>(4).git reset</h4><blockquote>
 <p><code>git reset --hard &lt;版本&gt;</code> 回退版本，有两种方式，<strong>一种是相对回退</strong>，我们都知道HEAD默认指向当前分支的最新历史版本，而git给了我们一种以HEAD方式的相对语句就是<code>HEAD^</code> 这个代表当前版本的上一个版本，<code>HEAD^^</code> 代表当前版本的上上一个版本，可以一直加<code>^</code>向上的箭头来回退版本。当然如果回退个数很多比如100个，那个写100个<code>^</code>也麻烦，所以有缩写就是<code>HEAD~100</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^ //回退到上一个版本</div><div class="line">git reset --hard HEAD~100 //回退到上100个版本</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^ //回退到上一个版本</div><div class="line">git reset --hard HEAD~100 //回退到上100个版本</div></pre></td></tr></table></figure></div>
 <p><strong>另一种方式是绝对回退</strong>，上面的命令<code>$ git log --pretty=oneline</code>可以显示历史提交版本的commitid,当然很长，但是记录前面7个数字就可以了标识一个版本了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard 3628164 //回退到3628164..的版本</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard 3628164 //回退到3628164..的版本</div></pre></td></tr></table></figure></div>
 </blockquote>
 <h4 id="5-git-reflog"><a href="#5-git-reflog" class="headerlink" title="(5).git reflog"></a>(5).git reflog</h4><blockquote>
 <p><code>git reflog</code> 这个是命令历史记录。当我们回退到上一个或者几个版本时，我们用<code>$ git log</code>命令查看的只能显示是当前版本以及当前版本之前的，那比当前版本还新的版本我们就看不到了，那怎么办？<code>git reflog</code>就可以显示我们所有操作的命令历史，注意与<code>git log</code>的区别，<code>git log</code>是版本历史记录，<code>git reflog</code>是命令历史记录。从这个里面就可以找到最新版本的<code>commitid</code>，就可以回退到任意一个版本。</p>
@@ -504,37 +560,37 @@
 <li>查看分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git branch //查看本地分支</div><div class="line">git branch -r //查看远程分支</div><div class="line">git branch -a //查看所有分支(包括本地和远程)</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git branch //查看本地分支</div><div class="line">git branch -r //查看远程分支</div><div class="line">git branch -a //查看所有分支(包括本地和远程)</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>创建分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch develop //创建develop分支</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch develop //创建develop分支</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>切换分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout develop //切换到develop分支</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout develop //切换到develop分支</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>创建并切换分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b mdeve //创建并切换到mdeve分支</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b mdeve //创建并切换到mdeve分支</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>删除分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d mdeve //删除mdeve分支，强行删除用-D</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d mdeve //删除mdeve分支，强行删除用-D</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>合并分支默认ff模式</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge mdeve //合并mdeve分支到当前分支</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge mdeve //合并mdeve分支到当前分支</div></pre></td></tr></table></figure></div>
 <p>默认合并方式是Fast-forward，也就是将要合并的分支直接向当前分支提交。没有提交信息</p>
 </blockquote>
 <ul>
@@ -542,30 +598,30 @@
 </ul>
 <blockquote>
 <p>很多时候用Fast-forward方式直接提交是不成功的，因为有冲突存在，所以我们要手动解决冲突</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge feature1 //合并feature1分支</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge feature1 //合并feature1分支</div></pre></td></tr></table></figure></div>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-merge.png" alt="merge"><br>不成功的结果如上图，Git用&lt;&lt;&lt;&lt;&lt;这个箭头表示HEAD当前分支，====这个为分隔线，&gt;&gt;&gt;&gt;&gt;&gt;这个为feature1分支里的内容，只要手动删除这三处并自己选择内容作为最终结果。</p>
 </blockquote>
 <ul>
 <li>合并分支禁ff模式合并</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff -m <span class="string">"merge no ff"</span> dev //采用no ff模式合并并添加了信息提示</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff -m <span class="string">"merge no ff"</span> dev //采用no ff模式合并并添加了信息提示</div></pre></td></tr></table></figure></div>
 <p>Fast-forward模式合并直接向当前分支提交，这种模式下如果删除掉分支，就会丢掉分支信息<br>如果用no ff这种模式合并,git就会在merge时生成一个新的commit,这样就可以从分支历史里查看出分支信息了。</p>
 </blockquote>
 <ul>
 <li>暂存临时现场</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash //把工作现场存储起来，使得工作区干净如初</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash //把工作现场存储起来，使得工作区干净如初</div></pre></td></tr></table></figure></div>
 <p>主要用于在自己工作到一半，没法提交，然后又有新的bug要修复，就用这个命令保存现场，然后切换到bug分支，修复。</p>
 </blockquote>
 <ul>
 <li>恢复临时现场</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git stash list //查看临时工作区保存记录</div><div class="line">  stash@&#123;0&#125;: WIP on dev: 6224937 add merge//这是临时工作区记录列表</div><div class="line">$ git stash apply stash@&#123;0&#125;  //恢复刚刚的临时工作区</div><div class="line">$ git stash drop stash@&#123;0&#125;  //删除刚刚的临时保存记录</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git stash list //查看临时工作区保存记录</div><div class="line">  stash@&#123;0&#125;: WIP on dev: 6224937 add merge//这是临时工作区记录列表</div><div class="line">$ git stash apply stash@&#123;0&#125;  //恢复刚刚的临时工作区</div><div class="line">$ git stash drop stash@&#123;0&#125;  //删除刚刚的临时保存记录</div></pre></td></tr></table></figure></div>
 <p>上面的命令已经可以恢复并删除保存记录了，但是语句比较多，还有一种方法直接恢复到最近一次的临时现场：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash pop //既恢复工作区又删掉了保存记录</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash pop //既恢复工作区又删掉了保存记录</div></pre></td></tr></table></figure></div>
 </blockquote>
 </blockquote>
 </blockquote>
@@ -578,19 +634,19 @@
 <li>查看远程信息</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote    //查看远程库的信息</div><div class="line">  origin</div><div class="line">$ git remote -v            //查看更详细信息</div><div class="line">  origin  git@github.com:michaelliao/learngit.git (fetch)</div><div class="line">  origin  git@github.com:michaelliao/learngit.git (push)</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote    //查看远程库的信息</div><div class="line">  origin</div><div class="line">$ git remote -v            //查看更详细信息</div><div class="line">  origin  git@github.com:michaelliao/learngit.git (fetch)</div><div class="line">  origin  git@github.com:michaelliao/learngit.git (push)</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>推送分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push origin master //推送主分支</div><div class="line">git push origin mdev //推送mdev分支</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push origin master //推送主分支</div><div class="line">git push origin mdev //推送mdev分支</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>抓取分支  (模拟多人协作,假如你自己和一个A同学协作)</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">A同学：</div><div class="line">$ git <span class="built_in">clone</span> url.. //先从仓库克隆</div><div class="line">$ git branch  //查看分支，默认只有master分支，但是远程是有dev分支的</div><div class="line">$ git checkout -b dev origin/dev //所以要本地创建dev并与远程相连接</div><div class="line">$ git commit -m <span class="string">"add something by A"</span> //A同学修改了东西并添加入版本库</div><div class="line">$ git push origin dev //上传到远程仓库		</div><div class="line">我自己：</div><div class="line">$ git commit -m <span class="string">"add something by me"</span> //此时我自己也修改了一些东西，</div><div class="line">//并与A同学该的相同地方</div><div class="line">$ git push origin dev //此时推送将推送失败，提示先git pull</div><div class="line">$ git pull //于是你也就git pull,提示失败，本地dev未与远程连接</div><div class="line">$ git branch --<span class="built_in">set</span>-upstream dev origin/dev //再按照提示将本地分支与远程连接</div><div class="line">$ git pull //再次git pull,成功，但是出现冲突，解决冲突</div><div class="line">$ git commit -m <span class="string">"merge&amp;add something"</span> //提交冲突，至此就完成了多人协作</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">A同学：</div><div class="line">$ git <span class="built_in">clone</span> url.. //先从仓库克隆</div><div class="line">$ git branch  //查看分支，默认只有master分支，但是远程是有dev分支的</div><div class="line">$ git checkout -b dev origin/dev //所以要本地创建dev并与远程相连接</div><div class="line">$ git commit -m <span class="string">"add something by A"</span> //A同学修改了东西并添加入版本库</div><div class="line">$ git push origin dev //上传到远程仓库		</div><div class="line">我自己：</div><div class="line">$ git commit -m <span class="string">"add something by me"</span> //此时我自己也修改了一些东西，</div><div class="line">//并与A同学该的相同地方</div><div class="line">$ git push origin dev //此时推送将推送失败，提示先git pull</div><div class="line">$ git pull //于是你也就git pull,提示失败，本地dev未与远程连接</div><div class="line">$ git branch --<span class="built_in">set</span>-upstream dev origin/dev //再按照提示将本地分支与远程连接</div><div class="line">$ git pull //再次git pull,成功，但是出现冲突，解决冲突</div><div class="line">$ git commit -m <span class="string">"merge&amp;add something"</span> //提交冲突，至此就完成了多人协作</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>分支链接(重要)</li>
@@ -605,15 +661,15 @@
 <li>打标签两种方式</li>
 </ul>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git branch //查看分支</div><div class="line">  *dev</div><div class="line">  master</div><div class="line">$ git checkout master  //切换到要打标签的分支</div><div class="line">  Switched to branch &apos;master&apos;</div><div class="line">$ git tag v1.0 //用git tag name来打标签，默认打在最新提交的commit上</div><div class="line">$ git tag //查看所有标签</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git branch //查看分支</div><div class="line">  *dev</div><div class="line">  master</div><div class="line">$ git checkout master  //切换到要打标签的分支</div><div class="line">  Switched to branch &apos;master&apos;</div><div class="line">$ git tag v1.0 //用git tag name来打标签，默认打在最新提交的commit上</div><div class="line">$ git tag //查看所有标签</div></pre></td></tr></table></figure></div>
 <p>还可以如下打标签，按照commit id来打标签，如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --pretty=oneline --abbrev-commit//查看commit历史，找到要打标签的id号</div><div class="line">git tag v1.0 622493</div><div class="line">git tag //查看标签列表(按照标签名列出)</div><div class="line">git show v1.0 //查看v1.0标签的详细信息</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --pretty=oneline --abbrev-commit//查看commit历史，找到要打标签的id号</div><div class="line">git tag v1.0 622493</div><div class="line">git tag //查看标签列表(按照标签名列出)</div><div class="line">git show v1.0 //查看v1.0标签的详细信息</div></pre></td></tr></table></figure></div>
 </blockquote>
 <ul>
 <li>删除分支和推送分支</li>
 </ul>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git tag -d v0.9 //删除标签0.9，创建的分支默认都在本地，不会自动推送到远程。</div><div class="line">git push origin v1.0 //将标签1.0推送到远程</div><div class="line">git push origin --tags //一次性将全部未推送的标签推送到远程</div><div class="line">//要删除远程标签，有点麻烦的</div><div class="line">git tag -d v0.9 //先从本地删除标签</div><div class="line">git push origin :refs/tags/v0.9 //然后再从远程删除标签</div></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git tag -d v0.9 //删除标签0.9，创建的分支默认都在本地，不会自动推送到远程。</div><div class="line">git push origin v1.0 //将标签1.0推送到远程</div><div class="line">git push origin --tags //一次性将全部未推送的标签推送到远程</div><div class="line">//要删除远程标签，有点麻烦的</div><div class="line">git tag -d v0.9 //先从本地删除标签</div><div class="line">git push origin :refs/tags/v0.9 //然后再从远程删除标签</div></pre></td></tr></table></figure></div>
 </blockquote>
 </blockquote>
 <h2 id="九、图形化界面"><a href="#九、图形化界面" class="headerlink" title="九、图形化界面"></a>九、图形化界面</h2><blockquote>
@@ -639,6 +695,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -651,17 +710,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    jiyiren
-  </li>
+    <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="http://yoursite.com/2015/10/25/Gitstudy/" title="Git学习笔记">http://yoursite.com/2015/10/25/Gitstudy/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -722,13 +777,11 @@
           </div>
           
 
-
-          
   
     <div class="comments" id="comments">
-      <div id="vcomments"></div>
     </div>
   
+
 
 
         </div>
@@ -772,102 +825,245 @@
               <p class="site-description motion-element" itemprop="description">go my own way</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
           
-
-          <div class="links-of-author motion-element">
-            
+            <nav class="site-state motion-element">
               
-                <span class="links-of-author-item">
-                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
-                    
-                      <i class="fa fa-fw fa-google"></i>Google</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
-                    
-                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
-                    
-                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-globe"></i>
+                <div class="site-state-item site-state-posts">
                 
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -887,6 +1083,9 @@
             </div>
           
 
+          
+            
+          
           
 
         </div>
@@ -923,16 +1122,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">jiyiren</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
 
 
 
@@ -940,7 +1143,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -950,21 +1153,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"> 本站总访客量</i>
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"> 本站总访问量</i>
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -982,6 +1184,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -1002,7 +1206,6 @@
 
 
 
-  
 
 
 
@@ -1015,55 +1218,53 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
+
+
+  
 
 
 
@@ -1086,18 +1287,29 @@
 
 
 
-  
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
-        el: '#vcomments' ,
+        el: '#comments' ,
         verify: false,
-        notify: true,
-        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
-        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
@@ -1116,12 +1328,24 @@
   
 
   
-  
-
 
   
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
 </body>
 </html>

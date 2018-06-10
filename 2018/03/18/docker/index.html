@@ -2,24 +2,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
 
 
 
@@ -45,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -57,47 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="docker,容器,虚拟化," />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="前言 很早之前部署项目的时候用到过，不经意间发现自己忘光了相关操作，幸好每次学习都做了笔记，当时本来就想发篇记录博客的，但本想着把深入的构建镜像以及搭建自己一套镜像服务都做好再写的，可惜时间不等人，忙忙就忘了，今天有时间还是记录下常用操作吧，不然某天我电脑瘫痪就GG了。  Docker 官网：www.docker.com仓库:  docker官网仓库： hub.docker.com阿里镜像仓库：d">
-<meta name="keywords" content="docker,容器,虚拟化">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Docker常用命令">
-<meta property="og:url" content="http://yoursite.com/2018/03/18/docker/index.html">
-<meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="前言 很早之前部署项目的时候用到过，不经意间发现自己忘光了相关操作，幸好每次学习都做了笔记，当时本来就想发篇记录博客的，但本想着把深入的构建镜像以及搭建自己一套镜像服务都做好再写的，可惜时间不等人，忙忙就忘了，今天有时间还是记录下常用操作吧，不然某天我电脑瘫痪就GG了。  Docker 官网：www.docker.com仓库:  docker官网仓库： hub.docker.com阿里镜像仓库：d">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-21T09:01:32.993Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker常用命令">
-<meta name="twitter:description" content="前言 很早之前部署项目的时候用到过，不经意间发现自己忘光了相关操作，幸好每次学习都做了笔记，当时本来就想发篇记录博客的，但本想着把深入的构建镜像以及搭建自己一套镜像服务都做好再写的，可惜时间不等人，忙忙就忘了，今天有时间还是记录下常用操作吧，不然某天我电脑瘫痪就GG了。  Docker 官网：www.docker.com仓库:  docker官网仓库： hub.docker.com阿里镜像仓库：d">
 
 
 
@@ -106,15 +85,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '5.1.3',
+    version: '6.3.0',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -126,15 +103,42 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="为虚拟化应用而生，生产环境一键打包  Docker 是一个开源的 应用容器引擎，基于 Go 语言 并遵 从Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（ 类似 iPhone 的 App ），更重要的是容器性能开销极低。 应用场景">
+<meta name="keywords" content="docker,容器,虚拟化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/03/18/docker/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="为虚拟化应用而生，生产环境一键打包  Docker 是一个开源的 应用容器引擎，基于 Go 语言 并遵 从Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（ 类似 iPhone 的 App ），更重要的是容器性能开销极低。 应用场景">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-10T06:35:27.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker常用命令">
+<meta name="twitter:description" content="为虚拟化应用而生，生产环境一键打包  Docker 是一个开源的 应用容器引擎，基于 Go 语言 并遵 从Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（ 类似 iPhone 的 App ），更重要的是容器性能开销极低。 应用场景">
+
+
+
+
+
 
   <link rel="canonical" href="http://yoursite.com/2018/03/18/docker/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Docker常用命令 | jiyiren</title>
   
+
 
 
 
@@ -153,9 +157,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -164,8 +195,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
-    <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -173,19 +203,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">jiyiren</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">blogs</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -193,65 +225,61 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -259,12 +287,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -277,6 +313,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -286,7 +324,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="go my own way">
       <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
     </span>
 
@@ -299,11 +337,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">Docker常用命令
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -311,11 +357,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T14:00:40+08:00">
-                2018-03-18
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2018-03-18 14:00:40" itemprop="dateCreated datePublished" datetime="2018-03-18T14:00:40+08:00">2018-03-18</time>
             
 
             
@@ -333,11 +380,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
 
                 
                 
@@ -347,6 +390,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/18/docker/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/docker/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -354,7 +407,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"> 本文总阅读量</i>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -376,163 +432,113 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>很早之前部署项目的时候用到过，不经意间发现自己忘光了相关操作，幸好每次学习都做了笔记，当时本来就想发篇记录博客的，但本想着把深入的构建镜像以及搭建自己一套镜像服务都做好再写的，可惜时间不等人，忙忙就忘了，今天有时间还是记录下常用操作吧，不然某天我电脑瘫痪就GG了。</p>
-</blockquote>
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><blockquote>
-<p>官网：<a href="www.docker.com">www.docker.com</a><br>仓库:</p>
-<blockquote>
-<p>docker官网仓库： <a href="http://hub.docker.com" target="_blank" rel="external">hub.docker.com</a><br>阿里镜像仓库：<a href="https://dev.aliyun.com/search.html" target="_blank" rel="external">dev.aliyun.com</a><br>163仓库(需注册):<a href="http://c.163yun.com/hub" target="_blank" rel="external">c.163yun.com/hub</a></p>
-</blockquote>
-</blockquote>
-<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><blockquote>
-<p>MacOS: <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank" rel="external">官网教程地址</a><br>Ubuntu: <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="external">官网教程地址</a><br>Ubuntu简单旧版安装：</p>
-<blockquote>
-<p><code>uname -r</code> //内核版本需要 &gt; 3.10<br><code>sudo apt-get install -y docker.io</code> //安装系统自带的docker(可能不是最新版本)<br><code>docker version</code> //出现客户端和服务端版本</p>
-</blockquote>
-</blockquote>
+        <p align="center" style="margin: 30px 0 35px;">为虚拟化应用而生，生产环境一键打包</p>
+
+<p><code>Docker</code> 是一个开源的 <strong>应用容器引擎</strong>，基于 <code>Go</code> 语言 并遵 <code>从Apache2.0</code> 协议开源。<code>Docker</code> 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 <code>Linux</code> 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（ 类似 <code>iPhone</code> 的 <code>App</code> ），更重要的是容器性能开销极低。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><hr>
+<ul>
+<li><code>Web</code> 应用的自动化打包和发布；</li>
+<li>自动化测试和持续集成、发布；</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用；</li>
+<li>从头编译或者扩展现有的 <code>OpenShift</code> 等平台来搭建自己的PaaS环境；</li>
+</ul>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><hr>
+<p>官网：<a href="www.docker.com">www.docker.com</a></p>
+<p>仓库：</p>
+<ol>
+<li><code>docker</code> 官网仓库: <a href="http://hub.docker.com" target="_blank" rel="external">http://hub.docker.com</a></li>
+<li><code>docker</code> 中国区官网仓库: <a href="https://registry.docker-cn.com" target="_blank" rel="external">https://registry.docker-cn.com</a></li>
+<li>阿里镜像仓库: <a href="https://dev.aliyun.com/search.html" target="_blank" rel="external">https://dev.aliyun.com</a></li>
+<li>163 仓库(需注册): <a href="http://c.163yun.com/hub" target="_blank" rel="external">http://c.163yun.com/hub</a></li>
+</ol>
 <a id="more"></a>
-<h2 id="Docker初体验"><a href="#Docker初体验" class="headerlink" title="Docker初体验"></a>Docker初体验</h2><blockquote>
-<p>docker pull <strong>[OPTIONS]</strong> NAME<strong>[:TAG]</strong></p>
-<blockquote>
-<p><strong>拉取镜像</strong><br><em>NAME</em>必须指定，<em>TAG</em>表示版本，默认不写为latest最新版本<br>举例: <code>docker pull hello-world</code><br>举例: <code>docker pull tomcat</code><br>举例: <code>docker pull nginx</code><br>举例: <code>docker pull mysql</code><br>默认pull的地址为docker官方镜像地址:<a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a><br>当然国内的也可以用163蜂巢的镜像地址:<a href="https://c.163.com/hub#/m/home/" target="_blank" rel="external">https://c.163.com/hub#/m/home/</a><br><strong>libary</strong>开头的为163从docker官网复制过来的镜像<br>举例: <code>docker pull hub.c.163.com/library/tomcat:latest</code><br>举例: <code>docker pull hub.c.163.com/library/nginx:latest</code><br>举例: <code>docker pull hub.c.163.com/library/mysql:latest</code></p>
-</blockquote>
-<p>docker images <strong>[OPTIONS]</strong> <strong>[REPOSITORY[:TAG]]</strong></p>
-<blockquote>
-<p><strong>查看本机镜像列表</strong><br>举例: <code>docker images</code></p>
-</blockquote>
-<p>docker run <strong>[OPTIONS]</strong> IMAGE<strong>[:TAG]</strong> <strong>[COMMAND] [ARG]</strong></p>
-<blockquote>
-<p><strong>运行docker容器</strong><br>举例: <code>docker run hello-world</code> //如果没有此镜像则会自动从官方下载镜像<br>举例: <code>docker run tomcat</code> //通过命令行运行tomcat，按ctrl+c就可以结束<br><strong>也可以带参数[OPTIONS]运行</strong><br>举例: <code>docker run -d hello-world</code> //表示后台运行tomcat镜像，运行的镜像就成了一个容器<br><strong>也可以带命令运行</strong><br>举例: <code>docker run learn/tutorial echo &quot;hello word&quot;</code> //输出helloworld<br>举例: <code>docker run learn/tutorial apt-get install -y ping</code> //安装ping工具<br>举例: <code>docker run lean/ping ping www.google.com</code> //执行ping命令</p>
-</blockquote>
-<p>docker ps</p>
-<blockquote>
-<p><strong>查看当前docker所运行的容器</strong><br>举例: <code>docker ps</code> //列出所有运行着的容器<br><strong>要查看所有容器，包括未运行的容器</strong><br>举例: <code>docker ps -a</code> //显示所有容器</p>
-</blockquote>
-<p>docker exec <strong>[OPTIONS]</strong> CONTAINER <strong>[COMMAND] [ARG]</strong></p>
-<blockquote>
-<p><strong>在容器中运行命令</strong><br>docker exec –help //查看帮助文档<br><em>-i</em>,<em>-t</em> 参数最常用<br>举例：<code>docker exec -it f4e5 bash</code> //在某个容器里运行bash</p>
-</blockquote>
-<p>docker stop <strong>CONTAINER_ID</strong></p>
-<blockquote>
-<p><strong>停止某个容器(可以为容器的Id，也可以是容器的名称)</strong><br>举例: <code>docker stop 56f433965490</code></p>
-</blockquote>
-<p>docker commit <strong>CONTAINER_ID</strong> <strong>IMAGE_NAME</strong></p>
-<blockquote>
-<p><strong>将容器打包成一个新的镜像</strong><br>举例: <code>docker commit 56f tomcat/property</code> //将56f容器打包成一个镜像，镜像名称自己起</p>
-</blockquote>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><blockquote>
-<p><strong>运行(Nginx)镜像</strong></p>
-<blockquote>
-<p><code>docker run -d -p 80:80 --name webserver nginx</code> // 并将运行的容器起名为webserver</p>
-</blockquote>
-<p><strong>停止运行(Nginx的webserver)容器</strong></p>
-<blockquote>
-<p><code>docker stop webserver</code> //–name指定的值<br><code>docker stop CONTAINER_ID</code> //容器Id</p>
-</blockquote>
-<p><strong>删除所有容器</strong></p>
-<blockquote>
-<p><code>docker rm $(docker ps -a -q)</code> //-q显示容器ID</p>
-</blockquote>
-<p><strong>删除镜像</strong></p>
-<blockquote>
-<p><code>docker rmi IMAGES_NAME</code>, 如：<code>docker rmi tomcat</code> </p>
-</blockquote>
-<p><strong>在容器里运行bash命令</strong></p>
-<blockquote>
-<p><code>docker exec -it f4e5 bash</code> //打开f4e5容器里的bash命令行界面</p>
-</blockquote>
-<p><strong>查看容器ip</strong></p>
-<blockquote>
-<p><code>docker inspect f4e5 | grep IPAddress</code></p>
-</blockquote>
-</blockquote>
-<h2 id="Docker运行操作"><a href="#Docker运行操作" class="headerlink" title="Docker运行操作"></a>Docker运行操作</h2><blockquote>
-<p><strong>下载(Nginx)镜像</strong></p>
-<blockquote>
-<p><code>docker pull hub.c.163.com/library/nginx:latest</code><br>从163镜像中心下载nginx镜像<br><code>docker pull nginx</code><br>从官网镜像中心下载</p>
-</blockquote>
-<p><strong>运行Nginx</strong></p>
-<blockquote>
-<p><code>docker run hub.c.163.com/library/nginx</code> //前台运行<br><code>docker run -d hub.c.163.com/library/nginx</code> //后台运行</p>
-</blockquote>
-<p><strong>查看运行的容器里的内容</strong></p>
-<blockquote>
-<p><code>docker exec -it f4e5 bash</code><br><em>f4e5</em>为运行的容器的id前几位数字<br><em>bash</em>为运行的命令</p>
-</blockquote>
-</blockquote>
-<h2 id="Docker网络"><a href="#Docker网络" class="headerlink" title="Docker网络"></a>Docker网络</h2><blockquote>
-<p><strong>docker run -d -p 8080:80 hub.c.163.com/library/nginx</strong></p>
-<blockquote>
-<p>将本机8080端口映射到容器的80端口，<em>-p</em> 代表开放端口<br>netstat -na | grep 8080  //查看本机端口</p>
-</blockquote>
-<p><strong>docker run -d -P hub.c.163.com/library/nginx</strong></p>
-<blockquote>
-<p>将本机随机的端口映射到容器的80和443端口</p>
-</blockquote>
-</blockquote>
-<h2 id="制作自己的镜像"><a href="#制作自己的镜像" class="headerlink" title="制作自己的镜像"></a>制作自己的镜像</h2><blockquote>
-<p><strong>Dockerfile</strong><br>&gt;</p>
-<blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from hub.c.163.com/library/tomcat</div><div class="line">MAINTAINER jiyi xxx@163.com</div><div class="line">COPY jpress.war  /usr/local/tomcat/webapps</div></pre></td></tr></table></figure>
-</blockquote>
+<p>安装：</p>
+<ol>
+<li><code>MacOS</code> 安装: <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank" rel="external">官网教程地址</a></li>
+<li><code>Ubuntu</code> 安装: <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="external">官网教程地址</a></li>
+<li><p><code>Ubuntu</code> 简单旧版安装:</p>
+ <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">uname -r 	<span class="comment"># 内核版本需要 &gt; 3.10</span></div><div class="line">sudo apt-get install -y docker.io <span class="comment"># 安装系统自带的 docker ( 可能不是最新版本 )</span></div><div class="line">docker version <span class="comment"># 出现客户端和服务端版本</span></div></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<h2 id="Docker初体验"><a href="#Docker初体验" class="headerlink" title="Docker初体验"></a>Docker初体验</h2><hr>
+<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><p>docker pull <strong>[OPTIONS]</strong> NAME<strong>[:TAG]</strong></p>
+<p><em>NAME</em> 必须指定，<em>TAG</em> 表示版本，默认不写为 <code>latest</code> 最新版本</p>
+<p>默认 <code>pull</code> 的地址为 <code>docker</code> 官方镜像地址: <a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a></p>
+<p>如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker pull hello-world		<span class="comment"># 拉取 hello-world 镜像</span></div><div class="line">docker pull tomcat			<span class="comment"># 拉取 tomcat 镜像</span></div><div class="line">docker pull nginx			<span class="comment"># 拉取 nginx 镜像</span></div><div class="line">docker pull mysql			<span class="comment"># 拉取 mysql 镜像</span></div></pre></td></tr></table></figure></div>
+<p>但是国内该地址常常被墙，所以国内大公司出了自己的镜像仓库，在上一节已经说明。</p>
+<p>这里以用 163 蜂巢的镜像为例，地址: <a href="https://c.163.com/hub#/m/home/" target="_blank" rel="external">https://c.163.com/hub#/m/home/</a></p>
+<p>地址里含有 <strong>libary</strong> 为 163 从 <code>docker</code> 官网复制过来的镜像。</p>
+<p>如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/tomcat:latest	<span class="comment"># 拉取 tomcat 镜像</span></div><div class="line">docker pull hub.c.163.com/library/nginx:latest	<span class="comment"># 拉取 nginx 镜像</span></div><div class="line">docker pull hub.c.163.com/library/mysql:latest	<span class="comment"># 拉取 mysql 镜像</span></div></pre></td></tr></table></figure></div>
+<h3 id="查看本机镜像"><a href="#查看本机镜像" class="headerlink" title="查看本机镜像"></a>查看本机镜像</h3><p>docker images <strong>[OPTIONS]</strong> <strong>[REPOSITORY[:TAG]]</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure></div>
+<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><p>docker run <strong>[OPTIONS]</strong> IMAGE<strong>[:TAG]</strong> <strong>[COMMAND] [ARG]</strong></p>
+<p>一个镜像运行起来就变为容器了，容器是动态的运行时的称呼。同一个镜像可以运行出多个容器，因为只要运行镜像，其内部内存占用等等一定不相同，所以镜像与容器是 <strong>1对多</strong> 的关系。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 直接运行</span></div><div class="line">docker run hello-world	<span class="comment"># 如果没有此镜像则会自动从官方下载镜像</span></div><div class="line">docker run tomcat		<span class="comment"># 通过命令行运行 tomcat，按 ctrl+c 就可以结束</span></div><div class="line"><span class="comment"># 也可以带参数 [OPTIONS] 运行</span></div><div class="line">docker run -d hello-world	<span class="comment"># -d 表示后台运行tomcat镜像</span></div><div class="line"><span class="comment"># 也可以带命令运行</span></div><div class="line">docker run learn/tutorial <span class="built_in">echo</span> <span class="string">"hello word"</span>	<span class="comment"># 输出 hello world</span></div><div class="line">docker run learn/tutorial apt-get install -y ping <span class="comment"># 安装 ping 工具</span></div><div class="line">docker run lean/ping ping www.google.com <span class="comment"># 执行 ping 命令</span></div></pre></td></tr></table></figure></div>
+<h3 id="查看本机容器"><a href="#查看本机容器" class="headerlink" title="查看本机容器"></a>查看本机容器</h3><p>相信用过 Linux 的同学应该知道 <code>ps</code> 这个工具，代表 <code>process</code> 即进程。程序与进程的区别 和 镜像与容器的关系是一致的，进程和容器都是运行时状态，因此，查看本机容器的关键名也是 <code>ps</code>.</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前 docker 所运行的容器</span></div><div class="line">docker ps	<span class="comment"># 列出所有运行着的容器</span></div><div class="line"><span class="comment"># 要查看所有容器，包括未运行的容器</span></div><div class="line">docker ps -a	<span class="comment"># 显示所有容器</span></div></pre></td></tr></table></figure></div>
+<h3 id="运行容器命令"><a href="#运行容器命令" class="headerlink" title="运行容器命令"></a>运行容器命令</h3><p>docker exec <strong>[OPTIONS]</strong> CONTAINER <strong>[COMMAND] [ARG]</strong></p>
+<p>前面 <strong>运行镜像</strong> 时已经说明直接运行镜像时可以带上命令以一起运行，那如果容器已经被启动了，怎么再在里面运行命令呢？那就是这个命令。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在容器中运行命令，查看帮助文档</span></div><div class="line">docker <span class="built_in">exec</span> --<span class="built_in">help</span>	<span class="comment"># 查看帮助文档</span></div><div class="line"><span class="comment"># 其中 -i 和 -t 参数最常用，其这两者常搭配使用</span></div><div class="line"><span class="comment"># -i 表示以交互模式运行容器；</span></div><div class="line"><span class="comment"># -t 表示为容器重新分配一个伪输入终端；</span></div><div class="line">docker <span class="built_in">exec</span> -it f4e5 bash	<span class="comment"># 在某个容器里运行 bash</span></div><div class="line"><span class="comment"># 其中 f4e5 表示运行着的容器的 ID ，大家用前面的 docker ps 看到的 ID 就是；</span></div><div class="line"><span class="comment"># ID 可以选择前几个字符就可以的，因为前几个字符基本就能确定到这个容器了。</span></div></pre></td></tr></table></figure></div>
+<h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><p>docker stop <strong>CONTAINER_ID</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 停止某个容器 ( 可以为容器的 Id，也可以是容器的名称 )</span></div><div class="line">docker stop 56f433965490	<span class="comment"># 以容器 Id 停止容器</span></div></pre></td></tr></table></figure></div>
+<h3 id="打包成镜像"><a href="#打包成镜像" class="headerlink" title="打包成镜像"></a>打包成镜像</h3><p>docker commit <strong>CONTAINER_ID</strong> <strong>IMAGE_NAME</strong></p>
+<p>容器既然是镜像运行时状态，那我们如果在容器里装很多软件，而自己又不想每次用这个镜像都想重新装一遍软件，那么就可以将自己 DIY 的容器存为镜像，以后我们再 DIY 时就从我们已经装完软件的那个时刻开始了。将容器打包为镜像命令如上。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将容器打包成一个新的镜像</span></div><div class="line">docker commit 56f tomcat/property</div><div class="line"><span class="comment"># 将 Id 为 56f 的容器打包成一个镜像，镜像名称自己起就可以了</span></div></pre></td></tr></table></figure></div>
+<h3 id="删除镜像和容器"><a href="#删除镜像和容器" class="headerlink" title="删除镜像和容器"></a>删除镜像和容器</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1. 删除容器</span></div><div class="line">docker rm CONTAINER_ID</div><div class="line"><span class="comment"># 2. 删除所有容器，-q 表示显示容器 Id</span></div><div class="line">docker rm $(docker ps -a -q)</div><div class="line"><span class="comment"># 3. 删除镜像，rmi 中的 i 表示 image</span></div><div class="line">docker rmi IMAGES_NAME</div><div class="line"><span class="comment"># 4：举例：删除 tomcat 镜像</span></div><div class="line">docker rmi tomcat</div></pre></td></tr></table></figure></div>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><hr>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>下面给出做 web 方向常用到的一些命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从 163镜像中心 下载 nginx 镜像</span></div><div class="line">docker pull hub.c.163.com/library/nginx:latest</div><div class="line"><span class="comment"># 或者从官网镜像中心下载 nginx 镜像</span></div><div class="line">docker pull nginx</div><div class="line"></div><div class="line"><span class="comment"># 运行 Nginx 镜像， 没有端口映射，只能本机访问</span></div><div class="line">docker run hub.c.163.com/library/nginx		<span class="comment"># 前台运行</span></div><div class="line">docker run -d hub.c.163.com/library/nginx	<span class="comment"># 后台运行</span></div><div class="line"></div><div class="line"><span class="comment"># 运行 Nginx 镜像，端口映射本机 80 端口,</span></div><div class="line"><span class="comment"># 这样其他机器访问本机的 80 自动映射到容器 80 服务</span></div><div class="line"><span class="comment"># docker run -d -p 80:80 --name webserver nginx </span></div><div class="line"><span class="comment"># --name 表示给容器起名，这里为 webserver</span></div><div class="line"></div><div class="line"><span class="comment"># 停止运行 Nginx 镜像的 webserver 容器</span></div><div class="line">docker stop webserver</div><div class="line"><span class="comment"># 或者用容器 Id 停止</span></div><div class="line">docker stop CONTAINER_ID</div><div class="line"></div><div class="line"><span class="comment"># 在容器里运行 bash</span></div><div class="line">docker <span class="built_in">exec</span> -it f4e5 bash	<span class="comment"># 打开 f4e5 容器里的 bash 命令行界面</span></div><div class="line"></div><div class="line"><span class="comment"># 查看容器 ip</span></div><div class="line">docker inspect f4e5 | grep IPAddress</div></pre></td></tr></table></figure></div>
+<h3 id="容器端口映射"><a href="#容器端口映射" class="headerlink" title="容器端口映射"></a>容器端口映射</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将本机 8080 端口映射到容器的 80 端口，-p 代表开放端口</span></div><div class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</div><div class="line">netstat -na | grep 8080  // 可以检查本机端口状态</div><div class="line"><span class="comment"># 将本机随机的端口映射到容器的 80 和 443 端口</span></div><div class="line">docker run -d -P hub.c.163.com/library/nginx</div></pre></td></tr></table></figure></div>
+<h3 id="容器运行-WAR-包"><a href="#容器运行-WAR-包" class="headerlink" title="容器运行 WAR 包"></a>容器运行 WAR 包</h3><p>这是我在一个项目里面用这种方式尝试过了，使用 <code>tomcat</code> 镜像运行出的容器，把本地的 <code>war</code> 包映射到容器 <code>tomcat</code> 里的 <code>ROOT</code> 目录，同时端口也要映射出来，最后可以通过外网访问。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">docker run -d -it -p 8089:8080 -v $(<span class="built_in">pwd</span>)/ROOT.war:/usr/<span class="built_in">local</span>/tomcat/webapps/ROOT.war -v $(<span class="built_in">pwd</span>)/ROOT:/usr/<span class="built_in">local</span>/tomcat/webapps/ROOT -v $(<span class="built_in">pwd</span>)/uploads:/usr/<span class="built_in">local</span>/webapps/uploads tomcat</div><div class="line"><span class="comment"># 1. 将本地 8089 映射到容器的 8080 端口,</span></div><div class="line"><span class="comment"># 2. 将本地磁盘的 ROOT.war 映射到容器里 tomcat 的 webapps 目录，</span></div><div class="line"><span class="comment"># 3. 将本地磁盘的 ROOT 目录，映射到容器里 tomcat 的 ROOT 目录，</span></div><div class="line"><span class="comment"># 4. 将本地磁盘的 uploads 目录，映射到容器里 tomcat 的 webapps/uploads 目录 (这是我们项目上传文件的地址)</span></div><div class="line"><span class="comment"># 5. 最后为镜像名称，如果为 163蜂巢的镜像名 则应改为蜂巢的镜像名</span></div><div class="line"><span class="comment"># -v : 为加载本地硬盘</span></div><div class="line"><span class="comment"># -it : 为执行容器里命令开启</span></div><div class="line"><span class="comment"># -i : --interactive 打开STDIN，用于控制台交互   </span></div><div class="line"><span class="comment"># -t : --tty 分配tty设备，该可以支持终端登录</span></div></pre></td></tr></table></figure></div>
+<h3 id="制作自己的镜像"><a href="#制作自己的镜像" class="headerlink" title="制作自己的镜像"></a>制作自己的镜像</h3><p>这个是从构建文件制作自己的镜像的，主要是写 <code>Dockerfile</code>, 这个目前还涉及的较少，只写下基本的构建过程。主要分为 <code>Dockerfile</code> 编写 和 <code>build</code> 命令：</p>
+<p><strong>Dockerfile</strong> </p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from hub.c.163.com/library/tomcat		<span class="comment"># 镜像从 tomcat 继承</span></div><div class="line">MAINTAINER jiyi xxx@163.com			<span class="comment"># 著作者名和邮箱</span></div><div class="line">COPY jpress.war  /usr/<span class="built_in">local</span>/tomcat/webapps	<span class="comment"># 镜像操作，这里将 jpress.war 放到 tomcat/webapps 目录下</span></div></pre></td></tr></table></figure></div>
 <p>docker build <strong>[OPTIONS]</strong> <strong>[PATH]</strong></p>
-<blockquote>
-<p><em>PATH</em>为执行的路径<br><code>docker build -t jpress:latest .</code><br>// -t 为生成的镜像配一个tag说明，jpress为名字，lastest为说明<br><code>docker build .</code> //当前目录build</p>
-</blockquote>
-</blockquote>
-<h2 id="将war运行到Tomcat根目录-项目记录"><a href="#将war运行到Tomcat根目录-项目记录" class="headerlink" title="将war运行到Tomcat根目录(项目记录)"></a>将war运行到Tomcat根目录(项目记录)</h2><blockquote>
-<p>将本地8089映射到容器的8080端口</p>
-<blockquote>
-<p>最后为镜像名称，如果为163蜂巢的镜像则应改为蜂巢的镜像名</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -it -p 8089:8080 -v $(pwd)/ROOT.war:/usr/local/tomcat/webapps/ROOT.war -v $(pwd)/ROOT:/usr/local/tomcat/webapps/ROOT -v $(pwd)/uploads:/usr/local/webapps/uploads tomcat</div></pre></td></tr></table></figure>
-</blockquote>
-<p><code>-v</code>为加载本地硬盘<br><code>-it</code>为执行容器里命令开启<br><code>-i</code> –interactive=false  打开STDIN，用于控制台交互<br><code>-t</code> –tty=false 分配tty设备，该可以支持终端登录，默认为false<br><code>docker rm $(docker ps -a -q)</code>//删除所有容器，-q为显示容器id</p>
-</blockquote>
-<h2 id="Docker私有仓库部署"><a href="#Docker私有仓库部署" class="headerlink" title="Docker私有仓库部署"></a>Docker私有仓库部署</h2><blockquote>
-<p>两台机器: <em>A:192.168.31.115(作为仓库) B:192.168.31.215(提交镜像者)</em></p>
-<p>(1). <em>A</em>:下载仓库镜像</p>
-<blockquote>
-<p><code>docker pull registry</code></p>
-</blockquote>
-<p>(2). <em>A</em>:运行镜像(应该将本地某个目录映射到/tmp/registry中以保存镜像)</p>
-<blockquote>
-<p>官方文档:<a href="https://docs.docker.com/registry/deploying/#customize-the-storage-location" target="_blank" rel="external">点我</a><br>原来的1.0的数据保存在 <strong><del>/tmp/registry</del></strong><br>2.0的数据存储在 <strong>/var/lib/registry</strong><br><code>docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry registry</code></p>
-</blockquote>
-<p>(3). <em>B</em>:先下载一个小镜像</p>
-<blockquote>
-<p><code>docker pull busybox</code></p>
-</blockquote>
-<p>(4). <em>B</em>:修改该镜像的tag</p>
-<blockquote>
-<p><code>docker tag busybox 192.168.31.115:5000/busybox</code></p>
-</blockquote>
-<p>(5). <em>B</em>:上传镜像</p>
-<blockquote>
-<p><code>docker push 192.168.31.115:5000/busybox</code><br>出现问题不能https<br>官方配置:<a href="https://docs.docker.com/registry/insecure/" target="_blank" rel="external">https://docs.docker.com/registry/insecure/</a><br>Mac上直接在docker图标的设置里添加Insecure-registry:<em>192.168.31.115:5000</em>,保存重启<br>Linux:<code>/etc/docker/daemon.json</code><br>输入内容:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"insecure-registries"</span> : [<span class="string">"myregistrydomain.com:5000"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>(6). <em>B</em>:检查是否上传成功</p>
-<blockquote>
-<p><code>curl -XGET http://registry:5000/v2/_catalog</code><br><code>curl -XGET http://192.168.31.115:5000/v2/_catalog</code><br>结果:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"repositories"</span>: [</div><div class="line">	   <span class="string">"busybox"</span></div><div class="line">	 ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>curl -XGET http://registry:5000/v2/image_name/tags/list</code><br><code>curl -XGET http://192.168.31.115:5000/v2/192.168.31.115:5000/busybox/tags/list</code></p>
-</blockquote>
-</blockquote>
-<h2 id="Docker镜像仓库"><a href="#Docker镜像仓库" class="headerlink" title="Docker镜像仓库"></a>Docker镜像仓库</h2><blockquote>
-<p>官方默认:<a href="https://hub.docker.com" target="_blank" rel="external">https://hub.docker.com</a></p>
-<blockquote>
-<p>如: <code>docker pull tomcat</code>//默认从官方下载</p>
-</blockquote>
-<p>中国区官方:<a href="https://registry.docker-cn.com" target="_blank" rel="external">https://registry.docker-cn.com</a></p>
-<blockquote>
-<p>如: <code>docker pull registry.docker-cn.com/library/tomcat</code></p>
-</blockquote>
-</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 直接在包含 Dockerfile 的当前目录 build</span></div><div class="line">docker build .</div><div class="line"><span class="comment"># 或者 -t 为生成的镜像配一个 tag 说明，这里 jpress 为名字，lastest 为 tag</span></div><div class="line"><span class="comment"># 注意还有一个 . 表示 [PATH]，这里还是指当前路径</span></div><div class="line">docker build -t jpress:latest .</div></pre></td></tr></table></figure></div>
+<h2 id="私有仓库部署"><a href="#私有仓库部署" class="headerlink" title="私有仓库部署"></a>私有仓库部署</h2><p>很多公司里需要构建自己的私有仓库，因此这里也简单介绍下。</p>
+<p>假设有两台机器: </p>
+<p><strong>A: 192.168.31.115 (作为仓库)</strong></p>
+<p><strong>B: 192.168.31.215 (提交镜像者)</strong></p>
+<p><strong>(1). A: 下载仓库镜像</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull registry</div></pre></td></tr></table></figure></div>
+<p><strong>(2). A: 运行镜像</strong></p>
+<p>应该将本地某个目录映射到 <code>/tmp/registry</code> 中以保存镜像，官方文档: <a href="https://docs.docker.com/registry/deploying/#customize-the-storage-location" target="_blank" rel="external">点我</a>，这里还是说下不同版本的 <code>registry</code> 镜像中仓库地址是不一样的：</p>
+<ul>
+<li>版本 1.0 的数据保存在 <strong><del>/tmp/registry</del></strong></li>
+<li>版本 2.0 的数据存储在 <strong>/var/lib/registry</strong></li>
+</ul>
+<p>示例命令如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry registry</div></pre></td></tr></table></figure></div>
+<p><strong>(3). B: 先下载一个小镜像</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull busybox</div></pre></td></tr></table></figure></div>
+<p><strong>(4). B: 修改该镜像的 tag</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker tag busybox 192.168.31.115:5000/busybox</div></pre></td></tr></table></figure></div>
+<p><strong>(5). B: 上传镜像</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker push 192.168.31.115:5000/busybox</div></pre></td></tr></table></figure></div>
+<p>出现问题不能 https，官方说明配置:<a href="https://docs.docker.com/registry/insecure/" target="_blank" rel="external">https://docs.docker.com/registry/insecure/</a>，这里说下我自己尝试的方法：</p>
+<p>如果是在 Mac 上操作的，直接在<code>docker</code> 图标的设置里添加 <code>Insecure-registry:192.168.31.115:5000</code>, 保存重启软件就可以了。</p>
+<p>如果是 Linux 系统，则修改 Docker 的配置文件 <code>/etc/docker/daemon.json</code>, 如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"insecure-registries"</span> : [<span class="string">"myregistrydomain.com:5000"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<p><strong>(6). B: 检查是否上传成功</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -XGET http://registry:5000/v2/_catalog</div><div class="line">curl -XGET http://192.168.31.115:5000/v2/_catalog</div><div class="line">curl -XGET http://registry:5000/v2/image_name/tags/list</div><div class="line">curl -XGET http://192.168.31.115:5000/v2/192.168.31.115:5000/busybox/tags/list</div></pre></td></tr></table></figure></div>
+<p>返回结果示例：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"repositories"</span>: [</div><div class="line">		<span class="string">"busybox"</span></div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="http://www.runoob.com/docker/" target="_blank" rel="external">http://www.runoob.com/docker/</a></li>
+<li><a href="http://hub.docker.com" target="_blank" rel="external">http://hub.docker.com</a></li>
+<li><a href="https://registry.docker-cn.com" target="_blank" rel="external">https://registry.docker-cn.com</a></li>
+<li><a href="https://dev.aliyun.com/search.html" target="_blank" rel="external">https://dev.aliyun.com</a></li>
+<li><a href="http://c.163yun.com/hub" target="_blank" rel="external">http://c.163yun.com/hub</a></li>
+</ul>
 
       
     </div>
+
+    
+
     
     
     
@@ -545,17 +551,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    jiyiren
-  </li>
+    <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="http://yoursite.com/2018/03/18/docker/" title="Docker常用命令">http://yoursite.com/2018/03/18/docker/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -616,13 +618,11 @@
           </div>
           
 
-
-          
   
     <div class="comments" id="comments">
-      <div id="vcomments"></div>
     </div>
   
+
 
 
         </div>
@@ -666,102 +666,245 @@
               <p class="site-description motion-element" itemprop="description">go my own way</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
           
-
-          <div class="links-of-author motion-element">
-            
+            <nav class="site-state motion-element">
               
-                <span class="links-of-author-item">
-                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google">
-                    
-                      <i class="fa fa-fw fa-google"></i>Google</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page">
-                    
-                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram">
-                    
-                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-globe"></i>
+                <div class="site-state-item site-state-posts">
                 
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -782,6 +925,9 @@
           
 
           
+            
+          
+          
 
         </div>
       </section>
@@ -796,7 +942,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装docker"><span class="nav-number">3.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker初体验"><span class="nav-number">4.</span> <span class="nav-text">Docker初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker运行操作"><span class="nav-number">6.</span> <span class="nav-text">Docker运行操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker网络"><span class="nav-number">7.</span> <span class="nav-text">Docker网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制作自己的镜像"><span class="nav-number">8.</span> <span class="nav-text">制作自己的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将war运行到Tomcat根目录-项目记录"><span class="nav-number">9.</span> <span class="nav-text">将war运行到Tomcat根目录(项目记录)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker私有仓库部署"><span class="nav-number">10.</span> <span class="nav-text">Docker私有仓库部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker镜像仓库"><span class="nav-number">11.</span> <span class="nav-text">Docker镜像仓库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker初体验"><span class="nav-number">3.</span> <span class="nav-text">Docker初体验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉取镜像"><span class="nav-number">3.1.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看本机镜像"><span class="nav-number">3.2.</span> <span class="nav-text">查看本机镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行镜像"><span class="nav-number">3.3.</span> <span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看本机容器"><span class="nav-number">3.4.</span> <span class="nav-text">查看本机容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行容器命令"><span class="nav-number">3.5.</span> <span class="nav-text">运行容器命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止容器"><span class="nav-number">3.6.</span> <span class="nav-text">停止容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包成镜像"><span class="nav-number">3.7.</span> <span class="nav-text">打包成镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除镜像和容器"><span class="nav-number">3.8.</span> <span class="nav-text">删除镜像和容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-number">4.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器端口映射"><span class="nav-number">4.2.</span> <span class="nav-text">容器端口映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器运行-WAR-包"><span class="nav-number">4.3.</span> <span class="nav-text">容器运行 WAR 包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作自己的镜像"><span class="nav-number">4.4.</span> <span class="nav-text">制作自己的镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有仓库部署"><span class="nav-number">5.</span> <span class="nav-text">私有仓库部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关链接"><span class="nav-number">6.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
             
 
           </div>
@@ -817,16 +963,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">jiyiren</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
 
 
 
@@ -834,7 +984,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -844,21 +994,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"> 本站总访客量</i>
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"> 本站总访问量</i>
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -876,6 +1025,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -896,7 +1047,6 @@
 
 
 
-  
 
 
 
@@ -909,55 +1059,53 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
+
+
+  
 
 
 
@@ -980,18 +1128,29 @@
 
 
 
-  
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
-        el: '#vcomments' ,
+        el: '#comments' ,
         verify: false,
-        notify: true,
-        app_id: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
-        app_key: 'T4SkqaoIKtki4WMBRLsgzQPT',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
@@ -1010,12 +1169,24 @@
   
 
   
-  
-
 
   
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
 </body>
 </html>
