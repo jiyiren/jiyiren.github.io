@@ -108,19 +108,19 @@
 
 
 
-  <meta name="description" content="导语： 本篇文章主要记录自己在使用配置mysql过程中的注意点和配置流程，因为自己常常帮别人配置mysql环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置mysql环境而节省时间。  一、MySql的安装 下载安装包  个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7或者最新版官网地址：http://dev.mysql.com/downloads/my">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="MySQL 入坑指南  本篇文章主要记录自己在使用配置 MySQL 过程中的注意点和配置流程，因为自己常常帮别人配置 MySQL 环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置 MySQL 环境而节省时间。 MySQL 的安装下载安装包个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7 或者最新版官网地址：http://dev.mysql.com/do">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql简单配置与基本操作">
+<meta property="og:title" content="MySQL 简单配置与基本操作">
 <meta property="og:url" content="http://yoursite.com/2016/05/22/Mysql-simple-setting/index.html">
 <meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="导语： 本篇文章主要记录自己在使用配置mysql过程中的注意点和配置流程，因为自己常常帮别人配置mysql环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置mysql环境而节省时间。  一、MySql的安装 下载安装包  个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7或者最新版官网地址：http://dev.mysql.com/downloads/my">
+<meta property="og:description" content="MySQL 入坑指南  本篇文章主要记录自己在使用配置 MySQL 过程中的注意点和配置流程，因为自己常常帮别人配置 MySQL 环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置 MySQL 环境而节省时间。 MySQL 的安装下载安装包个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7 或者最新版官网地址：http://dev.mysql.com/do">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/1.png">
-<meta property="og:updated_time" content="2017-10-06T05:48:14.000Z">
+<meta property="og:updated_time" content="2018-06-11T14:34:43.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql简单配置与基本操作">
-<meta name="twitter:description" content="导语： 本篇文章主要记录自己在使用配置mysql过程中的注意点和配置流程，因为自己常常帮别人配置mysql环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置mysql环境而节省时间。  一、MySql的安装 下载安装包  个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7或者最新版官网地址：http://dev.mysql.com/downloads/my">
+<meta name="twitter:title" content="MySQL 简单配置与基本操作">
+<meta name="twitter:description" content="MySQL 入坑指南  本篇文章主要记录自己在使用配置 MySQL 过程中的注意点和配置流程，因为自己常常帮别人配置 MySQL 环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置 MySQL 环境而节省时间。 MySQL 的安装下载安装包个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7 或者最新版官网地址：http://dev.mysql.com/do">
 <meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/1.png">
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>Mysql简单配置与基本操作 | jiyiren</title>
+  <title>MySQL 简单配置与基本操作 | jiyiren</title>
   
 
 
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql简单配置与基本操作
+          <h1 class="post-title" itemprop="name headline">MySQL 简单配置与基本操作
               
             
           </h1>
@@ -382,7 +382,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
 
                 
                 
@@ -434,171 +434,91 @@
       
 
       
-        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
-<p>本篇文章主要记录自己在使用配置mysql过程中的注意点和配置流程，因为自己常常帮别人配置mysql环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置mysql环境而节省时间。</p>
-</blockquote>
-<h2 id="一、MySql的安装"><a href="#一、MySql的安装" class="headerlink" title="一、MySql的安装"></a>一、MySql的安装</h2><blockquote>
-<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><blockquote>
-<ul>
-<li>个人建议选择zip包安装，这样Windows和Linux下配置过程很相似</li>
-<li>5.7或者最新版官网地址：<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">http://dev.mysql.com/downloads/mysql/</a></li>
-<li>5.6版本百度云地址：<a href="http://pan.baidu.com/s/1b6hLCE" target="_blank" rel="external">http://pan.baidu.com/s/1b6hLCE</a></li>
-<li>这里还要讲下有的下载的5.7版本里面没有data目录，这个常常会导致安装失败，建议下载压缩包后解压看看里面有没有data目录，选择有data目录的压缩包安装较好，如果没有可以从以前或者别人的目录里拷贝，上面百度云里的5.6版本是有的。</li>
-</ul>
-</blockquote>
-</blockquote>
+        <p align="center" style="margin: 30px 0 35px;">MySQL 入坑指南</p>
+
+<p>本篇文章主要记录自己在使用配置 <strong>MySQL</strong> 过程中的注意点和配置流程，因为自己常常帮别人配置 <strong>MySQL</strong> 环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置 <strong>MySQL</strong> 环境而节省时间。</p>
+<h2 id="MySQL-的安装"><a href="#MySQL-的安装" class="headerlink" title="MySQL 的安装"></a>MySQL 的安装</h2><h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>个人建议选择zip包安装，这样Windows和Linux下配置过程很相似</p>
+<p>5.7 或者最新版官网地址：<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">http://dev.mysql.com/downloads/mysql/</a></p>
+<p>5.6 版本百度云地址：<a href="http://pan.baidu.com/s/1b6hLCE" target="_blank" rel="external">http://pan.baidu.com/s/1b6hLCE</a></p>
+<p>这里还要讲下有的下载的 <em>5.7 版本</em> 里面没有 <strong>data 目录</strong>，这个常常会导致安装失败，建议下载压缩包后解压看看里面有没有 <strong>data 目录</strong>，选择有 <strong>data 目录</strong> 的压缩包安装较好，如果没有可以从以前或者别人的目录里拷贝，上面百度云里的 <em>5.6 版本</em> 是有的。</p>
 <a id="more"></a>
-<blockquote>
-<h3 id="解压到安装目录"><a href="#解压到安装目录" class="headerlink" title="解压到安装目录"></a>解压到安装目录</h3><blockquote>
-<ul>
-<li>尽量避开系统盘，这样便于数据的恢复</li>
-</ul>
-</blockquote>
-<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><blockquote>
-<ul>
-<li>将<strong>my-default.ini</strong>复制为<strong>my.ini</strong>并修改如下两个配置</li>
-<li><strong>basedir=</strong>解压后目录(bin文件上一级目录)</li>
-<li><strong>datadir=</strong>解压后目录下的data目录</li>
-<li><p>比如：</p>
-  <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">basedir = D:\DevePrograms\mysql-5.6.21-winx64</div><div class="line">datadir = D:\DevePrograms\mysql-5.6.21-winx64\data</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
-<ul>
-<li><strong>管理员身份</strong>打开命令cmd窗口，cd到bin文件夹下。（windows7的话通常点击开始–附件–命令提示符右击–以管理员方式打开）</li>
-<li>输入<strong>mysqld -install</strong>(注意是mysqld而不是mysql,有个d)，提示安装成功即可。</li>
-<li>如果提示不成功，则<strong>mysqld -remove</strong>,再执行<strong>mysqld -install</strong></li>
-</ul>
-</blockquote>
-<h3 id="开启-关闭mysql服务"><a href="#开启-关闭mysql服务" class="headerlink" title="开启/关闭mysql服务"></a>开启/关闭mysql服务</h3><blockquote>
-<p> mysql装成功实际上就是mysql服务装成功，服务的开启与否决定能不能使用mysql数据库。</p>
-<ul>
-<li>开启服务：<strong>net start mysql</strong></li>
-<li>关闭服务：<strong>net stop mysql</strong></li>
-<li>如果大家按照第四部安装的，通常默认服务是开机自启动的，默认可以正常使用，如果用了什么安全管家加速电脑开机关闭了mysql的服务，则就需要在使用mysql服务前先开启下mysql服务。</li>
-<li>大家可以右击我的电脑–管理–服务和应用程序展开–服务里面就可以找到mysql服务，如果大家想禁止开机自启或者想开机自启都可以在这里设置。<img src="http://7xknpe.com1.z0.glb.clouddn.com/1.png" alt="mysql服务"></li>
-</ul>
-</blockquote>
-<h3 id="登录使用mysql"><a href="#登录使用mysql" class="headerlink" title="登录使用mysql"></a>登录使用mysql</h3><blockquote>
-<ul>
-<li>开启服务后，用<strong>mysql -u root -p</strong>回车后会让输入密码，默认密码为空，直接再回车就进入了mysql数据库操作里了。</li>
-</ul>
-</blockquote>
-</blockquote>
-<h2 id="二、Mysql编码设置"><a href="#二、Mysql编码设置" class="headerlink" title="二、Mysql编码设置"></a>二、Mysql编码设置</h2><blockquote>
-<h3 id="配置文件设置"><a href="#配置文件设置" class="headerlink" title="配置文件设置"></a>配置文件设置</h3><blockquote>
-<ul>
-<li><p>在<strong>my.ini</strong>文件里写入以下配置</p>
+<h3 id="解压到安装目录"><a href="#解压到安装目录" class="headerlink" title="解压到安装目录"></a>解压到安装目录</h3><p>尽量避开系统盘，这样便于数据的恢复</p>
+<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>将 <strong>my-default.ini</strong> 复制为 <strong>my.ini</strong> 并修改如下两个配置:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">basedir = 解压后目录 ( bin 文件上一级目录 )</div><div class="line">datadir = 解压后目录下的 data 目录</div></pre></td></tr></table></figure></div>
+<p>比如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">basedir = D:\DevePrograms\mysql-5.6.21-winx64</div><div class="line">datadir = D:\DevePrograms\mysql-5.6.21-winx64\data</div></pre></td></tr></table></figure></div>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><strong>管理员身份</strong> 打开命令 <em>cmd</em> 窗口，<code>cd</code> 到 <em>bin</em> 文件夹下。（ <em>Windows7</em> 的话通常点击开始 – 附件 – 命令提示符右击 – 以管理员方式打开 ）</p>
+<p>输入 <code>mysqld -install</code> ( 注意是 <em>mysqld</em> 而不是 <em>mysql</em>, 有个 d )，提示安装成功即可。</p>
+<p>如果提示不成功，则 <code>mysqld -remove</code>, 再执行 <code>mysqld -install</code>.</p>
+<h3 id="开启-关闭-mysql-服务"><a href="#开启-关闭-mysql-服务" class="headerlink" title="开启 / 关闭 mysql 服务"></a>开启 / 关闭 mysql 服务</h3><p><strong>MySQL</strong> 装成功实际上就是 <strong>MySQL</strong> 服务装成功，服务的开启与否决定能不能使用 <strong>MySQL</strong> 数据库。</p>
+<p>开启服务：<code>net start mysql</code></p>
+<p>关闭服务：<code>net stop mysql</code></p>
+<p>如果大家按照第四部安装的，通常默认服务是开机自启动的，默认可以正常使用，如果用了什么安全管家加速电脑开机关闭了 <strong>MySQL</strong> 的服务，则就需要在使用 <strong>MySQL</strong> 服务前先开启下 <strong>MySQL</strong> 服务。</p>
+<p>大家可以 [ 右击我的电脑 – 管理 – 服务和应用程序展开 – 服务 ] 里面就可以找到 <strong>MySQL</strong> 服务，如果大家想禁止开机自启或者想开机自启都可以在这里设置。</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/1.png" alt="mysql服务"></p>
+<h3 id="登录使用-MySQL"><a href="#登录使用-MySQL" class="headerlink" title="登录使用 MySQL"></a>登录使用 MySQL</h3><p>开启服务后，用 <code>mysql -u root -p</code> 回车后会让输入密码，默认密码为空，直接再回车就进入了 <strong>MySQL</strong> 数据库操作里了。</p>
+<h2 id="MySQL-编码设置"><a href="#MySQL-编码设置" class="headerlink" title="MySQL 编码设置"></a>MySQL 编码设置</h2><h3 id="配置文件设置"><a href="#配置文件设置" class="headerlink" title="配置文件设置"></a>配置文件设置</h3><p>在 <strong>my.ini</strong> 文件里写入以下配置</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[client]</div><div class="line">default-character-set=utf8</div><div class="line">[mysql]</div><div class="line">default-character-set=utf8</div><div class="line">[mysqld]</div><div class="line">character-set-server=utf8</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>如果没有<strong>my.ini</strong>配置文件，则通过复制<strong>my-default.ini</strong>文件为<strong>my.ini</strong>文件再进行设置。</p>
-</li>
-<li>重启mysql服务让设置生效：先关闭服务<strong>net stop mysql</strong>,在启动服务<strong>net start mysql</strong></li>
-</ul>
-</blockquote>
-<h3 id="创建数据库和表规范"><a href="#创建数据库和表规范" class="headerlink" title="创建数据库和表规范"></a>创建数据库和表规范</h3><blockquote>
-<ul>
-<li><p>创建数据库时带上编码集：</p>
+<p>如果没有 <strong>my.ini</strong> 配置文件，则通过复制 <strong>my-default.ini</strong> 文件为 <strong>my.ini</strong>文 件再进行设置。</p>
+<p>重启 <strong>MySQL</strong> 服务让设置生效：先关闭服务 <code>net stop mysql</code>, 再启动服务 <code>net start mysql</code>.</p>
+<h3 id="创建数据库和表规范"><a href="#创建数据库和表规范" class="headerlink" title="创建数据库和表规范"></a>创建数据库和表规范</h3><p>创建数据库时带上编码集：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> db_test <span class="built_in">character</span> <span class="keyword">set</span> <span class="string">'utf8'</span> <span class="keyword">collate</span> <span class="string">'utf8_general_ci'</span>;</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>创建表带上编码集合和引擎：</p>
+<p>创建表带上编码集合和引擎：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_muser(<span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,username <span class="built_in">char</span>(<span class="number">10</span>)) <span class="keyword">engine</span>=<span class="keyword">InnoDB</span> <span class="keyword">default</span> <span class="keyword">charset</span>=utf8;</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>查看已经创建的数据库编码格式：</p>
+<p>查看已经创建的数据库编码格式：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">test</span>;</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>查看已经创建的表编码格式：</p>
+<p>查看已经创建的表编码格式：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> tb_muser;</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<h3 id="编码排错语句"><a href="#编码排错语句" class="headerlink" title="编码排错语句"></a>编码排错语句</h3><blockquote>
-<ul>
-<li><p><strong>show variables like ‘character_%’;</strong>//显示所有设置项目的编码</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//通常有如下名称编码设置</div><div class="line">character_set_client</div><div class="line">character_set_connection</div><div class="line">character_set_server</div><div class="line">character_set_database</div><div class="line">character_set_results</div><div class="line">character_set_server</div><div class="line">character_set_system</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>通过形似这样<strong>set character_set_NAME=utf8/gbk</strong>的命令设置上面查看到的非标准编码</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//如</div><div class="line"><span class="keyword">set</span> character_set_server=utf8;</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-</blockquote>
-<h2 id="三、Mysql常用命令"><a href="#三、Mysql常用命令" class="headerlink" title="三、Mysql常用命令"></a>三、Mysql常用命令</h2><blockquote>
-<h3 id="连接mysql"><a href="#连接mysql" class="headerlink" title="连接mysql"></a>连接mysql</h3><blockquote>
- <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -h 服务器ip -u 用户名 -p //连接通用命令</div><div class="line">password:输入密码</div></pre></td></tr></table></figure></div>
-<ul>
-<li><p>例如：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql –h localhost/127.0.0.1 –u root –p //连接本地计算机的mysql</div><div class="line">//链接本地计算机-h也可以不写，mysql –u root –p</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<h3 id="root密码重置"><a href="#root密码重置" class="headerlink" title="root密码重置"></a>root密码重置</h3><blockquote>
-<ul>
-<li><p><strong>初始密码为空时</strong>，想修改密码，首先要退出数据库，然后</p>
+<h3 id="编码排错语句"><a href="#编码排错语句" class="headerlink" title="编码排错语句"></a>编码排错语句</h3><p>显示所有设置项目的编码:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character_%'</span>;</div><div class="line">// 通常有如下名称编码设置</div><div class="line">character_set_client</div><div class="line">character_set_connection</div><div class="line">character_set_server</div><div class="line">character_set_database</div><div class="line">character_set_results</div><div class="line">character_set_server</div><div class="line">character_set_system</div></pre></td></tr></table></figure></div>
+<p>通过形似这样 <code>set character_set_NAME=utf8/gbk</code> 的命令设置上面查看到的非标准编码</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> character_set_server=utf8;</div></pre></td></tr></table></figure></div>
+<h2 id="MySQL-常用命令"><a href="#MySQL-常用命令" class="headerlink" title="MySQL 常用命令"></a>MySQL 常用命令</h2><h3 id="连接-MySQL"><a href="#连接-MySQL" class="headerlink" title="连接 MySQL"></a>连接 MySQL</h3><p>连接命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -h 服务器ip -u 用户名 -p	// 连接通用命令</div><div class="line">password:输入密码</div></pre></td></tr></table></figure></div>
+<p>例如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql –h localhost/127.0.0.1 –u root –p // 连接本地计算机的 MySQL</div><div class="line">// 链接本地计算机 -h 也可以不写，如：mysql –u root –p</div></pre></td></tr></table></figure></div>
+<h3 id="root-密码重置"><a href="#root-密码重置" class="headerlink" title="root 密码重置"></a>root 密码重置</h3><p>由于初始密码为空，如果想修改密码，首先要退出数据库，然后</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin -u root passwrod 1234</div></pre></td></tr></table></figure></div>
-</li>
-<li><p><strong>通用</strong>(包括了密码不为空的修改)修改密码：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p//需要先以root身份登录到数据库</div><div class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> = <span class="keyword">PASSWORD</span>(<span class="string">'newpass'</span>);</div></pre></td></tr></table></figure></div>
-</li>
-<li><p><strong>通用</strong>方法二：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p//也需要登录</div><div class="line"><span class="keyword">use</span> mysql;</div><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span> = <span class="keyword">PASSWORD</span>(<span class="string">'newpass'</span>) <span class="keyword">WHERE</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</div><div class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;//刷新权限</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<h3 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h3><blockquote>
-<ul>
-<li><p><strong>grant</strong>语句</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//<span class="keyword">grant</span>语句   所有权限   所有数据库    用户    登录地点             用户密码</div><div class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jiyi2'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</div><div class="line">//%号代表所有地方登录</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>例如：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> reload,process <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jiyi3'</span>@<span class="string">'localhost'</span>;</div><div class="line">//给部分权限给jiyi3，localhost为本地登录</div><div class="line"><span class="keyword">grant</span> <span class="keyword">usage</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jiyi4'</span>@<span class="string">'localhost'</span>;</div><div class="line">不给权限给用户jiyi4</div></pre></td></tr></table></figure></div>
-</li>
-<li><p><strong>insert</strong>语句</p>
+<p>假设已经设置过密码了，又想修改，则命令如下：</p>
+<p>方法一：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p		//需要先以 root 身份登录到数据库</div><div class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> = <span class="keyword">PASSWORD</span>(<span class="string">'newpass'</span>);</div></pre></td></tr></table></figure></div>
+<p>方法二：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p		//也需要登录</div><div class="line"><span class="keyword">use</span> mysql;</div><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span> = <span class="keyword">PASSWORD</span>(<span class="string">'newpass'</span>) <span class="keyword">WHERE</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</div><div class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;	// 刷新权限</div></pre></td></tr></table></figure></div>
+<h3 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h3><p><strong>grant</strong> 语句</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// <span class="keyword">grant</span>语句   所有权限   所有数据库    用户    登录地点             用户密码</div><div class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jiyi2'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</div><div class="line">// %号代表所有地方登录</div></pre></td></tr></table></figure></div>
+<p>例如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> reload,process <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jiyi3'</span>@<span class="string">'localhost'</span>;</div><div class="line">// 给部分权限给jiyi3，localhost为本地登录</div><div class="line"><span class="keyword">grant</span> <span class="keyword">usage</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jiyi4'</span>@<span class="string">'localhost'</span>;</div><div class="line">// 不给权限给用户jiyi4</div></pre></td></tr></table></figure></div>
+<p><strong>insert</strong> 语句</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">values</span>(<span class="string">'localhost/%'</span>,<span class="string">'jiyi'</span>,<span class="keyword">PASSWORD</span>(<span class="string">'123456'</span>),<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>);</div><div class="line">					//登录地(本地或者所有地)，用户名，密码，			后面的Y都是权限，所有都是Y相当于all privileges</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> (Host,<span class="keyword">User</span>,<span class="keyword">Password</span>) <span class="keyword">VALUES</span>(<span class="string">'localhost'</span>,<span class="string">'jiyi'</span>,<span class="string">'123456'</span>);</div><div class="line">//指定地点用户</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>注意：不是<strong>grant</strong>语句最后都要加一句<strong>flush privileges;</strong>//刷新权限列表</p>
-</li>
-</ul>
+<blockquote>
+<p>注意：<strong>insert</strong> 语句最后都要加一句<strong>flush privileges;</strong> 以刷新权限列表。</p>
 </blockquote>
-<h3 id="Mysql导入sql文件"><a href="#Mysql导入sql文件" class="headerlink" title="Mysql导入sql文件"></a>Mysql导入sql文件</h3><blockquote>
-<ul>
-<li><p>mysql导入命令：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">source /data/sql/createDB.sql;</div><div class="line">//该命令是将放在mysql文件夹内的data/sql文件夹内的.sql文件导入到mysql中</div><div class="line">source D:/createDB.sql;</div><div class="line">//这是将放在D盘的.sql文件导入到mysql中</div></pre></td></tr></table></figure></div>
-</li>
-<li><p>mysql备份命令：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//结构：</div><div class="line">mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名</div><div class="line">//如:</div><div class="line">mysqldump -uroot -p jiyidata &gt; jiyidata.sql //指定数据库</div><div class="line">mysqldump -uroot -p jiyidata jiyitable &gt; jiyitable.sql//指定数据库表</div></pre></td></tr></table></figure>
-</li>
-<li><p>mysql导入文本数据</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1、文本数据应符合的格式：字段数据之间用tab键隔开，null值用\n来代替. </div><div class="line">例： </div><div class="line">	3 rose 深圳二中 1976-10-10 </div><div class="line">	4 mike 深圳一中 1975-12-23</div><div class="line">2、数据传入命令 <span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> <span class="keyword">infile</span> <span class="string">"文件名"</span> <span class="keyword">into</span> <span class="keyword">table</span> 表名; </div><div class="line">	<span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> <span class="keyword">infile</span> <span class="string">"jiyi.txt"</span> <span class="keyword">into</span> <span class="keyword">table</span> jiyitable;</div><div class="line">注意：你最好将文件复制到\mysql\bin目录下，并且要先用<span class="keyword">use</span>命令打表所在的库</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
+<h3 id="MySQL-导入-SQL-文件"><a href="#MySQL-导入-SQL-文件" class="headerlink" title="MySQL 导入 SQL 文件"></a>MySQL 导入 SQL 文件</h3><p><strong>MySQL</strong> 导入命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">source /data/sql/createDB.sql;</div><div class="line">// 该命令是将放在 mysql 文件夹内的 data/sql 文件夹内的.sql文件导入到 MySQL 中</div><div class="line">source D:/createDB.sql;</div><div class="line">// 这是将放在 D 盘的 .sql 文件导入到 MySQL 中</div></pre></td></tr></table></figure></div>
+<p><strong>MySQL</strong> 备份命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 结构：</div><div class="line">mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名</div><div class="line">// 如:</div><div class="line">mysqldump -uroot -p jiyidata &gt; jiyidata.sql	// 指定数据库</div><div class="line">mysqldump -uroot -p jiyidata jiyitable &gt; jiyitable.sql	// 指定数据库表</div></pre></td></tr></table></figure>
+<p><strong>MySQL</strong> 导入文本数据</p>
+<p>1、文本数据应符合的格式：字段数据之间用 tab 键隔开，null 值用 \n 来代替. </p>
+<p>例： </p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">3 rose 深圳二中 1976-10-10 </div><div class="line">4 mike 深圳一中 1975-12-23</div></pre></td></tr></table></figure></div>
+<p>2、数据传入命令 </p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># load data local infile "文件名" into table 表名; </div><div class="line"># 如：</div><div class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> <span class="keyword">infile</span> <span class="string">"jiyi.txt"</span> <span class="keyword">into</span> <span class="keyword">table</span> jiyitable;</div></pre></td></tr></table></figure></div>
+<blockquote>
+<p>注意：你最好将文件复制到 <em>\mysql\bin</em> 目录下，并且要先用 <code>use</code> 命令打表所在的库。</p>
 </blockquote>
-<h3 id="数据库和表语句"><a href="#数据库和表语句" class="headerlink" title="数据库和表语句"></a>数据库和表语句</h3><blockquote>
-<ul>
-<li><strong><code>create database jiyidata;</code></strong>//创建jiyidata数据库</li>
-<li><strong><code>show databases;</code></strong>//显示所有数据库</li>
-<li><strong><code>use jiyidata;</code></strong>  //使用jiyidata数据库，切换到jiyidata数据库下</li>
-<li><strong><code>show tables;</code></strong>   //展示jiyidata中的所有表格</li>
-<li><strong><code>drop table if exists jiyitable;</code></strong>//如果存在jiyitable就删除</li>
-<li><p>创建表</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> jiyitable(<span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> primary <span class="keyword">key</span> auto_increment,phonenumber <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span>);</div><div class="line"><span class="comment">--不为空not null</span></div><div class="line"><span class="comment">--主键primary key</span></div><div class="line"><span class="comment">--自增长auto_increment</span></div><div class="line"><span class="comment">--唯一 unique</span></div><div class="line"><span class="comment">--默认值 default '1' 默认为1</span></div><div class="line"><span class="comment">--id int(11) unsigned代表int无符号，即都表示正数，这样比signed表示的更多数</span></div><div class="line"><span class="comment">--其实当我们在选择使用int的类型的时候，不论是int(3)还是int(11)，它在数据库里面存储的都是4个字节的长度，</span></div><div class="line"><span class="comment">--在使用int(3)的时候如果你输入的是10，会默认给你存储位010,也就是说这个3代表的是默认的一个长度，</span></div><div class="line"><span class="comment">--当你不足3位时，会帮你不全，当你超过3位时，就没有任何的影响。</span></div></pre></td></tr></table></figure></div>
-</li>
-<li><p><strong><code>select * from jiyitable;</code></strong>//搜索查询jiyitable表中的内容</p>
-</li>
-<li><p><strong>例子：</strong></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> jiyitable(<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">3</span>) auto_increment <span class="keyword">not</span> <span class="literal">null</span> primary <span class="keyword">key</span>,<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">10</span>),address <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">default</span> <span class="string">'南京'</span>,<span class="keyword">year</span> <span class="built_in">date</span>);</div><div class="line">//表名       id  (自动增加，不为空，主键)             名字      ，   地址 (默认为南京)，         年份(date是时间类型1993-07-25)</div><div class="line">//插入数据为：</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> jiyitable(<span class="number">1</span>,<span class="string">'jiyi'</span>,<span class="string">'suzhou'</span>,<span class="string">'1993-07-25/1993.07.25'</span>);</div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<h3 id="表基本操作语句"><a href="#表基本操作语句" class="headerlink" title="表基本操作语句"></a>表基本操作语句</h3><blockquote>
-<ul>
-<li><p>查、增、改、删</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sql语句大概分为4中情况</div><div class="line">1,查询<span class="comment">---------select * from usertable;</span></div><div class="line">2,插入<span class="comment">---------insert into usertable(id,phonenumber) values('3','13140999025');</span></div><div class="line">3,更新<span class="comment">---------update usertable set phonenumber='13140999029'  where id='3';</span></div><div class="line">4,删除<span class="comment">---------delete from usertable where id='3';</span></div></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-</blockquote>
+<h3 id="数据库和表语句"><a href="#数据库和表语句" class="headerlink" title="数据库和表语句"></a>数据库和表语句</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> jiyidata;	// 创建 jiyidata 数据库</div><div class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;		// 显示所有数据库</div><div class="line"><span class="keyword">use</span> jiyidata;		// 使用 jiyidata 数据库，切换到 jiyidata 数据库下</div><div class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;		// 展示 jiyidata 中的所有表格</div><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> jiyitable;	// 如果存在 jiyitable 就删除</div></pre></td></tr></table></figure></div>
+<p>创建表</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> jiyitable(<span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> primary <span class="keyword">key</span> auto_increment,phonenumber <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span>);</div></pre></td></tr></table></figure></div>
+<ol>
+<li>不为空 <code>not null</code></li>
+<li>主键 <code>primary key</code></li>
+<li>自增长 <code>auto_increment</code></li>
+<li>唯一 <code>unique</code></li>
+<li>默认值 <code>default &#39;1&#39;</code> 默认为1</li>
+<li><code>id int(11) unsigned</code> 代表 int 无符号，即都表示正数，这样比 signed 表示的更多数，其实当我们在选择使用 int 的类型的时候，不论是 int(3) 还是 int(11)，它在数据库里面存储的都是 4 个字节的长度，在使用 int(3) 的时候如果你输入的是 10，会默认给你存储位 010,也就是说这个 3 代表的是默认的一个长度，当你不足 3 位时，会帮你不全，当你超过 3 位时，就没有任何的影响。</li>
+</ol>
+<h3 id="表基本操作语句"><a href="#表基本操作语句" class="headerlink" title="表基本操作语句"></a>表基本操作语句</h3><p>查、增、改、删</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// sql语句大概分为4中情况</div><div class="line">// 1. 查询</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> usertable;</div><div class="line">// 2. 插入</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> usertable(<span class="keyword">id</span>,phonenumber) <span class="keyword">values</span>(<span class="string">'3'</span>,<span class="string">'13140999025'</span>);</div><div class="line">// 3. 更新</div><div class="line"><span class="keyword">update</span> usertable <span class="keyword">set</span> phonenumber=<span class="string">'13140999029'</span>  <span class="keyword">where</span> <span class="keyword">id</span>=<span class="string">'3'</span>;</div><div class="line">// 4. 删除</div><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> usertable <span class="keyword">where</span> <span class="keyword">id</span>=<span class="string">'3'</span>;</div></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -620,7 +540,7 @@
     <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2016/05/22/Mysql-simple-setting/" title="Mysql简单配置与基本操作">http://yoursite.com/2016/05/22/Mysql-simple-setting/</a>
+    <a href="http://yoursite.com/2016/05/22/Mysql-simple-setting/" title="MySQL 简单配置与基本操作">http://yoursite.com/2016/05/22/Mysql-simple-setting/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -633,7 +553,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           
         </div>
       
@@ -656,8 +576,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/30/designpattern/" rel="prev" title="单一职责原则,里氏替换原则">
-                单一职责原则,里氏替换原则 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/30/designpattern/" rel="prev" title="单一职责原则，里氏替换原则">
+                单一职责原则，里氏替换原则 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -792,9 +712,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -907,7 +825,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">50</span>
+                      
+                    
+                    <span class="site-state-item-count">51</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1004,7 +924,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语："><span class="nav-number">1.</span> <span class="nav-text">导语：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、MySql的安装"><span class="nav-number">2.</span> <span class="nav-text">一、MySql的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装包"><span class="nav-number">2.1.</span> <span class="nav-text">下载安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压到安装目录"><span class="nav-number">2.2.</span> <span class="nav-text">解压到安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">编辑配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启-关闭mysql服务"><span class="nav-number">2.5.</span> <span class="nav-text">开启/关闭mysql服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录使用mysql"><span class="nav-number">2.6.</span> <span class="nav-text">登录使用mysql</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Mysql编码设置"><span class="nav-number">3.</span> <span class="nav-text">二、Mysql编码设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件设置"><span class="nav-number">3.1.</span> <span class="nav-text">配置文件设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库和表规范"><span class="nav-number">3.2.</span> <span class="nav-text">创建数据库和表规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码排错语句"><span class="nav-number">3.3.</span> <span class="nav-text">编码排错语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Mysql常用命令"><span class="nav-number">4.</span> <span class="nav-text">三、Mysql常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接mysql"><span class="nav-number">4.1.</span> <span class="nav-text">连接mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root密码重置"><span class="nav-number">4.2.</span> <span class="nav-text">root密码重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建账户"><span class="nav-number">4.3.</span> <span class="nav-text">创建账户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql导入sql文件"><span class="nav-number">4.4.</span> <span class="nav-text">Mysql导入sql文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库和表语句"><span class="nav-number">4.5.</span> <span class="nav-text">数据库和表语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表基本操作语句"><span class="nav-number">4.6.</span> <span class="nav-text">表基本操作语句</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-的安装"><span class="nav-number">1.</span> <span class="nav-text">MySQL 的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装包"><span class="nav-number">1.1.</span> <span class="nav-text">下载安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压到安装目录"><span class="nav-number">1.2.</span> <span class="nav-text">解压到安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">编辑配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启-关闭-mysql-服务"><span class="nav-number">1.5.</span> <span class="nav-text">开启 / 关闭 mysql 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录使用-MySQL"><span class="nav-number">1.6.</span> <span class="nav-text">登录使用 MySQL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-编码设置"><span class="nav-number">2.</span> <span class="nav-text">MySQL 编码设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件设置"><span class="nav-number">2.1.</span> <span class="nav-text">配置文件设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库和表规范"><span class="nav-number">2.2.</span> <span class="nav-text">创建数据库和表规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码排错语句"><span class="nav-number">2.3.</span> <span class="nav-text">编码排错语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-常用命令"><span class="nav-number">3.</span> <span class="nav-text">MySQL 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接-MySQL"><span class="nav-number">3.1.</span> <span class="nav-text">连接 MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root-密码重置"><span class="nav-number">3.2.</span> <span class="nav-text">root 密码重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建账户"><span class="nav-number">3.3.</span> <span class="nav-text">创建账户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-导入-SQL-文件"><span class="nav-number">3.4.</span> <span class="nav-text">MySQL 导入 SQL 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库和表语句"><span class="nav-number">3.5.</span> <span class="nav-text">数据库和表语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表基本操作语句"><span class="nav-number">3.6.</span> <span class="nav-text">表基本操作语句</span></a></li></ol></li></ol></div>
             
 
           </div>
