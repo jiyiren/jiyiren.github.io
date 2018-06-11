@@ -1503,7 +1503,7 @@
 <p>最近项目里面的后台需要用到定时任务，而 <strong>MySQL</strong> 从 <em>5.0</em> 开始自带了定时事件操作，所以学习下并做下记录。</p>
 <p>后台周期定时任务可以有多种解决方案，我所知道的大概有以下几种：</p>
 <p>(1). 后台框架自带定时任务。比如 <strong>Php</strong> 中的 <strong>Laravel</strong> 框架里有提供定时任务操作接口，其他的框架大家可以单独针对了解。</p>
-<p>(2). 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个 <strong>Windows Server</strong>, 它的定时任务系统有提供的。<strong>Linux</strong> 下也有，通常流行的是 <code>crontab</code> 工具实现的 ( 想了解这里有个 <a href="http://www.imooc.com/learn/216" target="_blank" rel="external">视频教程</a>), 但是 <code>crontab</code> 的定时任务通常定时操作脚本这样的文件，而直接定时操作数据库的就比较麻烦了。但是也有解决办法，就是在服务器端写一个 <code>get</code> 请求 <code>url</code>，在后台里完成要定时完成的数据库操作，这样我们只要实现定时访问该接口就行了，<strong>Linux</strong> 下的 <code>curl</code> 命令可以很方便发出 <code>get</code> 请求，我们只要写个包含访问该接口的脚本，再结合 <code>crontab</code> 就可以完成后台数据的定时更新操作了。</p>
+<p>(2). 服务器操作系统层面的定时。通常我们的服务器主要基于两大平台，一个 <strong>Windows Server</strong>, 它的定时任务系统有提供的。<strong>Linux</strong> 下也有，通常流行的是 <code>crontab</code> 工具实现的 ( 想了解这里有个 <a href="http://www.imooc.com/learn/216" target="_blank" rel="external">视频教程</a> ), 但是 <code>crontab</code> 的定时任务通常定时操作脚本这样的文件，而直接定时操作数据库的就比较麻烦了。但是也有解决办法，就是在服务器端写一个 <code>get</code> 请求 <code>url</code>，在后台里完成要定时完成的数据库操作，这样我们只要实现定时访问该接口就行了，<strong>Linux</strong> 下的 <code>curl</code> 命令可以很方便发出 <code>get</code> 请求，我们只要写个包含访问该接口的脚本，再结合 <code>crontab</code> 就可以完成后台数据的定时更新操作了。</p>
 <p>(3). 但是毕竟写个接口安全性不是太高，而大家用的如果是 <strong>MySQL</strong> 数据库，那就正好可以利用其自带的定时操作了，下面简单介绍 <strong>MySQL</strong> 定时操作的使用。</p>
           <!--noindex-->
           <div class="post-button text-center">
