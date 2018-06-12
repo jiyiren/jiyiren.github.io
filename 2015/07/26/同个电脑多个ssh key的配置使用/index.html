@@ -108,22 +108,22 @@
 
 
 
-  <meta name="description" content="引言 很多时候我们用代码管理服务器时的选择有很多，通常我们都会使用不止一个服务器账号的。比如我比较喜欢github的开源功能，但是它的私有项目是要钱的，所以我也用开源中国的gitoschina的服务器(因为它的private项目不要钱的哦！)*  准备 用两个不同git服务提账号来实现，分别为github和开源中国的gitoschina的。  生成ssh key 生成ssh key的命令我想大家都">
-<meta name="keywords" content="git,github,ssh key,gitoschina">
+  <meta name="description" content="多平台代码仓库，多账号免密登录  很多时候我们用的代码管理平台有很多，通常我们都会使用不止一个平台账号的。比如我比较喜欢 Github 的开源功能，但是它的私有项目是收费的，所以我也用开源中国的 Git Oschina 的平台 ( 因为它的 private 项目是免费的！)。但是，由于我们生成的公钥和私钥只有一份，也就是当前用户目录的 .ssh 文件夹下，如果多平台多账号，生成的时候就会覆盖掉了，">
+<meta name="keywords" content="Git,SSH Key,Github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同个电脑多个 ssh key 的配置使用">
+<meta property="og:title" content="同个电脑多个 SSH Key 的配置使用">
 <meta property="og:url" content="http://yoursite.com/2015/07/26/同个电脑多个ssh key的配置使用/index.html">
 <meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="引言 很多时候我们用代码管理服务器时的选择有很多，通常我们都会使用不止一个服务器账号的。比如我比较喜欢github的开源功能，但是它的私有项目是要钱的，所以我也用开源中国的gitoschina的服务器(因为它的private项目不要钱的哦！)*  准备 用两个不同git服务提账号来实现，分别为github和开源中国的gitoschina的。  生成ssh key 生成ssh key的命令我想大家都">
+<meta property="og:description" content="多平台代码仓库，多账号免密登录  很多时候我们用的代码管理平台有很多，通常我们都会使用不止一个平台账号的。比如我比较喜欢 Github 的开源功能，但是它的私有项目是收费的，所以我也用开源中国的 Git Oschina 的平台 ( 因为它的 private 项目是免费的！)。但是，由于我们生成的公钥和私钥只有一份，也就是当前用户目录的 .ssh 文件夹下，如果多平台多账号，生成的时候就会覆盖掉了，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.blog.csdn.net/20150714224742399">
-<meta property="og:image" content="http://img.blog.csdn.net/20150714224539529">
-<meta property="og:image" content="http://img.blog.csdn.net/20150714224614755">
-<meta property="og:updated_time" content="2018-06-11T13:59:30.552Z">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogresultssk.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgithub.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgitosc.jpg">
+<meta property="og:updated_time" content="2018-06-12T14:26:20.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同个电脑多个 ssh key 的配置使用">
-<meta name="twitter:description" content="引言 很多时候我们用代码管理服务器时的选择有很多，通常我们都会使用不止一个服务器账号的。比如我比较喜欢github的开源功能，但是它的私有项目是要钱的，所以我也用开源中国的gitoschina的服务器(因为它的private项目不要钱的哦！)*  准备 用两个不同git服务提账号来实现，分别为github和开源中国的gitoschina的。  生成ssh key 生成ssh key的命令我想大家都">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20150714224742399">
+<meta name="twitter:title" content="同个电脑多个 SSH Key 的配置使用">
+<meta name="twitter:description" content="多平台代码仓库，多账号免密登录  很多时候我们用的代码管理平台有很多，通常我们都会使用不止一个平台账号的。比如我比较喜欢 Github 的开源功能，但是它的私有项目是收费的，所以我也用开源中国的 Git Oschina 的平台 ( 因为它的 private 项目是免费的！)。但是，由于我们生成的公钥和私钥只有一份，也就是当前用户目录的 .ssh 文件夹下，如果多平台多账号，生成的时候就会覆盖掉了，">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogresultssk.jpg">
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>同个电脑多个 ssh key 的配置使用 | jiyiren</title>
+  <title>同个电脑多个 SSH Key 的配置使用 | jiyiren</title>
   
 
 
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">同个电脑多个 ssh key 的配置使用
+          <h1 class="post-title" itemprop="name headline">同个电脑多个 SSH Key 的配置使用
               
             
           </h1>
@@ -436,78 +436,50 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>很多时候我们用代码管理服务器时的选择有很多，通常我们都会使用不止一个服务器账号的。比如我比较喜欢<a href="https://github.com/" target="_blank" rel="external">github</a>的开源功能，但是它的私有项目是要钱的，所以我也用开源中国的<a href="https://gitee.com/" target="_blank" rel="external">gitoschina</a>的服务器(因为它的private项目不要钱的哦！)*</p>
-</blockquote>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><blockquote>
-<p>用两个不同git服务提账号来实现，分别为<a href="https://github.com/" target="_blank" rel="external">github</a>和开源中国的<a href="https://gitee.com/" target="_blank" rel="external">gitoschina</a>的。</p>
-</blockquote>
-<h2 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h2><blockquote>
-<h3 id="生成ssh-key的命令我想大家都应该懂："><a href="#生成ssh-key的命令我想大家都应该懂：" class="headerlink" title="生成ssh key的命令我想大家都应该懂："></a>生成ssh key的命令我想大家都应该懂：</h3><blockquote>
+        <p align="center" style="margin: 30px 0 35px;">多平台代码仓库，多账号免密登录</p>
+
+<p>很多时候我们用的代码管理平台有很多，通常我们都会使用不止一个平台账号的。比如我比较喜欢 <a href="https://github.com/" target="_blank" rel="external">Github</a> 的开源功能，但是它的私有项目是收费的，所以我也用开源中国的 <a href="https://gitee.com/" target="_blank" rel="external">Git Oschina</a> 的平台 ( 因为它的 <em>private</em> 项目是免费的！)。但是，由于我们生成的公钥和私钥只有一份，也就是当前用户目录的 <em>.ssh</em> 文件夹下，如果多平台多账号，生成的时候就会覆盖掉了，那该如何设置多平台账号的公钥和私钥不会相互覆盖同时还能够自动解析免密访问？</p>
+<p>本文就介绍用两个不同平台的 <em>Git</em> 账号来实现，同时免密登录。两个平台分别为 <a href="https://github.com/" target="_blank" rel="external">Github</a> 和开源中国的 <a href="https://gitee.com/" target="_blank" rel="external">GitSschina</a> 的。详细步骤如下。</p>
+<h2 id="生成-SSH-Key"><a href="#生成-SSH-Key" class="headerlink" title="生成 SSH Key"></a>生成 SSH Key</h2><p>生成 <em>ssh key</em> 的命令我想大家都应该懂：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"youremail@email.com"</span></div></pre></td></tr></table></figure></div>
-<p>当我们回车时，我想有的人是直接三个回车的吧，当然三个回车是没有问题的，但是我们要了解这三个回车是什么意思。<br>第一个回车：</p>
+<p>当我们回车时，我想有的人是直接三个回车的吧，当然三个回车是没有问题的，但是我们要了解这三个回车是什么意思。</p>
+<p><strong>第一个回车</strong>：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key &lt;/c/Users/JIYI/.ssh/id_rsa&gt;</div></pre></td></tr></table></figure></div>
-</blockquote>
-</blockquote>
 <a id="more"></a>
-<blockquote>
-<blockquote>
-<p>此处的回车代表将密钥默认存储在<strong><em>C盘/Users/用户名/.ssh</em></strong>的文件夹下<br>第二个回车与第三个回车：</p>
+<p>此处的回车代表将密钥默认存储在 <strong><em>C盘/Users/用户名/.ssh</em></strong> 的文件夹下</p>
+<p><strong>第二个回车</strong>与<strong>第三个回车</strong>：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase&lt;empty <span class="keyword">for</span> no passphrase&gt;:</div><div class="line">Enter same passphrase again:</div></pre></td></tr></table></figure></div>
 <p>这个是为了设置提交项目的密码，为了避免其他人用你的电脑修改你的项目时提交的，通常直接回车，就代表不需要密码，我也建议这样做，可以避免多次输入密码，省时省力。</p>
-</blockquote>
-<h3 id="那我们该具体怎么做呢？"><a href="#那我们该具体怎么做呢？" class="headerlink" title="那我们该具体怎么做呢？"></a>那我们该具体怎么做呢？</h3><blockquote>
-<p>因为有两个账号，如果生成密钥时都是三个回车则后执行的会替换先执行的。既然第一个回车的意思是保存地址，那我们就不能直接回车了，而是输入保存地址就可以了。</p>
-<p><strong>步骤如下：</strong></p>
-<ul>
-<li><strong>1.正常生成第一个密钥</strong></li>
-</ul>
-<blockquote>
+<h2 id="多账号密钥生成"><a href="#多账号密钥生成" class="headerlink" title="多账号密钥生成"></a>多账号密钥生成</h2><p>因为有两个账号，如果生成密钥时都是三个回车则后执行的会替换先执行的。既然第一个回车的意思是保存地址，那我们就不能直接回车了，而是输入保存地址就可以了。</p>
+<p>步骤如下：</p>
+<p><strong>1. 正常生成第一个密钥</strong></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;mygitoschina@qq.com&quot;</div></pre></td></tr></table></figure></div>
-<p>连续三个回车，将oschina的密钥默认保存</p>
-</blockquote>
-<ul>
-<li><strong>2.生成第二个密钥</strong></li>
-</ul>
-<blockquote>
-<p>先打开<em>C盘/Users/用户名/.ssh</em>目录，在里面新建github文件夹</p>
+<p>连续三个回车，将 <strong>Oschina</strong> 的密钥默认保存</p>
+<p><strong>2. 生成第二个密钥</strong></p>
+<p>先打开 <em>C盘/Users/用户名/.ssh</em> 目录，在里面新建 <em>github</em> 文件夹</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;mygithub@gmail.com&quot;</div></pre></td></tr></table></figure></div>
-<p>出现<code>Enter file in which to save the key</code>时输入</p>
+<p>出现 <code>Enter file in which to save the key</code> 时输入</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/c/Users/用户名/.ssh/github/id_rsa</div></pre></td></tr></table></figure></div>
-<p>也就是将密钥保存在github文件夹下<br><img src="http://img.blog.csdn.net/20150714224742399" alt="生成第二个密钥"><br>这样生成密钥完成</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="创建config文件"><a href="#创建config文件" class="headerlink" title="创建config文件"></a>创建config文件</h2><blockquote>
-<h3 id="创建文件并配置"><a href="#创建文件并配置" class="headerlink" title="创建文件并配置"></a>创建文件并配置</h3><blockquote>
-<p>在<strong><em>C盘/Users/用户名/.ssh</em></strong>目录下新建config文件，该文件没有后缀名的，这是为了配置映射功能的，在里面填入下面代码：</p>
+<p>也就是将密钥保存在 <em>github</em> 文件夹下</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogresultssk.jpg" alt=""></p>
+<p>这样生成密钥完成</p>
+<h2 id="创建-config-文件"><a href="#创建-config-文件" class="headerlink" title="创建 config 文件"></a>创建 config 文件</h2><p>在 <strong>C盘/Users/用户名/.ssh</strong> 目录下新建 <em>config</em> 文件，该文件没有后缀名的，这是为了配置映射功能的，在里面填入下面代码：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#github的配置</div><div class="line">Host github.com</div><div class="line">	HostName github.com</div><div class="line">	IdentityFile ~/.ssh/github/id_rsa</div><div class="line">	User git</div></pre></td></tr></table></figure></div>
-<p>主要是<em>HostName</em>和<em>IdentityFile</em>要改,HostName是服务器域名，IdentityFile 就是密钥的地址了上面的就是刚刚我们新建github下的生成密钥，那个~符号代表当前目录，windows下默认就是<strong><em>C盘/Users/用户名</em></strong>，所以再加上后面的地址就是我们上面所写的<strong><em>C盘/Users/用户名/.ssh/github/id_rsa</em></strong></p>
-</blockquote>
-<h3 id="当然这里面也可以写多个配置的"><a href="#当然这里面也可以写多个配置的" class="headerlink" title="当然这里面也可以写多个配置的"></a>当然这里面也可以写多个配置的</h3><blockquote>
+<p>主要是 <em>HostName</em> 和 <em>IdentityFile</em> 要改，<em>HostName</em> 是服务器域名，<em>IdentityFile</em> 就是密钥的地址了。上面设置，就是刚刚我们新建 <em>github</em> 下的生成密钥，那个 <strong>~</strong> 符号代表当前目录，<em>windows</em> 下默认就是 <strong>C盘/Users/用户名</strong>，所以再加上后面的地址就是我们上面所写的 <strong>C盘/Users/用户名/.ssh/github/id_rsa</strong>.</p>
+<p>当然这里面也可以写多个配置的</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#github配置</div><div class="line">Host github.com</div><div class="line">	HostName github.com</div><div class="line">	IdentityFile ~/.ssh/github/id_rsa</div><div class="line">	User git</div><div class="line">#gitoschina的配置</div><div class="line">Host git.oschina.net</div><div class="line">	HostName git.oschina.net</div><div class="line">	IdentityFile ~/.ssh/id_rsa</div><div class="line">	User git</div></pre></td></tr></table></figure></div>
-</blockquote>
-</blockquote>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><blockquote>
-<h3 id="测试github的"><a href="#测试github的" class="headerlink" title="测试github的"></a>测试github的</h3><blockquote>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>测试 <em>Github</em> 的</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -t git@github.com</div></pre></td></tr></table></figure></div>
 <p>返回成功信息：</p>
-<blockquote>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi youname! You<span class="string">'ve successfully authenticated, but Github does not provide shell access.</span></div></pre></td></tr></table></figure></div>
-<p><img src="http://img.blog.csdn.net/20150714224539529" alt="github测试成功"></p>
-</blockquote>
-<p>当然有的时候会问你是否授权连接，选y即可。</p>
-</blockquote>
-<h3 id="测试开源中国的gitoschina"><a href="#测试开源中国的gitoschina" class="headerlink" title="测试开源中国的gitoschina"></a>测试开源中国的gitoschina</h3><blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgithub.jpg" alt=""></p>
+<p>当然有的时候会问你是否授权连接，选 <em>y</em> 即可。</p>
+<p>测试开源中国的 <em>GitOschina</em>:</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@git.oschina.net</div></pre></td></tr></table></figure></div>
-<blockquote>
 <p>返回成功信息为：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Welcome to Git@OSC, yourname!</div></pre></td></tr></table></figure></div>
-<p><img src="http://img.blog.csdn.net/20150714224614755" alt="gitoschina成功"></p>
-</blockquote>
-<p>这样在项目中就可以用多个git服务器的ssh了。</p>
-</blockquote>
-</blockquote>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgitosc.jpg" alt=""></p>
+<p>这样在项目中就可以用多个 <strong>Git</strong> 平台的 <em>ssh</em> 了。</p>
 
       
     </div>
@@ -529,7 +501,7 @@
     <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2015/07/26/同个电脑多个ssh key的配置使用/" title="同个电脑多个 ssh key 的配置使用">http://yoursite.com/2015/07/26/同个电脑多个ssh key的配置使用/</a>
+    <a href="http://yoursite.com/2015/07/26/同个电脑多个ssh key的配置使用/" title="同个电脑多个 SSH Key 的配置使用">http://yoursite.com/2015/07/26/同个电脑多个ssh key的配置使用/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -542,13 +514,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
-            <a href="/tags/github/" rel="tag"># github</a>
+            <a href="/tags/SSH-Key/" rel="tag"># SSH Key</a>
           
-            <a href="/tags/ssh-key/" rel="tag"># ssh key</a>
-          
-            <a href="/tags/gitoschina/" rel="tag"># gitoschina</a>
+            <a href="/tags/Github/" rel="tag"># Github</a>
           
         </div>
       
@@ -822,7 +792,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">51</span>
+                      
+                    
+                    <span class="site-state-item-count">52</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -919,7 +891,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成ssh-key"><span class="nav-number">3.</span> <span class="nav-text">生成ssh key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成ssh-key的命令我想大家都应该懂："><span class="nav-number">3.1.</span> <span class="nav-text">生成ssh key的命令我想大家都应该懂：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那我们该具体怎么做呢？"><span class="nav-number">3.2.</span> <span class="nav-text">那我们该具体怎么做呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建config文件"><span class="nav-number">4.</span> <span class="nav-text">创建config文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件并配置"><span class="nav-number">4.1.</span> <span class="nav-text">创建文件并配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当然这里面也可以写多个配置的"><span class="nav-number">4.2.</span> <span class="nav-text">当然这里面也可以写多个配置的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试github的"><span class="nav-number">5.1.</span> <span class="nav-text">测试github的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试开源中国的gitoschina"><span class="nav-number">5.2.</span> <span class="nav-text">测试开源中国的gitoschina</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成-SSH-Key"><span class="nav-number">1.</span> <span class="nav-text">生成 SSH Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多账号密钥生成"><span class="nav-number">2.</span> <span class="nav-text">多账号密钥生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-config-文件"><span class="nav-number">3.</span> <span class="nav-text">创建 config 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li></ol></div>
             
 
           </div>
