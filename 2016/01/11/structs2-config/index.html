@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
-<meta name="keywords" content="struts2">
+  <meta name="description" content="Struts2 作为传统 WebWork 的继承者，融合 Struts1, 使得它成为高度成熟的框架。POJO 与 OGNL 两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中 Struts 的配置文件 struts.xml 是领悟 Struts2 的核心。本文首先介绍 Struts2 的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容 ( 本人实践多次的经验 )。">
+<meta name="keywords" content="Struts2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Struts2配置说明及后缀与路径设置">
+<meta property="og:title" content="Struts2 配置说明及后缀与路径设置">
 <meta property="og:url" content="http://yoursite.com/2016/01/11/structs2-config/index.html">
 <meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
+<meta property="og:description" content="Struts2 作为传统 WebWork 的继承者，融合 Struts1, 使得它成为高度成熟的框架。POJO 与 OGNL 两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中 Struts 的配置文件 struts.xml 是领悟 Struts2 的核心。本文首先介绍 Struts2 的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容 ( 本人实践多次的经验 )。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut22.png">
-<meta property="og:updated_time" content="2017-10-06T06:22:33.000Z">
+<meta property="og:updated_time" content="2018-06-16T03:11:29.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struts2配置说明及后缀与路径设置">
-<meta name="twitter:description" content="导语 Struts2作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件struts.xml是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。  一、如何学习Struts2框">
+<meta name="twitter:title" content="Struts2 配置说明及后缀与路径设置">
+<meta name="twitter:description" content="Struts2 作为传统 WebWork 的继承者，融合 Struts1, 使得它成为高度成熟的框架。POJO 与 OGNL 两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中 Struts 的配置文件 struts.xml 是领悟 Struts2 的核心。本文首先介绍 Struts2 的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容 ( 本人实践多次的经验 )。">
 <meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
 
 
@@ -139,7 +139,7 @@
   };
 </script>
 
-  <title>Struts2配置说明及后缀与路径设置 | jiyiren</title>
+  <title>Struts2 配置说明及后缀与路径设置 | jiyiren</title>
   
 
 
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Struts2配置说明及后缀与路径设置
+          <h1 class="post-title" itemprop="name headline">Struts2 配置说明及后缀与路径设置
               
             
           </h1>
@@ -435,208 +435,115 @@
       
 
       
-        <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
-<p><a href="http://struts.apache.org/" target="_blank" rel="external">Struts2</a>作为传统WebWork的继承者，融合Struts1,使得它成为高度成熟的框架。POJO与OGNL两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中Struts的配置文件<strong>struts.xml</strong>是领悟Struts2的核心。本文首先介绍Struts2的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容(本人实践多次的经验)。</p>
-</blockquote>
-<h2 id="一、如何学习Struts2框架"><a href="#一、如何学习Struts2框架" class="headerlink" title="一、如何学习Struts2框架"></a>一、如何学习Struts2框架</h2><blockquote>
-<h3 id="1、入手"><a href="#1、入手" class="headerlink" title="1、入手"></a>1、入手</h3><ul>
-<li>官网下载</li>
-</ul>
-<blockquote>
-<p>所有我们所要学习的目标，我们都要找到其最原始的地方，通常都有其自己的官网。Struts2官网地址：<a href="http://struts.apache.org/" target="_blank" rel="external">http://struts.apache.org/</a>，下载zip包到本地，解压后目录如下</p>
-</blockquote>
-</blockquote>
+        <p><a href="http://struts.apache.org/" target="_blank" rel="external">Struts2</a> 作为传统 <em>WebWork</em> 的继承者，融合 <em>Struts1</em>, 使得它成为高度成熟的框架。<em>POJO</em> 与 <em>OGNL</em> 两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中 <em>Struts</em> 的配置文件 <strong>struts.xml</strong> 是领悟 <em>Struts2</em> 的核心。本文首先介绍 <em>Struts2</em> 的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容 ( 本人实践多次的经验 )。</p>
+<h2 id="一、如何学习Struts2框架"><a href="#一、如何学习Struts2框架" class="headerlink" title="一、如何学习Struts2框架"></a>一、如何学习Struts2框架</h2><h3 id="1、入手"><a href="#1、入手" class="headerlink" title="1、入手"></a>1、入手</h3><p>官网下载</p>
+<p>所有我们所要学习的目标，我们都要找到其最原始的地方，通常都有其自己的官网。<em>Struts2</em> 官网地址：<a href="http://struts.apache.org/" target="_blank" rel="external">http://struts.apache.org/</a>, 下载 zip 包到本地，解压后目录如下</p>
 <a id="more"></a>
-<blockquote>
-<blockquote>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png" alt=""></p>
-</blockquote>
+<p>目录介绍</p>
 <ul>
-<li>目录介绍</li>
+<li><strong>apps</strong>为利用 <em>Struts2</em> 框架写的项目，后缀都是 <em>war</em>, 所以可以把他们放到 <em>Tomcat</em> 的 <em>webapps</em> 目录下直接运行。</li>
+<li><strong>docs</strong>为 <em>Struts2</em> 框架的文档教程。</li>
+<li><strong>lib</strong>为 <em>Struts2</em> 框架的所有用到的 jar 包，有很多，但是我们的项目用不到那么多的。只需要核心的几个。</li>
+<li><strong>src</strong>为 <em>Struts2</em> 框架的源码。</li>
 </ul>
-<blockquote>
-<p><strong>apps</strong>为利用Struts2框架写的项目，后缀都是war，所以可以把他们放到Tomcat的webapps目录下直接运行。<br><strong>docs</strong>为Struts2框架的文档教程。<br><strong>lib</strong>为Struts2框架的所有用到的jar包，有很多，但是我们的项目用不到那么多的。只需要核心的几个。<br><strong>src</strong>为Struts2框架的源码。</p>
-</blockquote>
-<h3 id="2、使用Struts2框架"><a href="#2、使用Struts2框架" class="headerlink" title="2、使用Struts2框架"></a>2、使用Struts2框架</h3><blockquote>
-<p><em>使用框架实际上就是利用他们提供的依赖，使用他们的接口。所以我们只需将所用的框架的依赖添加到自己项目里，然后配置使用。</em></p>
-<ul>
-<li>手动添加</li>
-</ul>
-<blockquote>
-<p>对于Struts2的依赖包都在lib文件夹里，但是lib下有很多包，当然不是每一个都加入项目。我们可以打开apps目录下的struts2-blank.war文件，直接解压缩得到文件夹，打开WEB-INF\lib目录，下面的包就是核心的几个需要包：</p>
+<h3 id="2、使用-Struts2-框架"><a href="#2、使用-Struts2-框架" class="headerlink" title="2、使用 Struts2 框架"></a>2、使用 Struts2 框架</h3><p><em>使用框架实际上就是利用他们提供的依赖，使用他们的接口。所以我们只需将所用的框架的依赖添加到自己项目里，然后配置使用。</em></p>
+<p><strong>手动添加 jar 包</strong></p>
+<p>对于 <em>Struts2</em> 的依赖包都在 lib 文件夹里，但是 <em>lib</em> 下有很多包，当然不是每一个都加入项目。我们可以打开 <em>apps</em> 目录下的 <strong>struts2-blank.war</strong> 文件，直接解压缩得到文件夹，打开 <code>WEB-INF\lib</code> 目录，下面的包就是核心的几个需要包：</p>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/strut22.png" alt=""></p>
-<p>把他们复制到自己的web项目WEB-INF/lib目录下面就可以用了。</p>
-</blockquote>
-<ul>
-<li>Maven管理</li>
-</ul>
-<blockquote>
-<p>用maven管理则很简单，只需要在dependencies里加入</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">      	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></div>
-</blockquote>
-</blockquote>
-<h3 id="3、Struts2配置"><a href="#3、Struts2配置" class="headerlink" title="3、Struts2配置"></a>3、Struts2配置</h3><blockquote>
-<ul>
-<li>web.xml里配置</li>
-</ul>
-<blockquote>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></span></div><div class="line"><span class="tag">      	 <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">      		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">  		<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure></div>
-<p>在web配置里加入了全局action拦截器。</p>
-</blockquote>
-<ul>
-<li>struts.xml配置</li>
-</ul>
-<blockquote>
+<p>把他们复制到自己的 web 项目 <code>WEB-INF/lib</code> 目录下面就可以用了。</p>
+<p><strong>Maven 管理 jar 包</strong></p>
+<p>用 <em>Maven</em> 管理则很简单，只需要在 <em>dependencies</em> 里加入</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></div>
+<h3 id="3、Struts2-配置"><a href="#3、Struts2-配置" class="headerlink" title="3、Struts2 配置"></a>3、Struts2 配置</h3><p><em>web.xml</em> 里配置</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></div><div class="line"><span class="tag">	 <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">	 <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></span></div><div class="line"><span class="tag">	 <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure></div>
+<p>在 <em>web</em> 配置里加入了全局 <em>action</em> 拦截器。</p>
+<p><em>struts.xml</em> 配置</p>
 <p>下面为我学习记录的：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line"><span class="meta">      "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line"><span class="meta">      "http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 如果本配置里内容太多，不好管理，可以将配置文件分为多个配置文件。--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 如下就包括了struts-login.xml，在所包括的配置里所有的struts的配置都字符都不能少的--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"struts-login.xml"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 默认包  没有命名空间 默认为--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- action名是url访问名--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/hello.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 包名userlogin，包名主要是为了分类，对url没有影响。命名空间是/user，它只对url有影响--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- action名是url访问名 class是操作aciton的类--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 将包的命名空间和action名 合并作为url访问的最终地址如下--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/user/login.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"userlogin"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/user"</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 这是本包里的全局result,本包里的所有action都可以用该result--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">global-results</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"error"</span>&gt;</span>/execption.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!--下面为默认页面，如果访问到该目录下没有的地址，则会显示该界面--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;action name="errordefault"&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;result&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;/action&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!--&lt;default-action-ref name="errordefault" &gt;&lt;/default-action-ref&gt;--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面这个没有指定方法名，默认调用的是UserLogin里的execute()方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 这个默认访问execute()方法--&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- http://127.0.0.1:8088/ProjectName/login.action--&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 下面这个就是为了动态方法调用--&gt;</span></div><div class="line">                       <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面这个是方法名调用，在method等于UserLogin里的add()方法则将执行add()方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"loginadd"</span> <span class="attr">method</span>=<span class="string">"add"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 下面为通配符访问方法，是官方推荐的方法--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 调用url http://localhost:8088/user/logintpf_add.action--&gt;</span></div><div class="line">               <span class="comment">&lt;!-- 注意：下划线后面的方法名，不写方法名默认调用的是execute方法--&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"logintpf_*"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/&#123;1&#125;.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 常量配置，也可以配置在struts.properties文件里--&gt;</span></div><div class="line">       <span class="comment">&lt;!--http://blog.csdn.net/flfna/article/details/4900172--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 编码设置，请求参数中会出现编码问题，默认是UTF-8--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.encoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 是否设置为开发模式，默认false,开发阶段设置为true--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.devMode"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 每次http请求到达时是否重新加载国际化资源，默认false,开发阶段设置为true--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.reload"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 请求后缀形如.action的都交由Struts2处理，值中多个值用逗号隔开--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,struts2,"</span>/&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 这个是动态方法调用，在action用感叹号访问action的方法--&gt;</span></div><div class="line">       <span class="comment">&lt;!-- 主要是在访问的时候http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.enable.DynamicMethodInvocation"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure></div>
-</blockquote>
-<ul>
-<li><strong>简单说明</strong></li>
-</ul>
-<blockquote>
-<p><strong>1、DOCTYPE 是xml里的申明，使得本xml可以使用配置里的dtd</strong></p>
-<p><strong>2、<include>节点，如果项目太大，则应该将配置分写在不同的配置文件里，可以用include包括另外一个配置文件，另一文件的配置也需要DOCTYPE。</include></strong></p>
-<p><strong>3、<package>节点，用于分类，name为包名，这个自己起，不重名就行，extends通常继承自struts-default,namespace为访问路径。</package></strong></p>
-<p><strong>4、<action>节点，package节点里配置若干个action，通常一个action代表一个映射地址，也就是一个url地址，name是url访问的地址，与package里的namespace一起构成url访问的最终地址：</action></strong>如：<em><a href="http://127.0.0.1:8088/mtest/PackageNameSpace/ActionName" target="_blank" rel="external">http://127.0.0.1:8088/mtest/PackageNameSpace/ActionName</a></em></p>
-<p><strong>5、<result>就是结果返回的页面，name应该对应于action类里的返回值 ,没有设置则是默认结果，形式为: /hello.jsp</result></strong></p>
-<p><strong>6、<global-results>是包下的全局返回结果，与action并列，可以在任意一个action使用</global-results></strong></p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="二、web访问路径-重点"><a href="#二、web访问路径-重点" class="headerlink" title="二、web访问路径(重点)"></a>二、web访问路径(重点)</h2><blockquote>
-<h3 id="1-路径配置说明"><a href="#1-路径配置说明" class="headerlink" title="1.路径配置说明"></a>1.路径配置说明</h3><blockquote>
-<ul>
-<li>关于web路径配置的地方有三处：</li>
-</ul>
-<blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line"><span class="meta">"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line"><span class="meta">"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 如果本配置里内容太多，不好管理，可以将配置文件分为多个配置文件。--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 如下就包括了struts-login.xml，在所包括的配置里所有的struts的配置都字符都不能少的--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"struts-login.xml"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 默认包  没有命名空间 默认为--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- action名是url访问名--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/hello.action--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 包名userlogin，包名主要是为了分类，对url没有影响。命名空间是/user，它只对url有影响--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- action名是url访问名 class是操作aciton的类--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 将包的命名空间和action名 合并作为url访问的最终地址如下--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8080/ProjectName/user/login.action--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"userlogin"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/user"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 这是本包里的全局result,本包里的所有action都可以用该result--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">global-results</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"error"</span>&gt;</span>/execption.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--下面为默认页面，如果访问到该目录下没有的地址，则会显示该界面--&gt;</span></div><div class="line">            <span class="comment">&lt;!--&lt;action name="errordefault"&gt;--&gt;</span></div><div class="line">            <span class="comment">&lt;!--&lt;result&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">            <span class="comment">&lt;!--&lt;/action&gt;--&gt;</span></div><div class="line">            <span class="comment">&lt;!--&lt;default-action-ref name="errordefault" &gt;&lt;/default-action-ref&gt;--&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 下面这个没有指定方法名，默认调用的是UserLogin里的execute()方法--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                    <span class="comment">&lt;!-- 这个默认访问execute()方法--&gt;</span></div><div class="line">                    <span class="comment">&lt;!-- http://127.0.0.1:8088/ProjectName/login.action--&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                    <span class="comment">&lt;!-- 下面这个就是为了动态方法调用--&gt;</span></div><div class="line">                    <span class="comment">&lt;!-- 访问地址http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                    <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 下面这个是方法名调用，在method等于UserLogin里的add()方法则将执行add()方法--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"loginadd"</span> <span class="attr">method</span>=<span class="string">"add"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                    <span class="comment">&lt;!--&lt;result name="error"&gt;/error.jsp&lt;/result&gt;--&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 下面为通配符访问方法，是官方推荐的方法--&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 调用url http://localhost:8088/user/logintpf_add.action--&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 注意：下划线后面的方法名，不写方法名默认调用的是execute方法--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"logintpf_*"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span> <span class="attr">class</span>=<span class="string">"com.jiyiweb.action.UserLogin"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"add"</span>&gt;</span>/&#123;1&#125;.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 常量配置，也可以配置在struts.properties文件里--&gt;</span></div><div class="line">    <span class="comment">&lt;!--http://blog.csdn.net/flfna/article/details/4900172--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 编码设置，请求参数中会出现编码问题，默认是UTF-8--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.encoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 是否设置为开发模式，默认false,开发阶段设置为true--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.devMode"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 每次http请求到达时是否重新加载国际化资源，默认false,开发阶段设置为true--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.reload"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 请求后缀形如.action的都交由Struts2处理，值中多个值用逗号隔开--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,struts2,"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 这个是动态方法调用，在action用感叹号访问action的方法--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 主要是在访问的时候http://127.0.0.1:8088/ProjectName/login!add.action--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.enable.DynamicMethodInvocation"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure></div>
+<p><strong>简单说明</strong></p>
+<p><strong>1、DOCTYPE 是 xml 里的申明，使得本 xml 可以使用配置里的 dtd</strong></p>
+<p><strong>2、<include> 节点，如果项目太大，则应该将配置分写在不同的配置文件里，可以用 include 包括另外一个配置文件，另一文件的配置也需要DOCTYPE。</include></strong></p>
+<p><strong>3、<package> 节点，用于分类，name 为包名，这个自己起，不重名就行，extends 通常继承自 struts-default, namespace 为访问路径。</package></strong></p>
+<p><strong>4、<action> 节点，package 节点里配置若干个action，通常一个action 代表一个映射地址，也就是一个 url 地址，name 是 url 访问的地址，与 package 里的 namespace 一起构成 url 访问的最终地址：</action></strong> 如： <em><a href="http://127.0.0.1:8088/mtest/PackageNameSpace/ActionName" target="_blank" rel="external">http://127.0.0.1:8088/mtest/PackageNameSpace/ActionName</a></em></p>
+<p><strong>5、<result> 就是结果返回的页面，name 应该对应于 action 类里的返回值 ,没有设置则是默认结果，形式为: /hello.jsp</result></strong></p>
+<p><strong>6、<global-results> 是包下的全局返回结果，与 action 并列，可以在任意一个 action 使用</global-results></strong></p>
+<h2 id="二、web访问路径-重点"><a href="#二、web访问路径-重点" class="headerlink" title="二、web访问路径(重点)"></a>二、web访问路径(重点)</h2><h3 id="1-路径配置说明"><a href="#1-路径配置说明" class="headerlink" title="1. 路径配置说明"></a>1. 路径配置说明</h3><p>关于 web 路径配置的地方有三处：</p>
 <ol>
-<li>web.xml里的<welcome-file-list>，这个是所有java web都有的。</welcome-file-list></li>
-<li>web.xml里的struts拦截器设置的<filter-mapping>匹配配置。</filter-mapping></li>
-<li>struts.xml里的常量 <code>constant name=&quot;struts.action.extension</code>。</li>
+<li><em>web.xml</em> 里的 <code>&lt;welcome-file-list&gt;</code>, 这个是所有 java web 都有的。</li>
+<li><em>web.xml</em> 里的 <em>struts</em> 拦截器设置的 <code>&lt;filter-mapping&gt;</code> 匹配配置。</li>
+<li><em>struts.xml</em> 里的常量 <code>constant name=&quot;struts.action.extension</code>。</li>
 </ol>
-</blockquote>
 <p>下面分别说明：</p>
-</blockquote>
-<h3 id="2-welcom-file-list"><a href="#2-welcom-file-list" class="headerlink" title="2.welcom-file-list"></a>2.welcom-file-list</h3><blockquote>
-<p>对于web.xml里的这个标签主要配置的是web项目的主页面。也就是当我们访问一个项目的根目录时所显示的界面。举个例子：我们的项目名叫hellotest,我们配置tomcat时会有两种配置方法，一种是将tomcat的webapps作为服务器根目录，这时我们的访问我们项目的根目录为<code>http://localhost:8080/hellotest</code>,另一种方法是将我们的项目就作为tomcat服务器根目录了，那我们访问我们项目的根目录为<code>http://localhost:8080</code>。通常我们用后一种tomcat配置方法，因为这样可以与实际运行情况相符。那么不管哪一种配置方法，访问了我们项目的根目录，我们都没有指定访问哪个页面为什么还是会有界面显示呢？因为tomcat默认将项目的index.html,index.htm,index.jsp作为访问项目根目录而显示的界面。与在web.xml里配置如下这种情况一样：</p>
+<h3 id="2-welcom-file-list"><a href="#2-welcom-file-list" class="headerlink" title="2. welcom-file-list"></a>2. welcom-file-list</h3><p>对于 <em>web.xml</em> 里的这个标签主要配置的是 web 项目的主页面。也就是当我们访问一个项目的根目录时所显示的界面。</p>
+<p>举个例子：我们的项目名叫 <em>hellotest</em>, 我们配置 tomcat 时会有两种配置方法:</p>
+<p>一种是将 tomcat 的 <em>webapps</em> 作为服务器根目录，这时我们的访问我们项目的根目录为<code>http://localhost:8080/hellotest</code>,</p>
+<p>另一种方法是将我们的项目就作为 tomcat 服务器根目录了，那我们访问我们项目的根目录为 <code>http://localhost:8080</code>。通常我们用后一种tomcat 配置方法，因为这样可以与实际运行情况相符。那么不管哪一种配置方法，访问了我们项目的根目录，我们都没有指定访问哪个页面为什么还是会有界面显示呢？因为 <em>tomcat</em> 默认将项目的 <em>index.html, index.htm, index.jsp</em> 作为访问项目根目录而显示的界面。与在web.xml 里配置如下这种情况一样：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div></pre></td></tr></table></figure></div>
-<p>这个是写在web.xml里的，上面的代码与默认配置是一样的，也就是说不写上面的这些代码也会有效果的。那它有什么用呢？它通常做为用户想自定义自己项目根目录访问界面的，比如我的项目下有index.jsp和hello.jsp，而我就是想让hello.jsp作为默认界面，那我们就这么配置：</p>
+<p>这个是写在 <em>web.xml</em> 里的，上面的代码与默认配置是一样的，也就是说不写上面的这些代码也会有效果的。那它有什么用呢？它通常做为用户想自定义自己项目根目录访问界面的，比如我的项目下有 <em>index.jsp</em> 和<em>hello.jsp</em>, 而我就是想让 <em>hello.jsp</em> 作为默认界面，那我们就这么配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>hello.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div></pre></td></tr></table></figure></div>
-<p>当我们访问项目根目录，比如:<code>http://localhost:8080</code>时，显示的界面将会是hello.jsp的界面，而不会是index.jsp。因为当我们配置了该标签，就覆盖了默认的设置了，其所隐含的真正路径是：<code>http://localhost:8080/hello.jsp</code></p>
-</blockquote>
-<h3 id="3-web-xml里struts拦截器设置的"><a href="#3-web-xml里struts拦截器设置的" class="headerlink" title="3.web.xml里struts拦截器设置的"></a>3.web.xml里struts拦截器设置的<filter-mapping></filter-mapping></h3><blockquote>
-<p>通常的配置：</p>
+<p>当我们访问项目根目录，比如: <code>http://localhost:8080</code> 时，显示的界面将会是 hello.jsp 的界面，而不会是 index.jsp. 因为当我们配置了该标签，就覆盖了默认的设置了，其所隐含的真正路径是： <code>http://localhost:8080/hello.jsp</code></p>
+<h3 id="3-web-xml-里-struts-拦截器设置"><a href="#3-web-xml-里-struts-拦截器设置" class="headerlink" title="3.web.xml 里 struts 拦截器设置"></a>3.web.xml 里 struts 拦截器设置</h3><p>通常的配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></div>
-<p>这里的意思是以action为后缀的访问路径和没有后缀的访问路径都会被struts的拦截器拦截，进入action里处理后再返回出视图，是的，没错，没有后缀的也会拦截的，struts默认拦截的有两个的，一个是action后缀，一个就是没有后缀的。举个例子：</p>
-<blockquote>
+<p>这里的意思是以 action 为后缀的访问路径和没有后缀的访问路径都会被 struts 的拦截器拦截，进入 action 里处理后再返回出视图，是的，没错，没有后缀的也会拦截的，struts 默认拦截的有两个的，一个是 action 后缀，一个就是没有后缀的。举个例子：</p>
 <ul>
 <li>当访问url为 <code>http://localhost:8080/add.action</code> 这个为以action结尾的访问路径，将会进入继承actionsupport的类里处理，然后返回出视图。</li>
 <li>还有这样 <code>http://localhost:8080/index</code> 这个是没有后缀的访问路径，也会进入struts的拦截器里。</li>
 <li>而 <code>http://localhost:8080/index.jsp</code> 以及 <code>http://localhost:8080/hello.html</code> 等都不会进入struts的拦截器的，直接由tomcat返回页面视图的。</li>
 </ul>
-</blockquote>
 <p>我们举个更实际点的例子吧：</p>
-<blockquote>
 <ul>
-<li>假设我们的项目根目录下有index.jsp和hello.jsp，所有其他配置好后都默认，也就是说Struts拦截action后缀和无后缀的url路径。</li>
-<li>在struts.xml里配置如下的包：</li>
+<li>假设我们的项目根目录下有 index.jsp 和 hello.jsp，所有其他配置好后都默认，也就是说 Struts 拦截 action 后缀和无后缀的 url 路径。</li>
+<li>在 struts.xml 里配置如下的包：</li>
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">result</span>&gt;</span>hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure></div>
-</blockquote>
 <p>当我们</p>
-<blockquote>
-<ul>
-<li>(1)访问<code>http://localhost:8080</code>返回index.jsp视图</li>
-<li>(2)访问 <code>http://localhost:8080/index.jsp</code>返回index.jsp视图</li>
-<li>(3)访问 <code>http://localhost:8080/hello.jsp</code>返回hello.jsp视图</li>
-<li>(4)访问 <code>http://localhost:8080/index</code> 返回hello.jsp</li>
-<li>(5)访问 <code>http://localhost:8080/index.action</code> 返回hello.jsp</li>
-</ul>
-</blockquote>
+<p>(1) 访问<code>http://localhost:8080</code>返回index.jsp视图</p>
+<p>(2) 访问 <code>http://localhost:8080/index.jsp</code>返回index.jsp视图</p>
+<p>(3) 访问 <code>http://localhost:8080/hello.jsp</code>返回hello.jsp视图</p>
+<p>(4) 访问 <code>http://localhost:8080/index</code> 返回hello.jsp</p>
+<p>(5) 访问 <code>http://localhost:8080/index.action</code> 返回hello.jsp</p>
 <p>(1)、(2)、(3)访问机制是一样的，是直接由tomcat直接返回视图；(4)和(5)的机制相同但是与前面的不同，(4)、(5)是被struts拦截后通过配置文件的配置后返回视图的。</p>
-</blockquote>
-<h3 id="4-struts-xml里的常量配置"><a href="#4-struts-xml里的常量配置" class="headerlink" title="4.struts.xml里的常量配置"></a>4.struts.xml里的常量配置</h3><blockquote>
-<ul>
-<li>其配置示例：</li>
-</ul>
-<blockquote>
+<h3 id="4-struts-xml-里的常量配置"><a href="#4-struts-xml-里的常量配置" class="headerlink" title="4. struts.xml 里的常量配置"></a>4. struts.xml 里的常量配置</h3><p>其配置示例：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
-<p>它的作用是让struts拦截哪些后缀结尾的url的。<br>当我们新建好项目时，struts.xml里没有任何东西的，所以默认的拦截是<strong>action</strong>和<strong>没有后缀</strong>的url路径。但是</p>
-</blockquote>
-<ul>
-<li>若按如下配置：</li>
-</ul>
-<blockquote>
+<p>它的作用是让 <em>struts</em> 拦截哪些后缀结尾的 url 的。</p>
+<p>当我们新建好项目时，<em>struts.xml</em> 里没有任何东西的，所以默认的拦截是 <strong>action</strong>和 <strong>没有后缀</strong> 的 url 路径。但是</p>
+<p>若按如下配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
-<p>那么它将只会拦截<strong>action</strong>结尾的url路径了。</p>
-</blockquote>
-<ul>
-<li>当我们写下:</li>
-</ul>
-<blockquote>
+<p>那么它将只会拦截 <strong>action</strong> 结尾的 url 路径了。</p>
+<p>当我们写下:</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">","</span>/&gt;</span></div></pre></td></tr></table></figure></div>
-<p>那么它将只会拦截<strong>没有后缀</strong>的url路径了。</p>
-</blockquote>
-<ul>
-<li>当我们写下：</li>
-</ul>
-<blockquote>
+<p>那么它将只会拦截 <strong>没有后缀</strong> 的 url 路径了。</p>
+<p>当我们写下：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do,"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
-<p>那么它将会拦截<strong>action,do结尾的url以及没有后缀</strong>的url路径。</p>
-</blockquote>
-<ul>
-<li>当写下：</li>
-</ul>
-<blockquote>
+<p>那么它将会拦截 <strong>action, do 结尾的 url 以及没有后缀</strong> 的 url 路径。</p>
+<p>当写下：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,do"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
-<p>那么它将只会拦截<strong>action</strong>和<strong>do</strong>结尾的url路径了，没有后缀的将不会拦截。</p>
-</blockquote>
-<ul>
-<li>在Struts中如果我们没有配置拦截后缀，则默认是所有的.action后缀的访问url将被Struts框架拦截，然后通过action返回视图。而所有的.jsp和.html将直接通过url是可访问的。</li>
-</ul>
-</blockquote>
-</blockquote>
-<h2 id="三、实践理解路径控制—-设置主页"><a href="#三、实践理解路径控制—-设置主页" class="headerlink" title="三、实践理解路径控制—-设置主页"></a>三、实践理解路径控制—-设置主页</h2><blockquote>
-<p>方法有三种：</p>
-<blockquote>
+<p>那么它将只会拦截 <strong>action</strong> 和 <strong>do</strong> 结尾的 url 路径了，没有后缀的将不会拦截。</p>
+<p>在 <em>Struts</em> 中如果我们没有配置拦截后缀，则默认是所有的 <code>.action</code> 后缀的访问 url 将被 <em>Struts</em> 框架拦截，然后通过 <em>action</em> 返回视图。而所有的 <code>.jsp</code> 和 <code>.html</code> 将直接通过 url 是可访问的。</p>
+<h2 id="三、实践理解路径控制—-设置主页"><a href="#三、实践理解路径控制—-设置主页" class="headerlink" title="三、实践理解路径控制—-设置主页"></a>三、实践理解路径控制—-设置主页</h2><p>方法有三种：</p>
 <ol>
-<li><p>什么都不用做，只要项目目录有index.html或者index.htm或者index.jsp，那么这三中页面就会默认被配置为根目录下主页。</p>
+<li><p>什么都不用做，只要项目目录有 <em>index.html</em> 或者 <em>index.htm</em> 或者 <em>index.jsp</em>，那么这三中页面就会默认被配置为根目录下主页。</p>
 </li>
-<li><p>配置web.xml里的welcome-file-list, 想让哪个界面作为主页都可以。配置后会覆盖默认tomcat的默认首页设置。</p>
+<li><p>配置 <em>web.xml</em> 里的 <em>welcome-file-list</em>, 想让哪个界面作为主页都可以。配置后会覆盖默认 tomcat 的默认首页设置。</p>
 </li>
-<li><p>通过struts.xml里的配置来设置主页。</p>
+<li><p>通过 <em>struts.xml</em> 里的配置来设置主页。</p>
 </li>
 </ol>
-</blockquote>
 <p>这里简单介绍下：</p>
-<blockquote>
-<ul>
-<li>拦截：因为要用struts来配置，所以要使url进入action,也就是说要拦截tomcat默认设置的.html .htm .jsp后缀的访问url,所以要将控制后缀常量设置为：</li>
-</ul>
-<blockquote>
+<p>拦截：因为要用 <em>struts</em> 来配置，所以要使 url 进入 <em>action</em>, 也就是说要拦截 <strong>tomcat</strong> 默认设置的 <strong>.html, .htm, .jsp</strong> 后缀的访问 url, 所以要将控制后缀常量设置为：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,html,htm,jsp,"</span>/&gt;</span></div></pre></td></tr></table></figure></div>
-<p>这样我们就拦截了主页默认的index.html或者index.jsp后缀index.htm。</p>
-</blockquote>
-<ul>
-<li>配置：然后配置package如下：</li>
-</ul>
-<blockquote>
+<p>这样我们就拦截了主页默认的 index.html 或者 index.jsp 后缀 index.htm.</p>
+<p>配置：然后配置 package 如下：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">default-action-ref</span> <span class="attr">name</span>=<span class="string">"myhome"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"myhome"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">result</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure></div>
-<p>这里的default-action-ref是包的默认action，也就是说当拦截了的路径匹配到了包后没有匹配到action则此默认的action就作为视图返回的路径了。</p>
-</blockquote>
+<p>这里的 <code>default-action-ref</code> 是包的默认 <em>action</em>，也就是说当拦截了的路径匹配到了包后没有匹配到action则此默认的action就作为视图返回的路径了。</p>
+<p>访问思考：所以当我们访问 <code>http://localhost:8080</code> 时，经过tomcat的默认配置，隐含的实际访问路径为：<code>http://localhost:8080/index.jsp</code> 但是此时的 jsp 后缀 url 都会被 struts 拦截，所以就进 struts.xml 里的路径映射，因为只有一级路径所以映射到 default 包，而这个包里没有配置 index.jsp 名称，所以进入本包的默认 action, 则返回视图 /index.jsp。所以最后显示了主页 index.jsp。</p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>做一个web网站，最重要有三个：一是前端，二是后台，而第三个就是逻辑控制了；这个逻辑控制比较大，它包括了前后台的数据传输,用户与前端、后台的交互(如：资源访问)等。而最不好控制的就是暴露给用户的路径逻辑了，因为你不知道用户在浏览器里输入什么路径的，所以很多情况下我们都要在后台严格控制资源的访问权限，这些控制并不是可以通过写代码那么好实现的，通常要有一定的框架思维和全局观念，这也就是我们通常用框架的原因，解决逻辑控制，尤其是路径控制访问！</p>
 <ul>
-<li>访问思考：所以当我们访问<code>http://localhost:8080</code> 时，经过tomcat的默认配置，隐含的实际访问路径为：<code>http://localhost:8080/index.jsp</code>但是此时的jsp后缀url都会被struts拦截，所以就进struts.xml里的路径映射，因为只有一级路径所以映射到default包，而这个包里没有配置index.jsp名称，所以进入本包的默认action,则返回视图/index.jsp。所以最后显示了主页index.jsp。</li>
+<li>通常 <em>web.xml</em> 中的 <em>welcome-list</em> 无须设置，因为我们项目几乎都应该含有index的页面的。</li>
+<li>如果我们设置了 jsp 后缀的也拦截的话，一定记住要对每个 jsp 界面都应该设置对应的 action。</li>
+<li>通常我们会在 html 里引用其他的页面，比如超链接等，这时要写的链接大家一定要注意是不是被你拦截的页面，如果拦截则一定要按照 <code>PackageName/ActionName</code> 这样配置。</li>
 </ul>
-</blockquote>
-</blockquote>
-<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><blockquote>
-<ul>
-<li>做一个web网站，最重要有三个：一是前端，二是后台，而第三个就是逻辑控制了；这个逻辑控制比较大，它包括了前后台的数据传输,用户与前端、后台的交互(如：资源访问)等。而最不好控制的就是暴露给用户的路径逻辑了，因为你不知道用户在浏览器里输入什么路径的，所以很多情况下我们都要在后台严格控制资源的访问权限，这些控制并不是可以通过写代码那么好实现的，通常要有一定的框架思维和全局观念，这也就是我们通常用框架的原因，解决逻辑控制，尤其是路径控制访问！</li>
-<li>通常web.xml中的welcome-list无须设置，因为我们项目几乎都应该含有index的页面的。</li>
-<li>如果我们设置了jsp后缀的也拦截的话，一定记住要对每个jsp界面都应该设置对应的action。</li>
-<li>通常我们会在html里引用其他的页面，比如超链接等，这时要写的链接大家一定要注意是不是被你拦截的页面，如果拦截则一定要按照<code>PackageName/ActionName</code>这样配置。</li>
-</ul>
-</blockquote>
 
       
     </div>
@@ -658,7 +565,7 @@
     <strong>本文作者： </strong>jiyiren</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2016/01/11/structs2-config/" title="Struts2配置说明及后缀与路径设置">http://yoursite.com/2016/01/11/structs2-config/</a>
+    <a href="http://yoursite.com/2016/01/11/structs2-config/" title="Struts2 配置说明及后缀与路径设置">http://yoursite.com/2016/01/11/structs2-config/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -671,7 +578,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/struts2/" rel="tag"># struts2</a>
+            <a href="/tags/Struts2/" rel="tag"># Struts2</a>
           
         </div>
       
@@ -931,21 +838,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1042,7 +935,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、如何学习Struts2框架"><span class="nav-number">2.</span> <span class="nav-text">一、如何学习Struts2框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、入手"><span class="nav-number">2.1.</span> <span class="nav-text">1、入手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用Struts2框架"><span class="nav-number">2.2.</span> <span class="nav-text">2、使用Struts2框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、Struts2配置"><span class="nav-number">2.3.</span> <span class="nav-text">3、Struts2配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、web访问路径-重点"><span class="nav-number">3.</span> <span class="nav-text">二、web访问路径(重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-路径配置说明"><span class="nav-number">3.1.</span> <span class="nav-text">1.路径配置说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-welcom-file-list"><span class="nav-number">3.2.</span> <span class="nav-text">2.welcom-file-list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-web-xml里struts拦截器设置的"><span class="nav-number">3.3.</span> <span class="nav-text">3.web.xml里struts拦截器设置的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-struts-xml里的常量配置"><span class="nav-number">3.4.</span> <span class="nav-text">4.struts.xml里的常量配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、实践理解路径控制—-设置主页"><span class="nav-number">4.</span> <span class="nav-text">三、实践理解路径控制—-设置主页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">5.</span> <span class="nav-text">四、总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、如何学习Struts2框架"><span class="nav-number">1.</span> <span class="nav-text">一、如何学习Struts2框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、入手"><span class="nav-number">1.1.</span> <span class="nav-text">1、入手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用-Struts2-框架"><span class="nav-number">1.2.</span> <span class="nav-text">2、使用 Struts2 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、Struts2-配置"><span class="nav-number">1.3.</span> <span class="nav-text">3、Struts2 配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、web访问路径-重点"><span class="nav-number">2.</span> <span class="nav-text">二、web访问路径(重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-路径配置说明"><span class="nav-number">2.1.</span> <span class="nav-text">1. 路径配置说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-welcom-file-list"><span class="nav-number">2.2.</span> <span class="nav-text">2. welcom-file-list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-web-xml-里-struts-拦截器设置"><span class="nav-number">2.3.</span> <span class="nav-text">3.web.xml 里 struts 拦截器设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-struts-xml-里的常量配置"><span class="nav-number">2.4.</span> <span class="nav-text">4. struts.xml 里的常量配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、实践理解路径控制—-设置主页"><span class="nav-number">3.</span> <span class="nav-text">三、实践理解路径控制—-设置主页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">4.</span> <span class="nav-text">四、总结</span></a></li></ol></div>
             
 
           </div>
