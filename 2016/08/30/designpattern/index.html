@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="导语： 本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！  前言  设计模式分为设计与模式两块，通常来说分为6大设计原则和23种模式，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！ 在遇到开发难题时，可以借鉴这些设计模式！ 在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求！">
+  <meta name="description" content="导语：本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！ 前言 设计模式分为设计与模式两块，通常来说分为 6 大设计原则和 23 种模式，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！ 在遇到开发难题时，可以借鉴这些设计模式！ 在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单一职责原则，里氏替换原则">
 <meta property="og:url" content="http://yoursite.com/2016/08/30/designpattern/index.html">
 <meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="导语： 本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！  前言  设计模式分为设计与模式两块，通常来说分为6大设计原则和23种模式，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！ 在遇到开发难题时，可以借鉴这些设计模式！ 在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求！">
+<meta property="og:description" content="导语：本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！ 前言 设计模式分为设计与模式两块，通常来说分为 6 大设计原则和 23 种模式，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！ 在遇到开发难题时，可以借鉴这些设计模式！ 在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-11T14:00:28.465Z">
+<meta property="og:updated_time" content="2018-06-16T02:36:40.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单一职责原则，里氏替换原则">
-<meta name="twitter:description" content="导语： 本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！  前言  设计模式分为设计与模式两块，通常来说分为6大设计原则和23种模式，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！ 在遇到开发难题时，可以借鉴这些设计模式！ 在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求！">
+<meta name="twitter:description" content="导语：本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！ 前言 设计模式分为设计与模式两块，通常来说分为 6 大设计原则和 23 种模式，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！ 在遇到开发难题时，可以借鉴这些设计模式！ 在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求">
 
 
 
@@ -432,82 +432,39 @@
       
 
       
-        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
-<p>本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！</p>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<ul>
-<li>设计模式分为设计与模式两块，通常来说分为<strong>6大设计原则和23种模式</strong>，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！</li>
+        <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><p>本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>设计模式分为设计与模式两块，通常来说分为 <strong>6 大设计原则和 23 种模式</strong>，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！</li>
 <li>在遇到开发难题时，可以借鉴这些设计模式！</li>
 <li>在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求！</li>
 </ul>
-</blockquote>
-<h2 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h2><blockquote>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<ul>
-<li>单一职责原则（Single Responsibility Principle）：<strong>指有且仅有一个原因引起类的变更</strong>。</li>
-<li>理解：尽可能的将对象划分成<strong>单一性的类别</strong>，使类的复杂性降低，实现什么职责都有清晰明确的定义。</li>
-</ul>
-</blockquote>
-</blockquote>
+<h2 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>单一职责原则（ <em>Single Responsibility Principle</em> ）：<strong>指有且仅有一个原因引起类的变更</strong>。</p>
+<p>理解：尽可能的将对象划分成<strong>单一性的类别</strong>，使类的复杂性降低，实现什么职责都有清晰明确的定义。</p>
 <a id="more"></a>
-<blockquote>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><blockquote>
-<p><strong>要求：设计一个用户信息管理的类！</strong></p>
-<ul>
-<li>接口IUserBO(Business Object用户信息属性放在一个接口里)</li>
-</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><strong>要求：设计一个用户信息管理的类！</strong></p>
+<p>接口 <em>IUserBO</em> ( Business Object 用户信息属性放在一个接口里)</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IUserBO</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setUserID</span><span class="params">(String userID)</span></span>;</div><div class="line">    <span class="function">String <span class="title">getUserID</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span></span>;</div><div class="line">    <span class="function">String <span class="title">getPassword</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String name)</span></span>;</div><div class="line">    <span class="function">String <span class="title">getUserName</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<ul>
-<li>接口IUserBL(Business Logic用户信息逻辑处理放在一个接口里)</li>
-</ul>
+<p>接口 <em>IUserBL</em> ( Business Logic 用户信息逻辑处理放在一个接口里)</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IUserBL</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">changePassword</span><span class="params">(String oldPassword)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">deleteUser</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">mapUser</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">addOrg</span><span class="params">(<span class="keyword">int</span> orgID)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">addRole</span><span class="params">(<span class="keyword">int</span> roleID)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<ul>
-<li>接口IUserInfo(用户信息接口将上面两类接口融合为用户信息接口)</li>
-</ul>
+<p>接口 <em>IUserInfo</em> ( 用户信息接口将上面两类接口融合为用户信息接口 )</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IUserInfo</span> <span class="keyword">extends</span> <span class="title">IUserBL</span>,<span class="title">IUserBO</span></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<ul>
-<li>类UserInfo(用户信息管理类，实现上面的接口)</li>
-</ul>
+<p>类 <em>UserInfo</em> ( 用户信息管理类，实现上面的接口 )</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span> <span class="keyword">implements</span> <span class="title">IUserInfo</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> String userID;</div><div class="line">    <span class="keyword">private</span> String password;</div><div class="line">    <span class="keyword">private</span> String userName;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">changePassword</span><span class="params">(String oldPassword)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"改变密码，"</span>+oldPassword);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteUser</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"删除密码，"</span>+<span class="keyword">false</span>);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mapUser</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"用户map"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addOrg</span><span class="params">(<span class="keyword">int</span> orgID)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"添加机构"</span>+orgID);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addRole</span><span class="params">(<span class="keyword">int</span> roleID)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"添加角色，"</span>+roleID);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserID</span><span class="params">(String userID)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.userID=userID;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUserID</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> userID;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.password = password;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> password;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.userName = name;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUserName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> userName;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<ul>
-<li>在以上实例中，我们定义了三个接口和一个类，接口IUserInfo继承了接口IUserBO与IUserBL，这样设计将IUserInfo的接口细化了，将属性操作和逻辑操作分开，这也就是印证了单一职责原则，<strong>IUserBO只负责用户属性操作，IUserBL只负责用户信息的逻辑操作</strong>！这样使得整个代码清晰易读！便于扩展！</li>
-</ul>
-</blockquote>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><blockquote>
-<p>在开发过程中设计类或接口时，尽量要将<strong>这些类和接口的职责唯一、明确</strong>。这样在进行合作开发时，不仅自己能够快速明确自己的目的，其他合作开发的程序员也能够明白你的意思。这样同样也可以降低代码的耦合性，有利于后期代码的维护。</p>
-</blockquote>
-</blockquote>
-<h2 id="二、里氏替换原则"><a href="#二、里氏替换原则" class="headerlink" title="二、里氏替换原则"></a>二、里氏替换原则</h2><blockquote>
-<h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<ul>
-<li>里氏替换原则(Liskov Substitution Principle,LSP)：<strong>所有引用基类的地方必须能够透明地使用其子类的对象</strong>。</li>
-<li>理解：子类继承父类时，<strong>除添加新的方法完成新增功能外，尽量不要重写父类的方法，也尽量不要重载父类的方法</strong>。</li>
-</ul>
-</blockquote>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><blockquote>
-<ul>
-<li>我们想实现两数字的相减的功能，用A类来实现，如下：</li>
-</ul>
+<p>在以上实例中，我们定义了三个接口和一个类，接口 <em>IUserInfo</em> 继承了接口 <em>IUserBO</em> 与 <em>IUserBL</em>，这样设计将 <em>IUserInfo</em> 的接口细化了，将属性操作和逻辑操作分开，这也就是印证了单一职责原则，<strong>IUserBO只负责用户属性操作，IUserBL只负责用户信息的逻辑操作</strong>！这样使得整个代码清晰易读！便于扩展！</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在开发过程中设计类或接口时，尽量要将 <strong>这些类和接口的职责唯一、明确</strong>。这样在进行合作开发时，不仅自己能够快速明确自己的目的，其他合作开发的程序员也能够明白你的意思。这样同样也可以降低代码的耦合性，有利于后期代码的维护。</p>
+<h2 id="二、里氏替换原则"><a href="#二、里氏替换原则" class="headerlink" title="二、里氏替换原则"></a>二、里氏替换原则</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>里氏替换原则 ( Liskov Substitution Principle, LSP )：<strong>所有引用基类的地方必须能够透明地使用其子类的对象</strong>。</p>
+<p>理解：子类继承父类时，<strong>除添加新的方法完成新增功能外，尽量不要重写父类的方法，也尽量不要重载父类的方法</strong>。</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p>我们想实现两数字的相减的功能，用 A 类来实现，如下：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> a-b;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        A a = <span class="keyword">new</span> A();</div><div class="line">        System.out.println(<span class="string">"100-50="</span>+a.func1(<span class="number">100</span>, <span class="number">50</span>));</div><div class="line">        System.out.println(<span class="string">"100-80="</span>+a.func1(<span class="number">100</span>, <span class="number">80</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<ul>
-<li>运行结果：</li>
-</ul>
+<p>运行结果：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">100</span>-<span class="number">50</span>=<span class="number">50</span></div><div class="line"><span class="number">100</span>-<span class="number">80</span>=<span class="number">20</span></div></pre></td></tr></table></figure></div>
-<ul>
-<li>后来，我们需要增加一个新的功能：完成两数相加，然后再与100求和，由类B来负责。</li>
-</ul>
+<p>后来，我们需要增加一个新的功能：完成两数相加，然后再与 100 求和，由类 B 来负责。</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> a+b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> func1(a,b)+<span class="number">100</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        B b = <span class="keyword">new</span> B();</div><div class="line">        System.out.println(<span class="string">"100-50="</span>+b.func1(<span class="number">100</span>, <span class="number">50</span>));</div><div class="line">        System.out.println(<span class="string">"100-80="</span>+b.func1(<span class="number">100</span>, <span class="number">80</span>));</div><div class="line">        System.out.println(<span class="string">"100+20+100="</span>+b.func2(<span class="number">100</span>, <span class="number">20</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<ul>
-<li>运行结果：</li>
-</ul>
+<p>运行结果：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">100</span>-<span class="number">50</span>=<span class="number">150</span></div><div class="line"><span class="number">100</span>-<span class="number">80</span>=<span class="number">180</span></div><div class="line"><span class="number">100</span>+<span class="number">20</span>+<span class="number">100</span>=<span class="number">220</span></div></pre></td></tr></table></figure></div>
-<ul>
-<li>我们发现原本运行正常的相减功能发生了错误。原因就是<strong>类B在给方法起名时无意中重写了父类的方法</strong>，造成所有运行相减功能的代码全部调用了类B重写后的方法，造成原本运行正常的功能出现了错误。在本例中，<strong>引用基类A完成的功能，换成子类B之后，发生了异常</strong>。在实际编程中，我们常常会通过重写父类的方法来完成新的功能，这样写起来虽然简单，但是整个继承体系的可复用性会比较差，特别是运用多态比较频繁时，程序运行出错的几率非常大。如果非要重写父类的方法，比较通用的做法是：原来的父类和子类都继承一个更通俗的基类，原有的继承关系去掉，采用依赖、聚合，组合等关系代替。</li>
-</ul>
-</blockquote>
-<h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><blockquote>
-<p>里氏替换原则通俗的来讲就是：<strong>子类可以扩展父类的功能，但不能改变父类原有的功能</strong>。它包含以下4层含义：</p>
+<p>我们发现原本运行正常的相减功能发生了错误。原因就是 <strong>类 B 在给方法起名时无意中重写了父类的方法</strong>，造成所有运行相减功能的代码全部调用了类B重写后的方法，造成原本运行正常的功能出现了错误。</p>
+<p>在本例中，<strong>引用基类 A 完成的功能，换成子类 B 之后，发生了异常</strong>。在实际编程中，我们常常会通过重写父类的方法来完成新的功能，这样写起来虽然简单，但是整个继承体系的可复用性会比较差，特别是运用多态比较频繁时，程序运行出错的几率非常大。如果非要重写父类的方法，比较通用的做法是：原来的父类和子类都继承一个更通俗的基类，原有的继承关系去掉，采用依赖、聚合，组合等关系代替。</p>
+<h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><p>里氏替换原则通俗的来讲就是：<strong>子类可以扩展父类的功能，但不能改变父类原有的功能</strong>。它包含以下4层含义：</p>
 <ul>
 <li>子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。</li>
 <li>子类中可以增加自己特有的方法。</li>
@@ -515,8 +472,6 @@
 <li>当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格。</li>
 </ul>
 <p>看上去很不可思议，因为我们会发现在自己编程中常常会违反里氏替换原则，程序照样跑的好好的。所以大家都会产生这样的疑问，假如我非要不遵循里氏替换原则会有什么后果？后果就是：你写的代码出问题的几率将会大大增加。</p>
-</blockquote>
-</blockquote>
 
       
     </div>
@@ -657,7 +612,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -708,9 +663,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>

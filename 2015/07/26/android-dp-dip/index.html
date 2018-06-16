@@ -108,23 +108,28 @@
 
 
 
-  <meta name="description" content="go my own way">
-<meta property="og:type" content="website">
-<meta property="og:title" content="jiyiren">
-<meta property="og:url" content="http://yoursite.com/categories/Windows/index.html">
+  <meta name="description" content="一、基本概念 dp：安卓中的相对大小 dpi：( dot per inch )每英寸像素多少 px：像素点  二、详细说明px和dpipx 平常所说的 1920×1080 只是像素数量，也就是 1920px×1080px, 代表手机高度上有 1920 个像素点，宽度上有 1080 个像素点。">
+<meta name="keywords" content="Android,dp,px,像素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 开发中 dp、dpi、px 的区别">
+<meta property="og:url" content="http://yoursite.com/2015/07/26/android-dp-dip/index.html">
 <meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="go my own way">
+<meta property="og:description" content="一、基本概念 dp：安卓中的相对大小 dpi：( dot per inch )每英寸像素多少 px：像素点  二、详细说明px和dpipx 平常所说的 1920×1080 只是像素数量，也就是 1920px×1080px, 代表手机高度上有 1920 个像素点，宽度上有 1080 个像素点。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogImage.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogt.png">
+<meta property="og:updated_time" content="2018-06-16T02:23:45.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jiyiren">
-<meta name="twitter:description" content="go my own way">
+<meta name="twitter:title" content="Android 开发中 dp、dpi、px 的区别">
+<meta name="twitter:description" content="一、基本概念 dp：安卓中的相对大小 dpi：( dot per inch )每英寸像素多少 px：像素点  二、详细说明px和dpipx 平常所说的 1920×1080 只是像素数量，也就是 1920px×1080px, 代表手机高度上有 1920 个像素点，宽度上有 1080 个像素点。">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogImage.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Windows/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/07/26/android-dp-dip/"/>
 
 
 
@@ -134,7 +139,7 @@
   };
 </script>
 
-  <title>分类: Windows | jiyiren</title>
+  <title>Android 开发中 dp、dpi、px 的区别 | jiyiren</title>
   
 
 
@@ -191,7 +196,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
      <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
@@ -249,7 +254,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -278,28 +283,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -324,87 +307,266 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Windows<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/26/android-dp-dip/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="go my own way">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2015/07/30/Windows10专业版激活/" itemprop="url">
-              
-                <span itemprop="name">Windows10专业版激活</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Android 开发中 dp、dpi、px 的区别
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-07-30T22:14:40+08:00"
-              content="2015-07-30" >
-          07-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-07-26 21:45:40" itemprop="dateCreated datePublished" datetime="2015-07-26T21:45:40+08:00">2015-07-26</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/26/android-dp-dip/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/07/26/android-dp-dip/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/07/29/Windows10专业版非升级安装过程/" itemprop="url">
-              
-                <span itemprop="name">Windows10专业版安装过程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-07-29T22:14:40+08:00"
-              content="2015-07-29" >
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h2><ul>
+<li><strong>dp</strong>：安卓中的相对大小</li>
+<li><strong>dpi</strong>：( <em>dot per inch</em> )每英寸像素多少</li>
+<li><strong>px</strong>：像素点</li>
+</ul>
+<h2 id="二、详细说明"><a href="#二、详细说明" class="headerlink" title="二、详细说明"></a>二、详细说明</h2><h3 id="px和dpi"><a href="#px和dpi" class="headerlink" title="px和dpi"></a>px和dpi</h3><p><strong>px</strong></p>
+<p>平常所说的 <em>1920×1080</em> 只是像素数量，也就是 1920px×1080px, 代表手机高度上有 1920 个像素点，宽度上有 1080 个像素点。</p>
+<a id="more"></a>
+<p><strong>dpi</strong></p>
+<p>要想判别手机屏幕的显示好坏，还要考虑屏幕的宽高(英寸)，也就是用 <em>dpi</em> 即每英寸多少像素来评价屏幕的显示效果。（不然假如手机分辨率是 1920×1080, 但是屏幕是几十寸的，那显示效果将不会很好，甚至你有可能看到小的像素块，那将更影响视觉效果。）</p>
+<p><strong>dp</strong></p>
+<p><em>怎样理解 dp 才好呢 ?</em></p>
+<ul>
+<li>其实 dp 就是为了使得开发者设置的长度能够根据不同屏幕( 分辨率/尺寸也就是 dpi )获得不同的像素 ( px ) 数量。比如：我将一个控件设置长度为 1dp, 那么在 <em>160dpi</em> 上该控件长度为 1px, 在 <em>240dpi</em> 的屏幕上该控件的长度为 1 * 240 / 160 = 1.5 个像素点。</li>
+<li><strong>也就是dp会随着不同屏幕而改变控件长度的像素数量。</strong></li>
+<li>关于dp的官方叙述为当屏幕每英寸有 160个 像素时( 也就是 <em>160dpi</em> )，dp与px等价的。那如果每英寸 240 个像素呢？1dp —&gt;1*240/160=1.5px，即 1dp 与 1.5px 等价了。</li>
+<li>其实记住一点，<strong>dp 最终都要化为像素数量来衡量大小的，因为只有像素数量最直观。</strong></li>
+</ul>
+<p><strong>计算dp的方法:</strong></p>
+<ul>
+<li>通常来说，我们写程序时几乎没用到计算dp，就是直接凭着自己的感觉写的。此处计算dp只是为了大家更好理解dp，如果有的人想精确设置控件大小，也可以这样计算的。</li>
+<li>我直接画张图吧：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogImage.png" alt=""></li>
+<li>计算dp往往是由程序员完成的，是创造的过程，顺叙的过程。但是写程序总会有两个历程的，一个是进行写，一个是返回读，这个读的话就用到了将 <em>dp</em> 转换了。</li>
+</ul>
+<p><strong>dp转px—(最常用的方法):</strong></p>
+<ul>
+<li>前面已经看到一个例子了如下(注：等号都是等价，是理解上的等于，不是直接的等于的)：安卓中如果手机每英寸有 <em>160px</em>，即手机是 <em>160dpi</em>，那么此时1dp就可以理解为1px，假如现在手机是240dpi，那么1dp=240/160 px=1.5px，<br><strong>从上可以看出dp转px只与屏幕的dpi有关。</strong></li>
+<li>对于 <strong>Android</strong> 来说，最终我们能读懂或者衡量的都是px，所以最后我们都将dp化为px好理解一点。我总结了dp转px的公式如下：</li>
+<li><strong>公式：dp值×（当前dpi/160dpi）=&gt;得出当前的像素数目</strong></li>
+</ul>
+<h3 id="手机屏幕dp最大值是多少？"><a href="#手机屏幕dp最大值是多少？" class="headerlink" title="手机屏幕dp最大值是多少？"></a>手机屏幕dp最大值是多少？</h3><ul>
+<li>那么问题来了，一个手机屏幕最大有多大的dp呢，我能不能设置成 <em>100000dp</em> 呢？其实这也是我所思考的，下面我慢慢来讲。</li>
+<li>假如现在将控件宽度设置为 160dp, 那不同 <em>dpi</em> 的手机所得到的像素是多少呢？<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogt.png" alt=""><br><strong>从中可以看出最后所得像素值与dpi值相同，也就是说不管什么屏幕160dp，就相当于1英寸。</strong></li>
+<li>所以要得到全屏最长的的dp，就等于<strong>160*宽(或者高英寸长)</strong><br>如第三个 1080*1920例子，160*3 = 480dp，所以 0-480dp 就是宽的 dp 范围。因为480*360/160=1080 个像素，正好等于宽的最大像素数量。</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>jiyiren</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2015/07/26/android-dp-dip/" title="Android 开发中 dp、dpi、px 的区别">http://yoursite.com/2015/07/26/android-dp-dip/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/dp/" rel="tag"># dp</a>
+          
+            <a href="/tags/px/" rel="tag"># px</a>
+          
+            <a href="/tags/像素/" rel="tag"># 像素</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/25/android-multiselected-listview/" rel="next" title="Android 中多选 ListView 的实现">
+                <i class="fa fa-chevron-left"></i> Android 中多选 ListView 的实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/26/multiple-ssh-key/" rel="prev" title="同个电脑多个 SSH Key 的配置使用">
+                同个电脑多个 SSH Key 的配置使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -425,8 +587,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -445,7 +616,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -496,9 +667,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -703,6 +872,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、基本概念"><span class="nav-number">1.</span> <span class="nav-text">一、基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、详细说明"><span class="nav-number">2.</span> <span class="nav-text">二、详细说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#px和dpi"><span class="nav-number">2.1.</span> <span class="nav-text">px和dpi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机屏幕dp最大值是多少？"><span class="nav-number">2.2.</span> <span class="nav-text">手机屏幕dp最大值是多少？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -847,6 +1032,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 

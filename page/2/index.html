@@ -957,19 +957,9 @@
 
       
         
-          <h2 id="三、依赖倒置原则"><a href="#三、依赖倒置原则" class="headerlink" title="三、依赖倒置原则"></a>三、依赖倒置原则</h2><blockquote>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<ul>
-<li>依赖倒置原则(Dependence Inversion Principle ,DIP):<strong>高层模块不应该依赖低层模块，应该依赖其抽象，抽象不应该依赖其细节，细节应该依赖其抽象。</strong></li>
-<li>理解：<strong>低层模块</strong>：具体细化的java类。<strong>高层模块</strong>：是由多个低层模块组成的。<strong>抽象</strong>：指的是接口或者抽象类。<strong>依赖</strong>：存在类A的一个方法S,S传入的参数是另一个类B的实例，那么类A依赖于类B，也就是类A中引用了类B，则A依赖B!因为A类中缺少了B类就无法正常运行了！</li>
-</ul>
-</blockquote>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><blockquote>
-<ul>
-<li>先举一个反例子：一个司机开宝马车。正常思维是定义一个司机雷Driver,并实现一个开车void drive(BMWCar bmwcar)的方法，该方法传入的是宝马车的一个实例！</li>
-</ul>
-</blockquote>
-</blockquote>
+          <h2 id="三、依赖倒置原则"><a href="#三、依赖倒置原则" class="headerlink" title="三、依赖倒置原则"></a>三、依赖倒置原则</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>依赖倒置原则(Dependence Inversion Principle ,DIP):<strong>高层模块不应该依赖低层模块，应该依赖其抽象，抽象不应该依赖其细节，细节应该依赖其抽象。</strong></p>
+<p>理解：<strong>低层模块</strong>：具体细化的 <strong>Java</strong> 类。<strong>高层模块</strong>：是由多个低层模块组成的。<strong>抽象</strong>：指的是接口或者抽象类。<strong>依赖</strong>：存在类 A 的一个方法 S, S 传入的参数是另一个类 B 的实例，那么类 A 依赖于类 B, 也就是类 A 中引用了类 B, 则 A 依赖 B, 因为 A 类中缺少了 B 类就无法正常运行了！</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>先举一个反例子：一个司机开宝马车。正常思维是定义一个司机类 Driver, 并实现一个开车 <code>void drive(BMWCar bmwcar)</code> 的方法，该方法传入的是宝马车的一个实例！</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/31/dip_isp/#more" rel="contents">
@@ -1137,24 +1127,14 @@
 
       
         
-          <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><blockquote>
-<p>本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！</p>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<ul>
-<li>设计模式分为设计与模式两块，通常来说分为<strong>6大设计原则和23种模式</strong>，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！</li>
+          <h2 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h2><p>本篇文章是最近看了设计模式方面的知识，记录下自己的阅读内容以及笔记，以备以后翻录！</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>设计模式分为设计与模式两块，通常来说分为 <strong>6 大设计原则和 23 种模式</strong>，但随着后续研究者的发掘与探究，将来也会有一些新的设计模式出现！</li>
 <li>在遇到开发难题时，可以借鉴这些设计模式！</li>
 <li>在学习这些设计模式时，能结合自己以前做过的项目更好，可以自己一边思考以前自己写的代码不足之处，一边理解这些设计模式的规则要求！</li>
 </ul>
-</blockquote>
-<h2 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h2><blockquote>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<ul>
-<li>单一职责原则（Single Responsibility Principle）：<strong>指有且仅有一个原因引起类的变更</strong>。</li>
-<li>理解：尽可能的将对象划分成<strong>单一性的类别</strong>，使类的复杂性降低，实现什么职责都有清晰明确的定义。</li>
-</ul>
-</blockquote>
-</blockquote>
+<h2 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>单一职责原则（ <em>Single Responsibility Principle</em> ）：<strong>指有且仅有一个原因引起类的变更</strong>。</p>
+<p>理解：尽可能的将对象划分成<strong>单一性的类别</strong>，使类的复杂性降低，实现什么职责都有清晰明确的定义。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/30/designpattern/#more" rel="contents">
@@ -1739,7 +1719,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/11/Struts2配置说明及后缀与路径设置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/11/structs2-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
@@ -1758,7 +1738,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/01/11/Struts2配置说明及后缀与路径设置/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/11/structs2-config/" itemprop="url">
                   Struts2配置说明及后缀与路径设置
                 </a>
               
@@ -1818,8 +1798,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/01/11/Struts2配置说明及后缀与路径设置/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/01/11/Struts2配置说明及后缀与路径设置/" itemprop="commentCount"></span>
+                <a href="/2016/01/11/structs2-config/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/01/11/structs2-config/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1861,7 +1841,7 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/01/11/Struts2配置说明及后缀与路径设置/#more" rel="contents">
+            <a class="btn" href="/2016/01/11/structs2-config/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2083,7 +2063,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2130,7 +2110,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2181,9 +2161,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
