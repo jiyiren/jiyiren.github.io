@@ -1853,7 +1853,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff26be;
+  background: #ffb5cc;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2839,6 +2839,9 @@ hr {
     text-align: center;
   }
 }
+.menu .menu-item a {
+  font-size: 15px;
+}
 .sidebar {
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.5);
   background-color: rgba(148,0,211,0);
@@ -2846,10 +2849,26 @@ hr {
 .sidebar-inner {
   margin-top: 40px;
 }
+.site-author-name {
+  color: #f58c66;
+  font-size: 22px;
+}
+.links-of-blogroll-item a {
+  color: #07b994;
+}
+.links-of-blogroll-item a:hover {
+  color: #41ccaf;
+}
 .post {
   padding: 45px 20px 36px 20px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
   background-color: rgba(0,0,0,0.3);
+}
+.posts-expand .post-title-link {
+  color: #e5004e;
+}
+.posts-expand .post-title-link::before {
+  background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
 }
 .posts-expand .post {
   margin-top: 40px;
@@ -2905,12 +2924,6 @@ em {
 del {
   color: #8bef6f;
 }
-.posts-expand .post-title-link {
-  color: #e5004e;
-}
-.posts-expand .post-title-link::before {
-  background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
-}
 h1,
 h2,
 h3,
@@ -2922,14 +2935,14 @@ h6 {
 .post-header h1 {
   color: #c70648;
 }
+.posts-expand .post-title {
+  font-size: 26px;
+  font-weight: 700;
+}
 hr {
   color: #179aab;
   background-color: #179aab;
   border-top: 2px solid #179aab;
-}
-.posts-expand .post-title {
-  font-size: 26px;
-  font-weight: 700;
 }
 blockquote {
   color: #555;
@@ -2956,16 +2969,6 @@ blockquote {
 .page-post-detail .comments {
   background-color: rgba(255,255,255,0.85);
   padding: 20px;
-}
-.site-author-name {
-  color: #f58c66;
-  font-size: 22px;
-}
-.links-of-blogroll-item a {
-  color: #07b994;
-}
-.links-of-blogroll-item a:hover {
-  color: #41ccaf;
 }
 .highlight-wrap[data-rel] {
   position: relative;
