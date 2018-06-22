@@ -433,7 +433,6 @@
 <p><strong>时序数据</strong> 就是基于时间序列的数据，其常常表现为同一指标按时间序列记录的数据列，在需求实时性的场景中比较常见。而对于此种数据的运用通常使用基本的 <strong>聚合</strong> 方式就能达到需求了。当然，目前 <code>AI</code> 盛行的时代，机器学习领域也不断出现很多基于 <strong>时序预测</strong> 的算法。但本文主要介绍时序数据的基础认识，这部分的认知主要是从自己目前所做的数据监控项目的经验所得，若有不正确，请大家批评指正。</p>
 <h2 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h2><p><strong>时序数据</strong> 和一般的数据没什么区别的，基本上也都用 <strong>json</strong> 格式表示，唯一不同点就是数据中一定包含关于 <strong>时间</strong> 的信息，比如： <strong>时间戳</strong>。</p>
 <p>一般一条时序数据只表示一个键值信息，而在时序数据中，这个键常常称为 <strong>指标</strong> 或 <strong>指标名</strong> (英: <em>metric</em> )，而值则就是指标对应的值了。因而，一个时序数据的基本格式如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "timestamp": 1346846400,    // 时间戳</div><div class="line">  "metric": "sys.mem.bytes",  // 指标名</div><div class="line">  "value": 18				  // 指标值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/22/time-sequence/#more" rel="contents">

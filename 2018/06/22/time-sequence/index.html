@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="基于时间序列，实现数据聚合  时序数据 就是基于时间序列的数据，其常常表现为同一指标按时间序列记录的数据列，在需求实时性的场景中比较常见。而对于此种数据的运用通常使用基本的 聚合 方式就能达到需求了。当然，目前 AI 盛行的时代，机器学习领域也不断出现很多基于 时序预测 的算法。但本文主要介绍时序数据的基础认识，这部分的认知主要是从自己目前所做的数据监控项目的经验所得，若有不正确，请大家批评指正。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-22T11:26:08.485Z">
+<meta property="og:updated_time" content="2018-06-22T11:28:50.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时序数据介绍">
 <meta name="twitter:description" content="基于时间序列，实现数据聚合  时序数据 就是基于时间序列的数据，其常常表现为同一指标按时间序列记录的数据列，在需求实时性的场景中比较常见。而对于此种数据的运用通常使用基本的 聚合 方式就能达到需求了。当然，目前 AI 盛行的时代，机器学习领域也不断出现很多基于 时序预测 的算法。但本文主要介绍时序数据的基础认识，这部分的认知主要是从自己目前所做的数据监控项目的经验所得，若有不正确，请大家批评指正。">
@@ -437,8 +437,8 @@
 <p><strong>时序数据</strong> 就是基于时间序列的数据，其常常表现为同一指标按时间序列记录的数据列，在需求实时性的场景中比较常见。而对于此种数据的运用通常使用基本的 <strong>聚合</strong> 方式就能达到需求了。当然，目前 <code>AI</code> 盛行的时代，机器学习领域也不断出现很多基于 <strong>时序预测</strong> 的算法。但本文主要介绍时序数据的基础认识，这部分的认知主要是从自己目前所做的数据监控项目的经验所得，若有不正确，请大家批评指正。</p>
 <h2 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h2><p><strong>时序数据</strong> 和一般的数据没什么区别的，基本上也都用 <strong>json</strong> 格式表示，唯一不同点就是数据中一定包含关于 <strong>时间</strong> 的信息，比如： <strong>时间戳</strong>。</p>
 <p>一般一条时序数据只表示一个键值信息，而在时序数据中，这个键常常称为 <strong>指标</strong> 或 <strong>指标名</strong> (英: <em>metric</em> )，而值则就是指标对应的值了。因而，一个时序数据的基本格式如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "timestamp": 1346846400,    // 时间戳</div><div class="line">  "metric": "sys.mem.bytes",  // 指标名</div><div class="line">  "value": 18				  // 指标值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "timestamp": 1346846400,    // 时间戳</div><div class="line">  "metric": "sys.mem.bytes",  // 指标名</div><div class="line">  "value": 18				  // 指标值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>主要包含了 <strong>时间戳、指标名、指标值</strong>。其中，对于指标的值，也就是上面的 <strong>value</strong> 字段值，这个值一般都是 <strong>数值型</strong> ( <em>Integer、Float、Double</em> ) 的, 为什么大多是 <strong>数值型</strong> 的呢？这个下面会进行说明。</p>
 <p>到这里，我们已经知道了一个时序数据的基本格式。但是，难道时序数据就是一个格式吗？即使加入了时间信息，那也和普通的 <strong>json</strong> 数据也没什么本质区别呀？</p>
 <h2 id="数据聚合"><a href="#数据聚合" class="headerlink" title="数据聚合"></a>数据聚合</h2><p>的确，时序数据的存在可不是因为一个数据格式，而是由于 <strong>数据聚合</strong> 应用的需求而出现的。比如，我们现在有 1 台服务器，我想快速地知道今天上午 10 点到上午 12 点之间这台服务器的 <strong>内存</strong> 使用的 <em>平均值、最高值、最小值</em>，那我们怎么办？其中，这个指标可能也会是 <strong>CPU</strong>、<strong>磁盘 IO</strong> 等其他指标。</p>
