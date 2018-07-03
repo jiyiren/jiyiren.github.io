@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="时序处理数据库，更快的存储和聚合  OpenTSDB 是为存储时序数据而设计的，它基于 HBase 存储数据，充分发挥了 HBase 的分布式列存储特性，支持数百万每秒的读写，支持千万数目的 Metric，它的特点就是容易扩展，具有灵活的 Tag 机制。其主要用途，就是做监控系统，譬如收集大规模集群（ 包括网络设备、操作系统、应用程序 ）的 监控数据 并进行存储和聚合查询，在目前的 IoT 方面具">
+<meta name="keywords" content="OpenTSDB,Metric">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenTSDB 存储结构">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/opentsdb-store/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="时序处理数据库，更快的存储和聚合  OpenTSDB 是为存储时序数据而设计的，它基于 HBase 存储数据，充分发挥了 HBase 的分布式列存储特性，支持数百万每秒的读写，支持千万数目的 Metric，它的特点就是容易扩展，具有灵活的 Tag 机制。其主要用途，就是做监控系统，譬如收集大规模集群（ 包括网络设备、操作系统、应用程序 ）的 监控数据 并进行存储和聚合查询，在目前的 IoT 方面具">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-03T04:51:33.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenTSDB 存储结构">
+<meta name="twitter:description" content="时序处理数据库，更快的存储和聚合  OpenTSDB 是为存储时序数据而设计的，它基于 HBase 存储数据，充分发挥了 HBase 的分布式列存储特性，支持数百万每秒的读写，支持千万数目的 Metric，它的特点就是容易扩展，具有灵活的 Tag 机制。其主要用途，就是做监控系统，譬如收集大规模集群（ 包括网络设备、操作系统、应用程序 ）的 监控数据 并进行存储和聚合查询，在目前的 IoT 方面具">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/03/opentsdb-store/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>OpenTSDB 存储结构 | jiyiren</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/opentsdb-store/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="go my own way">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OpenTSDB 存储结构
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-03 12:07:25" itemprop="dateCreated datePublished" datetime="2018-07-03T12:07:25+08:00">2018-07-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/03/opentsdb-store/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/03/opentsdb-store/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p align="center" style="margin: 30px 0 35px;">时序处理数据库，更快的存储和聚合</p>
+
+<p><strong>OpenTSDB</strong> 是为存储时序数据而设计的，它基于 <strong>HBase</strong> 存储数据，充分发挥了 <strong>HBase</strong> 的分布式列存储特性，支持数百万每秒的读写，支持千万数目的 <strong>Metric</strong>，它的特点就是容易扩展，具有灵活的 <em>Tag</em> 机制。其主要用途，就是做监控系统，譬如收集大规模集群（ 包括网络设备、操作系统、应用程序 ）的 <strong>监控数据</strong> 并进行存储和聚合查询，在目前的 <strong>IoT</strong> 方面具有很大的应用价值。</p>
+<a id="more"></a>
+<h2 id="Hbase-Schema"><a href="#Hbase-Schema" class="headerlink" title="Hbase Schema"></a>Hbase Schema</h2><p><strong>OpenTSDB</strong> 是基于 <strong>Hbase</strong> 存储系统的，主要利用了 Hbase <strong>数据自动排序</strong> 以及 <strong>可靠的分布式特性</strong>。 <strong>OpenTSDB</strong> 在安装启动时，默认在 <strong>Hbase</strong> 里面创建 <strong>四张</strong> 表。分别为：</p>
+<ol>
+<li><em>tsdb</em>: 存储数据点表，也就是存储实际的时序数据，绝大部分的数据是存在这个表中；</li>
+<li><em>tsdb-uid</em>: 存储 <strong>name</strong> 和 <strong>uid</strong> 的映射关系，也就是给字符串的键、值映射成数值，通常包括 <strong>metric</strong>、<strong>tagk</strong>、<strong>tagv</strong> 等字符串映射。</li>
+<li><em>tsdb-meta</em>: 元数据表，这个只有通过配置文件开启才会存储数据的，默认不开启。如果开启了存储的就是你传过来的<strong>完整的 json 格式数据</strong>，没有经过解析的，这就是元数据。</li>
+<li><em>tsdb-tree</em>: 树形表，这个也是只有开启配置文件选项才能使用，开启后可以由自己创建和管理自己的树形 <strong>metric</strong> 结构，需要自己设计管理的。</li>
+</ol>
+<p>下面主要说明下 <em>tsdb</em> 和 <em>tsdb-uid</em> 的表结构。</p>
+<h2 id="UID-Table-Schema"><a href="#UID-Table-Schema" class="headerlink" title="UID Table Schema"></a>UID Table Schema</h2><p>这里我们主要分析下 OpenTSDB 存储 <strong>UID</strong> 的表 – <strong>tsdb-uid</strong>。</p>
+<p>首先，看下 <em>tsdb-uid</em> 的表结构。其存储的是字符串到 <strong>UID</strong> 的映射关系。</p>
+<p>我们可以通过 <code>hbase shell</code> 通过 <strong>Hbase</strong> 访问数据库入口查看小 <em>tsdb-uid</em> 的表结构：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">list <span class="string">'tsdb-uid'</span></div><div class="line"><span class="comment"># == 结果如下 ==</span></div><div class="line">Table tsdb-uid is ENABLED                                                                                                                                     </div><div class="line">tsdb-uid                                                                                                                                                      </div><div class="line">COLUMN FAMILIES DESCRIPTION                                                                                                                                   </div><div class="line">&#123;NAME =&gt; <span class="string">'id'</span>, BLOOMFILTER =&gt; <span class="string">'ROW'</span>, VERSIONS =&gt; <span class="string">'1'</span>,... &#125;                                               </div><div class="line">&#123;NAME =&gt; <span class="string">'name'</span>, BLOOMFILTER =&gt; <span class="string">'ROW'</span>, VERSIONS =&gt; <span class="string">'1'</span>,... &#125;                                             </div><div class="line">2 row(s) <span class="keyword">in</span> 0.0360 seconds</div></pre></td></tr></table></figure></div>
+<p>上面结果我只列出了少量信息，主要看 <em>NAME</em> 就可以了，表示该表的 <strong>Column Family</strong>, 分别为 <em>name</em> 列族和 <em>id</em> 列族。那具体怎么将字符串映射为 <strong>UID</strong> ? 这里就需要通过实际的例子来说明。</p>
+<p>我们先上传一个数据，格式内容如下，可以通过 <strong>Postman</strong> 进行上传测试，<strong>OpenTSDB</strong> 默认上传地址为 <code>http://ip:4242/api/put?details</code>，后缀 <em>details</em> 是为了查看上传反馈。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"metric"</span>: <span class="string">"sys.test.metric"</span>,</div><div class="line">        <span class="attr">"timestamp"</span>: <span class="number">1528784369</span>,</div><div class="line">        <span class="attr">"value"</span>: <span class="number">10</span>,</div><div class="line">        <span class="attr">"tags"</span>: &#123;</div><div class="line">           <span class="attr">"hostname"</span>: <span class="string">"jiyiren"</span>,</div><div class="line">           <span class="attr">"area"</span>: <span class="string">"shanghai"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></div>
+<p>上传成功后返回：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"success"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"failed"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"errors"</span>: []</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
+<p>我们先看下我们上传的数据格式，需要进行映射的字符串是对应 <code>metric</code>, <code>tagkey</code>, <code>tagvalue</code> 的，这里 <code>tag</code> 有两组，所以要映射的有 5 个字符串，分别为： <em>sys.test.metric</em>, <em>hostname</em>, <em>jiyiren</em>, <em>area</em>, <em>shanghai</em>.</p>
+<p>那我们就再用 <strong>Hbase Shell</strong> 查看表内容：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">scan <span class="string">'tsdb-uid'</span></div><div class="line"><span class="comment"># === 结果如下 ===</span></div><div class="line">ROW                                      COLUMN+CELL </div><div class="line">\x00\x00\x01  column=name:metrics, timestamp=1528517476774, value=sys.test.metric</div><div class="line">\x00\x00\x01  column=name:tagk, timestamp=1528517476790, value=area </div><div class="line">\x00\x00\x01  column=name:tagv, timestamp=1528517476803, value=shanghai</div><div class="line">\x00\x00\x02  column=name:tagk, timestamp=1528517476816, value=hostname                                              </div><div class="line">\x00\x00\x02  column=name:tagv, timestamp=1528517476830, value=jiyiren </div><div class="line">area      column=id:tagk, timestamp=1528517476793, value=\x00\x00\x01</div><div class="line">hostname  column=id:tagk, timestamp=1528517476819, value=\x00\x00\x02</div><div class="line">jiyiren   column=id:tagv, timestamp=1528517476832, value=\x00\x00\x02</div><div class="line">shanghai  column=id:tagv, timestamp=1528517476806, value=\x00\x00\x01</div><div class="line">sys.test.metric column=id:metrics, timestamp=1528517476778, value=\x00\x00\x01</div></pre></td></tr></table></figure></div>
+<p>从中我们可以看到，数据总是成对出现的，包括 <strong>UID 映射字符串</strong> 和 <strong>字符串映射 UID</strong>。上面 5 组是 <strong>UID</strong> 映射成字符串，下面 5 组是字符串映射为 <strong>UID</strong>. 前面已经看过 <strong>tsdb-uid</strong> 表有两个列族，而其中的 <code>name</code> 列族对应的就是 <strong>UID</strong> 映射成字符串，而 <code>id</code> 列族对应字符串映射为 <strong>UID</strong>, 这正是这两个列族的作用，这样对于正反查找速度都是极快的。</p>
+<p>此外，对于 <strong>UID 映射字符串</strong>的，每行数据，也就是 <code>rowkey</code> 相同的，至少包含三个列，分别是 <code>metrics</code>, <code>tagk</code>, <code>tagv</code>. 我们可以通过前三行结果看出。</p>
+<p>到这里我们知道了 <strong>UID</strong> 与字符串间是怎么映射以便于查询的，但是 <strong>UID</strong> 到底是怎么生成的呢？</p>
+<p>实际上大家在前面操作 <code>scan &#39;tsdb-uid&#39;</code> 的时候，结果会列出额外三行以 <code>\x00</code> 开头的数据：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ROW                                      COLUMN+CELL </div><div class="line">\x00    column=id:metrics, timestamp=1528517476737, value=\x00\x00\x00\x00\x00\x00\x00\x01                                  </div><div class="line">\x00    column=id:tagk, timestamp=1528517476811, value=\x00\x00\x00\x00\x00\x00\x00\x02                                      </div><div class="line">\x00    column=id:tagv, timestamp=1528517476825, value=\x00\x00\x00\x00\x00\x00\x00\x02</div></pre></td></tr></table></figure></div>
+<p>实际上 <strong>UID</strong> 是用 <strong>3 bytes</strong> 表示的非负整型数，并且是自增的，而自增的就要依赖于上一次插入的最新 <code>ID</code> 值，这三行就是分别保存 <em>metrics</em>, <em>tagk</em>, <em>tagv</em> 插入的最新数据的 <strong>UID</strong>，这样下次插入新的数据只要在对应的值上加 1 就能得到其对应的 <strong>UID</strong> 了。</p>
+<h2 id="Data-Table-Schema"><a href="#Data-Table-Schema" class="headerlink" title="Data Table Schema"></a>Data Table Schema</h2><p>我们再看看 OpenTSDB 的实际存储时序数据的表 – <strong>tsdb</strong>。</p>
+<p>既然 <strong>UID</strong> 与字符串的映射关系搞定了，那么真实的时序数据存储就好理解了。<em>tsdb</em> 保存了所有的时序数据，其 <code>rowkey</code> 就是由各个字段对应的 <strong>UID</strong> 组成的。</p>
+<p>先查看下 <em>tsdb</em> 数据库结果：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">scan <span class="string">'tsdb'</span></div><div class="line"><span class="comment"># == 结果如下 ==</span></div><div class="line">ROW                COLUMN+CELL </div><div class="line">\x00\x00\x01[\x1Fa`\x00\x00\x01\x00\x00\x01\x00\x00\x02\x00\x00\x02		 column=t:I\x00, timestamp=1528521000278, value=\x0A</div></pre></td></tr></table></figure></div>
+<p>结果值太长了，可以分开看，先看列族里的数据:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">column=t:I\x10, timestamp=1528521000278, value=\x07</div></pre></td></tr></table></figure></div>
+<p>其中 <code>value=\x0A</code> 而 <code>0X0A</code> 化为十进制就是 <strong>10</strong>, 正好是我们前面上传的 <code>metric</code> 的值。</p>
+<p>再看看 <strong>rowkey</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\x00\x00\x01[\x1Fa`\x00\x00\x01\x00\x00\x01\x00\x00\x02\x00\x00\x02</div></pre></td></tr></table></figure></div>
+<p><code>rowkey</code> 是 <code>OpenTSDB</code> 设计的独特之处，其构成规则为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[salt]&lt;metric_uid&gt;&lt;timestamp&gt;&lt;tagk1&gt;&lt;tagv1&gt;[...&lt;tagkN&gt;&lt;tagvN&gt;]</div></pre></td></tr></table></figure></div>
+<p><code>salt</code> 是为了更好的分布式，</p>
+<p>我们的上面添加的 <code>metric</code> 为，其中 <code>tagk</code> 会自动按字母排序，所以 <em>area</em> 排在前面：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 字符串对应</div><div class="line">sys.test.metric 1528784369 area shanghai hostname jiyiren</div><div class="line"># UID 对应 ( timestamp 先不变 )</div><div class="line">000001 1528784369 000001 000001 000002 000002</div></pre></td></tr></table></figure></div>
+<p>除了 <em>timestamp</em> 和上面结果完全对应，而 <em>timestamp</em> 则是按小时存储的，也就是取 <strong>3600</strong> 的整数倍的 <em>timestamp</em> 作为当前时间戳。计算方法 <em>timestamp - timestamp % 3600</em>.</p>
+<p>这样，我们应该对 <strong>OpenTSDB</strong> 的 <strong>UID</strong> 以及 <strong>Rowkey</strong> 的生成和存储结构都基本了解了。</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="http://opentsdb.net/docs/build/html/index.html" target="_blank" rel="external">http://opentsdb.net/docs/build/html/index.html</a></li>
+<li><a href="http://liubin.org/blog/2016/03/05/tsdb-opentsdb/" target="_blank" rel="external">http://liubin.org/blog/2016/03/05/tsdb-opentsdb/</a></li>
+<li><a href="https://www.jianshu.com/p/0bafd0168647" target="_blank" rel="external">https://www.jianshu.com/p/0bafd0168647</a></li>
+<li><a href="http://www.nosqlnotes.com/technotes/opentsdb-tabledesign/" target="_blank" rel="external">http://www.nosqlnotes.com/technotes/opentsdb-tabledesign/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>jiyiren</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/07/03/opentsdb-store/" title="OpenTSDB 存储结构">http://yoursite.com/2018/07/03/opentsdb-store/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OpenTSDB/" rel="tag"># OpenTSDB</a>
+          
+            <a href="/tags/Metric/" rel="tag"># Metric</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/time-sequence/" rel="next" title="时序数据介绍">
+                <i class="fa fa-chevron-left"></i> 时序数据介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hbase-Schema"><span class="nav-number">1.</span> <span class="nav-text">Hbase Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UID-Table-Schema"><span class="nav-number">2.</span> <span class="nav-text">UID Table Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Table-Schema"><span class="nav-number">3.</span> <span class="nav-text">Data Table Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关链接"><span class="nav-number">4.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
+</body>
+</html>
