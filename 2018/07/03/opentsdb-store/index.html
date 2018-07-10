@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="时序处理数据库，更快的存储和聚合  OpenTSDB 是为存储时序数据而设计的，它基于 HBase 存储数据，充分发挥了 HBase 的分布式列存储特性，支持数百万每秒的读写，支持千万数目的 Metric，它的特点就是容易扩展，具有灵活的 Tag 机制。其主要用途，就是做监控系统，譬如收集大规模集群（ 包括网络设备、操作系统、应用程序 ）的 监控数据 并进行存储和聚合查询，在目前的 IoT 方面具">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-03T04:51:33.327Z">
+<meta property="og:updated_time" content="2018-07-10T05:10:57.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenTSDB 存储结构">
 <meta name="twitter:description" content="时序处理数据库，更快的存储和聚合  OpenTSDB 是为存储时序数据而设计的，它基于 HBase 存储数据，充分发挥了 HBase 的分布式列存储特性，支持数百万每秒的读写，支持千万数目的 Metric，它的特点就是容易扩展，具有灵活的 Tag 机制。其主要用途，就是做监控系统，譬如收集大规模集群（ 包括网络设备、操作系统、应用程序 ）的 监控数据 并进行存储和聚合查询，在目前的 IoT 方面具">
@@ -466,8 +466,8 @@
 <p>既然 <strong>UID</strong> 与字符串的映射关系搞定了，那么真实的时序数据存储就好理解了。<em>tsdb</em> 保存了所有的时序数据，其 <code>rowkey</code> 就是由各个字段对应的 <strong>UID</strong> 组成的。</p>
 <p>先查看下 <em>tsdb</em> 数据库结果：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">scan <span class="string">'tsdb'</span></div><div class="line"><span class="comment"># == 结果如下 ==</span></div><div class="line">ROW                COLUMN+CELL </div><div class="line">\x00\x00\x01[\x1Fa`\x00\x00\x01\x00\x00\x01\x00\x00\x02\x00\x00\x02		 column=t:I\x00, timestamp=1528521000278, value=\x0A</div></pre></td></tr></table></figure></div>
-<p>结果值太长了，可以分开看，先看列族里的数据:</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">column=t:I\x10, timestamp=1528521000278, value=\x07</div></pre></td></tr></table></figure></div>
+<p>结果值太长了，可以分开看，先看列族里的数据【18.7.10 更正为】:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">column=t:I\x00, timestamp=1528521000278, value=\x0A</div></pre></td></tr></table></figure></div>
 <p>其中 <code>value=\x0A</code> 而 <code>0X0A</code> 化为十进制就是 <strong>10</strong>, 正好是我们前面上传的 <code>metric</code> 的值。</p>
 <p>再看看 <strong>rowkey</strong>：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\x00\x00\x01[\x1Fa`\x00\x00\x01\x00\x00\x01\x00\x00\x02\x00\x00\x02</div></pre></td></tr></table></figure></div>
