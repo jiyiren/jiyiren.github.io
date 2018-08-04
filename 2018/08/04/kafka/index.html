@@ -121,9 +121,9 @@
 <meta property="og:description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180804235822.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180805003823.png">
 <meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogkafka-arc.jpg">
-<meta property="og:updated_time" content="2018-08-04T16:34:07.594Z">
+<meta property="og:updated_time" content="2018-08-04T16:38:55.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka 闲聊">
 <meta name="twitter:description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
@@ -495,7 +495,7 @@
 <li><em>Kafka Cluster</em>: 由多个 <strong>Borker</strong> 和一套 <strong>Zookeeper</strong> 组成，<strong>Broker</strong> 之间无主从关系，地位平等，可任意增删节点，这主要由 <strong>Zookeeper</strong> 维护；</li>
 <li><em>Consumer</em>: 数据的消费客户端，用于从 <strong>Broker</strong> 中订阅/拉取消息；</li>
 </ol>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180804235822.png" alt=""></p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180805003823.png" alt=""></p>
 <h2 id="微观设计"><a href="#微观设计" class="headerlink" title="微观设计"></a>微观设计</h2><p>Kafka <strong>内部消息传递流程</strong> 如下图所示：</p>
 <p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogkafka-arc.jpg" alt=""></p>
 <h3 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h3><p>一个 <strong>消息主题</strong>，也就是一个分布式业务消息队列。不同的生产者将不同的业务消息分发到不同的 <strong>topic</strong> 上，这样，消费者就可以根据 <strong>topic</strong> 进行对应的业务消息消费了。</p>
