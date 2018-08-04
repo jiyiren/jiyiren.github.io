@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
+<meta name="keywords" content="Kafka,Message">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka 闲聊">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/kafka/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180804235822.png">
+<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogkafka-arc.jpg">
+<meta property="og:updated_time" content="2018-08-04T16:34:07.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kafka 闲聊">
+<meta name="twitter:description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
+<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/kafka/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Kafka 闲聊 | jiyiren</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/kafka/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="go my own way">
+      <meta itemprop="image" content="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kafka 闲聊
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-04 12:07:25" itemprop="dateCreated datePublished" datetime="2018-08-04T12:07:25+08:00">2018-08-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kafka/" itemprop="url" rel="index"><span itemprop="name">Kafka</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/04/kafka/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/04/kafka/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p align="center" style="margin: 30px 0 35px;">分布式消息系统，解耦模块的桥梁</p>
+
+<p><strong><a href="http://kafka.apache.org/" target="_blank" rel="external">Kafka</a></strong> 是一个基于 <strong>发布-订阅</strong> 的分布式消息系统，主要面向于大数据应用场景。它最初由 <em>LinkedIn</em> 公司开发，之后成为 <em>Apache</em> 项目的一部分。<strong>Kafka</strong> 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。<strong>Kafka</strong> 在2010 年正式向 <em>Apache</em> 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。</p>
+<a id="more"></a>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>Kafka 是众多消息系统中的一种实现方式，那我们为什么需要用到 <strong>消息系统</strong> ？这里我列出以下几种在业务中常常碰到的场景，分别从 <strong>系统架构视角</strong>、<strong>消息传播视角</strong>、<strong>消息处理视角</strong>、<strong>自身系统结构视角</strong> 共四个角度的应用场景来说明：</p>
+<!-- more -->
+<h3 id="模块解耦"><a href="#模块解耦" class="headerlink" title="模块解耦"></a>模块解耦</h3><blockquote>
+<p>从系统架构视角看</p>
+</blockquote>
+<p>这个我想是最明显的一点了，在业务系统上通常会存在一些系统产生数据，一些系统消费数据，这实际上就是 <strong>生产者–消费者</strong> 模式。这里的解耦是什么意思呢？我把消息系统独立出来了，那我的消息系统则会依赖生产者系统，消费系统则会依赖消息系统，不是多出了两个依赖，何为 <strong>解耦</strong> 呢？</p>
+<p>这里的解耦实际上是解耦 <strong>不等速率依赖</strong> (这个名词是我造的，纯属个人观点)。也就是说生产者系统和消费者系统之间会有 <em>生产和消费速度不一致</em> 而导致消息丢失的情况。而消息系统与生产者系统、消息系统与消费者系统之间则没有这种情况，即使有也不会造成消息丢失(只会暂存下来)。因此，破除了生产者系统和消费者系统的依赖关系就叫 <strong>解耦</strong>，而消息系统正是为此而生。</p>
+<h3 id="异步通信-缓冲队列"><a href="#异步通信-缓冲队列" class="headerlink" title="异步通信/缓冲队列"></a>异步通信/缓冲队列</h3><blockquote>
+<p>从消息传播视角看</p>
+</blockquote>
+<p>很多时候，或并发达到一定量级的时候，系统是不能完全提供 <strong>实时消息</strong> 处理的能力的。这时不能立即处理的消息我们必须把这些请求放入 <strong>缓冲队列</strong> 中以等待处理。这种场景在一个公司中可能会有多种业务都会涉及到，因此，领先者们自然想到可以将缓冲队列设计成一个独立的平台，以满足各种业务的接入，从而，<strong>消息系统作为缓冲异步队列轰然降临</strong>。</p>
+<p>这里我使用的是 <strong>缓冲</strong> 队列而非 <strong>缓存</strong> 队列，主要是因为通常我们所说的缓存都是基于内存的，而 <strong>缓冲</strong> 则更普遍一点，你可以让它基于内存，也可以让它基于 <strong>硬盘</strong> 的。通常消息系统基本上都是基于硬盘存储的，包括 Kafka 其也是持久化到硬盘的。</p>
+<p>那 <strong>缓冲队列</strong> 与我们的 <strong>Redis/Memcached 缓存</strong> 或者 <strong>DB 数据库</strong> 有什么区别呢，为什么不用 Redis/Memcached 或者 DB 实现 <strong>缓冲</strong> 功能呢？</p>
+<p>这里我也大概谈下自己的看法：</p>
+<ol>
+<li>先说 <em>基于内存的缓存</em> 吧，缓存的出现都是为了用昂贵的内存代价换来性能上的提升的，缓存通常是暂存那些常被访问的数据以提升较好的用户体验而设计，我们的 <strong>消息系统</strong> 并不是为了 <strong>快</strong>，而是为了 <strong>数据完整性，不丢失</strong> 而作的缓冲设计。因此，我们无需用如此昂贵的内存来作为消息系统的存储介质。另外一点就是缓冲的队列有可能会很大，达到<strong>千万甚至更多级别</strong>，这样如果用内存，那么代价就更昂贵了。</li>
+<li>再说 <em>DB 数据库</em>，上面讲了内存昂贵，那我用数据库总可以了吧！那我们还是先想想数据库的原生作用：数据库是为持久化，通常是恒久的持久化而生的，也就是数据存下去，基本就不用变了，只会少量的修改删除。我们再想想缓冲队列，它是为 <strong>临时存储</strong> 而生的。用持久化的数据库来存临时数据，那会造成频繁的增删操作，势必会给数据库带来极大的性能消耗。</li>
+<li>总结下，缓冲队列目标是：<strong>数据完整性</strong> (而非存读的快速性，不是缓存)，<strong>临时存储能力</strong> (而非恒久持久性，不是数据库)。</li>
+</ol>
+<h3 id="数据一致性保障"><a href="#数据一致性保障" class="headerlink" title="数据一致性保障"></a>数据一致性保障</h3><blockquote>
+<p>从消息处理视角看</p>
+</blockquote>
+<p>有些情况下，我们将数据提交给某个系统处理，有可能那个系统突然崩溃了，那传给它的数据就都覆灭了，这可是企业不能容忍的！因此，我们可以利用消息系统，作为临时备份处，将消息同时发送给消息系统以及那个处理系统，当处理系统处理成功后，发送确认操作让消息系统删除那条消息，也就是采用 “<strong>插入-获取-删除</strong>“ 范式。这样，假如处理系统崩溃，那数据仍然在消息队里中，重启处理系统就可以了。</p>
+<p>这里，我们都是假设消息系统很可靠，比处理系统更可靠！为什么有这个依据呢？这实际上也是消息系统的另一大特性，就是可扩展性强，部分组件失效可容忍。</p>
+<h3 id="可扩展性强，部分组件失效可容忍"><a href="#可扩展性强，部分组件失效可容忍" class="headerlink" title="可扩展性强，部分组件失效可容忍"></a>可扩展性强，部分组件失效可容忍</h3><blockquote>
+<p>从自身结构视角看</p>
+</blockquote>
+<p>这部分的内容我们在后面几节进行说明。</p>
+<h2 id="消息模式"><a href="#消息模式" class="headerlink" title="消息模式"></a>消息模式</h2><p>消息模式就是消息系统实现时需要考虑的业务场景中的不同情况。由于生产者(系统)和消费者(系统)都可能是多个，那么就会产生一些微妙的不同。这里我们只考虑它们都处理相同的消息。对于多个生产者而言，消息系统就是不断接受消息的一个存储域，因此没有什么不同。而对于多个消费者而言就会有两种情况了：</p>
+<ol>
+<li>一个消息只给一个消费者消费：这个是最常见的情况了，一个消息无法被重复消费的，因此这种情况对应到消息模式就是 <strong>点对点模式或者叫队列模式</strong>。</li>
+<li>一个消息可以给多个消费者消费：这个情况类比订阅付费服务，比如我是一家报社，有很多人订阅了我的报纸，只要我这边有新报纸刊登，我就需要把这些新报纸寄送给每一个订阅的人。因此这种情况对应到消息模式就叫 <strong>发布/订阅模式</strong>。</li>
+</ol>
+<p>以上两种模式就是消息模式最常见的两种，所有的消息系统的实现都会考虑这两种模式的，因此大家在学习一个新的消息系统的时候就可以考虑这个消息系统 <strong>如何实现者两种情况的</strong>。对于 Kafka 我们会在下面讲到其对应的两种模式。</p>
+<h2 id="平台对比"><a href="#平台对比" class="headerlink" title="平台对比"></a>平台对比</h2><p>消息系统目前最有名气的大概有四个：<strong>ActiveMQ</strong>、<strong>RabbitMQ</strong>、<strong>Kafka</strong>、<strong>RocketMQ</strong>. 它们的对比网上也应该有很多了，我就不一一列举了。</p>
+<p>这里我将我之前做过的 PPT 拿过来放这里作下对比，我简单说明下：</p>
+<ul>
+<li>下图各个消息系统从左到右，支持的消息量级越来越大，<strong>ActiveMQ</strong> 最小，<strong>RocketMQ</strong> 最大；</li>
+<li><strong>ActiveMQ、RabbitMQ</strong> 稳定性是相对较好的，<strong>RabbitMQ</strong> 稳定性更好同时数据安全性最高，如果对实时性、数据不允许丢失要求高时，可以用 <strong>RabbitMQ</strong>；</li>
+<li><strong>RocketMQ</strong> 是阿里开源的，其处理量是最高的，但是生态比较少，因此若使用过程中出现问题，你只能找原开发者或维护者了；</li>
+<li><strong>Kafka</strong> 是目前生态链最广、社区最活跃的消息系统了。但是其会存在消息丢失情况，通常应用在分布式日志消息处理等这些对消息丢失可容忍性的场景。目前，大数据已成主流的今天，<em>Kafka 也逐渐成为使用的主流消息系统</em>，因为大数据对消息丢失一般都是可容忍的，比如训练集中丢了几条数据等等，都是无相关的。而对于 <strong>支付、会员</strong> 等这些消息则不推荐用 Kafka ，可转用其他 MQ 系统。</li>
+</ul>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg" alt=""></p>
+<h2 id="宏观结构"><a href="#宏观结构" class="headerlink" title="宏观结构"></a>宏观结构</h2><p>下图是 Kafka 消息系统的 <strong>分布式宏观架构图</strong>，这里分别讲下各个组件的作用及其关系：</p>
+<ol>
+<li><em>Producer</em>: 数据的生产客户端，生产数据发送到 <strong>Kafka Cluster</strong>；</li>
+<li><em>Zookeeper</em>: 负责整体集群的协调工作，保存 <strong>Broker</strong> 与 <strong>Consumer</strong> 交互的元信息，并进行数据变更监控；</li>
+<li><em>Broker</em>: <strong>Broker</strong> 实际上就是单台服务器，其主要接收 <strong>Producer</strong> 和 <strong>Consumer</strong> 请求，持久化<strong>Message</strong>，其中会通过选举产生一个 <strong>Controller</strong>，来主持协调工作；</li>
+<li><em>Kafka Cluster</em>: 由多个 <strong>Borker</strong> 和一套 <strong>Zookeeper</strong> 组成，<strong>Broker</strong> 之间无主从关系，地位平等，可任意增删节点，这主要由 <strong>Zookeeper</strong> 维护；</li>
+<li><em>Consumer</em>: 数据的消费客户端，用于从 <strong>Broker</strong> 中订阅/拉取消息；</li>
+</ol>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180804235822.png" alt=""></p>
+<h2 id="微观设计"><a href="#微观设计" class="headerlink" title="微观设计"></a>微观设计</h2><p>Kafka <strong>内部消息传递流程</strong> 如下图所示：</p>
+<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogkafka-arc.jpg" alt=""></p>
+<h3 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h3><p>一个 <strong>消息主题</strong>，也就是一个分布式业务消息队列。不同的生产者将不同的业务消息分发到不同的 <strong>topic</strong> 上，这样，消费者就可以根据 <strong>topic</strong> 进行对应的业务消息消费了。</p>
+<h3 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h3><p>这个就是 topic 分布式的体现，由于一个 topic 就是一个业务消息，这些消息可能会源源不断来，并且有可能会同时并发很大地进入队列，将这些消息合理地分布在分布式机器中则可以保证机器的负载均衡性，同时也可以使得不同的消费者可以同时拉取不同 partition 中的消息，可提升消费者并发性能，这里总结下 <strong>partition</strong> 特性：</p>
+<ul>
+<li>一个 <strong>topic</strong> 分成多个 <strong>partion</strong>；</li>
+<li>多个 <strong>producer</strong> 生产消息可以并行入队，多个 <strong>Consumer</strong> 可并行消费；</li>
+<li>同一个 <strong>partition</strong> 里保证消息有序, 不同 <strong>partition</strong> 则不能完全保证有序；</li>
+</ul>
+<h3 id="Consumer-Group"><a href="#Consumer-Group" class="headerlink" title="Consumer Group"></a>Consumer Group</h3><p>消费者组应该是 Kafka 最大的特色了，消费者组就是消费者组成的一个组，消费者在向 Kafka 拉取数据的时候需要提供一个组名，这个名称就是消费者组名，上面的两种消息模式都可以在消费者组中得到实现：</p>
+<ol>
+<li><em>点对点/队列模式</em>：一个消息只能被一个消费者消费，我们只需要将这些消费者放在同一个消费者组里就可以了，这样消费者在同一个组中，那么 topic 中的一条消息只会向一个消费者组发送一次；</li>
+<li><em>发布-订阅模式</em>：一个消息可被多个消费者消费，这种情况，我们只需要将各个消费者放在各自单独的组中，各个组均订阅了此消息 topic 就可以了。</li>
+</ol>
+<p>这里还有如下注意点：</p>
+<ul>
+<li>一个消费组消费一个 <strong>topic</strong> 的全量数据；</li>
+<li>组内消费者消费一个或多个 <strong>partition</strong> 数据，如果一个组里的消费者数量少于订阅的 topic 的 partition 数量，那么组中必有一个消费者要消费多个 partion 数据；</li>
+<li>一个组里的消费者应小于等于 <strong>topic</strong> 的 <strong>partition</strong> 数量，这是因为一个 partition 最多只能与一个 consumer 连接，那么如果 partition 数量大于 consumer 数量，则必定有 consumer 是空闲的，因此尽量避免这种情况；</li>
+</ul>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="http://opentsdb.net/docs/build/html/index.html" target="_blank" rel="external">http://opentsdb.net/docs/build/html/index.html</a></li>
+<li><a href="http://liubin.org/blog/2016/03/05/tsdb-opentsdb/" target="_blank" rel="external">http://liubin.org/blog/2016/03/05/tsdb-opentsdb/</a></li>
+<li><a href="https://www.jianshu.com/p/0bafd0168647" target="_blank" rel="external">https://www.jianshu.com/p/0bafd0168647</a></li>
+<li><a href="http://www.nosqlnotes.com/technotes/opentsdb-tabledesign/" target="_blank" rel="external">http://www.nosqlnotes.com/technotes/opentsdb-tabledesign/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>jiyiren</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/08/04/kafka/" title="Kafka 闲聊">http://yoursite.com/2018/08/04/kafka/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kafka/" rel="tag"># Kafka</a>
+          
+            <a href="/tags/Message/" rel="tag"># Message</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/03/opentsdb-store/" rel="next" title="OpenTSDB 存储结构">
+                <i class="fa fa-chevron-left"></i> OpenTSDB 存储结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xknpe.com1.z0.glb.clouddn.com/blogjiyiheaderl.jpg"
+                alt="jiyiren" />
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块解耦"><span class="nav-number">1.1.</span> <span class="nav-text">模块解耦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步通信-缓冲队列"><span class="nav-number">1.2.</span> <span class="nav-text">异步通信/缓冲队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据一致性保障"><span class="nav-number">1.3.</span> <span class="nav-text">数据一致性保障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可扩展性强，部分组件失效可容忍"><span class="nav-number">1.4.</span> <span class="nav-text">可扩展性强，部分组件失效可容忍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息模式"><span class="nav-number">2.</span> <span class="nav-text">消息模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平台对比"><span class="nav-number">3.</span> <span class="nav-text">平台对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏观结构"><span class="nav-number">4.</span> <span class="nav-text">宏观结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微观设计"><span class="nav-number">5.</span> <span class="nav-text">微观设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Topic"><span class="nav-number">5.1.</span> <span class="nav-text">Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition"><span class="nav-number">5.2.</span> <span class="nav-text">Partition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consumer-Group"><span class="nav-number">5.3.</span> <span class="nav-text">Consumer Group</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关链接"><span class="nav-number">6.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://7xknpe.com1.z0.glb.clouddn.com/blogubuntuya.png")
+  </script>
+</body>
+</html>
