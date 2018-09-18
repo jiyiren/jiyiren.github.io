@@ -120,14 +120,14 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180805003823.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogkafka-arc.jpg">
-<meta property="og:updated_time" content="2018-08-25T13:18:12.975Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/kafka/img.godjiyi.cn/csdnblogdistribute_msg.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblog20180805003823.png">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogkafka-arc.jpg">
+<meta property="og:updated_time" content="2018-09-18T12:32:32.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka">
 <meta name="twitter:description" content="分布式消息系统，解耦模块的桥梁  Kafka 是一个基于 发布-订阅 的分布式消息系统，主要面向于大数据应用场景。它最初由 LinkedIn 公司开发，之后成为 Apache 项目的一部分。Kafka 是一种快速、可扩展、本身就专注于分布式的、实时消息流系统。Kafka 在2010 年正式向 Apache 社区开源，目前社区活跃。目前在互联网公司使用非常广泛，已经成为大数据分析的基础服务。">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/04/kafka/img.godjiyi.cn/csdnblogdistribute_msg.jpg">
 
 
 
@@ -486,7 +486,7 @@
 <li><strong>RocketMQ</strong> 是阿里开源的，其处理量是最高的，但是生态比较少，因此若使用过程中出现问题，你只能找原开发者或维护者了；</li>
 <li><strong>Kafka</strong> 是目前生态链最广、社区最活跃的消息系统了。但是其会存在消息丢失情况，通常应用在分布式日志消息处理等这些对消息丢失可容忍性的场景。目前，大数据已成主流的今天，<em>Kafka 也逐渐成为使用的主流消息系统</em>，因为大数据对消息丢失一般都是可容忍的，比如训练集中丢了几条数据等等，都是无相关的。而对于 <strong>支付、会员</strong> 等这些消息则不推荐用 Kafka ，可转用其他 MQ 系统。</li>
 </ul>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogdistribute_msg.jpg" alt=""></p>
+<p><img src="img.godjiyi.cn/csdnblogdistribute_msg.jpg" alt=""></p>
 <h2 id="宏观结构"><a href="#宏观结构" class="headerlink" title="宏观结构"></a>宏观结构</h2><p>下图是 Kafka 消息系统的 <strong>分布式宏观架构图</strong>，这里分别讲下各个组件的作用及其关系：</p>
 <ol>
 <li><em>Producer</em>: 数据的生产客户端，生产数据发送到 <strong>Kafka Cluster</strong>；</li>
@@ -495,9 +495,9 @@
 <li><em>Kafka Cluster</em>: 由多个 <strong>Borker</strong> 和一套 <strong>Zookeeper</strong> 组成，<strong>Broker</strong> 之间无主从关系，地位平等，可任意增删节点，这主要由 <strong>Zookeeper</strong> 维护；</li>
 <li><em>Consumer</em>: 数据的消费客户端，用于从 <strong>Broker</strong> 中订阅/拉取消息；</li>
 </ol>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblog20180805003823.png" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblog20180805003823.png" alt=""></p>
 <h2 id="微观设计"><a href="#微观设计" class="headerlink" title="微观设计"></a>微观设计</h2><p>Kafka <strong>内部消息传递流程</strong> 如下图所示：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogkafka-arc.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogkafka-arc.jpg" alt=""></p>
 <h3 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h3><p>一个 <strong>消息主题</strong>，也就是一个分布式业务消息队列。不同的生产者将不同的业务消息分发到不同的 <strong>topic</strong> 上，这样，消费者就可以根据 <strong>topic</strong> 进行对应的业务消息消费了。</p>
 <h3 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h3><p>这个就是 topic 分布式的体现，由于一个 topic 就是一个业务消息，这些消息可能会源源不断来，并且有可能会同时并发很大地进入队列，将这些消息合理地分布在分布式机器中则可以保证机器的负载均衡性，同时也可以使得不同的消费者可以同时拉取不同 partition 中的消息，可提升消费者并发性能，这里总结下 <strong>partition</strong> 特性：</p>
 <ul>

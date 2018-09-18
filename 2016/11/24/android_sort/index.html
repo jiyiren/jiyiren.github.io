@@ -120,18 +120,18 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="排序算法不好理解？那就来个 GUI 的!  上篇C语言实现各排序算法的完成，使得自己对排序有了一定的了解，最近看到一个 iOS 图形化排序过程，因此今天就完成 Android 端的图形化排序过程。 排序算法实现很简单，其重点是要实现安卓 View 跟随排序的动态变化。 由于计算机执行排序算法的高效性，对一定数量的数组排序都是 毫秒级 的，因此我们要考虑 放大排序时间，给可视化界面完整的动态过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortwelcome.gif">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortfast.gif">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortheap.gif">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortmerge.gif">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortinsert.gif">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortbubble.gif">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortselect.gif">
-<meta property="og:updated_time" content="2018-06-16T02:15:35.217Z">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortwelcome.gif">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortfast.gif">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortheap.gif">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortmerge.gif">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortinsert.gif">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortbubble.gif">
+<meta property="og:image" content="http://img.godjiyi.cn/jysortselect.gif">
+<meta property="og:updated_time" content="2018-09-18T12:38:47.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 图形化排序算法">
 <meta name="twitter:description" content="排序算法不好理解？那就来个 GUI 的!  上篇C语言实现各排序算法的完成，使得自己对排序有了一定的了解，最近看到一个 iOS 图形化排序过程，因此今天就完成 Android 端的图形化排序过程。 排序算法实现很简单，其重点是要实现安卓 View 跟随排序的动态变化。 由于计算机执行排序算法的高效性，对一定数量的数组排序都是 毫秒级 的，因此我们要考虑 放大排序时间，给可视化界面完整的动态过程。">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/jysortwelcome.gif">
+<meta name="twitter:image" content="http://img.godjiyi.cn/jysortwelcome.gif">
 
 
 
@@ -450,7 +450,7 @@
 <p>排序算法实现很简单，其重点是要实现安卓 <strong>View</strong> 跟随排序的动态变化。</p>
 <p>由于计算机执行排序算法的高效性，对一定数量的数组排序都是 <strong>毫秒级</strong> 的，因此我们要考虑 <strong>放大排序时间</strong>，给可视化界面完整的动态过程。</p>
 <h2 id="一、总体功能界面"><a href="#一、总体功能界面" class="headerlink" title="一、总体功能界面"></a>一、总体功能界面</h2><hr>
-<h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortwelcome.gif" alt="maingif"></p>
+<h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><p><img src="http://img.godjiyi.cn/jysortwelcome.gif" alt="maingif"></p>
 <a id="more"></a>
 <h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
 <li>六种排序算法完成</li>
@@ -478,12 +478,12 @@
 <p>因此，我们需要让排序算法尽可能地延长一定时间，达到界面的变化可视化级别。</p>
 <p>我们在数组交换数据时发送消息给 <strong>Handler</strong> 处进行了一定的时间延迟，当然不会过长，此处设置了 <strong>10ms</strong>。( 也同时因为这样的设置，界面显示的耗时操作实际上并非算法真正的排序时间，而应该减去延迟时间乘以延迟操作的次数。)</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//交换的信号</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sleepAndSendMessage</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    	 <span class="comment">//此处延迟10ms</span></div><div class="line">        Thread.sleep(<span class="number">10</span>);</div><div class="line">        Message message=<span class="keyword">new</span> Message();</div><div class="line">        message.what=WHAT_SORT_SWAP_VIEW;</div><div class="line">        message.arg1=i;</div><div class="line">        message.arg2=j;</div><div class="line">        handler.sendMessage(message);</div><div class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
-<h2 id="三、动画演示"><a href="#三、动画演示" class="headerlink" title="三、动画演示"></a>三、动画演示</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortfast.gif" alt="fast"></p>
-<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortheap.gif" alt="heap"></p>
-<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortmerge.gif" alt="merge"></p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortinsert.gif" alt="insert"></p>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortbubble.gif" alt="bubble"></p>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/jysortselect.gif" alt="select"></p>
+<h2 id="三、动画演示"><a href="#三、动画演示" class="headerlink" title="三、动画演示"></a>三、动画演示</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><img src="http://img.godjiyi.cn/jysortfast.gif" alt="fast"></p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p><img src="http://img.godjiyi.cn/jysortheap.gif" alt="heap"></p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><img src="http://img.godjiyi.cn/jysortmerge.gif" alt="merge"></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="http://img.godjiyi.cn/jysortinsert.gif" alt="insert"></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="http://img.godjiyi.cn/jysortbubble.gif" alt="bubble"></p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p><img src="http://img.godjiyi.cn/jysortselect.gif" alt="select"></p>
 <h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><h3 id="项目-1"><a href="#项目-1" class="headerlink" title="项目"></a>项目</h3><ol>
 <li>Android图形化排序地址：<a href="https://github.com/jiyiren/JYSort" target="_blank" rel="external">https://github.com/jiyiren/JYSort</a></li>
 <li>C实现排序项目地址：<a href="https://github.com/jiyiren/CSort" target="_blank" rel="external">https://github.com/jiyiren/CSort</a></li>

@@ -120,15 +120,15 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="show me code? No, show me elegant code!  很多情况下，我们的程序需要在操作系统 后台 一直运行，这在程序代码里的实现就是用死循环 ( while (true) ) 来实现的。但是，这样会出现一个问题，就是我们想要关闭程序怎么办？如果用暴力结束进程方式，那程序的内存中若还有未输出的数据，这部分数据将会遗失。因此，我们要对程序实现 退出收尾 操作，这就需要我们完">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit01.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit02.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit03.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit04.bmp">
-<meta property="og:updated_time" content="2018-06-18T12:37:21.587Z">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogjvmexit01.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogjvmexit02.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogjvmexit03.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogjvmexit04.bmp">
+<meta property="og:updated_time" content="2018-09-18T12:34:09.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 优雅地退出程序">
 <meta name="twitter:description" content="show me code? No, show me elegant code!  很多情况下，我们的程序需要在操作系统 后台 一直运行，这在程序代码里的实现就是用死循环 ( while (true) ) 来实现的。但是，这样会出现一个问题，就是我们想要关闭程序怎么办？如果用暴力结束进程方式，那程序的内存中若还有未输出的数据，这部分数据将会遗失。因此，我们要对程序实现 退出收尾 操作，这就需要我们完">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit01.jpg">
+<meta name="twitter:image" content="http://img.godjiyi.cn/csdnblogjvmexit01.jpg">
 
 
 
@@ -529,9 +529,9 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">java -jar jvmexit-example.jar</div><div class="line">0</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">.</div><div class="line">.</div></pre></td></tr></table></figure></div>
 <p>我们可以看到工作线程每隔 <strong>1</strong> 秒输出一个数字，此时如果我们来通过正常和强制执行看看他们相应的输出。</p>
 <p>正常结束 <code>kill -2 [PID]</code> 或者 <code>kill -15 [PID]</code>：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit01.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogjvmexit01.jpg" alt=""></p>
 <p>强制结束 <code>kill -9 [PID]</code> :</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit02.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogjvmexit02.jpg" alt=""></p>
 <p>从中我们可以看出 <strong>正常结束</strong> 方式，会 <em>先调用收尾线程</em>，然后再结束，而 <strong>强制结束</strong> 则直接 <em>杀死所有线程</em>。因此，这里给出优雅结束进程说明：</p>
 <ul>
 <li>先定义自己的 <strong>收尾线程</strong> 要完成的任务，比如：清理内存，将未完成的 IO 操作完成，删除缓存文件等等；</li>
@@ -550,7 +550,7 @@
 <p>执行结果是一样的，每秒输出一个数字，那我们来分别执行:</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// pid 换成自己的进程 ID</div><div class="line">kill -2 [PID]</div><div class="line">kill -15 [PID]</div><div class="line">kill -12 [PID]</div><div class="line">kill -9 [PID]</div></pre></td></tr></table></figure></div>
 <p>得到的结果如下：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit03.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogjvmexit03.jpg" alt=""></p>
 <p>从中我们可以看出自定义的信号处理方式，<strong>正常结束的信号</strong> ( <strong>SIGINT(2)</strong> 和 <strong>SIGTERM(15)</strong> ) 都不会结束进程，而只是执行自己自定义的方法，然而 <strong>强制结束信号</strong> ( <strong>SIGKILL(9)</strong> ) 则不会被自定义监控，大家自己可以尝试下在 <em>Main</em> 函数中注册 <em>KILL</em> 信号，如下：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Signal.handle(<span class="keyword">new</span> Signal(<span class="string">"KILL"</span>), signalHandlerImp);    <span class="comment">// 9 : 强制终止</span></div></pre></td></tr></table></figure></div>
 <p>这个在运行的时候就会报错，因此 <strong>SIGKILL(9)</strong> 信号是唯一不能够被自定义的信号。</p>
@@ -571,7 +571,7 @@
 </ol>
 <p>那这两种方式哪个更好点？或者说适应性更广泛一点？</p>
 <p>这里我参考了 <a href="https://tech.imdada.cn/2017/06/18/jvm-safe-exit/" target="_blank" rel="external">JVM 安全退出</a> 这篇文章，它给出了 JVM 关闭的不止有 <strong>正常关闭</strong>、<strong>强制关闭</strong> 还有一种 <strong>异常关闭</strong> 如下图：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogjvmexit04.bmp" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogjvmexit04.bmp" alt=""></p>
 <p>这种方式还是会调用以 <code>Runtime.getRuntime().addShutdownHook(new ShudownHookThread());</code> 此方法注册的 <strong>收尾线程</strong> 的，而不会触发自定义的信号通信的。因此，还是第一种默认信号处理机制，通过 <strong>Hook</strong> 线程方式适应性更广泛。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://tech.imdada.cn/2017/06/18/jvm-safe-exit/" target="_blank" rel="external">JVM 安全退出</a></li>

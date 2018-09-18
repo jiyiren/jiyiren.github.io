@@ -120,14 +120,14 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="今天写 Java 读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。 一、问题：今天用 Java 写了一个读文件的，我用 eclipse 新建一个 utf-8 无 bom 编码的 txt 文件，叫做 ch.txt, 只写一个汉字: 吉, 完成后内容：  然后右击查看文件的属性：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile1.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile222.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile3.png">
-<meta property="og:updated_time" content="2018-06-16T03:33:59.648Z">
+<meta property="og:image" content="http://img.godjiyi.cn/javafile1.png">
+<meta property="og:image" content="http://img.godjiyi.cn/javafile222.png">
+<meta property="og:image" content="http://img.godjiyi.cn/javafile3.png">
+<meta property="og:updated_time" content="2018-09-18T12:35:02.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 中的编码问题">
 <meta name="twitter:description" content="今天写 Java 读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。 一、问题：今天用 Java 写了一个读文件的，我用 eclipse 新建一个 utf-8 无 bom 编码的 txt 文件，叫做 ch.txt, 只写一个汉字: 吉, 完成后内容：  然后右击查看文件的属性：">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/javafile1.png">
+<meta name="twitter:image" content="http://img.godjiyi.cn/javafile1.png">
 
 
 
@@ -442,14 +442,14 @@
       
         <p>今天写 <strong>Java</strong> 读文件时遇到编码问题，搜索了一晚上终于搞懂了这块问题。下面记录一下自己的笔记。</p>
 <h2 id="一、问题："><a href="#一、问题：" class="headerlink" title="一、问题："></a>一、问题：</h2><p>今天用 <strong>Java</strong> 写了一个读文件的，我用 <em>eclipse</em> 新建一个 utf-8 无 bom 编码的 txt 文件，叫做 <strong>ch.txt</strong>, 只写一个汉字: <strong>吉</strong>, 完成后内容：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/javafile1.png" alt="ch.txt内容"></p>
+<p><img src="http://img.godjiyi.cn/javafile1.png" alt="ch.txt内容"></p>
 <p>然后右击查看文件的属性：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/javafile222.png" alt="enter image description here"></p>
+<p><img src="http://img.godjiyi.cn/javafile222.png" alt="enter image description here"></p>
 <a id="more"></a>
 <p>读文件的代码为：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.jiyiren.fileio;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;	</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mfread</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		FileReader fr=<span class="keyword">null</span>;</div><div class="line">		File f1=<span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			f1=<span class="keyword">new</span> File(<span class="string">"ch.txt"</span>);</div><div class="line">			fr=<span class="keyword">new</span> FileReader(f1);</div><div class="line">			<span class="keyword">char</span>[] c=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>];</div><div class="line">			<span class="keyword">int</span> len=<span class="number">0</span>;</div><div class="line">			<span class="keyword">while</span>((len=fr.read(c))!=-<span class="number">1</span>)&#123;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</div><div class="line">					System.out.println(c[i]);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">if</span>(fr!=<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					fr.close();</div><div class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">					<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div>
 <p>输出结果为：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/javafile3.png" alt="enter image description here"></p>
+<p><img src="http://img.godjiyi.cn/javafile3.png" alt="enter image description here"></p>
 <p>上面的代码与结果完全正确，那问题是什么呢？我们都知道 <strong>Java</strong> 中的 <em>char</em> 是 2 个字节，但是我们文件里保存的那个中文为 3 字节，读文件时我们也只用</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>]</div></pre></td></tr></table></figure></div>
 <p><em>一个 char 类型读，但是结果为什么正确呢？java 中的 char 类型是Unicode 型的 2 个字节又是什么意思？文件保存的 utf-8格式与 Unicode 有什么关系呢？</em> 下面我就讲下我的理解。</p>

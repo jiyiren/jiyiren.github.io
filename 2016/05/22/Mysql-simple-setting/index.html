@@ -120,12 +120,12 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="MySQL 入坑指南  本篇文章主要记录自己在使用配置 MySQL 过程中的注意点和配置流程，因为自己常常帮别人配置 MySQL 环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置 MySQL 环境而节省时间。 MySQL 的安装下载安装包个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7 或者最新版官网地址：http://dev.mysql.com/do">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/1.png">
-<meta property="og:updated_time" content="2018-06-16T03:23:08.686Z">
+<meta property="og:image" content="http://img.godjiyi.cn/1.png">
+<meta property="og:updated_time" content="2018-09-18T12:35:31.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 简单配置与基本操作">
 <meta name="twitter:description" content="MySQL 入坑指南  本篇文章主要记录自己在使用配置 MySQL 过程中的注意点和配置流程，因为自己常常帮别人配置 MySQL 环境，但是每次都需要重新查看下资料，我就自己记录下，为快速配置 MySQL 环境而节省时间。 MySQL 的安装下载安装包个人建议选择zip包安装，这样Windows和Linux下配置过程很相似 5.7 或者最新版官网地址：http://dev.mysql.com/do">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/1.png">
+<meta name="twitter:image" content="http://img.godjiyi.cn/1.png">
 
 
 
@@ -459,7 +459,7 @@
 <p>关闭服务：<code>net stop mysql</code></p>
 <p>如果大家按照第四部安装的，通常默认服务是开机自启动的，默认可以正常使用，如果用了什么安全管家加速电脑开机关闭了 <strong>MySQL</strong> 的服务，则就需要在使用 <strong>MySQL</strong> 服务前先开启下 <strong>MySQL</strong> 服务。</p>
 <p>大家可以 [ 右击我的电脑 – 管理 – 服务和应用程序展开 – 服务 ] 里面就可以找到 <strong>MySQL</strong> 服务，如果大家想禁止开机自启或者想开机自启都可以在这里设置。</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/1.png" alt="mysql服务"></p>
+<p><img src="http://img.godjiyi.cn/1.png" alt="mysql服务"></p>
 <h3 id="登录使用-MySQL"><a href="#登录使用-MySQL" class="headerlink" title="登录使用 MySQL"></a>登录使用 MySQL</h3><p>开启服务后，用 <code>mysql -u root -p</code> 回车后会让输入密码，默认密码为空，直接再回车就进入了 <strong>MySQL</strong> 数据库操作里了。</p>
 <h2 id="MySQL-编码设置"><a href="#MySQL-编码设置" class="headerlink" title="MySQL 编码设置"></a>MySQL 编码设置</h2><h3 id="配置文件设置"><a href="#配置文件设置" class="headerlink" title="配置文件设置"></a>配置文件设置</h3><p>在 <strong>my.ini</strong> 文件里写入以下配置</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[client]</div><div class="line">default-character-set=utf8</div><div class="line">[mysql]</div><div class="line">default-character-set=utf8</div><div class="line">[mysqld]</div><div class="line">character-set-server=utf8</div></pre></td></tr></table></figure></div>

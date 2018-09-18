@@ -120,14 +120,14 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="多平台代码仓库，多账号免密登录  很多时候我们用的代码管理平台有很多，通常我们都会使用不止一个平台账号的。比如我比较喜欢 Github 的开源功能，但是它的私有项目是收费的，所以我也用开源中国的 Git Oschina 的平台 ( 因为它的 private 项目是免费的！)。但是，由于我们生成的公钥和私钥只有一份，也就是当前用户目录的 .ssh 文件夹下，如果多平台多账号，生成的时候就会覆盖掉了，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogresultssk.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgithub.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgitosc.jpg">
-<meta property="og:updated_time" content="2018-06-12T14:26:20.367Z">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogresultssk.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogsskgithub.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogsskgitosc.jpg">
+<meta property="og:updated_time" content="2018-09-18T12:38:55.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同个电脑多个 SSH Key 的配置使用">
 <meta name="twitter:description" content="多平台代码仓库，多账号免密登录  很多时候我们用的代码管理平台有很多，通常我们都会使用不止一个平台账号的。比如我比较喜欢 Github 的开源功能，但是它的私有项目是收费的，所以我也用开源中国的 Git Oschina 的平台 ( 因为它的 private 项目是免费的！)。但是，由于我们生成的公钥和私钥只有一份，也就是当前用户目录的 .ssh 文件夹下，如果多平台多账号，生成的时候就会覆盖掉了，">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogresultssk.jpg">
+<meta name="twitter:image" content="http://img.godjiyi.cn/csdnblogresultssk.jpg">
 
 
 
@@ -465,7 +465,7 @@
 <p>出现 <code>Enter file in which to save the key</code> 时输入</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/c/Users/用户名/.ssh/github/id_rsa</div></pre></td></tr></table></figure></div>
 <p>也就是将密钥保存在 <em>github</em> 文件夹下</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogresultssk.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogresultssk.jpg" alt=""></p>
 <p>这样生成密钥完成</p>
 <h2 id="创建-config-文件"><a href="#创建-config-文件" class="headerlink" title="创建 config 文件"></a>创建 config 文件</h2><p>在 <strong>C盘/Users/用户名/.ssh</strong> 目录下新建 <em>config</em> 文件，该文件没有后缀名的，这是为了配置映射功能的，在里面填入下面代码：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#github的配置</div><div class="line">Host github.com</div><div class="line">	HostName github.com</div><div class="line">	IdentityFile ~/.ssh/github/id_rsa</div><div class="line">	User git</div></pre></td></tr></table></figure></div>
@@ -476,13 +476,13 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -t git@github.com</div></pre></td></tr></table></figure></div>
 <p>返回成功信息：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi youname! You<span class="string">'ve successfully authenticated, but Github does not provide shell access.</span></div></pre></td></tr></table></figure></div>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgithub.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogsskgithub.jpg" alt=""></p>
 <p>当然有的时候会问你是否授权连接，选 <em>y</em> 即可。</p>
 <p>测试开源中国的 <em>GitOschina</em>:</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@git.oschina.net</div></pre></td></tr></table></figure></div>
 <p>返回成功信息为：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Welcome to Git@OSC, yourname!</div></pre></td></tr></table></figure></div>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogsskgitosc.jpg" alt=""></p>
+<p><img src="http://img.godjiyi.cn/csdnblogsskgitosc.jpg" alt=""></p>
 <p>这样在项目中就可以用多个 <strong>Git</strong> 平台的 <em>ssh</em> 了。</p>
 
       

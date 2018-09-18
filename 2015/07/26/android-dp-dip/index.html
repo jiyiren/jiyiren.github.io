@@ -120,13 +120,13 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="一、基本概念 dp：安卓中的相对大小 dpi：( dot per inch )每英寸像素多少 px：像素点  二、详细说明px和dpipx 平常所说的 1920×1080 只是像素数量，也就是 1920px×1080px, 代表手机高度上有 1920 个像素点，宽度上有 1080 个像素点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogImage.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogt.png">
-<meta property="og:updated_time" content="2018-06-16T02:23:45.832Z">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogImage.png">
+<meta property="og:image" content="http://img.godjiyi.cn/csdnblogt.png">
+<meta property="og:updated_time" content="2018-09-18T12:38:35.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 开发中 dp、dpi、px 的区别">
 <meta name="twitter:description" content="一、基本概念 dp：安卓中的相对大小 dpi：( dot per inch )每英寸像素多少 px：像素点  二、详细说明px和dpipx 平常所说的 1920×1080 只是像素数量，也就是 1920px×1080px, 代表手机高度上有 1920 个像素点，宽度上有 1080 个像素点。">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogImage.png">
+<meta name="twitter:image" content="http://img.godjiyi.cn/csdnblogImage.png">
 
 
 
@@ -460,7 +460,7 @@
 <p><strong>计算dp的方法:</strong></p>
 <ul>
 <li>通常来说，我们写程序时几乎没用到计算dp，就是直接凭着自己的感觉写的。此处计算dp只是为了大家更好理解dp，如果有的人想精确设置控件大小，也可以这样计算的。</li>
-<li>我直接画张图吧：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogImage.png" alt=""></li>
+<li>我直接画张图吧：<br><img src="http://img.godjiyi.cn/csdnblogImage.png" alt=""></li>
 <li>计算dp往往是由程序员完成的，是创造的过程，顺叙的过程。但是写程序总会有两个历程的，一个是进行写，一个是返回读，这个读的话就用到了将 <em>dp</em> 转换了。</li>
 </ul>
 <p><strong>dp转px—(最常用的方法):</strong></p>
@@ -471,7 +471,7 @@
 </ul>
 <h3 id="手机屏幕dp最大值是多少？"><a href="#手机屏幕dp最大值是多少？" class="headerlink" title="手机屏幕dp最大值是多少？"></a>手机屏幕dp最大值是多少？</h3><ul>
 <li>那么问题来了，一个手机屏幕最大有多大的dp呢，我能不能设置成 <em>100000dp</em> 呢？其实这也是我所思考的，下面我慢慢来讲。</li>
-<li>假如现在将控件宽度设置为 160dp, 那不同 <em>dpi</em> 的手机所得到的像素是多少呢？<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/csdnblogt.png" alt=""><br><strong>从中可以看出最后所得像素值与dpi值相同，也就是说不管什么屏幕160dp，就相当于1英寸。</strong></li>
+<li>假如现在将控件宽度设置为 160dp, 那不同 <em>dpi</em> 的手机所得到的像素是多少呢？<br><img src="http://img.godjiyi.cn/csdnblogt.png" alt=""><br><strong>从中可以看出最后所得像素值与dpi值相同，也就是说不管什么屏幕160dp，就相当于1英寸。</strong></li>
 <li>所以要得到全屏最长的的dp，就等于<strong>160*宽(或者高英寸长)</strong><br>如第三个 1080*1920例子，160*3 = 480dp，所以 0-480dp 就是宽的 dp 范围。因为480*360/160=1080 个像素，正好等于宽的最大像素数量。</li>
 </ul>
 

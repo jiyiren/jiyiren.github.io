@@ -120,13 +120,13 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="Struts2 作为传统 WebWork 的继承者，融合 Struts1, 使得它成为高度成熟的框架。POJO 与 OGNL 两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中 Struts 的配置文件 struts.xml 是领悟 Struts2 的核心。本文首先介绍 Struts2 的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容 ( 本人实践多次的经验 )。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut22.png">
-<meta property="og:updated_time" content="2018-06-16T03:11:29.082Z">
+<meta property="og:image" content="http://img.godjiyi.cn/strut21.png">
+<meta property="og:image" content="http://img.godjiyi.cn/strut22.png">
+<meta property="og:updated_time" content="2018-09-18T12:36:41.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Struts2 配置说明及后缀与路径设置">
 <meta name="twitter:description" content="Struts2 作为传统 WebWork 的继承者，融合 Struts1, 使得它成为高度成熟的框架。POJO 与 OGNL 两大特性也使得它成为简单易用的框架，成为现在初学者的入手框架。其中 Struts 的配置文件 struts.xml 是领悟 Struts2 的核心。本文首先介绍 Struts2 的基本配置以免初学者感觉突兀，第二部分的路径部分为主要要讲解的内容 ( 本人实践多次的经验 )。">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png">
+<meta name="twitter:image" content="http://img.godjiyi.cn/strut21.png">
 
 
 
@@ -443,7 +443,7 @@
 <h2 id="一、如何学习Struts2框架"><a href="#一、如何学习Struts2框架" class="headerlink" title="一、如何学习Struts2框架"></a>一、如何学习Struts2框架</h2><h3 id="1、入手"><a href="#1、入手" class="headerlink" title="1、入手"></a>1、入手</h3><p>官网下载</p>
 <p>所有我们所要学习的目标，我们都要找到其最原始的地方，通常都有其自己的官网。<em>Struts2</em> 官网地址：<a href="http://struts.apache.org/" target="_blank" rel="external">http://struts.apache.org/</a>, 下载 zip 包到本地，解压后目录如下</p>
 <a id="more"></a>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/strut21.png" alt=""></p>
+<p><img src="http://img.godjiyi.cn/strut21.png" alt=""></p>
 <p>目录介绍</p>
 <ul>
 <li><strong>apps</strong>为利用 <em>Struts2</em> 框架写的项目，后缀都是 <em>war</em>, 所以可以把他们放到 <em>Tomcat</em> 的 <em>webapps</em> 目录下直接运行。</li>
@@ -454,7 +454,7 @@
 <h3 id="2、使用-Struts2-框架"><a href="#2、使用-Struts2-框架" class="headerlink" title="2、使用 Struts2 框架"></a>2、使用 Struts2 框架</h3><p><em>使用框架实际上就是利用他们提供的依赖，使用他们的接口。所以我们只需将所用的框架的依赖添加到自己项目里，然后配置使用。</em></p>
 <p><strong>手动添加 jar 包</strong></p>
 <p>对于 <em>Struts2</em> 的依赖包都在 lib 文件夹里，但是 <em>lib</em> 下有很多包，当然不是每一个都加入项目。我们可以打开 <em>apps</em> 目录下的 <strong>struts2-blank.war</strong> 文件，直接解压缩得到文件夹，打开 <code>WEB-INF\lib</code> 目录，下面的包就是核心的几个需要包：</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/strut22.png" alt=""></p>
+<p><img src="http://img.godjiyi.cn/strut22.png" alt=""></p>
 <p>把他们复制到自己的 web 项目 <code>WEB-INF/lib</code> 目录下面就可以用了。</p>
 <p><strong>Maven 管理 jar 包</strong></p>
 <p>用 <em>Maven</em> 管理则很简单，只需要在 <em>dependencies</em> 里加入</p>

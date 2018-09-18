@@ -120,18 +120,18 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="一、Git简介 Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与 CVS 相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。 二、前言Git 仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程仓库。另一种是先创建远">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-diff.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitlog.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitshortlog.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-merge.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitgui.png">
-<meta property="og:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitloggui.png">
-<meta property="og:updated_time" content="2018-06-16T04:02:13.590Z">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudy0.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudygitstudy-diff.png">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudygitstudy-gitlog.png">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudygitstudy-gitshortlog.png">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudygitstudy-merge.png">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudygitstudy-gitgui.png">
+<meta property="og:image" content="http://img.godjiyi.cn/gitstudygitstudy-gitloggui.png">
+<meta property="og:updated_time" content="2018-09-18T12:34:35.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 学习笔记">
 <meta name="twitter:description" content="一、Git简介 Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与 CVS 相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。 二、前言Git 仓库初始的创建通常有两种方式，一种是自己本地创建项目，再链接到远程仓库。另一种是先创建远">
-<meta name="twitter:image" content="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg">
+<meta name="twitter:image" content="http://img.godjiyi.cn/gitstudy0.jpg">
 
 
 
@@ -444,7 +444,7 @@
       
 
       
-        <h2 id="一、Git简介"><a href="#一、Git简介" class="headerlink" title="一、Git简介"></a>一、Git简介</h2><p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudy0.jpg" alt="git"></p>
+        <h2 id="一、Git简介"><a href="#一、Git简介" class="headerlink" title="一、Git简介"></a>一、Git简介</h2><p><img src="http://img.godjiyi.cn/gitstudy0.jpg" alt="git"></p>
 <p><strong>Git</strong> 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何大小项目的版本管理。与 <strong>CVS</strong> 相比，它不是把版本库放在集中的存储服务器，而是每个开发者电脑上都是一个版本库，无须联网就可以管理代码版本，并且分支管理更高效，切换更快捷方便，已经成为现在开发者主流版本控制工具。</p>
 <h2 id="二、前言"><a href="#二、前言" class="headerlink" title="二、前言"></a>二、前言</h2><p><strong>Git</strong> 仓库初始的创建通常有两种方式，<strong>一种是自己本地创建项目</strong>，再链接到远程仓库。<strong>另一种是先创建远程仓库</strong>，再将远程仓库克隆 ( <code>git clone</code> ) 到本地。接下来我就分别从这两个方式讲解。</p>
 <a id="more"></a>
@@ -477,7 +477,7 @@
 <li><strong>一种是新添加文件后</strong>，显示 <em>Untracked files(提示有未跟踪的文件)</em></li>
 </ul>
 <h4 id="2-git-diff"><a href="#2-git-diff" class="headerlink" title="(2). git diff"></a>(2). git diff</h4><p><code>$ git diff</code>命令描述图为:</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-diff.png" alt="diff"></p>
+<p><img src="http://img.godjiyi.cn/gitstudygitstudy-diff.png" alt="diff"></p>
 <ul>
 <li><p>这个命令的理解点就是在参照物，也就是对比双方是谁。</p>
 </li>
@@ -490,9 +490,9 @@
 <h4 id="3-git-log"><a href="#3-git-log" class="headerlink" title="(3). git log"></a>(3). git log</h4><p><code>git log</code> 主要显示提交版本历史记录</p>
 <ul>
 <li><code>$ git log</code> 或者 <code>$ git log --pretty=oneline</code> 可以显示我们提交版本的记录，按照从近到远的版本显示。</li>
-<li><p><code>$ git log --graph --pretty=oneline</code> 可以显示分支状态：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitlog.png" alt="gitlog"></p>
+<li><p><code>$ git log --graph --pretty=oneline</code> 可以显示分支状态：<br><img src="http://img.godjiyi.cn/gitstudygitstudy-gitlog.png" alt="gitlog"></p>
 </li>
-<li><p><code>$ git log --graph --pretty=oneline --abbrev-commit</code>这个是简短形式：<br><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitshortlog.png" alt="shortlog"></p>
+<li><p><code>$ git log --graph --pretty=oneline --abbrev-commit</code>这个是简短形式：<br><img src="http://img.godjiyi.cn/gitstudygitstudy-gitshortlog.png" alt="shortlog"></p>
 </li>
 <li><p>主要是 <code>git log</code> 结合多种参数显示各种结果具体参数请看 <a href="http://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2" target="_blank" rel="external">git log参数</a></p>
 </li>
@@ -525,7 +525,7 @@
 <p><strong>解决冲突:</strong></p>
 <p>很多时候用Fast-forward方式直接提交是不成功的，因为有冲突存在，所以我们要手动解决冲突</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge feature1 //合并feature1分支</div></pre></td></tr></table></figure></div>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-merge.png" alt="merge"></p>
+<p><img src="http://img.godjiyi.cn/gitstudygitstudy-merge.png" alt="merge"></p>
 <p>不成功的结果如上图，Git用 <code>&lt;&lt;&lt;&lt;&lt;</code> 这个箭头表示 <em>HEAD</em> 当前分支，<code>====</code> 这个为分隔线，<code>&gt;&gt;&gt;&gt;&gt;&gt;</code> 这个为 <em>feature1</em> 分支里的内容，只要手动删除这三处并自己选择内容作为最终结果。</p>
 <p><strong>合并分支禁ff模式合并:</strong></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff -m <span class="string">"merge no ff"</span> dev //采用no ff模式合并并添加了信息提示</div></pre></td></tr></table></figure></div>
@@ -559,9 +559,9 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git tag -d v0.9 //删除标签0.9，创建的分支默认都在本地，不会自动推送到远程。</div><div class="line">git push origin v1.0 //将标签1.0推送到远程</div><div class="line">git push origin --tags //一次性将全部未推送的标签推送到远程</div><div class="line">//要删除远程标签，有点麻烦的</div><div class="line">git tag -d v0.9 //先从本地删除标签</div><div class="line">git push origin :refs/tags/v0.9 //然后再从远程删除标签</div></pre></td></tr></table></figure></div>
 <h2 id="九、图形化界面"><a href="#九、图形化界面" class="headerlink" title="九、图形化界面"></a>九、图形化界面</h2><hr>
 <h3 id="1-Git-自带图形化界面的"><a href="#1-Git-自带图形化界面的" class="headerlink" title="1. Git 自带图形化界面的"></a>1. Git 自带图形化界面的</h3><p>(1). 在 <em>git bash</em> 里输入 <code>git gui</code> 就会显示图形化界面。</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitgui.png" alt="gui"></p>
+<p><img src="http://img.godjiyi.cn/gitstudygitstudy-gitgui.png" alt="gui"></p>
 <p>(2). 在git bash里输入<code>gitk</code> 就会显示图形化的log界面</p>
-<p><img src="http://7xknpe.com1.z0.glb.clouddn.com/gitstudygitstudy-gitloggui.png" alt="guilog"></p>
+<p><img src="http://img.godjiyi.cn/gitstudygitstudy-gitloggui.png" alt="guilog"></p>
 <h3 id="2-SourceTree"><a href="#2-SourceTree" class="headerlink" title="2. SourceTree"></a>2. SourceTree</h3><p><a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a> </p>
 <p>这个自己看吧，这个工具在生产环境中应该用的最多的，但是就是下载后注册需要翻墙的，这里不多介绍，<strong>Mac</strong> 版本的比较容易使用。</p>
 <h2 id="十、Git-教程链接"><a href="#十、Git-教程链接" class="headerlink" title="十、Git 教程链接"></a>十、Git 教程链接</h2><ol>
