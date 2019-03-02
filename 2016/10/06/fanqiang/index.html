@@ -112,14 +112,18 @@
 
 
 
-  <meta name="description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2018-12-13更新：目前搬瓦工服务器取消了原来 20美元/年 的配置，如下图所示(可对照文中以前的图)，只有 49">
+  <meta name="description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2019-3-2更新：我见到有人的服务器 ip 不能用了，一直连接显示 timeout，这个就是由于 ip 被墙掉了，我">
 <meta name="keywords" content="Linux,翻墙">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自己搭建翻墙服务器">
 <meta property="og:url" content="http://yoursite.com/2016/10/06/fanqiang/index.html">
 <meta property="og:site_name" content="jiyiren">
-<meta property="og:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2018-12-13更新：目前搬瓦工服务器取消了原来 20美元/年 的配置，如下图所示(可对照文中以前的图)，只有 49">
+<meta property="og:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2019-3-2更新：我见到有人的服务器 ip 不能用了，一直连接显示 timeout，这个就是由于 ip 被墙掉了，我">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_testblocakban2.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_noblocka.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_fanqiangchange.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_bandwagonhost_ip_blocked.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/jy_newbanghalf.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/fanqiangtengcent.png">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogvpshost.jpg">
@@ -152,11 +156,11 @@
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblognewshaor.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogextrasha.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogexshapass.jpg">
-<meta property="og:updated_time" content="2019-01-29T03:31:25.160Z">
+<meta property="og:updated_time" content="2019-03-02T14:03:12.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己搭建翻墙服务器">
-<meta name="twitter:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2018-12-13更新：目前搬瓦工服务器取消了原来 20美元/年 的配置，如下图所示(可对照文中以前的图)，只有 49">
-<meta name="twitter:image" content="http://img.godjiyi.cn/jy_newbanghalf.jpg">
+<meta name="twitter:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2019-3-2更新：我见到有人的服务器 ip 不能用了，一直连接显示 timeout，这个就是由于 ip 被墙掉了，我">
+<meta name="twitter:image" content="http://img.godjiyi.cn/jy_testblocakban2.jpg">
 
 
 
@@ -474,6 +478,15 @@
 <p>作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！</p>
 <p>之前一直用 <em>免费</em> 的 <a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XXNet</a> 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。</p>
 <h2 id="一、服务器选择"><a href="#一、服务器选择" class="headerlink" title="一、服务器选择"></a>一、服务器选择</h2><hr>
+<p><strong>2019-3-2更新</strong>：我见到有人的服务器 ip 不能用了，一直连接显示 <em>timeout</em>，这个就是由于 ip 被墙掉了，我的一个服务器 ip 也被墙了，搬瓦工提供检测和更换 ip 功能的：</p>
+<ul>
+<li><p>检测地址：<a href="https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck" target="_blank" rel="external">https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck</a> 点击 <strong>Test Main IP</strong>（注意：这个是搬瓦工里的链接地址，所以需要大家登录到搬瓦工的，并且要点击 Service 中我的服务，登录到 KiviVM 管理界面，然后点上面的链接就自动把你账户里的 IP 显示出来并可检测）:<br><img src="http://img.godjiyi.cn/jy_testblocakban2.jpg" alt=""></p>
+</li>
+<li><p>出现如下的则是没有被墙的，那如果 ip 还是不能代理，那就是 <strong>端口被墙了</strong>，把端口改的稍大一点，但不要和 shell 端口重了就行。<br><img src="http://img.godjiyi.cn/jy_noblocka.jpg" alt=""><br><img src="http://img.godjiyi.cn/jy_fanqiangchange.jpg" alt=""></p>
+</li>
+<li><p>出现下面的则是被墙的，显示红色 <strong>IP BLOCKED</strong>，由于当时没有截图，这里搜了网上的，图片出处见水印。被墙时，下面会提供 <strong>Replace Main IP</strong>，点击进行 ip 更换，更换完后，大家可以重新安装下 Shadowsocks/ShadowsocksR 服务，然后再重新测试是否通畅，还不通畅，更换端口再尝试下。<br><img src="http://img.godjiyi.cn/jy_bandwagonhost_ip_blocked.jpg" alt=""></p>
+</li>
+</ul>
 <p><strong>2018-12-13更新</strong>：目前搬瓦工服务器取消了原来 <em>20美元/年</em> 的配置，如下图所示(可对照文中以前的图)，只有 <em>49.99美元/年</em> 的最低配置了，但是在购买的时候，可以选择按半年付款，半年是 <em>25.99美元/半年</em>。另外，大家在购买时可以用搜索引擎搜索 <em>搬瓦工的优惠券</em>，看看能不能减去些费用。假如之前已经购买了 20美元/年 的，现在续费仍然是 20美元/年的，续费情况大家不用担心的。</p>
 <p><img src="http://img.godjiyi.cn/jy_newbanghalf.jpg" alt=""></p>
 <p><strong>2018-7-2更新</strong>：解决搬瓦工没有 <em>Shadowsocks Server</em> 选项问题，翻到最后 <strong>问题解决板块</strong>；</p>
