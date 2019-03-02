@@ -156,7 +156,7 @@
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblognewshaor.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogextrasha.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogexshapass.jpg">
-<meta property="og:updated_time" content="2019-03-02T14:13:22.951Z">
+<meta property="og:updated_time" content="2019-03-02T14:36:53.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己搭建翻墙服务器">
 <meta name="twitter:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2019-3-2更新：我见到有人的服务器 ip 不能用了，一直连接显示 timeout，这个就是由于 ip 被墙掉了，我">
@@ -495,18 +495,19 @@
 <p><img src="http://img.godjiyi.cn/fanqiangtengcent.png" alt=""></p>
 <p>如果大家不能购买国外的服务器，那可以选择国内的服务器提供商（比如上面的腾讯云），但是也需要服务器 <em>所在地区在国外</em> 才能搭建梯子的，因为翻墙实际上就是利用将你本地流量 <em>通过服务器来传递</em> 出去或者传递进来的，这也就是 <strong>梯子</strong> 由来。</p>
 <p>但毕竟国内服务器提供商提供的服务器都很贵的，就上面腾讯云新加坡的服务器要 <strong>90 元/月</strong> 的，这还是相当贵的。因此很多人还是愿意选择较低费用的国外服务器的。</p>
-<p>对于国外服务器供应商，网上大多数人选择 <strong>搬瓦工</strong>，搬瓦工网址有两个的，一个是国内无法访问的：<a href="https://bandwagonhost.com/" target="_blank" rel="external">https://bandwagonhost.com/</a>，另外一个国内可访问的：<a href="https://www.bwh8.net/" target="_blank" rel="external">https://www.bwh8.net/</a>(注：国内的以前可用地址是 <strong>www.bwh1.net</strong> ，但之后不能访问了，目前可用的是 <strong>www.bwh8.net</strong>，大家若发现还不能访问，直接用搜索引擎搜索吧)，但不管它官网能不能访问，在上面购买的服务器都可以作为梯子用的，因为服务器 IP 在国内都可访问的。</p>
+<p>对于国外服务器供应商，网上大多数人选择 <strong>搬瓦工</strong>，搬瓦工网址有两个的，一个是国内无法访问的：<a href="https://bandwagonhost.com/" target="_blank" rel="external">https://bandwagonhost.com/</a>，另外一个国内可访问的：<a href="https://www.bwh8.net/" target="_blank" rel="external">https://www.bwh8.net/</a> 或 <a href="https://www.bwh1.net/" target="_blank" rel="external">https://www.bwh1.net/</a>(注：这两个地址不定时的会挂掉一个，大家尝试都访问下两个网址，看哪个能访问就用哪个，大家若发现还不能访问，直接用搜索引擎搜索吧)，但不管它官网能不能访问，在上面购买的服务器都可以作为梯子用的，因为服务器 IP 在国内都可访问的。个人在国外和国内这两个地址上都买了服务器测试了，目前均是可用的。</p>
 <a id="more"></a>
 <p>上面两个网站都是可以用的，<del>[2016年可以包月] 它它最低的价格为 <strong>2.99$/月</strong>，大概是 <strong>20元RMB/月</strong></del>。并且支持支付宝支付，因此既实惠又便捷。目前 [ <strong>2018.6.15</strong> ] 两个网站都取消了包月了，我截下两个网站的 <strong>VPS Hosting</strong> 标签页，也就是购买页面给大家看下：</p>
 <p><strong>VPS Hosting</strong> 标签就在网站标题下面那个：</p>
 <p><img src="http://img.godjiyi.cn/csdnblogvpshost.jpg" alt=""></p>
-<p>国内可访问的：<a href="https://www.bwh8.net/" target="_blank" rel="external">https://www.bwh8.net/</a> 购买页面截图 ( <strong>2018.6.15 截图</strong> )</p>
+<p>国内可访问的：<a href="https://www.bwh8.net/" target="_blank" rel="external">https://www.bwh8.net/</a> 或 <a href="https://www.bwh1.net/" target="_blank" rel="external">https://www.bwh1.net/</a> 购买页面截图 ( <strong>2018.6.15 截图</strong> )</p>
 <p><img src="http://img.godjiyi.cn/csdnblogbbbbuy.jpg" alt=""></p>
 <p>国内无法访问的网站：<a href="https://bandwagonhost.com/" target="_blank" rel="external">https://bandwagonhost.com/</a> 购买页面截图 ( <strong>2018.6.15 截图</strong> )</p>
 <p><img src="http://img.godjiyi.cn/csdnblogbug.jpg" alt=""></p>
 <p>我们可以看到两个购买页面完全相同的，这里只是为了说明大家可以放心尝试搭建，我之前购买的是国外那个网站，当时是包月的现在就一直在用。而之后我实验室一个师弟也要搭建一个，他就直接买了国内可访问的页面包年的，现在还一直在用的，<strong>作为程序员稳定的 Google 真的比什么都重要的！！</strong>。</p>
-<p>目前最低价格是 <strong>19.9美元/年</strong>，我当时是 <del><strong>2.99美元/月</strong></del> ，核算起来我那时可包月的年费是 <del><strong>35.88美元/年</strong></del>，现在的竟然比我那个时候还便宜 😟 ( 我有时间也该换了 ) 。</p>
-<p>这确实还是很值的，按照现在价格一年也就是 <strong>127.752元/年</strong>，大概一月 <strong>10.646元/月</strong>，这个应该对任何人都能够接受的了。相比其他直接 <em>购买翻墙账号</em> 的方式，这种购买服务器自己搭建梯子还是有很多好处的。假如你通过购买翻墙账号来爬梯，你也不知道卖账号的人把那账号给了多少个人用，并且账号管理的主动权一直是在别人手里的。而这种买 <strong>VPS</strong>，自己搭建翻墙所有资源都是自己享用 (当然你可以选择分享给别人)，并且 <strong>VPS</strong> 也是一个 <strong>Linux</strong> 服务器，自己还可以把玩下 <strong>Linux</strong> ，何乐而不为？</p>
+<p><del>目前最低价格是 <strong>19.9美元/年</strong>(2018-12-13)</del>，我当时是 <del><strong>2.99美元/月</strong></del> ，核算起来我那时可包月的年费是 <del><strong>35.88美元/年</strong></del>，现在的竟然比我那个时候还便宜 😟 ( 我有时间也该换了 ) 。</p>
+<p>（2018-12-13）这确实还是很值的，按照现在价格一年也就是 <strong>127.752元/年</strong>，大概一月 <strong>10.646元/月</strong>，这个应该对任何人都能够接受的了。相比其他直接 <em>购买翻墙账号</em> 的方式，这种购买服务器自己搭建梯子还是有很多好处的。假如你通过购买翻墙账号来爬梯，你也不知道卖账号的人把那账号给了多少个人用，并且账号管理的主动权一直是在别人手里的。而这种买 <strong>VPS</strong>，自己搭建翻墙所有资源都是自己享用 (当然你可以选择分享给别人)，并且 <strong>VPS</strong> 也是一个 <strong>Linux</strong> 服务器，自己还可以把玩下 <strong>Linux</strong> ，何乐而不为？</p>
+<p>（2019-3-2）大家还是关注官网上的价格吧，我那个时候写的价格有的没有了的，大家看价格自己能否接受，另外就是网上有些优惠券的，直接搜索引擎搜 <strong>搬瓦工优惠券</strong>，看看能否能减一定的价格，希望对大家有帮助。下面的购买流程则基本不会变，供大家参考。</p>
 <h2 id="二、服务器购买"><a href="#二、服务器购买" class="headerlink" title="二、服务器购买"></a>二、服务器购买</h2><hr>
 <h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>点击右上角的 <strong>Register</strong>, 页面如下，按要求填入一些信息，<em>手机号</em> 是不能为空的，记得 <em>勾选那个协议</em>。在选择 <strong>State/Region</strong> 时没有中国地区，大家可以先选择 <strong>Country</strong> 那个然后那个 <strong>State/Region</strong> 就变为可以填写的了:</p>
 <p><img src="http://img.godjiyi.cn/csdnblogbuybuy01.png" alt=""></p>
