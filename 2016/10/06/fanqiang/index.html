@@ -156,7 +156,7 @@
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblognewshaor.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogextrasha.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogexshapass.jpg">
-<meta property="og:updated_time" content="2019-03-02T14:03:12.258Z">
+<meta property="og:updated_time" content="2019-03-02T14:13:22.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己搭建翻墙服务器">
 <meta name="twitter:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2019-3-2更新：我见到有人的服务器 ip 不能用了，一直连接显示 timeout，这个就是由于 ip 被墙掉了，我">
@@ -482,7 +482,7 @@
 <ul>
 <li><p>检测地址：<a href="https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck" target="_blank" rel="external">https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck</a> 点击 <strong>Test Main IP</strong>（注意：这个是搬瓦工里的链接地址，所以需要大家登录到搬瓦工的，并且要点击 Service 中我的服务，登录到 KiviVM 管理界面，然后点上面的链接就自动把你账户里的 IP 显示出来并可检测）:<br><img src="http://img.godjiyi.cn/jy_testblocakban2.jpg" alt=""></p>
 </li>
-<li><p>出现如下的则是没有被墙的，那如果 ip 还是不能代理，那就是 <strong>端口被墙了</strong>，把端口改的稍大一点，但不要和 shell 端口重了就行。<br><img src="http://img.godjiyi.cn/jy_noblocka.jpg" alt=""><br><img src="http://img.godjiyi.cn/jy_fanqiangchange.jpg" alt=""></p>
+<li><p>出现如下的则是没有被墙的，那如果 ip 还是不能代理，那就是 <strong>端口被墙了</strong>，把端口改的稍大一点，但不能超过 65535，也不要和 shell 端口重了就行。<br><img src="http://img.godjiyi.cn/jy_noblocka.jpg" alt=""><br><img src="http://img.godjiyi.cn/jy_fanqiangchange.jpg" alt=""></p>
 </li>
 <li><p>出现下面的则是被墙的，显示红色 <strong>IP BLOCKED</strong>，由于当时没有截图，这里搜了网上的，图片出处见水印。被墙时，下面会提供 <strong>Replace Main IP</strong>，点击进行 ip 更换，更换完后，大家可以重新安装下 Shadowsocks/ShadowsocksR 服务，然后再重新测试是否通畅，还不通畅，更换端口再尝试下。<br><img src="http://img.godjiyi.cn/jy_bandwagonhost_ip_blocked.jpg" alt=""></p>
 </li>
