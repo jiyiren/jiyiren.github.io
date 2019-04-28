@@ -1569,60 +1569,6 @@
 <p>之前一直用 <em>免费</em> 的 <a href="https://github.com/XX-net/XX-Net" target="_blank" rel="noopener">XXNet</a> 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。</p>
 <h2 id="一、服务器选择"><a href="#一、服务器选择" class="headerlink" title="一、服务器选择"></a>一、服务器选择</h2><hr>
 <p><strong>2019-4-28更新</strong>：现在最新搬瓦工里购买的服务，即使通过 <strong>问题解决</strong>里的 <em>后台控制界面没有 Shadowsocks Server 选项？</em> 解决方法也找不到一键安装 <strong>Shadowsocks</strong> 服务的页面了。但是假如自己的账号以前是可以的，那么现在依旧可以看到，但最新购买的服务则是没有的了。这种情况只能自己手动安装 <strong>Shadowsocks</strong> 服务了。这个需要具有一些计算机方面的基础才较好操作。</p>
-<ul>
-<li><p>首先要知道服务器 SSH 协议端口和密码，这个是远程连接输入指令的连接方式，Windows 大家可以选择 XShell 工具，MacOS 或 Linux 系统，则直接利用 <code>ssh</code> 命令即可。下面为找到自己服务器的 <strong>IP,端口,密码</strong> 方式(懂得人自动跳过)。<br>  <img src="http://img.godjiyi.cn/jy_20190428104511.png" alt><br>  <img src="http://img.godjiyi.cn/jy_20190428104648.png" alt> </p>
-</li>
-<li><p>然后就是连接服务器了，这里我用 MacOS 的 <code>ssh</code> 命令连接示例(XShell 的使用自行百度)：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在终端里输入</span></span><br><span class="line">$ ssh root@ip -p 12345</span><br><span class="line"><span class="comment"># 然后输入自己的密码</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>安装 Shadowsocks:</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	yum update</span><br><span class="line"></span><br><span class="line">	yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">	 </span><br><span class="line">	pip install shadowsocks</span><br><span class="line">	``` </span><br><span class="line">	</span><br><span class="line">* 先安装 `vim` (vim 不会的也请自学吧) 再编辑配置文件：</span><br></pre></td></tr></table></figure>
-<p>  yum install vim<br>  vim /etc/shadowsocks.json</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 配置文件 `/etc/shadowsocks.json` 默认不存在，输入如下：</span><br><span class="line"></span><br><span class="line">	```json</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;server&quot;:&quot;your_server_ip&quot;,</span><br><span class="line">		&quot;server_port&quot;:&quot;your_ss_port&quot;,</span><br><span class="line">		&quot;password&quot;:&quot;yourpassword&quot;,</span><br><span class="line">		&quot;timeout&quot;:300,</span><br><span class="line">		&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">		&quot;fast_open&quot;:false,</span><br><span class="line">		&quot;workers&quot;: 1</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<pre><code>* **your\_server\_ip** : 改为你服务器的 ip
-* **your\_ss\_port** : 为你的 Shadowsocks 分配端口，不要与 SSH 端口重复，最好大一点(如：29463)
-* **yourpassword** : 为你的 Shadowsocks 分配密码
-* 其他可默认就行了
-</code></pre><ul>
-<li><p>启动 Shadowsocks，如下命令，即可用 Shadowsocks 工具连接自己的服务了。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">INFO: loading config from /etc/shadowsocks.json</span><br><span class="line">2017-01-10 22:38:12 WARNING  warning: your timeout 60 seems too short</span><br><span class="line">2017-01-10 22:38:12 INFO     loading libcrypto from libcrypto.so.10</span><br><span class="line">started</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>加入开机自启（非必须）</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ vim  /etc/rc.d/rc.local</span><br><span class="line"><span class="comment">## 加入</span></span><br><span class="line">/usr/bin/ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line"><span class="comment">## 加入可执行权限</span></span><br><span class="line">chmod +x /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>Shadowsocks 各个平台的连接工具见正文部分。</p>
-<p><strong>2019-4-19更新</strong>：我见评论有人 ip 没有被封，但是一直代理不上，这个问题我也遇到，主要就是更换代理端口的。更改代理端口可以查看 <strong>2019-3-2</strong> 更新条目。这里主要给出一些如何查找问题的一些方法：</p>
-<p>1、给下如何判断自己代理的可用情况。我们用 <strong>shadowsocks</strong> 工具时，(Windows)右击状态栏上图标，会显示菜单列表，大家通过选择 <strong>显示日志</strong> 来查看当前服务器 ip 和端口是否可用。如下图 ① 表示显示日志菜单。显示界面如整体图。在开启代理时，如果当前代理不可用，一般一直显示 <strong>timeout</strong>，大家如果一直是 <strong>timeout</strong> 则说明代理有问题了（要么是 ip 被封，要么是端口不行，建议测试换下）。而正常情况如 ③ 所示，表示代理服务开启成功。此外也可以从 ④ 看到有流量折线图显示，表示当前你有代理流量从此代理服务器流过。希望对大家有帮助。</p>
-<p><img src="http://img.godjiyi.cn/jy_20190419212248.png" alt></p>
-<p>2、如何判断当前是 <strong>全局代理</strong> 还是 <strong>自动代理</strong>。全局代理浏览器中的所有流量都走代理，包括国内的网站。自动代理(可以通过 shadowsocks 自带的自动代理或者 <a href="https://github.com/jiyiren/SwitchyOmega" target="_blank" rel="noopener">SwitchyOmega</a> 中的自动切换实现) 则是国内网站不走代理，只有访问不上的才走代理。检测方法就是通过浏览器查看 ip，只要大家访问 <a href="http://www.ip138.com/" target="_blank" rel="noopener">http://www.ip138.com/</a> 会自动检测出 ip。显示为国外的 IP，说明是全局代理，而如果就是你当地的地址则用的就是自动代理。总的来说自动代理相对较好点。</p>
-<p><img src="http://img.godjiyi.cn/jy_20190419214328.png" alt></p>
-<p><img src="http://img.godjiyi.cn/jy_20190419214424.png" alt></p>
-<p><strong>2019-3-2更新</strong>：我见到有人的服务器 ip 不能用了，一直连接显示 <em>timeout</em>，这个就是由于 ip 被墙掉了，我的一个服务器 ip 也被墙了，搬瓦工提供检测和更换 ip 功能的：</p>
-<ul>
-<li><p>检测地址：<a href="https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck" target="_blank" rel="noopener">https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck</a> 点击 <strong>Test Main IP</strong>（注意：这个是搬瓦工里的链接地址，所以需要大家登录到搬瓦工的，并且要点击 Service 中我的服务，登录到 KiviVM 管理界面，然后点上面的链接就自动把你账户里的 IP 显示出来并可检测）:<br><img src="http://img.godjiyi.cn/jy_testblocakban2.jpg" alt></p>
-</li>
-<li><p>出现如下的则是没有被墙的，那如果 ip 还是不能代理，那就是 <strong>端口被墙了</strong>，把端口改的稍大一点，但不能超过 65535，也不要和 shell 端口重了就行。<br><img src="http://img.godjiyi.cn/jy_noblocka.jpg" alt><br><img src="http://img.godjiyi.cn/jy_fanqiangchange.jpg" alt></p>
-</li>
-<li><p>出现下面的则是被墙的，显示红色 <strong>IP BLOCKED</strong>，由于当时没有截图，这里搜了网上的，图片出处见水印。被墙时，下面会提供 <strong>Replace Main IP</strong>，点击进行 ip 更换，更换完后，大家可以重新安装下 Shadowsocks/ShadowsocksR 服务，然后再重新测试是否通畅，还不通畅，更换端口再尝试下。<br><img src="http://img.godjiyi.cn/jy_bandwagonhost_ip_blocked.jpg" alt></p>
-</li>
-</ul>
-<p><strong>2018-12-13更新</strong>：目前搬瓦工服务器取消了原来 <em>20美元/年</em> 的配置，如下图所示(可对照文中以前的图)，只有 <em>49.99美元/年</em> 的最低配置了，但是在购买的时候，可以选择按半年付款，半年是 <em>25.99美元/半年</em>。另外，大家在购买时可以用搜索引擎搜索 <em>搬瓦工的优惠券</em>，看看能不能减去些费用。假如之前已经购买了 20美元/年 的，现在续费仍然是 20美元/年的，续费情况大家不用担心的。</p>
-<p><img src="http://img.godjiyi.cn/jy_newbanghalf.jpg" alt></p>
-<p><strong>2018-7-2更新</strong>：解决搬瓦工没有 <em>Shadowsocks Server</em> 选项问题，翻到最后 <strong>问题解决板块</strong>；</p>
-<p><strong>2018-6-15更新</strong>：添加 <em>国内外两个搬瓦工</em> 网站说明，以及 <em>购买流程图文</em> 说明。</p>
-<p><strong>2017-10-6更新</strong>：<a href="https://cloud.tencent.com" target="_blank" rel="noopener">腾讯云</a> 也支持国外服务器购买了。</p>
-<p><img src="http://img.godjiyi.cn/fanqiangtengcent.png" alt></p>
-<p><strong>下面为正文</strong>:</p>
-<p>如果大家不能购买国外的服务器，那可以选择国内的服务器提供商（比如上面的腾讯云），但是也需要服务器 <em>所在地区在国外</em> 才能搭建梯子的，因为翻墙实际上就是利用将你本地流量 <em>通过服务器来传递</em> 出去或者传递进来的，这也就是 <strong>梯子</strong> 由来。</p>
-<p>但毕竟国内服务器提供商提供的服务器都很贵的，就上面腾讯云新加坡的服务器要 <strong>90 元/月</strong> 的，这还是相当贵的。因此很多人还是愿意选择较低费用的国外服务器的。</p>
-<p>对于国外服务器供应商，网上大多数人选择 <strong>搬瓦工</strong>，搬瓦工网址有两个的，一个是国内无法访问的：<a href="https://bandwagonhost.com/" target="_blank" rel="noopener">https://bandwagonhost.com/</a>，另外一个国内可访问的：<a href="https://www.bwh8.net/" target="_blank" rel="noopener">https://www.bwh8.net/</a> 或 <a href="https://www.bwh1.net/" target="_blank" rel="noopener">https://www.bwh1.net/</a>(注：这两个地址不定时的会挂掉一个，大家尝试都访问下两个网址，看哪个能访问就用哪个，大家若发现还不能访问，直接用搜索引擎搜索吧)，但不管它官网能不能访问，在上面购买的服务器都可以作为梯子用的，因为服务器 IP 在国内都可访问的。个人在国外和国内这两个地址上都买了服务器测试了，目前均是可用的。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/10/06/fanqiang/#more" rel="contents">
