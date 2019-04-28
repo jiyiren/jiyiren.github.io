@@ -162,7 +162,7 @@
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblognewshaor.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogextrasha.jpg">
 <meta property="og:image" content="http://img.godjiyi.cn/csdnblogexshapass.jpg">
-<meta property="og:updated_time" content="2019-04-28T04:05:30.989Z">
+<meta property="og:updated_time" content="2019-04-28T04:11:02.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己搭建翻墙服务器">
 <meta name="twitter:description" content="本文不提供翻墙服务，只作为技术交流教程！  作为程序员，访问谷歌搜索引擎以及 StackOverFlow 还有很多技术站点是常事！ 之前一直用 免费 的 XXNet 翻墙，但最近还是网络不稳定，有些国外网站并不能访问。于是于是今天想自己搭建属于自己的翻墙服务器。 一、服务器选择 2019-4-28更新：现在最新搬瓦工里购买的服务，即使通过 问题解决里的 后台控制界面没有 Shadowsocks S">
@@ -491,19 +491,10 @@
 <p>安装 Shadowsocks:</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></div>
 <p>先安装 vim (vim 不会的也请自学吧) 再编辑配置文件：</p>
-<pre><code>yum install vim
-vim /etc/shadowsocks.json
-</code></pre><p>配置文件 /etc/shadowsocks.json 默认不存在，输入如下：</p>
-<pre><code>{
-    &quot;server&quot;:&quot;your_server_ip&quot;,
-    &quot;server_port&quot;:&quot;your_ss_port&quot;,
-    &quot;password&quot;:&quot;yourpassword&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;aes-256-cfb&quot;,
-    &quot;fast_open&quot;:false,
-    &quot;workers&quot;: 1
-}
-</code></pre><p><strong>your_server_ip</strong> : 改为你服务器的 ip;<br><strong>your_ss_port</strong> : 为你的 Shadowsocks 分配端口，不要与 SSH 端口重复，最好大一点(如：29463);<br><strong>yourpassword</strong> : 为你的 Shadowsocks 分配密码, 其他可默认就行了。</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install vim</span><br><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure></div>
+<p>配置文件 /etc/shadowsocks.json 默认不存在，输入如下：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">	<span class="attr">"server_port"</span>:<span class="string">"your_ss_port"</span>,</span><br><span class="line">	<span class="attr">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">	<span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">	<span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">	<span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">	<span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><strong>your_server_ip</strong> : 改为你服务器的 ip;<br><strong>your_ss_port</strong> : 为你的 Shadowsocks 分配端口，不要与 SSH 端口重复，最好大一点(如：29463);<br><strong>yourpassword</strong> : 为你的 Shadowsocks 分配密码, 其他可默认就行了。</p>
 <p>启动 Shadowsocks，如下命令，即可用 Shadowsocks 工具连接自己的服务了。</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">INFO: loading config from /etc/shadowsocks.json</span><br><span class="line">2017-01-10 22:38:12 WARNING  warning: your timeout 60 seems too short</span><br><span class="line">2017-01-10 22:38:12 INFO     loading libcrypto from libcrypto.so.10</span><br><span class="line">started</span><br></pre></td></tr></table></figure></div>
 <p>加入开机自启（非必须）</p>
