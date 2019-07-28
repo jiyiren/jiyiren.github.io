@@ -331,6 +331,191 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2017/11/09/CDH/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="go my own way">
+      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/09/CDH/" itemprop="url">
+                  CDH-5.13 基于 Ubuntu 的布式部署
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-09 17:40:40" itemprop="dateCreated datePublished" datetime="2017-11-09T17:40:40+08:00">2017-11-09</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/09/CDH/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/09/CDH/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p align="center" style="margin: 30px 0 35px;">企业大数据开源平台，从部署迈出第一步</p>
+
+<p>最近应项目公司需求，我们需要为其构建一个大数据平台。<strong>开源的Hadoop生态应用</strong> 由于没有技术服务支持，公司不采用此种方案进行构建。因此我们选择采购具有技术支持的 <strong>第三方大数据平台</strong>，当然这些公司的平台也完全基于 <strong>Hadoop</strong>, 只不过他们有着一帮技术团队，可以为自己平台出现的问题提供技术服务。</p>
+<p>第三方平台目前我们所接触了解的有四家：</p>
+<ol>
+<li><strong><a href="https://www.cloudera.com/" target="_blank" rel="noopener">Cloudera</a></strong></li>
+<li><strong><a href="http://www.transwarp.cn/" target="_blank" rel="noopener">星环科技</a></strong></li>
+<li><strong>华为</strong></li>
+<li><strong>阿里</strong></li>
+</ol>
+<p>而由于 <strong>Cloudera</strong> 提供了开源免费版本的产品，因此这篇博客主要对 <strong>Cloudera</strong> 公司产品的部署过程进行记录。</p>
+<h2 id="简要介绍"><a href="#简要介绍" class="headerlink" title="简要介绍"></a>简要介绍</h2><hr>
+<ol>
+<li><strong>Cloudera</strong>: Cloudera 公司目前是世界上最大的大数据平台提供商，其总部位于美国，且已经上市，2014进入中国市场，Hadoop 创始人 <strong>Doug Cutting</strong> 目前也就职于Cloudera，担任首席架构师，其内部有很多开源项目的 <strong>Committer</strong>，相比其他公司，其技术水平有着绝对的优势。</li>
+<li><strong>CDH</strong>: Cloudera 公司目前主要的产品是 <strong>CDH</strong> ( <em>Cloudera’s Distribution including Apache Hadoop</em> ),是对 <strong>Hadoop 生态</strong>( hadoop + hive, hbase, flume, impala 等等)的一种封装融合，该产品是 <strong>完全免费下载和安装</strong> 的，其盈利方式是技术支持服务。</li>
+<li><strong>Cloudera Manager</strong>: 由于大数据平台本身就是分布式，CDH 自然也不例外，为了便于用户快捷安装，Cloudera 公司提供了 <strong>Cloudera Manager</strong> 工具，可让用户在可视化的页面上组织自己的集群。</li>
+<li><strong>部署方式</strong>：首先，Cloudera 公司提供了产品的<a href="https://www.cloudera.com/downloads/quickstart_vms/5-12.html" target="_blank" rel="noopener">尝鲜版本</a>，主要提供了<strong>Virtual Box、VMWare、KVM、Docker Image</strong> 等虚拟镜像，为了体验产品的用户可以尝试。此外，<strong>Cloudera</strong> 提供正式版本的<a href="https://www.cloudera.com/documentation/enterprise/latest/topics/installation.html" target="_blank" rel="noopener">安装说明</a>,下面就按照正式版本正式生产环境进行安装部署。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/09/CDH/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2017/10/31/python_environmet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1802,180 +1987,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2016/09/01/java_synchronized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="go my own way">
-      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jiyiren">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/01/java_synchronized/" itemprop="url">
-                  Java synchronized 的用法
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-09-01 11:16:40" itemprop="dateCreated datePublished" datetime="2016-09-01T11:16:40+08:00">2016-09-01</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/09/01/java_synchronized/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/01/java_synchronized/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p align="center" style="margin: 30px 0 35px;">同步学习，才能不落伍</p>
-
-<p>最近好好整理下 <code>Java</code> 方面的知识点，在练习到线程方面时，对同步方面的知识还是模糊不清的，于是开学今天好好地看了相关博客，下面仅仅记录下以备以后参考查询！</p>
-<h2 id="一、同步、异步、synchronized"><a href="#一、同步、异步、synchronized" class="headerlink" title="一、同步、异步、synchronized"></a>一、同步、异步、synchronized</h2><p>首先我们先了解下什么是 <strong>同步</strong>、<strong>异步</strong> 与 <strong>synchronzied</strong>：</p>
-<p><em>同步</em>：在计算机领域，指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去！</p>
-<p><em>异步</em>：是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。</p>
-<p><em>synchronized</em>: 是 <code>Java</code> 中的关键词，其意思也是同步，其主要用在多线程中需要同步的情况下！</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/01/java_synchronized/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2025,7 +2036,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2086,7 +2097,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2211,7 +2224,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">56</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
