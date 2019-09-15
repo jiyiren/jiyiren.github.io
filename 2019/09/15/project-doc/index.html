@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6792631366558351",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="基于 Gitbook 的开源生态，更具美观的项目文档库   项目源码地址：https://github.com/jiyiren/ProjectDoc 有色Demo预览地址：https://jiyiren.github.io/project-doc/ 无色Demo预览地址：https://jiyiren.github.io/project-doc-plain/">
+<meta name="keywords" content="project,report">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 gitbook 的项目文档设计">
+<meta property="og:url" content="https://jiyiren.github.io/2019/09/15/project-doc/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="基于 Gitbook 的开源生态，更具美观的项目文档库   项目源码地址：https://github.com/jiyiren/ProjectDoc 有色Demo预览地址：https://jiyiren.github.io/project-doc/ 无色Demo预览地址：https://jiyiren.github.io/project-doc-plain/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_blog-project-doc.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_blog-project-doc-plain.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_projectddocbasic.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_projectdocselfdefine.jpg">
+<meta property="og:updated_time" content="2019-09-15T10:37:47.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于 gitbook 的项目文档设计">
+<meta name="twitter:description" content="基于 Gitbook 的开源生态，更具美观的项目文档库   项目源码地址：https://github.com/jiyiren/ProjectDoc 有色Demo预览地址：https://jiyiren.github.io/project-doc/ 无色Demo预览地址：https://jiyiren.github.io/project-doc-plain/">
+<meta name="twitter:image" content="http://img.godjiyi.cn/jy_blog-project-doc.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://jiyiren.github.io/2019/09/15/project-doc/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基于 gitbook 的项目文档设计 | jiyiren</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">blogs</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2019/09/15/project-doc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="go my own way">
+      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">基于 gitbook 的项目文档设计
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-15 19:07:25" itemprop="dateCreated datePublished" datetime="2019-09-15T19:07:25+08:00">2019-09-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Gitbook/" itemprop="url" rel="index"><span itemprop="name">Gitbook</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/15/project-doc/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/15/project-doc/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p align="center" style="margin: 30px 0 35px;">基于 Gitbook 的开源生态，更具美观的项目文档库</p>
+
+<p><img src="http://img.godjiyi.cn/jy_blog-project-doc.jpg" alt></p>
+<p><strong>项目源码地址</strong>：<a href="https://github.com/jiyiren/ProjectDoc" target="_blank" rel="noopener">https://github.com/jiyiren/ProjectDoc</a></p>
+<p><strong>有色Demo预览地址</strong>：<a href="https://jiyiren.github.io/project-doc/">https://jiyiren.github.io/project-doc/</a></p>
+<p><strong>无色Demo预览地址</strong>：<a href="https://jiyiren.github.io/project-doc-plain/">https://jiyiren.github.io/project-doc-plain/</a></p>
+<a id="more"></a>
+<p>无色样式：</p>
+<p><img src="http://img.godjiyi.cn/jy_blog-project-doc-plain.jpg" alt></p>
+<h2 id="基本环境"><a href="#基本环境" class="headerlink" title="基本环境"></a>基本环境</h2><h3 id="安装-Nodejs"><a href="#安装-Nodejs" class="headerlink" title="安装 Nodejs"></a>安装 Nodejs</h3><ul>
+<li>全球官网：<a href="https://nodejs.org/en" target="_blank" rel="noopener">https://nodejs.org/en</a></li>
+<li>中文官网：<a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a></li>
+</ul>
+<p>下载安装后测试下 Node 是否安装成功：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">v10.15.3</span><br></pre></td></tr></table></figure></div>
+<p>如果提示命令没找到，那么是由于 Node 没有加入环境变量，大家将安装的 Node 环境地址放在环境变量里就可以了。</p>
+<h3 id="安装-gitbook"><a href="#安装-gitbook" class="headerlink" title="安装 gitbook"></a>安装 gitbook</h3><p>直接输入命令进行安装：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install gitbook-cli -g</span><br></pre></td></tr></table></figure></div>
+<p><code>npm</code> 也是和 <code>node</code> 一起安装的，<code>node</code> 存在 <code>npm</code> 就存在。<code>-g</code> 参数表示全局安装，也就是模块包会安装到全局环境里，这个是推荐做法，因为像这种工具命令全局安装是最好的。而项目依赖模块则项目内安装即可。</p>
+<p>测试 gitbook 命令是否安装成功：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gitbook -V</span><br><span class="line">CLI version: 2.3.2</span><br><span class="line">GitBook version: 3.2.3</span><br></pre></td></tr></table></figure></div>
+<h3 id="使用-gitbook"><a href="#使用-gitbook" class="headerlink" title="使用 gitbook"></a>使用 gitbook</h3><p>任意找一个空目录，执行：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gitbook init</span><br><span class="line">warn: no summary file <span class="keyword">in</span> this book </span><br><span class="line">info: create README.md </span><br><span class="line">info: create SUMMARY.md </span><br><span class="line">info: initialization is finished</span><br></pre></td></tr></table></figure></div>
+<p>会在当前目录下创建出两个文件，分别是：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">README.md</span><br><span class="line">SUMMARY.md</span><br></pre></td></tr></table></figure></div>
+<p>暂且先不管其他的，我们现在可以直接运行试试，先把流程走通：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gitbook build</span><br><span class="line">$ gitbook serve</span><br></pre></td></tr></table></figure></div>
+<p>上面的 <code>gitbook build</code> 是编译整个 <code>markdown</code> 文件，然后在当前目录生成 <code>_book</code> 目录，里面是 html 页面。这个主要在部署的时候用到。</p>
+<p>而 <code>gitbook serve</code> 是本地调试开启服务命令，项目最终是要成网站的，因此, 该命令可以开启本地 <code>http://127.0.0.1:4000</code> 地址作为网站浏览地址。</p>
+<p>假如大家执行 <code>gitbook serve</code> 出错，建议大家先 <code>gitbook build</code> 在 <code>gitbook serve</code>.</p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><p>我们上面通过 <code>gitbook init</code> 生成的只有下面两个文件：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">README.md</span><br><span class="line">SUMMARY.md</span><br></pre></td></tr></table></figure></div>
+<p>但实际上我们要定制我们的 gitbook 项目，项目还有一个配置文件的: <strong>book.json</strong>，只不过 <code>gitbook init</code> 没有自动创建出来。我们一看这文件名就应该知道这个配置文件就是 <code>json</code> 格式的。最基本的 <strong>book.json</strong> 长什么样子呢？如下所示：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"title"</span>: <span class="string">"ProjectDoc"</span>,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"jiyiren"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"ProjectDoc"</span>,</span><br><span class="line">  <span class="attr">"language"</span>: <span class="string">"zh-hans"</span>,</span><br><span class="line">  <span class="attr">"links"</span>: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"styles"</span>: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"plugins"</span>: [</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>基本 book.json 内容：</p>
+<ul>
+<li><strong>title</strong>: 网站标题;</li>
+<li><strong>author</strong>: 网站作者;</li>
+<li><strong>description</strong>: 网站描述;</li>
+<li><strong>language</strong>: 网站语言;</li>
+<li><strong>links</strong>: 侧边栏配置项;</li>
+<li><strong>styles</strong>: 全局自定义网站样式;</li>
+<li><strong>plugins</strong>: 插件配置项;</li>
+<li><strong>pluginsConfig</strong>: 配置插件的配置项，为一些插件传入参数的;</li>
+</ul>
+<h3 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h3><p>上面最基本的 <strong>book.json</strong>，对默认界面基本无变动，其界面显示为：</p>
+<p><img src="http://img.godjiyi.cn/jy_projectddocbasic.jpg" alt></p>
+<p>我们来一个简单 gitbook 定制，<strong>book.json</strong> 如下：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"title"</span>: <span class="string">"ProjectDoc"</span>,</span><br><span class="line">	<span class="attr">"author"</span>: <span class="string">"jiyiren"</span>,</span><br><span class="line">	<span class="attr">"description"</span>: <span class="string">"ProjectDoc"</span>,</span><br><span class="line">	<span class="attr">"language"</span>: <span class="string">"zh-hans"</span>,</span><br><span class="line">	<span class="attr">"links"</span>: &#123;</span><br><span class="line">	  <span class="attr">"sidebar"</span>: &#123;</span><br><span class="line">	    <span class="attr">"本文托管"</span>: <span class="string">"https://github.com/jiyiren/ProjectDoc"</span></span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"styles"</span>: &#123;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"plugins"</span>: [</span><br><span class="line">	    <span class="string">"anchor-navigation-ex@0.1.8"</span></span><br><span class="line">	],</span><br><span class="line">	<span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">	    <span class="attr">"anchor-navigation-ex"</span>: &#123;</span><br><span class="line">	        <span class="attr">"isRewritePageTitle"</span>: <span class="literal">true</span>,</span><br><span class="line">	        <span class="attr">"isShowTocTitleIcon"</span>: <span class="literal">true</span>,</span><br><span class="line">	        <span class="attr">"tocLevel1Icon"</span>: <span class="string">"fa fa-hand-o-right"</span>,</span><br><span class="line">	        <span class="attr">"tocLevel2Icon"</span>: <span class="string">"fa fa-hand-o-right"</span>,</span><br><span class="line">	        <span class="attr">"tocLevel3Icon"</span>: <span class="string">"fa fa-hand-o-right"</span></span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>其界面为如下，多出左侧栏 <strong>本文托管</strong>，和文章右侧的 <strong>目录以及回到开头</strong> 按钮。</p>
+<p><img src="http://img.godjiyi.cn/jy_projectdocselfdefine.jpg" alt></p>
+<h2 id="必备插件"><a href="#必备插件" class="headerlink" title="必备插件"></a>必备插件</h2><p>插件使用</p>
+<ul>
+<li><p>插件添加：插件的使用就放在 <strong>book.json</strong> 的 <strong>plugins</strong> 和 <strong>pluginsConfig</strong> 键中，形式如：<code>pluginName@versionName</code> 也就是<strong>插件名@版本</strong>，当然没有版本时，采用最新默认版本。</p>
+</li>
+<li><p>插件删除：要删除自带的插件则使用 <code>-pluginName</code> 即 <strong>-插件名</strong></p>
+</li>
+</ul>
+<p>下面介绍本文档使用到的插件。</p>
+<h3 id="splitter"><a href="#splitter" class="headerlink" title="splitter"></a>splitter</h3><p>使侧边栏的宽度可以自由调节</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"plugins": [</span><br><span class="line">    <span class="string">"splitter"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="simple-page-toc"><a href="#simple-page-toc" class="headerlink" title="simple-page-toc"></a>simple-page-toc</h3><p>文章页面右上角显示目录，这个目前已经被废弃，建议每个页面自己生成 md 目录。</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugins"</span> : [</span><br><span class="line">        <span class="string">"simple-page-toc"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">        <span class="attr">"simple-page-toc"</span>: &#123;</span><br><span class="line">            <span class="attr">"maxDepth"</span>: <span class="number">3</span>,</span><br><span class="line">            <span class="attr">"skipFirstH1"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="search-plus"><a href="#search-plus" class="headerlink" title="search-plus"></a>search-plus</h3><p>支持中文搜索, 需要将默认的 search 和 lunr 插件去掉</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugins"</span>: [<span class="string">"-lunr"</span>, <span class="string">"-search"</span>, <span class="string">"search-plus"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="tbfed-pagefooter"><a href="#tbfed-pagefooter" class="headerlink" title="tbfed-pagefooter"></a>tbfed-pagefooter</h3><p>为页面添加页脚</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">"plugins": [</span><br><span class="line">   <span class="string">"tbfed-pagefooter"</span></span><br><span class="line">],</span><br><span class="line">"pluginsConfig": &#123;</span><br><span class="line">    "tbfed-pagefooter": &#123;</span><br><span class="line">        "copyright":"Copyright &amp;copy zhangjikai.com 2017",</span><br><span class="line">        "modify_label": "该文件修订时间：",</span><br><span class="line">        "modify_format": "YYYY-MM-DD HH:mm:ss"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="anchor-navigation-ex"><a href="#anchor-navigation-ex" class="headerlink" title="anchor-navigation-ex"></a>anchor-navigation-ex</h3><p>添加Toc到侧边悬浮导航以及回到顶部按钮，这个自动生成的悬浮目录必须以下面形式书写，也就是一定要有一个是 <strong>h1</strong> 开头的，否则不能识别。</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># h1</span><br><span class="line">## h2</span><br><span class="line">### h3</span><br></pre></td></tr></table></figure></div>
+<p>配置代码：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugins"</span>: [</span><br><span class="line">        <span class="string">"anchor-navigation-ex"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">        <span class="attr">"anchor-navigation-ex"</span>: &#123;</span><br><span class="line">            <span class="attr">"isRewritePageTitle"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"isShowTocTitleIcon"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"tocLevel1Icon"</span>: <span class="string">"fa fa-hand-o-right"</span>,</span><br><span class="line">            <span class="attr">"tocLevel2Icon"</span>: <span class="string">"fa fa-hand-o-right"</span>,</span><br><span class="line">            <span class="attr">"tocLevel3Icon"</span>: <span class="string">"fa fa-hand-o-right"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="prism"><a href="#prism" class="headerlink" title="prism"></a>prism</h3><p>使用 <code>Prism.js</code> 为语法添加高亮显示，需要将 <code>highlight</code> 插件去掉。该插件自带的主题样式较少，可以再安装 <code>prism-themes</code> 插件，里面多提供了几种样式，具体的样式可以参考 <a href="https://github.com/PrismJS/prism-themes" target="_blank" rel="noopener">这里</a>，在设置样式时要注意设置 css 文件名，而不是样式名。</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"plugins"</span>: [</span><br><span class="line">    <span class="string">"-highlight"</span>,</span><br><span class="line">    <span class="string">"prism@^2.1.0"</span>,</span><br><span class="line">    <span class="string">"prism-themes@^0.0.2"</span></span><br><span class="line">  ],</span><br><span class="line"><span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">	<span class="attr">"prism"</span>: &#123;</span><br><span class="line">      <span class="attr">"css"</span>: [</span><br><span class="line">        <span class="string">"prism-themes/themes/prism-a11y-dark.css"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>其他插件大家可以参考这个博主的：<a href="http://gitbook.zhangjikai.com/plugins.html" target="_blank" rel="noopener">http://gitbook.zhangjikai.com/plugins.html</a></p>
+<p>最终的页面示例</p>
+<p>有配色见：<a href="https://jiyiren.github.io/project-doc/">https://jiyiren.github.io/project-doc/</a></p>
+<p>无配色见：<a href="https://jiyiren.github.io/project-doc-plain/">https://jiyiren.github.io/project-doc-plain/</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a></li>
+<li><a href="https://jiyiren.github.io/2018/08/04/kafka/">https://jiyiren.github.io/2018/08/04/kafka/</a></li>
+<li><a href="http://gitbook.zhangjikai.com/themes.html" target="_blank" rel="noopener">http://gitbook.zhangjikai.com/themes.html</a></li>
+<li><a href="http://www.chengweiyang.cn/gitbook/" target="_blank" rel="noopener">http://www.chengweiyang.cn/gitbook/</a></li>
+<li><a href="https://www.cnblogs.com/YangJieCheng/p/7991660.html" target="_blank" rel="noopener">https://www.cnblogs.com/YangJieCheng/p/7991660.html</a></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>苟且一下</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="jiyiren 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="jiyiren 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>jiyiren</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jiyiren.github.io/2019/09/15/project-doc/" title="基于 gitbook 的项目文档设计">https://jiyiren.github.io/2019/09/15/project-doc/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/project/" rel="tag"># project</a>
+          
+            <a href="/tags/report/" rel="tag"># report</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/28/life_work/" rel="next" title="2019-07-28 日志">
+                <i class="fa fa-chevron-left"></i> 2019-07-28 日志
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 评论区横向ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6792631366558351" data-ad-slot="4119003056" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://img.godjiyi.cn/blogjiyiheaderl.jpg" alt="jiyiren">
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">go my own way</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google" rel="external nofollow"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram" rel="external nofollow"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tianhaoo.github.io/" title="tianhaoo" target="_blank">tianhaoo</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本环境"><span class="nav-number">1.</span> <span class="nav-text">基本环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Nodejs"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-gitbook"><span class="nav-number">1.2.</span> <span class="nav-text">安装 gitbook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-gitbook"><span class="nav-number">1.3.</span> <span class="nav-text">使用 gitbook</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构"><span class="nav-number">2.</span> <span class="nav-text">项目结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本结构"><span class="nav-number">2.1.</span> <span class="nav-text">基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单示例"><span class="nav-number">2.2.</span> <span class="nav-text">简单示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必备插件"><span class="nav-number">3.</span> <span class="nav-text">必备插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#splitter"><span class="nav-number">3.1.</span> <span class="nav-text">splitter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-page-toc"><span class="nav-number">3.2.</span> <span class="nav-text">simple-page-toc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search-plus"><span class="nav-number">3.3.</span> <span class="nav-text">search-plus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tbfed-pagefooter"><span class="nav-number">3.4.</span> <span class="nav-text">tbfed-pagefooter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anchor-navigation-ex"><span class="nav-number">3.5.</span> <span class="nav-text">anchor-navigation-ex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prism"><span class="nav-number">3.6.</span> <span class="nav-text">prism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//cdn.bootcss.com/valine/1.3.9/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://img.godjiyi.cn/blogubuntuya.png")
+  </script>
+</body>
+</html>
