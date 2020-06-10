@@ -331,6 +331,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2018/06/22/time-sequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="www.godjiyi.cn">
+      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/22/time-sequence/" itemprop="url">
+                  时序数据介绍
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-22 14:00:40" itemprop="dateCreated datePublished" datetime="2018-06-22T14:00:40+08:00">2018-06-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Metric/" itemprop="url" rel="index"><span itemprop="name">Metric</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/22/time-sequence/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/06/22/time-sequence/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p align="center" style="margin: 30px 0 35px;">基于时间序列，实现数据聚合</p>
+
+<p><strong>时序数据</strong> 就是基于时间序列的数据，其常常表现为同一指标按时间序列记录的数据列，在需求实时性的场景中比较常见。而对于此种数据的运用通常使用基本的 <strong>聚合</strong> 方式就能达到需求了。当然，目前 <code>AI</code> 盛行的时代，机器学习领域也不断出现很多基于 <strong>时序预测</strong> 的算法。但本文主要介绍时序数据的基础认识，这部分的认知主要是从自己目前所做的数据监控项目的经验所得，若有不正确，请大家批评指正。</p>
+<h2 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h2><p><strong>时序数据</strong> 和一般的数据没什么区别的，基本上也都用 <strong>json</strong> 格式表示，唯一不同点就是数据中一定包含关于 <strong>时间</strong> 的信息，比如： <strong>时间戳</strong>。</p>
+<p>一般一条时序数据只表示一个键值信息，而在时序数据中，这个键常常称为 <strong>指标</strong> 或 <strong>指标名</strong> (英: <em>metric</em> )，而值则就是指标对应的值了。因而，一个时序数据的基本格式如下：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/22/time-sequence/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2018/06/18/jvm-exit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1812,183 +1984,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2017/05/08/regex/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="www.godjiyi.cn">
-      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jiyiren">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/08/regex/" itemprop="url">
-                  正则表达式
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-05-08 22:00:40" itemprop="dateCreated datePublished" datetime="2017-05-08T22:00:40+08:00">2017-05-08</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Regex/" itemprop="url" rel="index"><span itemprop="name">Regex</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/08/regex/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/05/08/regex/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p align="center" style="margin: 30px 0 35px;">你有你的规则，我有我的正则</p>
-
-<p>开发中经常用到正则表达式，但总是靠搜索，有的结果过时或者不正确，导致浪费很多时间。与其将时间浪费在搜索上倒不如自己好好地掌握它。</p>
-<h2 id="正则规则"><a href="#正则规则" class="headerlink" title="正则规则"></a>正则规则</h2><hr>
-<p>分四大类来说明: <strong>常用符号说明</strong>、<strong>符号数目匹配</strong>、<strong>逻辑语句符号匹配</strong>、<strong>目标匹配符号</strong>。</p>
-<h3 id="一、常用符号说明"><a href="#一、常用符号说明" class="headerlink" title="一、常用符号说明"></a>一、常用符号说明</h3><ol>
-<li><code>^</code>: <strong>匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^ 还会与”\n”或”\r”之后的位置匹配。</strong></li>
-<li><code>$</code>: <strong>匹配输入字符串结尾的位置。如果设置了 RegExp 对象的 Multiline 属性，$ 还会与”\n”或”\r”之前的位置匹配。</strong></li>
-<li><code>\</code>: <strong>将下一字符标记为特殊字符、文本、反向引用或八进制转义符。例如，”n”匹配字符”n”。”\n”匹配换行符</strong></li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/08/regex/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2038,7 +2033,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2250,7 +2245,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">65</span>
+                      
+                    
+                    <span class="site-state-item-count">66</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
