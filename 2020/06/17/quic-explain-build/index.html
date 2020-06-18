@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6792631366558351",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="HTTP 已不再是全基于 TCP 了，QUIC 的发展终将带来 HTTP3  互联网的世界绝大部分的数据传输都是基于 HTTP 协议。自从 1990 年伯纳斯·李发明这 超文本传输协议(HTTP, HyperText Transfer Protocol) 后，于 1999 年 IETF 才正式发布 HTTP1.1(RFC 2616) 协议版本，而这个版本一用就是 15 年，至 2015 年 IET">
+<meta name="keywords" content="quic,http3,docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QUIC&#x2F;HTTP3 协议说明与站点构建">
+<meta property="og:url" content="https://jiyiren.github.io/2020/06/17/quic-explain-build/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="HTTP 已不再是全基于 TCP 了，QUIC 的发展终将带来 HTTP3  互联网的世界绝大部分的数据传输都是基于 HTTP 协议。自从 1990 年伯纳斯·李发明这 超文本传输协议(HTTP, HyperText Transfer Protocol) 后，于 1999 年 IETF 才正式发布 HTTP1.1(RFC 2616) 协议版本，而这个版本一用就是 15 年，至 2015 年 IET">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_quic.jpg">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524171622.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524181808.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524183342.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524184711.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524195419.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_quic-lib.jpg">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_quic46.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_quic50.png">
+<meta property="og:image" content="https://img.godjiyi.cn/jy_http3.png">
+<meta property="og:updated_time" content="2020-06-18T03:41:39.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QUIC&#x2F;HTTP3 协议说明与站点构建">
+<meta name="twitter:description" content="HTTP 已不再是全基于 TCP 了，QUIC 的发展终将带来 HTTP3  互联网的世界绝大部分的数据传输都是基于 HTTP 协议。自从 1990 年伯纳斯·李发明这 超文本传输协议(HTTP, HyperText Transfer Protocol) 后，于 1999 年 IETF 才正式发布 HTTP1.1(RFC 2616) 协议版本，而这个版本一用就是 15 年，至 2015 年 IET">
+<meta name="twitter:image" content="https://img.godjiyi.cn/jy_quic.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://jiyiren.github.io/2020/06/17/quic-explain-build/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>QUIC/HTTP3 协议说明与站点构建 | jiyiren</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">blogs</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2020/06/17/quic-explain-build/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="www.godjiyi.cn">
+      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">QUIC/HTTP3 协议说明与站点构建
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-06-17 22:16:25" itemprop="dateCreated datePublished" datetime="2020-06-17T22:16:25+08:00">2020-06-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTTP/" itemprop="url" rel="index"><span itemprop="name">HTTP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/17/quic-explain-build/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/06/17/quic-explain-build/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p align="center" style="margin: 30px 0 35px;">HTTP 已不再是全基于 TCP 了，QUIC 的发展终将带来 HTTP3</p>
+
+<p>互联网的世界绝大部分的数据传输都是基于 HTTP 协议。自从 1990 年<strong>伯纳斯·李</strong>发明这 <strong>超文本传输协议(HTTP, HyperText Transfer Protocol)</strong> 后，于 1999 年 IETF 才正式发布 <strong>HTTP1.1</strong>(<a href="https://tools.ietf.org/html/rfc2616" target="_blank" rel="noopener">RFC 2616</a>) 协议版本，而这个版本一用就是 15 年，至 2015 年 IETF 才正式发布 <strong>HTTP2</strong>(<a href="https://tools.ietf.org/html/rfc7540" target="_blank" rel="noopener">RFC 7540</a>) 协议版本。其中 HTTP2 相比 HTTP1.1 的优化，我将会专门写个文章详细说明下。而今天我们会谈未来的 HTTP 协议 – <strong>QUIC/HTTP3</strong>。</p>
+<ul>
+<li>本文将实现支持 QUIC/HTTP3 协议站点: <a href="https://http3.godjiyi.cn:9445/" target="_blank" rel="noopener">https://http3.godjiyi.cn:9445/</a></li>
+<li>个人实现 HTTP1.1/HTTP2/HTTP3 速度对比示例: <a href="https://demo.godjiyi.cn" target="_blank" rel="noopener">https://demo.godjiyi.cn</a></li>
+<li>开源 QUIC 支持项目： <a href="https://github.com/jiyiren/quic-web" target="_blank" rel="noopener">https://github.com/jiyiren/quic-web</a></li>
+</ul>
+<p>视频示例:</p>
+<video src="https://img.godjiyi.cn/quicvshttp.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"><br>your browser does not support the video tag<br></video>
+
+<p>协议截图:</p>
+<p><img src="https://img.godjiyi.cn/jy_quic.jpg" alt></p>
+<a id="more"></a>
+<h2 id="QUIC-与-HTTP3"><a href="#QUIC-与-HTTP3" class="headerlink" title="QUIC 与 HTTP3"></a>QUIC 与 HTTP3</h2><p>相信大家很早听说的下一代协议是 <strong>QUIC</strong>, 即 Quick UDP Internet Connections，意为<strong>快速UDP网络连接</strong>。该协议最早是由谷歌于 2013 推出的，项目首页: <a href="https://www.chromium.org/quic" target="_blank" rel="noopener">https://www.chromium.org/quic</a>，并且在谷歌自家的 Youtube 和搜索引擎上试验，有兴趣的可以看下 <a href="https://dl.acm.org/doi/pdf/10.1145/3098822.3098842" target="_blank" rel="noopener">The QUIC Transport Protocol - Design and Internet-Scale Deployment</a> 这篇谷歌发表的论文。下图是谷歌应用 QUIC 于搜索引擎的的搜索延迟降低的百分比。(标1的地方是当时谷歌发现了 Bug，到 标2处修复后重新上线。标3处则是谷歌进行了一次优化，所以性能有了逐步提高) 整体上能降低搜索 6% 的延迟。</p>
+<p><img alt="logo" width="500" height="300" src="https://img.godjiyi.cn/jy_20200524171622.png"></p>
+<p>正因为 QUIC 的优势(为什么会有这优势，下面会进行说明)，谷歌已经逐步将 QUIC 推广到自家的各个服务中了。</p>
+<p>而当时 IETF 组织正忙于 HTTP2 协议的标准化，最终于<strong>2015年5月</strong>正式发布 HTTP2 规范(<a href="https://tools.ietf.org/html/rfc7540" target="_blank" rel="noopener">RFC 7540</a>)。在 HTTP2 标准化完后，IETF 终于有时间进行下一代 HTTP 标准化，也就是 HTTP3。 而谷歌也有意将 QUIC 作为普适性协议进行推广。因而，于<strong>同年6月</strong>，谷歌提交 QUIC 草案给 IETF，以期作为下一代 HTTP 协议标准进行普及。</p>
+<p>至 <strong>2018年</strong>，IETF组织中专门制定 HTTP 协议的组织(HTTP WG)正式确定将基于 <strong>QUIC 的 HTTP (HTTP Over QUIC)</strong> 作为下一代 HTTP 协议，并重命名为 <strong>HTTP3</strong>。并且 HTTPWG 认为标准化的 QUIC 协议应该支持 HTTP 以外的应用层协议。因此，IETF 将 QUIC 作为单独的传输层进行标准化，并成立了专门的 QUIC 协议标准化小组。</p>
+<p>这里 QUIC 出现的频次较多，由于历史原因，导致大家会很难理解 QUIC 的具体含义，这里着重讲解下。</p>
+<ul>
+<li>HTTP3 确立标准化之前，QUIC 代表的都是谷歌的 QUIC，表示完整的 HTTP 实现，其又分为两种；<ul>
+<li>HTTP2 协议标准化之前: 传输层 UDP 实现类 TCP 特性协议 + Spedy;</li>
+<li>HTTP2 协议标准化之后: 传输层 UDP 实现类 TCP 特性协议 + HTTP2;</li>
+</ul>
+</li>
+<li>HTTP3 确立标准化之后，QUIC 既指代谷歌的 QUIC 也指代 IETF 的 QUIC, IETF 的 QUIC 仅仅表示传输层 QUIC，不包含应用层的实现;</li>
+</ul>
+<p>为便于更好地区分 HTTP3 标准化前后两种 QUIC，现在，一般我们现在将谷歌的 QUIC 改称为 <strong>gQUIC</strong>，而 QUIC 则仅仅指代 IETF 的传输层 QUIC。文字不好理解，我特意画了张图。</p>
+<p><img src="https://img.godjiyi.cn/jy_20200524181808.png" alt></p>
+<p>虽然现在我们知道这 QUIC 应该指 IETF 的基于 UDP 的<strong>上层 “传输层协议”</strong>，但是由于 HTTP3 还没有出正式标准，且了解 IETF 中规范的 QUIC 标准很少，因此互联网上所说的 QUIC 一般都是 gQUIC。下文除非特别说明，QUIC 一律指 gQUIC。</p>
+<h2 id="QUIC-HTTP3-特性"><a href="#QUIC-HTTP3-特性" class="headerlink" title="QUIC/HTTP3 特性"></a>QUIC/HTTP3 特性</h2><p>对于 QUIC 的特性这里简单说下，以后会对每个点进行详细解释。</p>
+<p>我们直接看谷歌 QUIC 官方首页：<a href="https://www.chromium.org/quic" target="_blank" rel="noopener">https://www.chromium.org/quic</a></p>
+<p><img src="https://img.godjiyi.cn/jy_20200524183342.png" alt></p>
+<p>一共总结四点：</p>
+<ol>
+<li>大大减少建立连接时间;</li>
+<li>增强的拥塞控制;</li>
+<li>无队头阻塞的多路复用;</li>
+<li>连接迁移;</li>
+</ol>
+<p>通过整理了网上的特性说明，我将转换了下说法：</p>
+<ol>
+<li>1/0 RTT;</li>
+<li>优化拥塞控制;</li>
+<li>无队头阻塞;</li>
+<li>连接迁移;</li>
+</ol>
+<p>对应的图示如下:</p>
+<p><img src="https://img.godjiyi.cn/jy_20200524184711.png" alt></p>
+<h3 id="1-0-RTT"><a href="#1-0-RTT" class="headerlink" title="1/0 RTT"></a>1/0 RTT</h3><p><strong>RTT</strong> 是指互联网上两个点建立连接的一次往返时间(round-trip time)。QUIC 建立握手的时间能达到 1 或 0 RTT。这是因为原有的 HTTP 是基于 TCP 的方式中：</p>
+<ul>
+<li>① 裸 HTTP 需要 <strong>1.5 RTT</strong>；</li>
+<li>② HTTPS 方式需要 <strong>3 RTT</strong>；</li>
+</ul>
+<p>而 QUIC 则是基于 UDP 的，UDP 无需建立握手就能传输数据，那 1 RTT 只指 SSL 的建立时间。因此建立连接效率比原有 HTTP 快。这个我会专门写篇文章介绍。</p>
+<p>而裸 HTTP 是不安全的，谷歌表示未来的协议都将默认加入安全传输 SSL 协议，因此 QUIC 本身就是要基于加密的，目前的大多数 QUIC 协议的实现也都默认含有加密的，因此，对于 QUIC 的对比，一般都是以 HTTPS 进行对比的。</p>
+<h3 id="优化拥塞控制"><a href="#优化拥塞控制" class="headerlink" title="优化拥塞控制"></a>优化拥塞控制</h3><p>我们知道 TCP 的拥塞控制是内嵌于操作系统的，Linux 内核从 <strong>2.6.19</strong> 开始就是用 <strong>Cubic</strong> 拥塞控制算法。而谷歌于 2016 年发明了全新的 TCP 拥塞控制算法 – <strong>BBR</strong> (Bottleneck Bandwidth and RTT)，这个已经验证是比 Cubic 性能更好的拥塞控制算法。因此，Linux 内核从 <strong>4.19</strong> 开始加入了 BBR 算法。</p>
+<p>每一次的拥塞控制算法的更新都要更新内核，这使得新算法的迭代和普及极其缓慢。而 QUIC 协议则是基于 UDP 实现的类似 TCP 的协议，诸如有序控制、拥塞避免、拥塞控制都进行了重新实现。从宏观上来看，QUIC 则就是应用层协议，这对于拥塞控制算法的更新极其容易，不用更新操作系统。</p>
+<p>此外 QUIC 中的拥塞控制是可拔插式的，这可更进一步优化和迭代各种新的拥塞控制算法。这也是 QUIC 极具吸引人的地方。</p>
+<h3 id="无队头阻塞"><a href="#无队头阻塞" class="headerlink" title="无队头阻塞"></a>无队头阻塞</h3><p>这里的消除队头阻塞在 QUIC 上是彻底地消除了。我们都知道 HTTP2 协议的规范上也说了消除队头阻塞。但那仅仅是消除了 HTTP 连接的队头阻塞，而根本上的 TCP 队头阻塞是没有消除的。因为只要基于 TCP 就铁定有 TCP 队头阻塞的。而 QUIC 是基于 UDP 的，非面向连接的，从而自动消除 TCP 队头阻塞。</p>
+<p><img src="https://img.godjiyi.cn/jy_20200524195419.png" alt></p>
+<ul>
+<li><strong>多路复用</strong>是 HTTP2 的一大特定，也是相比 HTTP1.1 的提升体现。一个 web 站点在使用 HTTP2 协议时，只需要建立一个 TCP 连接，所有的数据通过帧进行发送，多个 HTTP 连接里的帧可以并行通过一个 TCP 连接发送。而原有的 HTTP1.1 则是一个 HTTP 连接就只能在一个 TCP 连接里发送，多个 HTTP 连接不能并行发送。一般 Chrome 浏览器对于 HTTP1.1 协议允许一个网站建立最多 6 个 TCP 连接。</li>
+<li>虽然 HTTP2 的多路复用可解决 HTTP 连接并行问题，但解决不了 TCP 的队头阻塞问题。我们知道 TCP 需要包有序到达，当无序的时候，接收方会等待缺少的包，直至包到达。这是 TCP 的优点，也是缺点。</li>
+<li>谷歌为了解决 TCP 握手和这种天生的缺陷，就基于 UDP 实现了类 TCP 各种特性的新协议，并将此协议<strong>融入 QUIC</strong>，这也就是 QUIC 天生就无队头阻塞的原因。</li>
+</ul>
+<h3 id="连接迁移"><a href="#连接迁移" class="headerlink" title="连接迁移"></a>连接迁移</h3><p><strong>连接迁移</strong>这个就是指手机在 4G/5G 流量网络与 WIFI 网络之间可以无缝切换，而无需重建连接。</p>
+<p>我们知道原有的基于 TCP 的 HTTP 协议，在切换网络时，都需要我们的手机与服务器进行重新建立 TCP 连接，然后才能重新发送 HTTP 数据包。</p>
+<p>而 QUIC 协议是基于 UDP 的，天生无面向连接之说，但是我们还是需要维持客户端与服务的<strong>逻辑连接的</strong>。QUIC 中在数据包的头部加了 <strong>ConnectionID</strong>，这样每个 UDP 包里都有同一个连接的 ID，即使手机从 4G 切为 WIFI 了，手机在发送包时，仍然正常发送，而服务器可以根据 <strong>ConnectionID</strong> 进行组装即可，这也就是<strong>无缝连接迁移</strong>。</p>
+<p>废话不多说，看谷歌给的连接迁移 Demo: <a href="https://drive.google.com/file/d/1DlMI_3MOxnWarvEVfzKxFqmD7c-u1cYG/view?usp=sharing" target="_blank" rel="noopener">QUIC Connection Migration demo</a></p>
+<h2 id="构建-QUIC-HTTP3-服务"><a href="#构建-QUIC-HTTP3-服务" class="headerlink" title="构建 QUIC/HTTP3 服务"></a>构建 QUIC/HTTP3 服务</h2><h3 id="QUIC库选择"><a href="#QUIC库选择" class="headerlink" title="QUIC库选择"></a>QUIC库选择</h3><p>由于 HTTP3 协议还在制定中，目前还没有正式的标准出台，只有每年定期举行的会议会给出 Draft 手稿。 <a href="https://quicwg.org/" target="_blank" rel="noopener">IETF 官方 QUIC 工作组</a>有统计在协议设计期间的各种实现库：</p>
+<ul>
+<li><a href="https://github.com/quicwg/base-drafts/wiki/Implementations" target="_blank" rel="noopener">官方工作组给的QUIC实现</a></li>
+<li><a href="https://github.com/quicwg/base-drafts/wiki/Tools" target="_blank" rel="noopener">官方工作给的QUIC调试Tool</a></li>
+</ul>
+<p>大家可以看下，我自己对比了比较常用和著名的库，表格如下，希望对大家选择有帮助。</p>
+<p><img src="https://img.godjiyi.cn/jy_quic-lib.jpg" alt></p>
+<p>今天我们先用 <strong>openlitespeed</strong> 库进行部署支持 QUIC 协议的 WEB 网站。因为该库官网放出性能是 Nginx 的几倍，且支持 gQUIC 和 HTTP3 协议。</p>
+<h3 id="QUIC-部署"><a href="#QUIC-部署" class="headerlink" title="QUIC 部署"></a>QUIC 部署</h3><p><strong>openlitespeed</strong> 安装很简单，可以看官方教程: <a href="https://openlitespeed.org/kb/install-ols-from-litespeed-repositories/" target="_blank" rel="noopener">Install OpenLiteSpeed</a>, 为防止部分人看不到，我记录了下：</p>
+<p>先根据系统安装 repo 源:</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS 5</span></span><br><span class="line">rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el5.noarch.rpm</span><br><span class="line"><span class="comment"># CentOS 6</span></span><br><span class="line">rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el6.noarch.rpm</span><br><span class="line"><span class="comment"># CentOS 7</span></span><br><span class="line">rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm</span><br><span class="line"><span class="comment"># CentOS 8</span></span><br><span class="line">rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm</span><br><span class="line"><span class="comment"># Debian 7, 8 &amp; Ubuntu 12,14,16,18</span></span><br><span class="line">wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | bash</span><br><span class="line"><span class="comment"># Amazon Linux</span></span><br><span class="line">wget http://rpms.litespeedtech.com/centos/litespeed.repo -P /etc/yum.repos.d/</span><br></pre></td></tr></table></figure></div>
+<p>再执行安装命令(根据自己的系统选择安装命令)</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS</span></span><br><span class="line">yum install openlitespeed</span><br><span class="line"><span class="comment"># Debian &amp; Ubuntu </span></span><br><span class="line">apt-get install openlitespeed</span><br></pre></td></tr></table></figure></div>
+<p>安装完了就进行配置，配置说明请参考官方文档: <a href="https://openlitespeed.org/kb/" target="_blank" rel="noopener">Configuration</a></p>
+<p>说实话，这个库是有后台的，是可视化配置，但是比较难用，需要自己熟悉才行。为避免大家浪费时间，我将整个服务安装好，并配置好了，构建了一个基础镜像：<a href="https://hub.docker.com/r/jiyiren/http-base-quic" target="_blank" rel="noopener">https://hub.docker.com/r/jiyiren/http-base-quic</a>，如何配置自己的服务呢，下面简单讲下。</p>
+<p>部署和配置代码已放 Github 上：<a href="https://github.com/jiyiren/quic-web" target="_blank" rel="noopener">https://github.com/jiyiren/quic-web</a></p>
+<p>效果展示，我部署在我自己的服务器上: <a href="https://http3.godjiyi.cn:9445/" target="_blank" rel="noopener">https://http3.godjiyi.cn:9445/</a> 。</p>
+<p>并且我也写了一个 HTTP1.1 、HTTP2、HTTP3 速度加载对比示例: <a href="https://demo.godjiyi.cn" target="_blank" rel="noopener">https://demo.godjiyi.cn</a></p>
+<p>分别用 Chrome 浏览器和 Firefox 浏览器进行测试。这里说明下：</p>
+<ul>
+<li><p>目前 Chrome 浏览器支持谷歌自家的 QUIC 协议，而谷歌家的 QUIC 原来单叫 QUIC，比如 gQUIC/46。在提交草案给 IETF 后，IETF 也开始了标准化，因此逐渐地谷歌开始将自家的 QUIC 像 IETF 标准靠，因此为 gQUIC-h3-50，相信以后 Chrome 会逐渐替换到 HTTP3 来。</p>
+</li>
+<li><p>而 Firefox 浏览器本身就和 Chrome 是竞争关系，所以虽然 QUIC 好，但没有国际组织的支持 Firefox 也不会支持的。而在谷歌提交草案后，得到了 IETF 的认可，并且 IETF 在进行标准化了，因此 Firefox 直接实现了 IETF 正规的 Draft 版本协议。所以 Firefox 浏览器标识时正规的 HTTP3 协议。</p>
+</li>
+</ul>
+<p>但不论怎样，这些协议思想一致，都是 UDP 进行传输，握手 RTT 很低，大家通过上面的速度加载对比就能看出来 HTTP3 的快速，当然在弱网情况下效果会更好点。</p>
+<p><img src="https://img.godjiyi.cn/jy_quic46.png" alt></p>
+<p><img src="https://img.godjiyi.cn/jy_quic50.png" alt></p>
+<p><img src="https://img.godjiyi.cn/jy_http3.png" alt></p>
+<p>项目已放入 Github：<a href="https://github.com/jiyiren/quic-web" target="_blank" rel="noopener">https://github.com/jiyiren/quic-web</a> 基于 Docker 构建，可以非常快速的构建自己的站点或 API。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://ictar.xyz/2019/01/31/trans-http-3-from-root-to-tip/" target="_blank" rel="noopener">QUICIETF工作历时</a></li>
+<li><a href="https://www.mf8.biz/use-http-3/" target="_blank" rel="noopener">LiteSpeed 部署</a></li>
+<li><a href="https://www.litespeedtech.com/latest-techs/http-3-is-coming" target="_blank" rel="noopener">LiteSpeedTech官网介绍</a></li>
+<li><a href="https://tools.ietf.org/html/draft-ietf-quic-transport-20" target="_blank" rel="noopener">IETF草稿议案-20版</a></li>
+<li><a href="http://www.ccsa.org.cn/organization/index.php3" target="_blank" rel="noopener">中国通信协会标准化组织介绍</a></li>
+<li><a href="https://www.chromium.org/quic" target="_blank" rel="noopener">Chromium项目对QUIC介绍</a></li>
+<li><a href="https://en.wikipedia.org/wiki/QUIC" target="_blank" rel="noopener">Wikipedia对QUIC介绍</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9FUDP%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">Wikipedi对QUIC中文介绍</a></li>
+<li><a href="https://github.com/litespeedtech/lsquic" target="_blank" rel="noopener">https://github.com/litespeedtech/lsquic</a></li>
+<li><a href="https://docs.google.com/document/d/1RNHkx_VvKWyWg6Lr8SZ-saqsQx7rFV-ev2jRFUoVD34/edit" target="_blank" rel="noopener">QUIC设计文档</a></li>
+<li><a href="https://docs.google.com/document/d/1WJvyZflAO2pq77yOLbp9NsGjC1CHetAXV8I0fQe-B_U/edit#" target="_blank" rel="noopener">QUIC传输格式设计文档</a></li>
+<li><a href="http://http2.github.io/http2-spec/" target="_blank" rel="noopener">HTTP2发布</a></li>
+<li><a href="https://blog.csdn.net/hursing/article/details/22785475" target="_blank" rel="noopener">博客-SPDY、HTTP2、QUIC协议介绍</a></li>
+<li><a href="https://blog.csdn.net/liujianfei526/article/details/53289350" target="_blank" rel="noopener">博客-HTTP发展史</a></li>
+<li><a href="https://home.cern/science/computing/birth-web" target="_blank" rel="noopener">The birth of the web</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP" target="_blank" rel="noopener">Http 演化</a></li>
+<li><a href="https://www.infoq.cn/article/kU4OkqR8vH123a8dLCCJ" target="_blank" rel="noopener">InfoQHttp进化</a></li>
+<li><a href="https://hpbn.co/brief-history-of-http/" target="_blank" rel="noopener">brief-history-of-http</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>苟且一下</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="jiyiren 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="jiyiren 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>jiyiren</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jiyiren.github.io/2020/06/17/quic-explain-build/" title="QUIC/HTTP3 协议说明与站点构建">https://jiyiren.github.io/2020/06/17/quic-explain-build/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/quic/" rel="tag"># quic</a>
+          
+            <a href="/tags/http3/" rel="tag"># http3</a>
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/13/photo_shot_20200613/" rel="next" title="随手拍">
+                <i class="fa fa-chevron-left"></i> 随手拍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 评论区横向ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6792631366558351" data-ad-slot="4119003056" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://img.godjiyi.cn/blogjiyiheaderl.jpg" alt="jiyiren">
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">www.godjiyi.cn</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google" rel="external nofollow"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram" rel="external nofollow"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tianhaoo.github.io/" title="tianhaoo" target="_blank">tianhaoo</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.godjiyi.cn/" title="戈吉" target="_blank">戈吉</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIC-与-HTTP3"><span class="nav-number">1.</span> <span class="nav-text">QUIC 与 HTTP3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIC-HTTP3-特性"><span class="nav-number">2.</span> <span class="nav-text">QUIC/HTTP3 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-0-RTT"><span class="nav-number">2.1.</span> <span class="nav-text">1/0 RTT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化拥塞控制"><span class="nav-number">2.2.</span> <span class="nav-text">优化拥塞控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无队头阻塞"><span class="nav-number">2.3.</span> <span class="nav-text">无队头阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接迁移"><span class="nav-number">2.4.</span> <span class="nav-text">连接迁移</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建-QUIC-HTTP3-服务"><span class="nav-number">3.</span> <span class="nav-text">构建 QUIC/HTTP3 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#QUIC库选择"><span class="nav-number">3.1.</span> <span class="nav-text">QUIC库选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QUIC-部署"><span class="nav-number">3.2.</span> <span class="nav-text">QUIC 部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//cdn.bootcss.com/valine/1.3.9/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://img.godjiyi.cn/blogubuntuya.png")
+  </script>
+</body>
+</html>
