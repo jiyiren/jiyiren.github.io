@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6792631366558351",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="最近在整理自己的收藏夹和知识集合，总感觉很多文档放本地或者印象笔记、有道笔记不是很好，遇到问题本能总是先 Google，不曾想过有时候自己已经花大量时间整理了，并且可能会出现在本地多个文档中整理了同一知识点，或者在不同笔记里都有记录相关问题，导致相关信息杂乱。因此，我规划从现在起将自己收藏的东西整理出来，全部放博客中，便于查找和统一更新。今天先更新 LaTeX 整理记录。 简介1 . 七十年代末，">
+<meta name="keywords" content="report,latex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX 介绍和使用">
+<meta property="og:url" content="https://jiyiren.github.io/2020/08/22/latex_use/index.html">
+<meta property="og:site_name" content="jiyiren">
+<meta property="og:description" content="最近在整理自己的收藏夹和知识集合，总感觉很多文档放本地或者印象笔记、有道笔记不是很好，遇到问题本能总是先 Google，不曾想过有时候自己已经花大量时间整理了，并且可能会出现在本地多个文档中整理了同一知识点，或者在不同笔记里都有记录相关问题，导致相关信息杂乱。因此，我规划从现在起将自己收藏的东西整理出来，全部放博客中，便于查找和统一更新。今天先更新 LaTeX 整理记录。 简介1 . 七十年代末，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_latex_role.jpg">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_20190412161057.png">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_20190414145200.png">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_20190414152444.png">
+<meta property="og:image" content="http://img.godjiyi.cn/jy_20190414152703.png">
+<meta property="og:updated_time" content="2020-08-22T11:23:30.709Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LaTeX 介绍和使用">
+<meta name="twitter:description" content="最近在整理自己的收藏夹和知识集合，总感觉很多文档放本地或者印象笔记、有道笔记不是很好，遇到问题本能总是先 Google，不曾想过有时候自己已经花大量时间整理了，并且可能会出现在本地多个文档中整理了同一知识点，或者在不同笔记里都有记录相关问题，导致相关信息杂乱。因此，我规划从现在起将自己收藏的东西整理出来，全部放博客中，便于查找和统一更新。今天先更新 LaTeX 整理记录。 简介1 . 七十年代末，">
+<meta name="twitter:image" content="http://img.godjiyi.cn/jy_latex_role.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://jiyiren.github.io/2020/08/22/latex_use/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>LaTeX 介绍和使用 | jiyiren</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eefdb8dad09797f8e3a6223b337a3a9b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+     <a href="https://github.com/jiyiren"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiyiren</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">blogs</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiyiren.github.io/2020/08/22/latex_use/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jiyiren">
+      <meta itemprop="description" content="www.godjiyi.cn">
+      <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiyiren">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">LaTeX 介绍和使用
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-08-22 10:07:25" itemprop="dateCreated datePublished" datetime="2020-08-22T10:07:25+08:00">2020-08-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/08/22/latex_use/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/08/22/latex_use/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在整理自己的收藏夹和知识集合，总感觉很多文档放本地或者印象笔记、有道笔记不是很好，遇到问题本能总是先 Google，不曾想过有时候自己已经花大量时间整理了，并且可能会出现在本地多个文档中整理了同一知识点，或者在不同笔记里都有记录相关问题，导致相关信息杂乱。因此，我规划从现在起将自己收藏的东西整理出来，全部放博客中，便于查找和统一更新。今天先更新 LaTeX 整理记录。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>1 . 七十年代末，<em>Donald E. Knuth（高德纳</em>） 在看到其多卷巨著 <em>“The Art of Computer Programming”</em> 第二卷的校样时，对由计算机排版的校样的低质量感到无法忍受。因此决定自己来开发一个高质量的计算机排版系统，这样就有了 <strong>TeX</strong> 。</p>
+<p>2 . <strong>TeX</strong> 的第一版于 1978 年面世，<strong>TeX</strong> 的源程序是用 <code>Pascal</code> 写成的，原因是 Knuth 希望 <strong>TeX</strong> 尽可能方便地移植到其它的操作系统中去。当时 <code>Pascal</code> 是最适合于这一要求的编程语言。这也使得 <strong>TeX</strong> 现在已经在几乎所有的计算机系统中得到实现。</p>
+<p>3 . <strong>TeX</strong> 的另一个重要的特征就是它的输出是与 <strong>设备无关</strong> 的。<strong>TeX</strong> 的输出文件称为 <strong>DVI</strong> 文件，即是 <em>“Device Independent”</em> 。一旦 <strong>TeX</strong> 处理了你的文件，你所得到的 <strong>DVI</strong> 文件就可以被送到任何输出设备如打印机，屏幕等并且总会得到相同的结果，而这与这些输出设备的限制没有任何关系。这说明 <strong>DVI</strong> 文件中所有的元素，从页面设置到文本中字符的位置都被固定，不能更改。</p>
+<p><img src="http://img.godjiyi.cn/jy_latex_role.jpg" alt></p>
+<p>4 . <strong>TeX</strong> 现在已经被它的开发者 Knuth 所 “冰封”(frozen)，基本不再开发了。但新的变种版本不断出现，</p>
+<ul>
+<li><strong>LaTeX</strong>: 1984 年，由 Lamport 开发, 适合论文书籍, 对 TeX 推广贡献巨大，由于其标准的格式控制，latex 逐渐成为主流的 TeX 文档排版命令。LaTeX 时代开启。</li>
+<li><strong>PDFTeX</strong> : 1997 年，由 H.T. Thanh 开发，完全兼容标准的 <strong>TeX</strong> ，但能够给出 PDF 输出。它也可以输出标准的 DVI 。</li>
+<li><strong>XeTeX</strong> : 2005年，Jonathan Kew 在 <em>e-TeX</em> 基础上添加 <strong>Unicode</strong> 支持，并且连接 Mac OS X 的各种技术。<strong>XeTeX</strong> 在2005/6年陆续发布了它的 Windows 和 Linux 版本，最终集成在 <strong>TeXLive 2007</strong> 当中，标志着它被广泛地认可。在 <strong>XeTeX</strong> 中，使用多国语言，变得非常轻松。</li>
+<li><strong>LuaTeX</strong> : 2007年，是 Aleph 与 <strong>PDFTeX</strong> 项目的继任者，主要由 Taco Hoekwater 开发，是 Lua 脚本语言和 TeX 的结合。</li>
+</ul>
+<a id="more"></a>
+<p>5 . <strong>LaTex 发型版本</strong>：</p>
+<ul>
+<li><strong><a href="https://tug.org/texlive/" target="_blank" rel="noopener">TeXLive</a></strong> : <strong>【官方】</strong>是由国际 TeX 用户组织 <strong>TUG</strong> 开发的 TeX 系统，支持不同的操作系统平台。其 Windows 版本又称 fpTeX ， Unix/Linux 版本即著名的 teTeX, Mac 版本为 <strong><a href="https://tug.org/mactex" target="_blank" rel="noopener">MacTeX</a></strong>。ISO 镜像下载地址：<a href="http://mirrors.ibiblio.org/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">点我</a></li>
+<li><strong><a href="http://www.miktex.org" target="_blank" rel="noopener">MiKTeX</a></strong> : 原来是 Windows 系统平台上的一个发行版本，之后也扩展支持到 Linux 和 MacOS 了。其本身集成了一个编辑器  <strong>TeXworks</strong>。</li>
+<li><strong><a href="http://www.ctex.org/HomePage" target="_blank" rel="noopener">CTex</a></strong> : 这个很多人谈论到中文 LaTeX 的时候会提到，但是 <strong>CTeX</strong> 发行版是民间为早期 LaTeX 不支持中文而基于 MiKTeX 开发的支持中文版本。其本身就是 <strong>MiKTeX</strong>。但现在 Unicode 支持的 XeTeX 和其他 TeX 已经趋于成熟，<strong>因此，现在不推荐再用 CTeX 版本了</strong>。</li>
+<li><strong>CTeX 宏集</strong> : 这里要提一下 <strong>CTeX 宏集</strong>，这个宏集与 CTeX 发行版本/套装 是完全不一样的东西，CTeX 宏集是 <strong>Chinese Support TeX</strong>，是为支持中文的 TeX 库，这个是在用到中文时必须要用的库，因此，千万不要混淆这两者。现今所说的 CTeX 一般都是指这个 CTeX 宏集。</li>
+</ul>
+<h2 id="发行版本"><a href="#发行版本" class="headerlink" title="发行版本"></a>发行版本</h2><p>发行版本就是 LaTeX 多种标准实现类型。主要是分为 <strong>TeXLive</strong> 和 <strong>MiKTeX</strong>，其他版本都是基于这两个主流版本衍生而来的。这两大发行版本都是全平台支持的。MacTeX 实际上就是 TeXLive 的 MacOS 系统上的实现，因此这里归类其为 TeXLive。相关说明如下：</p>
+<ul>
+<li><strong>TeXLive</strong>: <a href="https://tug.org/texlive" target="_blank" rel="noopener">https://tug.org/texlive</a>,<strong>【官方】</strong>发行，自带 <strong>TeXShop</strong>;</li>
+<li><strong>MacTeX</strong>: <a href="https://tug.org/mactex" target="_blank" rel="noopener">https://tug.org/mactex</a>, 实际上属于TeXLive，因为支持 MacOS 较迟，因此给了新名称，自带 <strong>TeXShop</strong>;</li>
+<li><strong>MiKTeX</strong>: <a href="http://www.miktex.org" target="_blank" rel="noopener">http://www.miktex.org</a>, 自带 <strong>TeXWorks</strong>;</li>
+<li><del><strong>CTeX</strong>: <a href="http://www.ctex.org/HomePage" target="_blank" rel="noopener">http://www.ctex.org/HomePage</a>，XeTeX 出现之前民间中文支持的版本，基于 MiKTeX，不再维护</del>。目前中文文档用 <strong>XeTeX + CTeX</strong> 宏包即可支持了。</li>
+</ul>
+<p>如果需要安装的话，大家看官网实际上都能找到地址的，为方便这里列下不同发行版本的不同平台下载地址:</p>
+<ul>
+<li><p><strong>TeXLive</strong></p>
+<ul>
+<li>Windows: <a href="https://tug.org/texlive/windows.html" target="_blank" rel="noopener">https://tug.org/texlive/windows.html</a></li>
+<li>MacOS: <a href="https://tug.org/mactex/" target="_blank" rel="noopener">https://tug.org/mactex/</a></li>
+<li>Linux: <a href="https://www.tug.org/texlive/quickinstall.html" target="_blank" rel="noopener">https://www.tug.org/texlive/quickinstall.html</a></li>
+</ul>
+</li>
+<li><p><strong>MiKTeX</strong>, 这个资源简单，同一个页面选择不同系统即可</p>
+<ul>
+<li>Windows: <a href="https://miktex.org/download" target="_blank" rel="noopener">https://miktex.org/download</a></li>
+<li>MacOS: <a href="https://miktex.org/download" target="_blank" rel="noopener">https://miktex.org/download</a></li>
+<li>Linux: <a href="https://miktex.org/download" target="_blank" rel="noopener">https://miktex.org/download</a>  </li>
+</ul>
+</li>
+</ul>
+<h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><p>LaTeX 实际上和 Java 语言一样，都是需要先配置环境，然后选择一款自己喜欢的编辑器或 IDE 进行编写“代码”。当然所有文本编辑器都可以编写 LaTeX 或者 Java 等其他语言“代码”。这里的 IDE 指集成了一些语言本地化的功能，比如编译、特殊符号等等。</p>
+<p>LaTeX 的发行版中会自带一款编辑器，用 TexLive 的话，MacOS 上会有个叫 TexShop 的编辑器，而 Windows 上则会是一个叫 TexWorker 的编辑器，这些是都可以胜任编写工作的。另外，也有第三的 LaTeX 编辑器，下面我整理出所有编辑器说明，我个人用的也推荐程度也放上了，这是个人喜好，大家根据自己的偏好选择。</p>
+<ul>
+<li><strong>TeXMaker</strong>: <a href="http://www.xm1math.net/texmaker/" target="_blank" rel="noopener">http://www.xm1math.net/texmaker/</a> , 全平台，免费，强烈推荐👍👍👍；</li>
+<li><strong>TeXStudio</strong>: <a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">http://texstudio.sourceforge.net/</a> , 全平台，免费，推荐👍👍；</li>
+<li><strong>WinEdit</strong>: <a href="http://www.winedt.com/index.html" target="_blank" rel="noopener">http://www.winedt.com/index.html</a> , 只支持 Windows，收费，自己选👍👍🍚；</li>
+<li><strong>TeXWorks</strong>: <a href="http://www.tug.org/texworks/" target="_blank" rel="noopener">http://www.tug.org/texworks/</a> ，<strong>MiKTeX</strong> 自带编辑器，免费👍；</li>
+<li><strong>TeXShop</strong>: <a href="https://pages.uoregon.edu/koch/texshop/" target="_blank" rel="noopener">https://pages.uoregon.edu/koch/texshop/</a> ，<strong>TeXLive</strong> 自带编辑器，免费👍；</li>
+</ul>
+<p>我个人推荐前两个，因为第三个收费且不跨平台，之所以写上第三个，主要是因为网络上很多博客或用户都推荐用第三个，这个我使用时也感觉不错，但每次我使用都得到 Windows 上使用，比较麻烦。当然，如果你使用 Windows 且有钱，WinEdt 确实使用体验和功能都是比较好的。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><strong>Windows / MacOS</strong>: 建议安装 <strong><a href="https://tug.org/texlive" target="_blank" rel="noopener">TeXLive</a></strong>，根据自己的系统选择对应的安装包。Mac 系统对应 <strong><a href="https://tug.org/mactex" target="_blank" rel="noopener">MacTeX</a></strong>。</li>
+<li><p><strong>MacOS</strong>: 安装后会自动将命令加入到环境变量, 并自带 <strong>TeXShop</strong> 编辑器。</p>
+  <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> latex</span><br><span class="line">/Library/TeX/texbin/latex</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>MacOS</strong>: TeXShop 是 MacTeX 自带的编辑器，我个人倾向于再安装一个编辑器 <strong><a href="http://www.xm1math.net/texmaker/" target="_blank" rel="noopener">TeXMaker</a></strong>，其内置较多可视化符号，可点击插入，简单便捷。</p>
+</li>
+<li><strong>Windows</strong>: 推荐 <strong><a href="http://www.xm1math.net/texmaker/" target="_blank" rel="noopener">TeXMaker</a></strong> 和 <strong><a href="http://www.winedt.com/index.html" target="_blank" rel="noopener">WinEdt</a></strong> , 专门针对 TeX 开发, 提供许多便捷功能, 有助于提高排版效率</li>
+<li><p><strong>编译推荐</strong>: 用 <code>pdflatex</code> ( <strong>英文文档</strong> ) 或 <code>xelatex</code> ( <strong>中文文档</strong> ) 编译, 生成相应的 pdf 文件。</p>
+<p><img src="http://img.godjiyi.cn/jy_20190412161057.png" alt></p>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h3><p>1 . <strong>基本结构</strong></p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[a4paper]&#123;article&#125; % 指定文档类型</span><br><span class="line">% 导言区: 全局设置, 宏包调用等</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">% 正文部分</span><br><span class="line">Hi, this is my first \LaTeX&#123;&#125; file.</span><br><span class="line">\end&#123;document&#125; % 结束</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>LaTeX 源文件：<strong>正文 + 命令 + 注解</strong>。</li>
+<li><strong>排版命令</strong>（简称：<strong>命令</strong>）：<strong>反斜杠</strong> 开头的字符串。</li>
+<li><strong>注解符号</strong>：百分号 %</li>
+<li><strong>文档类型</strong>：<code>\documentclass{...}</code>(论文、书籍、幻灯片、海报)</li>
+<li><strong>环境</strong>：<code>\beigin{...}</code> 开头，<code>\end{...}</code> 结尾。</li>
+<li>附：<code>\documentclass[]{}</code> 就是引用模板，默认提供 article 等模板。</li>
+</ul>
+<p>2 . <strong>排版命令</strong></p>
+<ul>
+<li><p>方括号中的是<strong>可选</strong>的 (称为选项), 花括号中的参数是<strong>必需</strong>的</p>
+  <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\command</span><br><span class="line">\command[option]&#123;arguments&#125;</span><br><span class="line">% 一些常用命令：</span><br><span class="line">\documentcalss, \title, \author, \date, \usepackage </span><br><span class="line">\begin&#123;环境名&#125;, \end&#123;环境名&#125; % 组成一个环境</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>定义新命令</p>
+  <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\newcommand&#123;新命令&#125;&#123;命令内容&#125;</span><br><span class="line">\renewcommand&#123;已有命令&#125;&#123;命令内容&#125;</span><br><span class="line">% 举例</span><br><span class="line">\newcommand&#123;\eps&#125;&#123;\varepsilon&#125; % $\eps$ → ε</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>文档类型：<code>\documentclass[选项]{文档类}</code></p>
+<ul>
+<li>位于源文件的最前面, 用于指定文档的整体结构和布局, 必须且只能选一种 <ul>
+<li>常用 <strong>文档类</strong>: article, book, beamer, ctexart, ctexbook, ctexbeamer</li>
+<li>常用 <strong>选项</strong>:</li>
+</ul>
+<ul>
+<li><em>10pt(缺省值), 11pt, 12pt → 指定基本字体的大小</em></li>
+<li><em>letterpaper(缺省值), a4paper, a5paper, … → 指定纸张的大小</em></li>
+<li><em>单双面选项: oneside, twoside, openright, openany</em></li>
+<li><em>数学公式: leqno (公式编号在左边), fleqn (靠左显示行间公式)</em></li>
+</ul>
+</li>
+<li>导言区: \documentclass 和 \begin{document} 之间的区域<ul>
+<li>导言区用于放置 全局控制命令, 如: 调用宏包, 设置页面大小, …</li>
+<li>放在导言区的命令对整个文档都起作用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>3 . <strong>中文排版</strong></p>
+<ul>
+<li><strong>CTEX</strong> 宏集中提供了三个中文文档类: <strong>texart, ctexbook, ctexbeamer</strong></li>
+<li><p>用 <code>xelatex</code> 编译! 用 xelatex 编译! 用 xelatex 编译! </p>
+  <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[12pt,a4paper]&#123;ctexart&#125; </span><br><span class="line">\usepackage&#123;amsmath&#125;  % AMS 数学公式 宏包 </span><br><span class="line">\usepackage&#123;amssymb&#125;  % AMS 数学符号 宏包 </span><br><span class="line">\usepackage&#123;amsfonts&#125; % AMS 数学字体 宏包 </span><br><span class="line">\usepackage&#123;graphicx&#125; % 插图 宏包 </span><br><span class="line">\usepackage&#123;xcolor&#125;   % 彩色 宏包</span><br><span class="line">\begin&#123;document&#125; </span><br><span class="line">欧拉公式是</span><br><span class="line">$$ e^&#123;ix&#125; = \cos(x) + i\sin(x).$$</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h3 id="常用包和命令"><a href="#常用包和命令" class="headerlink" title="常用包和命令"></a>常用包和命令</h3><p>1 . 代码和注释：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">% 页面布局：页面宽度, 页面高度, 页眉高度, 页脚高度，各种边距等等</span><br><span class="line">% \usepackage[a4paper,scale=0.8,hcentering,bindingoffset=8mm]&#123;geometry&#125; % A4纸大小，缩放80%，设置奇数页右边留空多一点</span><br><span class="line">\usepackage&#123;geometry&#125; % 页面布局 宏包</span><br><span class="line">% 定制页眉页脚: \pagestyle, \thispagestyle</span><br><span class="line">\usepackage&#123;francyhdr&#125; % 页眉页脚高级定制 宏包 </span><br><span class="line">%</span><br><span class="line">\usepackage&#123;amsmath&#125; % AMS 数学公式 宏包 </span><br><span class="line">\usepackage&#123;amssymb&#125; % AMS 数学符号 宏包 </span><br><span class="line">\usepackage&#123;amsfonts&#125; % AMS 数学字体 宏包</span><br><span class="line">\usepackage&#123;amsthm, bm&#125; % 数学</span><br><span class="line">%</span><br><span class="line">\usepackage&#123;algorithm&#125; % 算法</span><br><span class="line">\usepackage&#123;algpseudocode&#125; % 伪代码</span><br><span class="line">\usepackage&#123;listings&#125; % 各种语言的代码块</span><br><span class="line">%</span><br><span class="line">\usepackage&#123;graphicx&#125;   % 插图 宏包 </span><br><span class="line">\usepackage&#123;subfigure&#125;  % 使用子图像或者子表格 宏包</span><br><span class="line">\usepackage&#123;subcaption&#125; % 图片描述</span><br><span class="line">%</span><br><span class="line">\usepackage&#123;courier&#125;    % 字体</span><br><span class="line">\usepackage&#123;fontspec&#125;   % 字体</span><br><span class="line">%</span><br><span class="line">\usepackage&#123;titlesec&#125; % 章节定制 宏包</span><br><span class="line">\usepackage&#123;titletoc&#125; % 目录定制 宏包</span><br><span class="line">\usepackage&#123;cite&#125;     % 引用  宏包</span><br><span class="line">\usepackage&#123;natbib&#125;   % 参考文件定制 宏包</span><br><span class="line">\usepackage&#123;longtable, diagbox, colortbl, booktabs&#125; % 表格定制 宏包</span><br><span class="line">%</span><br><span class="line">\usepackage&#123;list&#125;     % 无序列表定制 宏包</span><br><span class="line">\usepackage&#123;enumitem&#125; % 有序列表定制 宏包</span><br><span class="line">%</span><br><span class="line">\usepackage[选项列表]&#123;hyperref&#125; % 超链接 宏包</span><br><span class="line">\usepackage&#123;xcolor&#125;   % 彩色 宏包</span><br><span class="line">%</span><br><span class="line">% ====================== 常用命令 =================</span><br><span class="line">%%%%%%%%%% 标题部分： 标题, 作者, 日期, 脚注等命令 %%%%%%%%%%</span><br><span class="line">\title&#123;标题&#125;  % 标题</span><br><span class="line">\author&#123;作者&#125; % 作者</span><br><span class="line">\date&#123;日期&#125;   % 日期</span><br><span class="line">% \date&#123;&#125; % 留空则不输出日期，不填则自动加上默认日期，所以要不显示日期需要这句命令</span><br><span class="line">\thanks&#123;...&#125; % 脚注，这个必须放在上面命令的&#123;&#125;内</span><br><span class="line">\maketitle   % 必不可少，生成标题命令，以上命令只是声明，这句才可生成</span><br><span class="line">%%%%%%%%%%%%% 摘要 %%%%%%%%%%%%</span><br><span class="line">\begin&#123;abstract&#125; % 开始，book 类型没有摘要</span><br><span class="line">%... ...</span><br><span class="line">\end&#123;abstract&#125;   % 结束</span><br><span class="line">%%%%%%%%%%%%% 目录 %%%%%%%%%%%%%</span><br><span class="line">\tableofcontents % 生成目录</span><br><span class="line">% \setcounter&#123;tocdepth&#125;&#123;层次号&#125; % 设置目录中生成的章节层次</span><br><span class="line">%%%%%%%%%%% 章节命令 %%%%%%%%%%%</span><br><span class="line">\part % 篇</span><br><span class="line">\chapter % 章 : article 中没有 chapter，在 book 中有 </span><br><span class="line">\section, \subsection, \subsubsection % 节</span><br><span class="line">\paragraph, \subparagraph % 段落</span><br><span class="line">%%%%%%%%%% 参考文献 %%%%%%%%%%%</span><br><span class="line">\begin&#123;thebibliography&#125;&#123;编号样本&#125; </span><br><span class="line">\bibitem[编号]&#123;标签&#125; 文献条目 </span><br><span class="line">\bibitem[编号]&#123;标签&#125; 文献条目</span><br><span class="line">\end&#123;thebibliography&#125;</span><br><span class="line">%%%%%%%%%% 表格命令 %%%%%%%%%%%</span><br><span class="line">\begin&#123;tabular&#125;[竖向位置]&#123;列格式&#125; </span><br><span class="line">%first line \\</span><br><span class="line">%last line \\</span><br><span class="line">\end&#123;tabular&#125;</span><br><span class="line">%%%%%%%%%% 编号命令 %%%%%%%%%%</span><br><span class="line">% 无序编号</span><br><span class="line">\begin&#123;itemize&#125; </span><br><span class="line">\item[标签] 条目内容</span><br><span class="line">\end&#123;itemize&#125;</span><br><span class="line">% 有序编号</span><br><span class="line">\begin&#123;enumerate&#125; </span><br><span class="line">\item[标签] 条目内容</span><br><span class="line">\end&#123;enumerate&#125;</span><br><span class="line">%%%%%%%% 脚注 %%%%%%%%%</span><br><span class="line"> \footnote&#123;脚注文本&#125; % 自动编号脚注，紧接在需要标注的文字之后</span><br><span class="line"> \footnote[标记]&#123;脚注文本&#125; % 手工指定脚注标记</span><br></pre></td></tr></table></figure></div>
+<p>2 . <strong>特殊说明</strong> </p>
+<ul>
+<li><em>短标题: 用于显示在目录和页眉中, 缺省与标题相同</em></li>
+<li><p><em>带星号的章节命令: 不参与自动编号</em></p>
+  <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\章节命令[短标题]&#123;标题&#125; </span><br><span class="line">\章节命令*&#123;标题&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>章节举例<br>  <img src="http://img.godjiyi.cn/jy_20190414145200.png" alt> </p>
+</li>
+<li><p>文本对齐方式 (缺省为左对齐)</p>
+<ul>
+<li>左对齐: <code>\raggedright</code> 或使用 <code>flushleft</code> 环境 </li>
+<li>右对齐: <code>\raggedleft</code> 或使用 <code>flushright</code> 环境 </li>
+<li>文本居中: <code>\centering</code> 或使用 <code>center</code> 环境</li>
+</ul>
+</li>
+<li><p>字体大小</p>
+<ul>
+<li><p>英文/中文都适用</p>
+<p>   <img src="http://img.godjiyi.cn/jy_20190414152444.png" alt></p>
+</li>
+<li><p>中文字体: <code>ctex</code> 提供的命令和字号命令如下</p>
+   <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\heiti, \songti, \fangsong, \kaishu, \lishu, \youyuan, \yahei</span><br></pre></td></tr></table></figure></div>
+<p>  <img src="http://img.godjiyi.cn/jy_20190414152703.png" alt></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>1 . <code>\usepackage[选项列表]{hyperref}</code></p>
+<ul>
+<li>在有交叉引用的地方 (如目录, 书签, 参考文献, 公式等) 建立链接</li>
+<li>提供对外部文件, 互联网网址, 邮件地址的链接</li>
+<li>常用选项 (也可通过 <code>\hypersetup{选项列表}</code> 来设置) <ul>
+<li><code>bookmarks</code> → 创建书签, 缺省为 true</li>
+<li><code>CJKbookmarks</code> → 支持中日韩文字的书签</li>
+<li><code>colorlinks</code> → 使用彩色显示链接, 缺省为红色方框</li>
+<li><code>linkcolor</code> → 内部普通链接 (如页码) 的颜色, 缺省为 red </li>
+<li><code>citecolor</code> → 文献引用链接的颜色, 缺省为 green</li>
+<li><code>urlcolor</code> → URL 链接的颜色, 缺省为 magenta</li>
+<li><code>breaklinks</code> → 允许在链接中断行, 缺省不允许</li>
+</ul>
+</li>
+</ul>
+<p>2 . 例子：</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hyperref&#125; </span><br><span class="line">\hypersetup&#123;CJKbookmarks=true,  % 支持中文书签</span><br><span class="line">            colorlinks=true,    % 使用彩色链接</span><br><span class="line">            citecolor=blue,     % 引用标记颜色</span><br><span class="line">            linkcolor=blue,     % 内部普通链接的颜色</span><br><span class="line">            urlcolor=blue,      % url 链接的颜色</span><br><span class="line">            breaklinks=true &#125;   % 允许在链接处换行</span><br></pre></td></tr></table></figure></div>
+<p>3 . 创建网页链接: <code>\url</code> 和 <code>\href</code> </p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\url&#123;网址&#125;</span><br><span class="line">\href&#123;网址&#125;&#123;文本&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><code>\url</code> → 生成 <strong>网址</strong> 的同时在页面上输出其内容</li>
+<li><code>\href</code> → 生成 <strong>网址</strong> 的同时在页面上输出 <strong>文本</strong> 的内容</li>
+</ul>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><blockquote>
+<p><a href="https://www.jianshu.com/p/d184caa2cf15" target="_blank" rel="noopener">https://www.jianshu.com/p/d184caa2cf15</a></p>
+</blockquote>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage&#123;xeCJK&#125;</span><br><span class="line">\usepackage&#123;mathpazo&#125;</span><br><span class="line">\usepackage&#123;color,xcolor&#125;</span><br><span class="line">% predefined color---black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.</span><br><span class="line"></span><br><span class="line">\definecolor&#123;light-gray&#125;&#123;gray&#125;&#123;0.95&#125;    % 1.灰度</span><br><span class="line">\definecolor&#123;orange&#125;&#123;rgb&#125;&#123;1,0.5,0&#125;      % 2.rgb</span><br><span class="line">\definecolor&#123;orange&#125;&#123;RGB&#125;&#123;255,127,0&#125;    % 3.RGB</span><br><span class="line">\definecolor&#123;orange&#125;&#123;HTML&#125;&#123;FF7F00&#125;      % 4.HTML</span><br><span class="line">\definecolor&#123;orange&#125;&#123;cmyk&#125;&#123;0,0.5,1,0&#125;   % 5.cmyk</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">%\pagecolor&#123;yellow&#125;          %设置背景色为黄色</span><br><span class="line">\textcolor&#123;green&#125;&#123;绿色&#125;     %1.方法一</span><br><span class="line">&#123;\color&#123;orange&#125; 橙色&#125;       %2.方法二</span><br><span class="line"></span><br><span class="line">\colorbox&#123;red&#125;&#123;\color&#123;black&#125;红底黑字&#125;</span><br><span class="line">\fcolorbox&#123;red&#125;&#123;green&#125;&#123;红框绿背景&#125; %框色+背景色</span><br><span class="line"></span><br><span class="line">\color&#123;blue!20&#125;</span><br><span class="line">\color&#123;blue!20!black&#125;</span><br><span class="line">\color&#123;blue!20!black!30!green&#125;  %a mixture of (20*0.3) percent blue, ((100-20)*0.3) percent black and (100-30) percent green</span><br><span class="line"></span><br><span class="line">&#123;\color[rgb]&#123;1,0,0&#125; This text will appear red-colored&#125;          % 直接使用</span><br><span class="line">\textcolor[rgb]&#123;0,1,0&#125;&#123;This text will appear green-colored&#125;     % 直接使用</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
+<li><strong>LaTeX 工作室</strong> : <a href="http://www.latexstudio.net" target="_blank" rel="noopener">http://www.latexstudio.net</a> (模板、方法、教程)</li>
+<li><strong>LaTeX 模板收集</strong> : <a href="http://www.latextemplates.co" target="_blank" rel="noopener">http://www.latextemplates.com</a> (各种模板)</li>
+<li><strong>LaTeX 颜色定义</strong> : <a href="http://latexcolor.com" target="_blank" rel="noopener">http://latexcolor.com</a></li>
+<li><strong>华东师大 LaTeX 官网</strong> : <a href="http://math.ecnu.edu.cn/~latex" target="_blank" rel="noopener">http://math.ecnu.edu.cn/~latex</a> (丰富教学资源)</li>
+<li><strong>华东师大–潘建瑜</strong> : <a href="http://math.ecnu.edu.cn/~jypan/Teaching/Latex" target="_blank" rel="noopener">http://math.ecnu.edu.cn/~jypan/Teaching/Latex</a> (各种分享、教程、资料) 👍👍👍<ul>
+<li>本文很多截图来源于 潘建瑜 PPT 中。 </li>
+</ul>
+</li>
+<li><strong>武汉大学–黄正华</strong> : <a href="http://aff.whu.edu.cn/huangzh" target="_blank" rel="noopener">http://aff.whu.edu.cn/huangzh</a> (各种教学资料)</li>
+<li><strong>[英] LaTeX 使用技巧</strong> : <a href="http://latex-cookbook.net" target="_blank" rel="noopener">http://latex-cookbook.net</a></li>
+<li><strong>[英] TeX Users Group</strong> : <a href="http://www.tug.org" target="_blank" rel="noopener">http://www.tug.org</a></li>
+<li><strong>[英] LaTeX Packages</strong> : <a href="https://www.ctan.org" target="_blank" rel="noopener">https://www.ctan.org</a></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.ctex.org/documents/shredder/tex_start.html" target="_blank" rel="noopener">http://www.ctex.org/documents/shredder/tex_start.html</a></li>
+<li><a href="http://www.latexstudio.net/page/introduction-to-latex/" target="_blank" rel="noopener">http://www.latexstudio.net/page/introduction-to-latex/</a></li>
+<li><a href="https://liam.page/texlive/" target="_blank" rel="noopener">https://liam.page/texlive/</a></li>
+<li><a href="http://www.latexstudio.net/archives/51537.html" target="_blank" rel="noopener">http://www.latexstudio.net/archives/51537.html</a></li>
+<li><a href="http://math.ecnu.edu.cn/~jypan/Teaching/Latex/" target="_blank" rel="noopener">http://math.ecnu.edu.cn/~jypan/Teaching/Latex/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>苟且一下</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="jiyiren 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="jiyiren 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>jiyiren</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jiyiren.github.io/2020/08/22/latex_use/" title="LaTeX 介绍和使用">https://jiyiren.github.io/2020/08/22/latex_use/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/report/" rel="tag"># report</a>
+          
+            <a href="/tags/latex/" rel="tag"># latex</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/17/quic-explain-build/" rel="next" title="QUIC/HTTP3 协议说明与站点构建">
+                <i class="fa fa-chevron-left"></i> QUIC/HTTP3 协议说明与站点构建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 评论区横向ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6792631366558351" data-ad-slot="4119003056" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://img.godjiyi.cn/blogjiyiheaderl.jpg" alt="jiyiren">
+            
+              <p class="site-author-name" itemprop="name">jiyiren</p>
+              <p class="site-description motion-element" itemprop="description">www.godjiyi.cn</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/jiyiren" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/jiyi1459050189" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jiyi1459050189@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/104009877082699626125" target="_blank" title="Google" rel="external nofollow"><i class="fa fa-fw fa-google"></i>Google</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/jiyiren" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/jiyiren" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://instagram.com/hellojiyi" target="_blank" title="Instagram" rel="external nofollow"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hillychen.github.io/" title="hillychen" target="_blank">hillychen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kirosummer.github.io/" title="Kirosummer" target="_blank">Kirosummer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/idkevin" title="idkevin" target="_blank">idkevin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tianhaoo.github.io/" title="tianhaoo" target="_blank">tianhaoo</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kalicn.github.io/" title="kalicn" target="_blank">kalicn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.godjiyi.cn/" title="戈吉" target="_blank">戈吉</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发行版本"><span class="nav-number">2.</span> <span class="nav-text">发行版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑器"><span class="nav-number">3.</span> <span class="nav-text">编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础框架"><span class="nav-number">5.1.</span> <span class="nav-text">基础框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用包和命令"><span class="nav-number">5.2.</span> <span class="nav-text">常用包和命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接"><span class="nav-number">5.3.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色"><span class="nav-number">5.4.</span> <span class="nav-text">颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关资源"><span class="nav-number">6.</span> <span class="nav-text">相关资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jiyiren</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//cdn.bootcss.com/valine/1.4.14/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'RYN7zMqOmY1URHMwY4LdKsJa-gzGzoHsz',
+        appKey: 'T4SkqaoIKtki4WMBRLsgzQPT',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("http://img.godjiyi.cn/blogubuntuya.png")
+  </script>
+</body>
+</html>
