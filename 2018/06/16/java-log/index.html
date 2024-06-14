@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-
+<meta name="twitter:description" content="分享各种网络云盘资源、视频课程、BT种子、磁力链接、高清电影电视剧和羊毛福利，收集各种有趣实用的软件和APP的下载、安装、使用方法，发现一些稀奇古怪的的网站，折腾一些有趣实用的教程，关注谷歌苹果等互联网最新的资讯动态，探索新领域，发现新美好，分享小快乐。">
 
 
 
@@ -223,7 +223,7 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">AI有趣工具、梯子、翻墙服务器合集</h1>
+        <h1 class="site-subtitle" itemprop="description">AI有趣工具，梯子购买，翻墙服务器合集，GPU 服务器选择，ChatGPT 如何注册，ChatGPT 如何访问，Midjourney 如何注册访问，分享各种网络云盘资源、视频课程、BT种子、磁力链接、高清电影电视剧和羊毛福利，收集各种有趣实用的软件和APP的下载、安装、使用方法，发现一些稀奇古怪的的网站，折腾一些有趣实用的教程，关注谷歌苹果等互联网最新的资讯动态，探索新领域，发现新美好，分享小快乐</h1>
       
     
   </div>
@@ -282,22 +282,6 @@
           <li class="menu-item menu-item-aiaccount">
     <a href="/aiaccount/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-map-o"></i> <br>AI账号购买</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-nav">
-    <a href="/nav/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-link"></i> <br>导航</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
   </li>
         
         
@@ -371,7 +355,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jiyiren">
-      <meta itemprop="description" content="AI工具、技术、梯子、翻墙、服务器">
+      <meta itemprop="description" content="AI有趣工具，梯子购买，翻墙服务器合集，GPU 服务器选择，ChatGPT 如何注册，ChatGPT 如何访问，Midjourney 如何注册访问，分享各种网络云盘资源、视频课程、BT种子、磁力链接、高清电影电视剧和羊毛福利，收集各种有趣实用的软件和APP的下载、安装、使用方法，发现一些稀奇古怪的的网站，折腾一些有趣实用的教程，关注谷歌苹果等互联网最新的资讯动态，探索新领域，发现新美好，分享小快乐">
       <meta itemprop="image" content="http://img.godjiyi.cn/blogjiyiheaderl.jpg">
     </span>
 
@@ -495,7 +479,7 @@
 <h3 id="JCL-Log4j-搭配"><a href="#JCL-Log4j-搭配" class="headerlink" title="JCL + Log4j 搭配"></a>JCL + Log4j 搭配</h3><p>这种方式是采用 <strong>JCL</strong> 作为日志门面抽象接口，具体日志输出使用 <strong>Log4j</strong>. 具体用到的 Jar 包和资源文件如下：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. commons-logging-1.1.jar		// JCL 日志门面</span><br><span class="line">2. log4j-1.2.15.jar				// Log4j 具体日志输出</span><br><span class="line">3. log4j.properties				// Log4j 的日志配置文件</span><br></pre></td></tr></table></figure></div>
 <p>对于 <em>Log4j.properties</em> 如何配置，下面会讲到，这里给出常用日志定义代码：</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意导入的包</span></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.logging.Log;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.logging.LogFactory;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;  </span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> Log logger = LogFactory.getLog(A.class);</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		logger.debug(<span class="string">"This is debug"</span>);</span><br><span class="line">	 	logger.info(<span class="string">"This is info"</span>);</span><br><span class="line">		logger.warn(<span class="string">"This is warn"</span>);</span><br><span class="line">		logger.eror(<span class="string">"This is error"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意导入的包</span></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.logging.Log;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.logging.LogFactory;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;  </span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> Log logger = LogFactory.getLog(A<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		logger.debug(<span class="string">"This is debug"</span>);</span><br><span class="line">	 	logger.info(<span class="string">"This is info"</span>);</span><br><span class="line">		logger.warn(<span class="string">"This is warn"</span>);</span><br><span class="line">		logger.eror(<span class="string">"This is error"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <h3 id="SLF4j-Log4j-搭配"><a href="#SLF4j-Log4j-搭配" class="headerlink" title="SLF4j + Log4j 搭配"></a>SLF4j + Log4j 搭配</h3><p>这种方式采用 SLF4j 作为日志门面抽象接口，具体日志输出仍然使用 <strong>Log4j</strong>. 具体用到的 Jar 包和资源文件如下：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. slf4j-api-1.5.11.jar</span><br><span class="line">2. slf4j-log4j12-1.5.11.jar	// slf4j 桥接给 log4j</span><br><span class="line">3. log4j-1.2.15.jar</span><br><span class="line">4. log4j.properties</span><br></pre></td></tr></table></figure></div>
 <p>我们可以看到除了各自的 API jar 包 还有一个 <strong>slf4j-log4j12-1.5.11.jar</strong>, 这个就是输出流重定向的意思，将 <strong>slf4j</strong> 接口输出转到具体的 <strong>log4j</strong> 实现。而假如你目前项目中已经用 <strong>JUL</strong> 实现日志输出了，你想用此种配置方式怎么办？那就再加一个 jar 包：</p>
@@ -504,7 +488,7 @@
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jcl-over-slf4j-1.7.25.jar</span><br></pre></td></tr></table></figure></div>
 <p>从中我们可以看出，<strong>slf4j</strong> 接口使用还是很广泛的，不管是入口还是出口都有各种对应的 jar 包可供使用的，那它可定制化以及适应性是非常广泛的，因此我推荐大家以后尽量使用 <strong>SLF4j</strong> 这个日志门面作为通用日志输出接口。</p>
 <p>使用 <strong>SLF4j</strong> 的日志代码：</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意导入的包和上面的 JCL 不一样的，不要混淆了</span></span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;  </span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;  </span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> Logger logger= LoggerFactory.getLogger(A.class);</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	logger.debug(<span class="string">"This is debug"</span>);</span><br><span class="line"> 	logger.info(<span class="string">"This is info"</span>);</span><br><span class="line">	logger.warn(<span class="string">"This is warn"</span>);</span><br><span class="line">	logger.eror(<span class="string">"This is error: &#123;&#125;"</span>,<span class="string">"error stack string"</span>);</span><br><span class="line">	<span class="comment">// error 的输出中 &#123;&#125; 是占位符，可以有多个，对应的后面字符串参数也应该多个</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意导入的包和上面的 JCL 不一样的，不要混淆了</span></span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;  </span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;  </span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> Logger logger= LoggerFactory.getLogger(A<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	logger.debug(<span class="string">"This is debug"</span>);</span><br><span class="line"> 	logger.info(<span class="string">"This is info"</span>);</span><br><span class="line">	logger.warn(<span class="string">"This is warn"</span>);</span><br><span class="line">	logger.eror(<span class="string">"This is error: &#123;&#125;"</span>,<span class="string">"error stack string"</span>);</span><br><span class="line">	<span class="comment">// error 的输出中 &#123;&#125; 是占位符，可以有多个，对应的后面字符串参数也应该多个</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <p>这里我们发现一个不同点，就是 <strong>SLF4j</strong> 可以用 <code>{}</code> 作为占位符，进行日志字符串的拼接操作，那这个有什么好处呢？这里也说明下：</p>
 <p>首先看不用占位符是怎么使用多字符串拼接的：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">"This is debug: "</span> + <span class="string">"debug stack string"</span>);</span><br></pre></td></tr></table></figure></div>
@@ -722,7 +706,7 @@
               <img class="site-author-image" itemprop="image" src="http://img.godjiyi.cn/blogjiyiheaderl.jpg" alt="jiyiren">
             
               <p class="site-author-name" itemprop="name">jiyiren</p>
-              <p class="site-description motion-element" itemprop="description">AI工具、技术、梯子、翻墙、服务器</p>
+              <p class="site-description motion-element" itemprop="description">AI有趣工具，梯子购买，翻墙服务器合集，GPU 服务器选择，ChatGPT 如何注册，ChatGPT 如何访问，Midjourney 如何注册访问，分享各种网络云盘资源、视频课程、BT种子、磁力链接、高清电影电视剧和羊毛福利，收集各种有趣实用的软件和APP的下载、安装、使用方法，发现一些稀奇古怪的的网站，折腾一些有趣实用的教程，关注谷歌苹果等互联网最新的资讯动态，探索新领域，发现新美好，分享小快乐</p>
           </div>
 
           
