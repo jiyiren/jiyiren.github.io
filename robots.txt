@@ -11,3 +11,6 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+
+Sitemap: https://jiyiren.github.io/sitemap.xml
+Sitemap: https://jiyiren.github.io/baidusitemap.xml

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://jiyiren.github.io/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+
+    <url>
+        <loc>https://jiyiren.github.io/2023/11/27/ai_buy/</loc>
+        <lastmod>2023-11-27T03:54:31.151Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2021/11/06/links_ok/</loc>
+        <lastmod>2021-11-06T09:06:19.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/08/22/latex_use/</loc>
+        <lastmod>2020-08-22T11:23:30.709Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/06/17/quic-explain-build/</loc>
+        <lastmod>2020-06-18T03:41:39.378Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/11/18/papersci/</loc>
+        <lastmod>2020-06-15T14:06:20.097Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/06/13/photo_shot_20200613/</loc>
+        <lastmod>2020-06-13T04:22:27.731Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/06/10/life_think/</loc>
+        <lastmod>2020-06-10T15:31:38.132Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/11/24/android_sort/</loc>
+        <lastmod>2020-05-10T04:46:54.536Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/07/26/android-dp-dip/</loc>
+        <lastmod>2020-05-10T04:46:42.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/07/25/android-multiselected-listview/</loc>
+        <lastmod>2020-05-10T04:46:30.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/08/13/android-scrollview/</loc>
+        <lastmod>2020-05-10T04:46:18.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/05/04/blog_inner/</loc>
+        <lastmod>2020-05-04T11:36:26.914Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/11/06/work_think/</loc>
+        <lastmod>2019-11-06T13:13:02.790Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/07/28/life_work/</loc>
+        <lastmod>2019-11-06T13:08:51.348Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
+        <lastmod>2019-10-19T09:59:03.870Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/09/15/openimage/</loc>
+        <lastmod>2019-09-15T10:50:07.162Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/09/15/project-doc/</loc>
+        <lastmod>2019-09-15T10:41:39.547Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
+        <lastmod>2019-06-16T14:07:45.269Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/12/13/report_paper/</loc>
+        <lastmod>2018-12-13T03:10:48.370Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/05/08/regex/</loc>
+        <lastmod>2018-10-13T09:25:54.650Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/07/26/multiple-ssh-key/</loc>
+        <lastmod>2018-09-18T12:38:55.410Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/11/24/csort/</loc>
+        <lastmod>2018-09-18T12:37:41.300Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/08/30/designpattern/</loc>
+        <lastmod>2018-09-18T12:37:32.200Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/08/31/dip_isp/</loc>
+        <lastmod>2018-09-18T12:37:24.360Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/03/27/Mysql_schedule/</loc>
+        <lastmod>2018-09-18T12:37:16.430Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/02/24/lamp/</loc>
+        <lastmod>2018-09-18T12:37:07.720Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/12/14/wordpress_setupweb/</loc>
+        <lastmod>2018-09-18T12:36:59.190Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/08/06/ubuntu-beauty/</loc>
+        <lastmod>2018-09-18T12:36:49.280Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/01/11/structs2-config/</loc>
+        <lastmod>2018-09-18T12:36:41.120Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/07/24/spbootapi/</loc>
+        <lastmod>2018-09-18T12:36:31.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/06/25/searchfile/</loc>
+        <lastmod>2018-09-18T12:36:23.020Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/10/31/python_environmet/</loc>
+        <lastmod>2018-09-18T12:36:05.490Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/10/06/picture-group/</loc>
+        <lastmod>2018-09-18T12:35:58.610Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/11/15/nexus_official/</loc>
+        <lastmod>2018-09-18T12:35:39.230Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/05/22/Mysql-simple-setting/</loc>
+        <lastmod>2018-09-18T12:35:31.550Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/09/18/mjokeapp/</loc>
+        <lastmod>2018-09-18T12:35:22.440Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/09/01/java_synchronized/</loc>
+        <lastmod>2018-09-18T12:35:14.400Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/03/22/Java_encode/</loc>
+        <lastmod>2018-09-18T12:35:02.560Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/07/26/hexogithub/</loc>
+        <lastmod>2018-09-18T12:34:50.830Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/10/25/Gitstudy/</loc>
+        <lastmod>2018-09-18T12:34:35.620Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/03/18/docker/</loc>
+        <lastmod>2018-09-18T12:34:27.090Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/06/16/java-log/</loc>
+        <lastmod>2018-09-18T12:34:18.590Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/06/18/jvm-exit/</loc>
+        <lastmod>2018-09-18T12:34:09.670Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2017/11/09/CDH/</loc>
+        <lastmod>2018-09-18T12:33:45.840Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/07/03/opentsdb-store/</loc>
+        <lastmod>2018-09-18T12:32:49.400Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/08/04/kafka/</loc>
+        <lastmod>2018-09-18T12:32:32.190Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2018/06/22/time-sequence/</loc>
+        <lastmod>2018-06-22T11:28:50.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2015/07/23/hello-world/</loc>
+        <lastmod>2018-06-16T03:34:27.330Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
