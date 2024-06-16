@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jiyiren.github.io/2024/06/16/cloudflare_vless/</loc>
+    <lastmod>2024-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
+    <lastmod>2024-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
+    <lastmod>2024-06-16</lastmod>
+  </url>
+  <url>
     <loc>https://jiyiren.github.io/2023/11/27/ai_buy/</loc>
     <lastmod>2023-11-27</lastmod>
   </url>
@@ -61,20 +73,12 @@
     <lastmod>2019-11-06</lastmod>
   </url>
   <url>
-    <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
-    <lastmod>2019-10-19</lastmod>
-  </url>
-  <url>
     <loc>https://jiyiren.github.io/2019/09/15/openimage/</loc>
     <lastmod>2019-09-15</lastmod>
   </url>
   <url>
     <loc>https://jiyiren.github.io/2019/09/15/project-doc/</loc>
     <lastmod>2019-09-15</lastmod>
-  </url>
-  <url>
-    <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
-    <lastmod>2019-06-16</lastmod>
   </url>
   <url>
     <loc>https://jiyiren.github.io/2018/12/13/report_paper/</loc>

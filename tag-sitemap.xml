@@ -3,6 +3,55 @@
 
 
     <url>
+        <loc>https://jiyiren.github.io/tags/Shadowsocks/</loc>
+        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/Vless/</loc>
+        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/翻墙/</loc>
+        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/代理/</loc>
+        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/梯子/</loc>
+        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/Linux/</loc>
+        <lastmod>2024-06-16T14:21:56.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/Justmysocks/</loc>
+        <lastmod>2024-06-16T14:20:20.895Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jiyiren.github.io/tags/Netflix/</loc>
         <lastmod>2023-11-27T03:54:31.151Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,14 +94,14 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/tags/report/</loc>
+        <loc>https://jiyiren.github.io/tags/latex/</loc>
         <lastmod>2020-08-22T11:23:30.709Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/tags/latex/</loc>
+        <loc>https://jiyiren.github.io/tags/report/</loc>
         <lastmod>2020-08-22T11:23:30.709Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -227,27 +276,6 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/tags/Shadowsocks/</loc>
-        <lastmod>2019-10-19T09:59:03.870Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/tags/翻墙/</loc>
-        <lastmod>2019-10-19T09:59:03.870Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/tags/Justmysocks/</loc>
-        <lastmod>2019-10-19T09:59:03.870Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/tags/图片/</loc>
         <lastmod>2019-09-15T10:50:07.162Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -264,13 +292,6 @@
     <url>
         <loc>https://jiyiren.github.io/tags/project/</loc>
         <lastmod>2019-09-15T10:41:39.547Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/tags/Linux/</loc>
-        <lastmod>2019-06-16T14:07:45.269Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

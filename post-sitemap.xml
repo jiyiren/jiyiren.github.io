@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>https://jiyiren.github.io/2024/06/16/cloudflare_vless/</loc>
+        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
+        <lastmod>2024-06-16T14:21:56.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
+        <lastmod>2024-06-16T14:20:20.895Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jiyiren.github.io/2023/11/27/ai_buy/</loc>
         <lastmod>2023-11-27T03:54:31.151Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -121,14 +145,6 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
-        <lastmod>2019-10-19T09:59:03.870Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/2019/09/15/openimage/</loc>
         <lastmod>2019-09-15T10:50:07.162Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -139,14 +155,6 @@
     <url>
         <loc>https://jiyiren.github.io/2019/09/15/project-doc/</loc>
         <lastmod>2019-09-15T10:41:39.547Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
-        <lastmod>2019-06-16T14:07:45.269Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
