@@ -4,49 +4,63 @@
 
     <url>
         <loc>https://jiyiren.github.io/tags/Shadowsocks/</loc>
-        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jiyiren.github.io/tags/Vless/</loc>
-        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/Youtube/</loc>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jiyiren.github.io/tags/翻墙/</loc>
-        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jiyiren.github.io/tags/代理/</loc>
-        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jiyiren.github.io/tags/梯子/</loc>
-        <lastmod>2024-06-16T14:22:19.962Z</lastmod>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/tags/Linux/</loc>
-        <lastmod>2024-06-16T14:21:56.932Z</lastmod>
+        <loc>https://jiyiren.github.io/tags/ChatGPT/</loc>
+        <lastmod>2024-06-16T14:26:42.513Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jiyiren.github.io/tags/Justmysocks/</loc>
-        <lastmod>2024-06-16T14:20:20.895Z</lastmod>
+        <lastmod>2024-06-16T14:26:22.404Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/tags/Linux/</loc>
+        <lastmod>2024-06-16T14:26:10.655Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -67,13 +81,6 @@
 
     <url>
         <loc>https://jiyiren.github.io/tags/Midjourney/</loc>
-        <lastmod>2023-11-27T03:54:31.151Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/tags/ChatGPT/</loc>
         <lastmod>2023-11-27T03:54:31.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
