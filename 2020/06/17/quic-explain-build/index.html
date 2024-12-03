@@ -128,21 +128,21 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="HTTP 已不再是全基于 TCP 了，QUIC 的发展终将带来 HTTP3  互联网的世界绝大部分的数据传输都是基于 HTTP 协议。自从 1990 年伯纳斯·李发明这 超文本传输协议(HTTP, HyperText Transfer Protocol) 后，于 1999 年 IETF 才正式发布 HTTP1.1(RFC 2616) 协议版本，而这个版本一用就是 15 年，至 2015 年 IET">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_quic.jpg">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524171622.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524181808.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524183342.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524184711.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_20200524195419.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_quic-lib.jpg">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_quic46.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_quic50.png">
-<meta property="og:image" content="https://img.godjiyi.cn/jy_http3.png">
-<meta property="og:updated_time" content="2020-06-18T03:41:39.378Z">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031447726.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031448918.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031448791.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031448082.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031448189.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031449736.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031449724.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031449639.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031449391.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031449379.webp">
+<meta property="og:updated_time" content="2024-12-03T06:54:09.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QUIC&#x2F;HTTP3 协议说明与站点构建">
 <meta name="twitter:description" content="HTTP 已不再是全基于 TCP 了，QUIC 的发展终将带来 HTTP3  互联网的世界绝大部分的数据传输都是基于 HTTP 协议。自从 1990 年伯纳斯·李发明这 超文本传输协议(HTTP, HyperText Transfer Protocol) 后，于 1999 年 IETF 才正式发布 HTTP1.1(RFC 2616) 协议版本，而这个版本一用就是 15 年，至 2015 年 IET">
-<meta name="twitter:image" content="https://img.godjiyi.cn/jy_quic.jpg">
+<meta name="twitter:image" content="https://githubblog.s3.bitiful.net/blog/202412031447726.webp">
 
 
 
@@ -482,13 +482,13 @@
 <li>开源 QUIC 支持项目： <a href="https://github.com/jiyiren/quic-web" target="_blank" rel="noopener">https://github.com/jiyiren/quic-web</a></li>
 </ul>
 <p>视频示例:</p>
-<video src="https://img.godjiyi.cn/quicvshttp.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"><br>your browser does not support the video tag<br></video>
+<video src="https://githubblog.s3.bitiful.net/blog/quicvshttp.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"><br>your browser does not support the video tag<br></video>
 
 <p>协议截图:</p>
-<p><img src="https://img.godjiyi.cn/jy_quic.jpg" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031447726.webp" alt></p>
 <a id="more"></a>
 <h2 id="QUIC-与-HTTP3"><a href="#QUIC-与-HTTP3" class="headerlink" title="QUIC 与 HTTP3"></a>QUIC 与 HTTP3</h2><p>相信大家很早听说的下一代协议是 <strong>QUIC</strong>, 即 Quick UDP Internet Connections，意为<strong>快速UDP网络连接</strong>。该协议最早是由谷歌于 2013 推出的，项目首页: <a href="https://www.chromium.org/quic" target="_blank" rel="noopener">https://www.chromium.org/quic</a>，并且在谷歌自家的 Youtube 和搜索引擎上试验，有兴趣的可以看下 <a href="https://dl.acm.org/doi/pdf/10.1145/3098822.3098842" target="_blank" rel="noopener">The QUIC Transport Protocol - Design and Internet-Scale Deployment</a> 这篇谷歌发表的论文。下图是谷歌应用 QUIC 于搜索引擎的的搜索延迟降低的百分比。(标1的地方是当时谷歌发现了 Bug，到 标2处修复后重新上线。标3处则是谷歌进行了一次优化，所以性能有了逐步提高) 整体上能降低搜索 6% 的延迟。</p>
-<p><img alt="logo" width="500" height="300" src="https://img.godjiyi.cn/jy_20200524171622.png"></p>
+<p><img alt="logo" width="500" height="300" src="https://githubblog.s3.bitiful.net/blog/202412031448918.webp"></p>
 <p>正因为 QUIC 的优势(为什么会有这优势，下面会进行说明)，谷歌已经逐步将 QUIC 推广到自家的各个服务中了。</p>
 <p>而当时 IETF 组织正忙于 HTTP2 协议的标准化，最终于<strong>2015年5月</strong>正式发布 HTTP2 规范(<a href="https://tools.ietf.org/html/rfc7540" target="_blank" rel="noopener">RFC 7540</a>)。在 HTTP2 标准化完后，IETF 终于有时间进行下一代 HTTP 标准化，也就是 HTTP3。 而谷歌也有意将 QUIC 作为普适性协议进行推广。因而，于<strong>同年6月</strong>，谷歌提交 QUIC 草案给 IETF，以期作为下一代 HTTP 协议标准进行普及。</p>
 <p>至 <strong>2018年</strong>，IETF组织中专门制定 HTTP 协议的组织(HTTP WG)正式确定将基于 <strong>QUIC 的 HTTP (HTTP Over QUIC)</strong> 作为下一代 HTTP 协议，并重命名为 <strong>HTTP3</strong>。并且 HTTPWG 认为标准化的 QUIC 协议应该支持 HTTP 以外的应用层协议。因此，IETF 将 QUIC 作为单独的传输层进行标准化，并成立了专门的 QUIC 协议标准化小组。</p>
@@ -502,11 +502,11 @@
 <li>HTTP3 确立标准化之后，QUIC 既指代谷歌的 QUIC 也指代 IETF 的 QUIC, IETF 的 QUIC 仅仅表示传输层 QUIC，不包含应用层的实现;</li>
 </ul>
 <p>为便于更好地区分 HTTP3 标准化前后两种 QUIC，现在，一般我们现在将谷歌的 QUIC 改称为 <strong>gQUIC</strong>，而 QUIC 则仅仅指代 IETF 的传输层 QUIC。文字不好理解，我特意画了张图。</p>
-<p><img src="https://img.godjiyi.cn/jy_20200524181808.png" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031448791.webp" alt></p>
 <p>虽然现在我们知道这 QUIC 应该指 IETF 的基于 UDP 的<strong>上层 “传输层协议”</strong>，但是由于 HTTP3 还没有出正式标准，且了解 IETF 中规范的 QUIC 标准很少，因此互联网上所说的 QUIC 一般都是 gQUIC。下文除非特别说明，QUIC 一律指 gQUIC。</p>
 <h2 id="QUIC-HTTP3-特性"><a href="#QUIC-HTTP3-特性" class="headerlink" title="QUIC/HTTP3 特性"></a>QUIC/HTTP3 特性</h2><p>对于 QUIC 的特性这里简单说下，以后会对每个点进行详细解释。</p>
 <p>我们直接看谷歌 QUIC 官方首页：<a href="https://www.chromium.org/quic" target="_blank" rel="noopener">https://www.chromium.org/quic</a></p>
-<p><img src="https://img.godjiyi.cn/jy_20200524183342.png" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031448082.webp" alt></p>
 <p>一共总结四点：</p>
 <ol>
 <li>大大减少建立连接时间;</li>
@@ -522,7 +522,7 @@
 <li>连接迁移;</li>
 </ol>
 <p>对应的图示如下:</p>
-<p><img src="https://img.godjiyi.cn/jy_20200524184711.png" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031448189.webp" alt></p>
 <h3 id="1-0-RTT"><a href="#1-0-RTT" class="headerlink" title="1/0 RTT"></a>1/0 RTT</h3><p><strong>RTT</strong> 是指互联网上两个点建立连接的一次往返时间(round-trip time)。QUIC 建立握手的时间能达到 1 或 0 RTT。这是因为原有的 HTTP 是基于 TCP 的方式中：</p>
 <ul>
 <li>① 裸 HTTP 需要 <strong>1.5 RTT</strong>；</li>
@@ -534,7 +534,7 @@
 <p>每一次的拥塞控制算法的更新都要更新内核，这使得新算法的迭代和普及极其缓慢。而 QUIC 协议则是基于 UDP 实现的类似 TCP 的协议，诸如有序控制、拥塞避免、拥塞控制都进行了重新实现。从宏观上来看，QUIC 则就是应用层协议，这对于拥塞控制算法的更新极其容易，不用更新操作系统。</p>
 <p>此外 QUIC 中的拥塞控制是可拔插式的，这可更进一步优化和迭代各种新的拥塞控制算法。这也是 QUIC 极具吸引人的地方。</p>
 <h3 id="无队头阻塞"><a href="#无队头阻塞" class="headerlink" title="无队头阻塞"></a>无队头阻塞</h3><p>这里的消除队头阻塞在 QUIC 上是彻底地消除了。我们都知道 HTTP2 协议的规范上也说了消除队头阻塞。但那仅仅是消除了 HTTP 连接的队头阻塞，而根本上的 TCP 队头阻塞是没有消除的。因为只要基于 TCP 就铁定有 TCP 队头阻塞的。而 QUIC 是基于 UDP 的，非面向连接的，从而自动消除 TCP 队头阻塞。</p>
-<p><img src="https://img.godjiyi.cn/jy_20200524195419.png" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031449736.webp" alt></p>
 <ul>
 <li><strong>多路复用</strong>是 HTTP2 的一大特定，也是相比 HTTP1.1 的提升体现。一个 web 站点在使用 HTTP2 协议时，只需要建立一个 TCP 连接，所有的数据通过帧进行发送，多个 HTTP 连接里的帧可以并行通过一个 TCP 连接发送。而原有的 HTTP1.1 则是一个 HTTP 连接就只能在一个 TCP 连接里发送，多个 HTTP 连接不能并行发送。一般 Chrome 浏览器对于 HTTP1.1 协议允许一个网站建立最多 6 个 TCP 连接。</li>
 <li>虽然 HTTP2 的多路复用可解决 HTTP 连接并行问题，但解决不了 TCP 的队头阻塞问题。我们知道 TCP 需要包有序到达，当无序的时候，接收方会等待缺少的包，直至包到达。这是 TCP 的优点，也是缺点。</li>
@@ -550,7 +550,7 @@
 <li><a href="https://github.com/quicwg/base-drafts/wiki/Tools" target="_blank" rel="noopener">官方工作给的QUIC调试Tool</a></li>
 </ul>
 <p>大家可以看下，我自己对比了比较常用和著名的库，表格如下，希望对大家选择有帮助。</p>
-<p><img src="https://img.godjiyi.cn/jy_quic-lib.jpg" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031449724.webp" alt></p>
 <p>今天我们先用 <strong>openlitespeed</strong> 库进行部署支持 QUIC 协议的 WEB 网站。因为该库官网放出性能是 Nginx 的几倍，且支持 gQUIC 和 HTTP3 协议。</p>
 <h3 id="QUIC-部署"><a href="#QUIC-部署" class="headerlink" title="QUIC 部署"></a>QUIC 部署</h3><p><strong>openlitespeed</strong> 安装很简单，可以看官方教程: <a href="https://openlitespeed.org/kb/install-ols-from-litespeed-repositories/" target="_blank" rel="noopener">Install OpenLiteSpeed</a>, 为防止部分人看不到，我记录了下：</p>
 <p>先根据系统安装 repo 源:</p>
@@ -570,9 +570,9 @@
 </li>
 </ul>
 <p>但不论怎样，这些协议思想一致，都是 UDP 进行传输，握手 RTT 很低，大家通过上面的速度加载对比就能看出来 HTTP3 的快速，当然在弱网情况下效果会更好点。</p>
-<p><img src="https://img.godjiyi.cn/jy_quic46.png" alt></p>
-<p><img src="https://img.godjiyi.cn/jy_quic50.png" alt></p>
-<p><img src="https://img.godjiyi.cn/jy_http3.png" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031449639.webp" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031449391.webp" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031449379.webp" alt></p>
 <p>项目已放入 Github：<a href="https://github.com/jiyiren/quic-web" target="_blank" rel="noopener">https://github.com/jiyiren/quic-web</a> 基于 Docker 构建，可以非常快速的构建自己的站点或 API。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://ictar.xyz/2019/01/31/trans-http-3-from-root-to-tip/" target="_blank" rel="noopener">QUICIETF工作历时</a></li>
@@ -773,7 +773,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -852,9 +852,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1027,13 +1025,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1397,7 +1389,7 @@
   
   <script src="/js/src/jquery.backstretch.min-2.1.18.js"></script>
  <script>
-  $("body").backstretch("http://img.godjiyi.cn/blogubuntuya.png")
+  $("body").backstretch("https://githubblog.s3.bitiful.net/blog/202412031456417.webp")
   </script>
 </body>
 </html>

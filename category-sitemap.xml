@@ -9,6 +9,27 @@
 
 
     <url>
+        <loc>https://jiyiren.github.io/categories/Gitbook/</loc>
+        <lastmod>2024-12-03T06:59:21.766Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/categories/HTTP/</loc>
+        <lastmod>2024-12-03T06:54:09.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/categories/%E6%8B%8D%E7%85%A7/</loc>
+        <lastmod>2024-12-03T06:45:16.363Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jiyiren.github.io/categories/%E7%BF%BB%E5%A2%99/</loc>
         <lastmod>2024-11-12T09:25:41.969Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,22 +72,8 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/categories/HTTP/</loc>
-        <lastmod>2020-06-18T03:41:39.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/categories/%E8%AE%BA%E6%96%87/</loc>
         <lastmod>2020-06-15T14:06:20.097Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/categories/%E6%8B%8D%E7%85%A7/</loc>
-        <lastmod>2020-06-13T04:22:27.731Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -86,22 +93,8 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/categories/%E5%BB%BA%E7%AB%99/</loc>
-        <lastmod>2020-05-04T11:36:26.914Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/categories/%E8%B5%84%E6%BA%90/</loc>
         <lastmod>2019-09-15T10:50:07.162Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/categories/Gitbook/</loc>
-        <lastmod>2019-09-15T10:41:39.547Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

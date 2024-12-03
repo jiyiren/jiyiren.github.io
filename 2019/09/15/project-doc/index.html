@@ -128,15 +128,15 @@
 <meta property="og:site_name" content="jiyiren">
 <meta property="og:description" content="基于 Gitbook 的开源生态，更具美观的项目文档设计   项目源码地址：https://github.com/jiyiren/ProjectDoc 有色Demo预览地址：https://jiyiren.github.io/project-doc/ 无色Demo预览地址：https://jiyiren.github.io/project-doc-plain/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.godjiyi.cn/jy_blog-project-doc.jpg">
-<meta property="og:image" content="http://img.godjiyi.cn/jy_blog-project-doc-plain.jpg">
-<meta property="og:image" content="http://img.godjiyi.cn/jy_projectddocbasic.jpg">
-<meta property="og:image" content="http://img.godjiyi.cn/jy_projectdocselfdefine.jpg">
-<meta property="og:updated_time" content="2019-09-15T10:41:39.547Z">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031458712.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031458787.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031459919.webp">
+<meta property="og:image" content="https://githubblog.s3.bitiful.net/blog/202412031459222.webp">
+<meta property="og:updated_time" content="2024-12-03T06:59:21.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 gitbook 的项目文档设计">
 <meta name="twitter:description" content="基于 Gitbook 的开源生态，更具美观的项目文档设计   项目源码地址：https://github.com/jiyiren/ProjectDoc 有色Demo预览地址：https://jiyiren.github.io/project-doc/ 无色Demo预览地址：https://jiyiren.github.io/project-doc-plain/">
-<meta name="twitter:image" content="http://img.godjiyi.cn/jy_blog-project-doc.jpg">
+<meta name="twitter:image" content="https://githubblog.s3.bitiful.net/blog/202412031458712.webp">
 
 
 
@@ -469,13 +469,13 @@
       
         <p align="center" style="margin: 30px 0 35px;">基于 Gitbook 的开源生态，更具美观的项目文档设计</p>
 
-<p><img src="http://img.godjiyi.cn/jy_blog-project-doc.jpg" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031458712.webp" alt></p>
 <p><strong>项目源码地址</strong>：<a href="https://github.com/jiyiren/ProjectDoc" target="_blank" rel="noopener">https://github.com/jiyiren/ProjectDoc</a></p>
 <p><strong>有色Demo预览地址</strong>：<a href="https://jiyiren.github.io/project-doc/">https://jiyiren.github.io/project-doc/</a></p>
 <p><strong>无色Demo预览地址</strong>：<a href="https://jiyiren.github.io/project-doc-plain/">https://jiyiren.github.io/project-doc-plain/</a></p>
 <a id="more"></a>
 <p>无色样式：</p>
-<p><img src="http://img.godjiyi.cn/jy_blog-project-doc-plain.jpg" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031458787.webp" alt></p>
 <h2 id="基本环境"><a href="#基本环境" class="headerlink" title="基本环境"></a>基本环境</h2><h3 id="安装-Nodejs"><a href="#安装-Nodejs" class="headerlink" title="安装 Nodejs"></a>安装 Nodejs</h3><ul>
 <li>全球官网：<a href="https://nodejs.org/en" target="_blank" rel="noopener">https://nodejs.org/en</a></li>
 <li>中文官网：<a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a></li>
@@ -513,11 +513,11 @@
 <li><strong>pluginsConfig</strong>: 配置插件的配置项，为一些插件传入参数的;</li>
 </ul>
 <h3 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h3><p>上面最基本的 <strong>book.json</strong>，对默认界面基本无变动，其界面显示为：</p>
-<p><img src="http://img.godjiyi.cn/jy_projectddocbasic.jpg" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031459919.webp" alt></p>
 <p>我们来一个简单 gitbook 定制，<strong>book.json</strong> 如下：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"title"</span>: <span class="string">"ProjectDoc"</span>,</span><br><span class="line">	<span class="attr">"author"</span>: <span class="string">"jiyiren"</span>,</span><br><span class="line">	<span class="attr">"description"</span>: <span class="string">"ProjectDoc"</span>,</span><br><span class="line">	<span class="attr">"language"</span>: <span class="string">"zh-hans"</span>,</span><br><span class="line">	<span class="attr">"links"</span>: &#123;</span><br><span class="line">	  <span class="attr">"sidebar"</span>: &#123;</span><br><span class="line">	    <span class="attr">"本文托管"</span>: <span class="string">"https://github.com/jiyiren/ProjectDoc"</span></span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"styles"</span>: &#123;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"plugins"</span>: [</span><br><span class="line">	    <span class="string">"anchor-navigation-ex@0.1.8"</span></span><br><span class="line">	],</span><br><span class="line">	<span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">	    <span class="attr">"anchor-navigation-ex"</span>: &#123;</span><br><span class="line">	        <span class="attr">"isRewritePageTitle"</span>: <span class="literal">true</span>,</span><br><span class="line">	        <span class="attr">"isShowTocTitleIcon"</span>: <span class="literal">true</span>,</span><br><span class="line">	        <span class="attr">"tocLevel1Icon"</span>: <span class="string">"fa fa-hand-o-right"</span>,</span><br><span class="line">	        <span class="attr">"tocLevel2Icon"</span>: <span class="string">"fa fa-hand-o-right"</span>,</span><br><span class="line">	        <span class="attr">"tocLevel3Icon"</span>: <span class="string">"fa fa-hand-o-right"</span></span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <p>其界面为如下，多出左侧栏 <strong>本文托管</strong>，和文章右侧的 <strong>目录以及回到开头</strong> 按钮。</p>
-<p><img src="http://img.godjiyi.cn/jy_projectdocselfdefine.jpg" alt></p>
+<p><img src="https://githubblog.s3.bitiful.net/blog/202412031459222.webp" alt></p>
 <h2 id="必备插件"><a href="#必备插件" class="headerlink" title="必备插件"></a>必备插件</h2><p>插件使用</p>
 <ul>
 <li><p>插件添加：插件的使用就放在 <strong>book.json</strong> 的 <strong>plugins</strong> 和 <strong>pluginsConfig</strong> 键中，形式如：<code>pluginName@versionName</code> 也就是<strong>插件名@版本</strong>，当然没有版本时，采用最新默认版本。</p>
@@ -728,7 +728,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -807,9 +807,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -982,13 +980,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1352,7 +1344,7 @@
   
   <script src="/js/src/jquery.backstretch.min-2.1.18.js"></script>
  <script>
-  $("body").backstretch("http://img.godjiyi.cn/blogubuntuya.png")
+  $("body").backstretch("https://githubblog.s3.bitiful.net/blog/202412031456417.webp")
   </script>
 </body>
 </html>

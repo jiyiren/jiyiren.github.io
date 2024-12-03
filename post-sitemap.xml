@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>https://jiyiren.github.io/2019/09/15/project-doc/</loc>
+        <lastmod>2024-12-03T06:59:21.766Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/06/17/quic-explain-build/</loc>
+        <lastmod>2024-12-03T06:54:09.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2020/06/13/photo_shot_20200613/</loc>
+        <lastmod>2024-12-03T06:45:16.363Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
         <lastmod>2024-11-12T09:25:41.969Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -65,24 +89,8 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/2020/06/17/quic-explain-build/</loc>
-        <lastmod>2020-06-18T03:41:39.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/2017/11/18/papersci/</loc>
         <lastmod>2020-06-15T14:06:20.097Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2020/06/13/photo_shot_20200613/</loc>
-        <lastmod>2020-06-13T04:22:27.731Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -129,14 +137,6 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/2020/05/04/blog_inner/</loc>
-        <lastmod>2020-05-04T11:36:26.914Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/2019/11/06/work_think/</loc>
         <lastmod>2019-11-06T13:13:02.790Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -155,14 +155,6 @@
     <url>
         <loc>https://jiyiren.github.io/2019/09/15/openimage/</loc>
         <lastmod>2019-09-15T10:50:07.162Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2019/09/15/project-doc/</loc>
-        <lastmod>2019-09-15T10:41:39.547Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
