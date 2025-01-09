@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://jiyiren.github.io/2025/01/09/fanqianghx/</loc>
+        <lastmod>2025-01-09T09:23:57.201Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jiyiren.github.io/2024/06/16/cloudflare_vless/</loc>
         <lastmod>2025-01-09T08:42:19.552Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -35,14 +43,6 @@
     <url>
         <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
         <lastmod>2025-01-09T08:41:23.039Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2025/01/09/fanqianghx/</loc>
-        <lastmod>2025-01-09T08:35:11.623Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
