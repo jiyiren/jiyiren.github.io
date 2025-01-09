@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>https://jiyiren.github.io/2024/06/16/cloudflare_vless/</loc>
+        <lastmod>2025-01-09T08:42:19.552Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2024/09/23/cloudflare_warp/</loc>
+        <lastmod>2025-01-09T08:42:00.115Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
+        <lastmod>2025-01-09T08:41:38.769Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
+        <lastmod>2025-01-09T08:41:23.039Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jiyiren.github.io/2025/01/09/fanqianghx/</loc>
         <lastmod>2025-01-09T08:35:11.623Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,40 +81,8 @@
     </url>
 
     <url>
-        <loc>https://jiyiren.github.io/2019/06/16/justmysocks/</loc>
-        <lastmod>2024-11-12T09:25:41.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jiyiren.github.io/2020/08/22/latex_use/</loc>
         <lastmod>2024-11-12T09:23:43.035Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2016/10/06/fanqiang/</loc>
-        <lastmod>2024-11-12T09:22:33.649Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2024/09/23/cloudflare_warp/</loc>
-        <lastmod>2024-11-12T09:15:06.338Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jiyiren.github.io/2024/06/16/cloudflare_vless/</loc>
-        <lastmod>2024-11-12T09:10:15.829Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
